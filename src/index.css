@@ -6,5 +6,7 @@
 @theme {
   --font-montserrat: 'Montserrat', sans-serif;
 }
+
 :root {
+  font-family: var(--font-montserrat);
 }
