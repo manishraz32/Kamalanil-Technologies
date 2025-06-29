@@ -4,9 +4,14 @@ import hero_section_image from "../../assets/images/hero_section_image.jpg";
 import thumbUpIcon from "../../assets/images/thumbUpIcon.png";
 import manWithLaptopIcon from "../../assets/images/manWithLaptopIcon.png";
 import downArrow from "../../assets/images/downArrow.png";
+import certificateIcon from "../../assets/images/certificateIcon.png";
+import docIcon from "../../assets/images/docIcon.png";
+import performanceDocs from "../../assets/images/performanceDocs.png";
+import videoIcon from "../../assets/images/videoIcon.png";
 
 import projectIcon from "../../assets/images/projectIcon.png";
 import FeatureCard from "../../components/FeatureCard";
+import BenefitCard from "../../components/BenefitCard";
 
 export default function Home() {
   return (
@@ -72,6 +77,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* step into the world */}
       <div
         className="relative w-full  h-[672px] md:h-[74vh] md:bg-cover md:bg-left bg-no-repeat
              bg-[url('/images/mobileTextBackgroundImage.png')] 
@@ -102,10 +108,179 @@ export default function Home() {
               src={downArrow}
               alt="Down Arrow"
               className="ml-4 w-[clamp(20px,4.3vw,80px)] h-[clamp(20px,4.3vw,80px)]"
-              />
+            />
           </div>
         </div>
       </div>
-    </div>  
+
+      {/* placed students */}
+      <div className="bg-[#2F3645] py-17 px-4 md:px-[clamp(16px,6.53vw,120px)] grid grid-cols-1 md:grid-cols-3 gap-8 text-center text-white">
+        {/* Block 1 */}
+        <div className="flex flex-col items-center">
+          <h2 className="text-[clamp(24px,2.78vw,80px)] font-extrabold text-[#00FFCA] font-inter">
+            1,000+
+          </h2>
+          <p className="text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)] font-bold mt-2">
+            Students trained & Placed
+          </p>
+        </div>
+
+        {/* Block 2 */}
+        <div className="flex flex-col items-center">
+          <h2 className="text-[clamp(24px,2.78vw,80px)] font-extrabold text-[#00FFCA] font-inter">
+            10+
+          </h2>
+          <p className="text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)] font-bold mt-2">
+            Year of Experience
+          </p>
+        </div>
+
+        {/* Block 3 */}
+        <div className="flex flex-col items-center">
+          <h2 className="text-[clamp(24px,2.78vw,80px)] font-extrabold text-[#00FFCA] font-inter">
+            60%
+          </h2>
+          <p className="text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)] font-bold mt-2">
+            MNC & MLC Placements
+          </p>
+        </div>
+      </div>
+
+      {/* Effective learning */}
+      <div className="bg-white px-4 md:px-[clamp(16px,6.53vw,120px)] py-10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* Left Section */}
+        <div className="md:text-left">
+          <h2 className="text-[clamp(18px,8.7vw,36px)] leading-[clamp(23px,11.2vw,46.5px)] font-bold text-[#0F172A]">
+            Equipped with the
+            <br /> Finest Tools for
+            <br /> Effective Learning
+          </h2>
+          <button className="bg-[#00FFD1] hidden md:block text-black text-[clamp(14px,2vw,16px)] font-semibold px-8 py-3 rounded-full shadow-md">
+            Register for Free
+          </button>
+        </div>
+
+        {/* Right Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6  px-[clamp(16px,10vw,40px)]">
+          <BenefitCard
+            icon={videoIcon}
+            title="Interactive Sessions"
+            description="Engage in real-time learning with interactive sessions led by expert instructors."
+          />
+          <BenefitCard
+            icon={docIcon}
+            title="In-Depth Reading Resources"
+            description="Access comprehensive written resources like articles, handouts, and guides to deepen your understanding of each topic."
+          />
+          <BenefitCard
+            icon={performanceDocs}
+            title="Performance Assessments"
+            description="Evaluate your progress through structured assessments designed to strengthen your skills and knowledge."
+          />
+          <BenefitCard
+            icon={certificateIcon}
+            title="Certified Awards"
+            description="Gain confidence, validate your expertise, and become a certified professional in your field."
+          />
+        </div>
+      </div>
+
+      {/* Footer */}
+      <footer className="bg-[#2B2F3C] text-white px-4 md:px-16 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Logo & Description */}
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              <img src="/logo.svg" alt="Logo" className="w-6 h-6" />
+              <span className="font-semibold text-lg">
+                Kamlanil Technologies
+              </span>
+            </div>
+            <p className="text-sm text-gray-300">
+              Empowering future-ready professionals through practical tech
+              training and real-world skills.
+            </p>
+            <div className="flex gap-3 mt-4">
+              <a href="#">
+                <img
+                  src="/icons/linkedin.svg"
+                  alt="LinkedIn"
+                  className="w-6 h-6"
+                />
+              </a>
+              <a href="#">
+                <img
+                  src="/icons/instagram.svg"
+                  alt="Instagram"
+                  className="w-6 h-6"
+                />
+              </a>
+              <a href="#">
+                <img
+                  src="/icons/whatsapp.svg"
+                  alt="WhatsApp"
+                  className="w-6 h-6"
+                />
+              </a>
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div className="space-y-2">
+            <h3 className="text-white font-semibold text-lg">Quick Links</h3>
+            <ul className="space-y-1 text-[#00FFD1] text-sm">
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Courses</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="space-y-4">
+            <h3 className="text-white font-semibold text-lg">CONTACT</h3>
+
+            <div className="flex items-start gap-2">
+              <span>📍</span>
+              <div>
+                <span className="font-medium">Location</span>
+                <br />
+                <span className="text-[#00FFD1] text-sm">
+                  Pune, Maharashtra
+                </span>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-2">
+              <span>📞</span>
+              <div>
+                <span className="font-medium">Phone (9am - 6pm)</span>
+                <br />
+                <span className="text-[#00FFD1] text-sm">+91 93223 74766</span>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-2">
+              <span>✉️</span>
+              <div>
+                <span className="font-medium">E-mail</span>
+                <br />
+                <span className="text-[#00FFD1] text-sm">
+                  info@kamlaniltech.com
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }
