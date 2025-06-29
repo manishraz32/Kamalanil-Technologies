@@ -18,6 +18,13 @@ import trainingsvg from "../../assets/images/training.svg";
 import emailIcon from "../../assets/images/emailIcon.png";
 import mapIcon from "../../assets/images/mapIcon.svg";
 import phoneIcon from "../../assets/images/phoneIcon.png";
+import company_logo from "../../assets/company_logo.png";
+import smallEmailSvg from "../../assets/images/smallEmailSvg.svg";
+import smallMapIcon from "../../assets/images/smallMapIcon.svg";
+import smallPhoneSvg from "../../assets/images/smallPhoneSvg.svg";
+import instagram from "../../assets/images/instagram.png";
+import linkedin from "../../assets/images/linkedin.png";
+import whatsapp from "../../assets/images/whatsapp.png";
 
 import projectIcon from "../../assets/images/projectIcon.png";
 import FeatureCard from "../../components/FeatureCard";
@@ -502,11 +509,7 @@ export default function Home() {
                 <label className="block text-[12px] leading-[42px] font-bold">
                   City *
                 </label>
-                <input
-                  type="text"
-                  placeholder="Enter City"
-                  className="input"
-                />
+                <input type="text" placeholder="Enter City" className="input" />
               </div>
               <div>
                 <label className="block text-[12px] leading-[42px] font-bold">
@@ -530,21 +533,18 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#2B2F3C] text-white px-4 md:px-16 py-10">
+      <footer className="bg-[#2F3645] flex justify-center px-4 md:px-16 py-10 pb-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Logo & Description */}
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col items-center">
             <div className="flex items-center gap-2">
-              <img src="/logo.svg" alt="Logo" className="w-6 h-6" />
-              <span className="font-semibold text-lg">
-                Kamlanil Technologies
-              </span>
+              <img src={company_logo} alt="Logo" className="w-[140px]" />
             </div>
-            <p className="text-sm text-gray-300">
+            <p className="text-[12px] text-[#fff] w-[70%] text-center">
               Empowering future-ready professionals through practical tech
               training and real-world skills.
             </p>
-            <div className="flex gap-3 mt-4">
+            {/* <div className="flex gap-3 mt-4">
               <a href="#">
                 <img
                   src="/icons/linkedin.svg"
@@ -566,13 +566,15 @@ export default function Home() {
                   className="w-6 h-6"
                 />
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-2">
-            <h3 className="text-white font-semibold text-lg">Quick Links</h3>
-            <ul className="space-y-1 text-[#00FFD1] text-sm">
+          <div className="space-y-4 flex flex-col items-center">
+            <h3 className="text-white text-center font-[Montserrat] text-[16px] font-bold ">
+              Quick Links
+            </h3>
+            <ul className="space-y-2 text-[#00FFCA] text-sm font-medium">
               <li>
                 <a href="#">Home</a>
               </li>
@@ -589,37 +591,45 @@ export default function Home() {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
-            <h3 className="text-white font-semibold text-lg">CONTACT</h3>
-
-            <div className="flex items-start gap-2">
-              <span>📍</span>
-              <div>
-                <span className="font-medium">Location</span>
-                <br />
-                <span className="text-[#00FFD1] text-sm">
-                  Pune, Maharashtra
-                </span>
-              </div>
+          <div className="space-y-4 flex flex-col items-center">
+            <h3 className="text-white text-center font-[Montserrat] text-[16px] font-bold">
+              CONTACT
+            </h3>
+            <div className="flex flex-col items-center">
+              <img src={smallMapIcon} className="w-[15px] h-[17px]" />
+              <p className="text-[12px] font-bold text-white">Location</p>
+              <p className="text-[12px] font-medium text-[#21B495]">
+                Pune , Maharashtra
+              </p>
             </div>
-
-            <div className="flex items-start gap-2">
-              <span>📞</span>
-              <div>
-                <span className="font-medium">Phone (9am - 6pm)</span>
-                <br />
-                <span className="text-[#00FFD1] text-sm">+91 93223 74766</span>
-              </div>
+            <div className="flex flex-col items-center">
+              <img src={smallPhoneSvg} className="w-[15px] h-[17px]" />
+              <p className="text-[12px] font-bold text-white">Phone</p>
+              <p className="text-[12px] font-medium text-[#21B495]">
+                +91-9322374766
+              </p>
             </div>
-
-            <div className="flex items-start gap-2">
-              <span>✉️</span>
-              <div>
-                <span className="font-medium">E-mail</span>
-                <br />
-                <span className="text-[#00FFD1] text-sm">
-                  info@kamlaniltech.com
-                </span>
+            <div className="flex flex-col items-center">
+              <img src={smallEmailSvg} className="w-[15px] h-[17px]" />
+              <p className="text-[12px] font-bold text-white">Email</p>
+              <p className="text-[12px] font-medium text-[#21B495]">
+                info@kamlaniltech.com
+              </p>
+            </div>
+          </div>
+          <div className="space-y-4 flex flex-col items-center">
+            <h3 className="text-white text-center font-[Montserrat] text-[16px] font-bold">
+              Social Media
+            </h3>
+            <div className="flex flex-row gap-3">
+              <div className="w-[24px] h-[24px] flex justify-center items-center bg-[#00FFCA] rounded-full">
+                <img src={linkedin} className="w-[16px] h-[16px]" />
+              </div>
+              <div className="w-[24px] h-[24px] flex justify-center items-center bg-[#00FFCA] rounded-full">
+                <img src={instagram} className="w-[16px] h-[16px]" />
+              </div>
+              <div className="w-[24px] h-[24px] flex justify-center items-center bg-[#00FFCA] rounded-full">
+                <img src={whatsapp} className="w-[16px] h-[16px]" />
               </div>
             </div>
           </div>
