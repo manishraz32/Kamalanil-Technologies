@@ -1,13 +1,79 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+
 
 
 
 @theme {
   --font-montserrat: 'Montserrat', sans-serif;
+  --font-inter: 'Inter', sans-serif;
 }
 
 
 :root {
   font-family: var(--font-montserrat);
+}
+
+@layer components {
+  .section-padding-x {
+    @apply px-4 md:px-[clamp(16px,6.53vw,120px)]
+  }
+  .text-20px {
+    @apply text-[clamp(14px,1.39vw,30px)] leading-[clamp(16.84px,1.67vw,24.056px)]
+  }
+  .text-22px {
+    @apply text-[24px] md:text-[clamp(14px,1.53vw,30px)] md:leading-[clamp(13.7px,1.5vw,30.6px)]
+  }
+  .text-55px {
+    @apply text-[clamp(28px,3.82vw,60px)] leading-[clamp(40.6px,5.54vw,100px)]
+  }
+  .text-32px {
+    @apply text-[clamp(20px,2.22vw,32px)] leading-[clamp(40px,5.55vw,80px)];
+  }
+
+  .text-16px {
+    @apply text-[clamp(13px,1.1vw,16px)] leading-[clamp(18px,1.5vw,21.6px)];
+  }
+
+  .text-19px {
+    @apply text-[clamp(14px,1.32vw,25px)] leading-[clamp(18px,1.5vw,30px)];
+  }
+
+  .text-50px {
+    @apply text-[clamp(28px,3.47vw,70px)] leading-[clamp(44px,5.56vw,100px)];
+  }
+
+  .p-21-32 {
+    @apply px-[clamp(16px,2.23vw,32.073px)] py-[clamp(12px,1.48vw,21.382px)];
+  }
+
+
+  /* mobile */
+  .text-24px-mobile {
+    @apply text-[clamp(18px,5.8vw,24px)] leading-[clamp(24px,7.2vw,30px)]
+  }
+
+  .text-16px-mobile {
+    @apply text-[clamp(14px,3.8vw,16px)] leading-[clamp(18.9px,5.1vw,21.6px)]
+  }
+
+  .text-20px-mobile {
+    @apply text-[clamp(16px,4.8vw,20px)] leading-[clamp(24px,7.2vw,30px)];
+  }
+
+  .text-14px-mobile {
+    @apply text-[clamp(12px,3.6vw,14px)] leading-[clamp(22px,6.7vw,26px)];
+  }
+}
+
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(90deg, #A4F1E1 32.37%, #15907E 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
 }
