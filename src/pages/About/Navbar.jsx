@@ -9,10 +9,10 @@ const Navbar = () => {
         <div className="md:flex items-center gap-4">
           <img src="" alt="Desktop Logo" className="w-12 h-12" />
           <div className="leading-tight">
-            <p className="font-electrolize md:text-[20.876px] leading-[20.876px] tracking-[0.209px] clamp(9px,4vw,9px)">
+            <p className="font-electrolize md:text-[20.876px] tracking-[0.209px] clamp(9px,4vw,9px)">
               Kamalanil
             </p>
-            <p className="font-electrolize font-normal text-[20.876px] leading-[20.876px] clamp(9px,4vw,9px)">
+            <p className="font-electrolize font-normal text-[20.876px] clamp(9px,4vw,9px)">
               Technologies
             </p>
           </div>

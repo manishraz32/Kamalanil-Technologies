@@ -1,5 +1,4 @@
 import React from "react";
-import Navbar from "./Navbar";
 import image110 from "../../assets/image 110 (1).png";
 import image79 from "../../assets/image 79.png";
 import image111 from "../../assets/image 111-pica.png";
@@ -14,18 +13,16 @@ import image65 from "../../assets/image 65.png";
 import image114 from "../../assets/image 114.png";
 import gh from "../../assets/gh.svg";
 
-const About = () => {
+const Fullstack = () => {
   return (
     <>
-      <Navbar />
-      {/* hero section */}
       <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 section-padding">
         <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
           <div className="flex flex-col gap-2">
             <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
-              <h1>Kick Start your</h1>
+              <h1>Build It All.Be a </h1>
               <h1>
-                <span className="text-[#21B495]">SDET</span> Career
+                <span className="text-[#21B495]"> Full Stack</span> Pro
               </h1>
             </div>
 
@@ -39,11 +36,11 @@ const About = () => {
           </div>
           <div>
             <ul className="flex flex-col justify-center pl-6 font-montserrat font-bold text-[#12161F] text-[clamp(16px,4.367vw,18px)] md:text-[clamp(16px,1.39vw,40px)] leading-[clamp(27px,7.28vw,30px)] md:leading-[clamp(27px,2.084vw,60px)] list-disc">
-              <li>UI Automation</li>
-              <li>API Automation</li>
-              <li>GIT / GitHub</li>
-              <li>AWS Setup</li>
-              <li>JIRA</li>
+              <li>HTML, CSS & JavaScript</li>
+              <li>React.js</li>
+              <li>Node.js + Express.js</li>
+              <li>MongoDB / MySQL</li>
+              <li>Git & GitHub</li>
             </ul>
           </div>
           <button className="flex flex-col justify-center items-center gap-[12.91px] md:gap-[clamp(8px,1vw,12.91px)] bg-[#00FFCA] px-[30.988px] md:px-[clamp(20px,5vw,30.98px)] py-[20.659px] md:py-[clamp(12px,3vw,20.66px)] border-[#00FFCA] border-[2.582px] rounded-[48.308px] md:rounded-[clamp(24px,5vw,48.3px)] w-full h-[56px] md:h-[clamp(50px,5vw,64.73px)] font-semibold text-[clamp(17px,4.917vw,20.659px)] text-black md:text-[clamp(20px,1.39vw,40.659px)] leading-[clamp(25.5px,2.6vw,30.988px)] md:leading-[clamp(30.988px,2.6vw,60.988px)]">
@@ -107,7 +104,7 @@ const About = () => {
               />
               <div>
                 <p className="font-inter font-bold text-[#12161F] text-[clamp(14px,3.77vw,15.55px)] md:text-[clamp(15.55px,1.528vw,44px)] leading-[clamp(22.3px,5.98vw,24.67px)] md:leading-[clamp(24.67px,1.713vw,49.34px)]">
-                 SDET
+                  Full Stack Development
                 </p>
 
                 <p className="font-inter font-normal text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)] leading-[clamp(14px,5.98vw,24.67px)] md:leading-[clamp(24.67px,2.22vw,64.073px)]">
@@ -129,8 +126,8 @@ const About = () => {
         <div className="flex flex-col md:gap-5 w-full">
           {/* Heading */}
           <h1 className="md:pt-12 w-full font-montserrat font-bold text-[#12161F] text-[clamp(30px,8.73vw,36px)] md:text-[clamp(36px,3.472vw,100px)] leading-[clamp(40px,11.16vw,46.482px)] md:leading-[clamp(36px,4.375vw,126px)]">
-            Secure Your Spot in the Next{" "}
-            <span className="text-[#21B495]">SDET</span> Batch
+            Become a <span className="text-[#21B495]">Full Stack Pro</span> –
+            Seats Filling Fast!
           </h1>
           <div className="flex lg:flex-row flex-col md:gap-[clamp(20px,9.73vw,280px)] md:px-10">
             {/* Left side - Dates */}
@@ -182,12 +179,8 @@ const About = () => {
       >
         <div className="z-10 relative mx-auto px-[16px] md:px-[184px] md:py-20 md:pb-25 text-white text-center">
           <div className="flex flex-col justify-center items-center font-montserrat font-bold text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] text-center leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
-            <p className="m-0 text-[#FFF]">
-              Our motto is
-            </p>
-            <p className="text-[#00FFCA]">
-              #LearnandGrow
-            </p>
+            <p className="m-0 text-[#FFF]">Our motto is</p>
+            <p className="text-[#00FFCA]">#LearnandGrow</p>
           </div>
 
           <p className="md:mt-5 font-montserrat font-semibold text-[#F5F5F5] text-[clamp(12px,3.64vw,15px)] md:text-[clamp(15px,1.52vw,44px)] text-center leading-[clamp(19px,5.33vw,22px)] md:leading-[clamp(22px,2.08vw,60px)]">
@@ -203,15 +196,15 @@ const About = () => {
         <div className="flex lg:flex-row flex-col justify-between gap-10">
           <div className="max-w-[600px] lg:text-lef">
             <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(37px,4vw,100px)] leading-[clamp(37px,4vw,100px)">
-              What is <span className="text-[#21B495]">SDET</span>?
+              What is{" "}
+              <span className="text-[#21B495]">Full Stack Development</span>?
             </h2>
             <p className="p-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.56vw,27px)] md:leading-[clamp(23px,1.875vw,54px)] [font-montserrat">
-              SDET stands for "Software Development Engineer in Test." This role
-              focuses on ensuring software quality by designing, developing, and
-              maintaining tests for applications. SDETs play a crucial role in
-              verifying that software meets business or client requirements.
-              They also work on automating testing processes and creating tools
-              to streamline and enhance testing efficiency.
+              Full Stack Development involves building both the front-end and
+              back-end of web applications. A Full Stack Developer handles
+              everything from user interfaces to server-side logic and
+              databases, ensuring the application is fully functional and meets
+              business or client needs.
             </p>
           </div>
 
@@ -306,7 +299,7 @@ const About = () => {
             </p>
             <button className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300">
               <span className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
-                Learn More <img src={gh} alt=""  className="mt-1 w-6 h-6"/>
+                Learn More <img src={gh} alt="" className="mt-1 w-6 h-6" />
               </span>
             </button>
           </div>
@@ -322,17 +315,15 @@ const About = () => {
         <div className="flex lg:flex-row flex-col gap-7 bg-white px-4 pt-15 text-[#12161F]">
           <div className="flex-1 sm:pl-5 w-full max-w-[450px]">
             <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(31px,9.15vw,37.72px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(52.78px,4.75vw,126px)] md:leading-[clamp(52.78px,15.29vw,63px)]">
-              SDET Careers
+              Full Stack Development Careers
             </h2>
 
             <p className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
-              An SDET’s primary goal is to ensure the software developed meets
-              high-quality standards and aligns with business or client
-              requirements.
+             The goal of a Full Stack Developer is to design and build fully functional, end-to-end web applications that meet user needs and business requirements—handling both front-end (client-side) and back-end (server-side) development.
             </p>
           </div>
 
-         <div className="border-[#00775F] border-l-[3px]"></div>
+          <div className="border-[#00775F] border-l-[3px]"></div>
 
           <div className="flex-1 gap-[clamp(20px,2.5vw,40px)] grid grid-cols-1 sm:grid-cols-2">
             <div className="flex items-start gap-3 max-w-xl">
@@ -343,14 +334,10 @@ const About = () => {
               />
               <div className="flex flex-col">
                 <h3 className="font-bold text-[#12161F] text-[clamp(12px,3.39vw,14px)] md:text-[clamp(14px,1.39vw,40px)] leading-[clamp(28px,7.52vw,31.77px)] md:leading-[clamp(31.77px,2.20vw,63.54px)]">
-                  Software Test Engineer
+                   Front-end Developer
                 </h3>
                 <p className="font-medium text-[#575757] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.12vw,36px)] leading-[clamp(18px,3.88vw,19px)] md:leading-[clamp(19px,1.52vw,44px)]">
-                  A Software Test Engineer is responsible for designing,
-                  developing, and executing test cases to ensure that software
-                  applications function correctly and meet business or client
-                  expectations. Their work is key to delivering high-quality,
-                  reliable products.
+                  Front-End Developers focus on building the user-facing part of web applications. They use technologies like HTML, CSS, JavaScript, and frameworks such as React or Angular to create intuitive and responsive interfaces.
                 </p>
               </div>
             </div>
@@ -362,14 +349,10 @@ const About = () => {
               />
               <div className="flex flex-col">
                 <h3 className="font-bold text-[#12161F] text-[clamp(12px,3.39vw,14px)] md:text-[clamp(14px,1.39vw,40px)] leading-[clamp(28px,7.52vw,31.77px)] md:leading-[clamp(31.77px,2.20vw,63.54px)]">
-                  QA Engineer
+                  Back-end Developer
                 </h3>
                 <p className="font-medium text-[#575757] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.12vw,36px)] leading-[clamp(18px,3.88vw,19px)] md:leading-[clamp(19px,1.52vw,44px)]">
-                  Quality Assurance (QA) Engineers focus on validating that
-                  software performs as intended. They conduct various types of
-                  testing—such as functional, regression, and performance
-                  testing— to confirm the software meets all specified
-                  requirements and delivers a smooth user experience.
+                 Back-End Developers manage the server-side logic, databases, APIs, and application performance. They work with languages like Node.js, Java, or Python and databases such as MySQL or MongoDB to ensure smooth data handling and system operations.
                 </p>
               </div>
             </div>
@@ -382,14 +365,10 @@ const About = () => {
               />
               <div className="flex flex-col">
                 <h3 className="font-bold text-[#12161F] text-[clamp(12px,3.39vw,14px)] md:text-[clamp(14px,1.39vw,40px)] leading-[clamp(28px,7.52vw,31.77px)] md:leading-[clamp(31.77px,2.20vw,63.54px)]">
-                  Automation Engineer
+                  Web Application Developer
                 </h3>
                 <p className="font-medium text-[#575757] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.12vw,36px)] leading-[clamp(18px,3.88vw,19px)] md:leading-[clamp(19px,1.52vw,44px)]">
-                  An Automation Engineer specializes in creating and maintaining
-                  automated test scripts. Their main goal is to streamline the
-                  testing process by reducing manual effort and improving
-                  accuracy, enabling faster and more efficient software
-                  delivery.
+                   Web Application Developers specialize in creating dynamic websites and online platforms. They work on designing, coding, and maintaining web-based software applications, often collaborating closely with designers and other developers.
                 </p>
               </div>
             </div>
@@ -402,14 +381,10 @@ const About = () => {
               />
               <div className="flex flex-col">
                 <h3 className="font-bold text-[#12161F] text-[clamp(12px,3.39vw,14px)] md:text-[clamp(14px,1.39vw,40px)] leading-[clamp(28px,7.52vw,31.77px)] md:leading-[clamp(31.77px,2.20vw,63.54px)]">
-                  Test Engineer
+                  Software Engineer (Web Focus)
                 </h3>
                 <p className="font-medium text-[#575757] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.12vw,36px)] leading-[clamp(18px,3.88vw,19px)] md:leading-[clamp(19px,1.52vw,44px)]">
-                  Test Engineers operate across diverse industries like
-                  healthcare, finance, and insurance. They are responsible for
-                  developing test plans and test cases, analyzing results, and
-                  reporting on product or system quality to ensure standards are
-                  consistently met.
+                  Software Engineers in web development roles design robust, scalable systems that power online platforms and digital tools. They apply software engineering principles to build secure and efficient web applications across various domains.
                 </p>
               </div>
             </div>
@@ -450,4 +425,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default Fullstack;
