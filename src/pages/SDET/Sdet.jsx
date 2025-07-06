@@ -1,5 +1,5 @@
 import React from "react";
-// import Navbar from "./Navbar";
+import Navbar from "../../components/Navbar";
 import image110 from "../../assets/image 110 (1).png";
 import image79 from "../../assets/image 79.png";
 import image111 from "../../assets/image 111-pica.png";
@@ -12,12 +12,25 @@ import image61 from "../../assets/image 61.png";
 import image66 from "../../assets/image 66.png";
 import image65 from "../../assets/image 65.png";
 import image114 from "../../assets/image 114.png";
+
 import gh from "../../assets/gh.svg";
+import mapIcon from "../../assets/images/mapIcon.svg";
+import phoneIcon from "../../assets/images/phoneIcon.png";
+import emailIcon from "../../assets/images/emailIcon.png";
+
+import instagram from "../../assets/images/instagram.png";
+import linkedin from "../../assets/images/linkedin.png";
+import whatsapp from "../../assets/images/whatsapp.png";
+import company_logo from "../../assets/company_logo.png";
+import smallEmailSvg from "../../assets/images/smallEmailSvg.svg";
+import smallMapIcon from "../../assets/images/smallMapIcon.svg";
+import smallPhoneSvg from "../../assets/images/smallPhoneSvg.svg";
+
 
 const SDET = () => {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
       {/* hero section */}
       <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 section-padding">
         <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
@@ -107,7 +120,7 @@ const SDET = () => {
               />
               <div>
                 <p className="font-inter font-bold text-[#12161F] text-[clamp(14px,3.77vw,15.55px)] md:text-[clamp(15.55px,1.528vw,44px)] leading-[clamp(22.3px,5.98vw,24.67px)] md:leading-[clamp(24.67px,1.713vw,49.34px)]">
-                 SDET
+                  SDET
                 </p>
 
                 <p className="font-inter font-normal text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)] leading-[clamp(14px,5.98vw,24.67px)] md:leading-[clamp(24.67px,2.22vw,64.073px)]">
@@ -182,12 +195,8 @@ const SDET = () => {
       >
         <div className="z-10 relative mx-auto px-[16px] md:px-[184px] md:py-20 md:pb-25 text-white text-center">
           <div className="flex flex-col justify-center items-center font-montserrat font-bold text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] text-center leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
-            <p className="m-0 text-[#FFF]">
-              Our motto is
-            </p>
-            <p className="text-[#00FFCA]">
-              #LearnandGrow
-            </p>
+            <p className="m-0 text-[#FFF]">Our motto is</p>
+            <p className="text-[#00FFCA]">#LearnandGrow</p>
           </div>
 
           <p className="md:mt-5 font-montserrat font-semibold text-[#F5F5F5] text-[clamp(12px,3.64vw,15px)] md:text-[clamp(15px,1.52vw,44px)] text-center leading-[clamp(19px,5.33vw,22px)] md:leading-[clamp(22px,2.08vw,60px)]">
@@ -306,7 +315,7 @@ const SDET = () => {
             </p>
             <button className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300">
               <span className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
-                Learn More <img src={gh} alt=""  className="mt-1 w-6 h-6"/>
+                Learn More <img src={gh} alt="" className="mt-1 w-6 h-6" />
               </span>
             </button>
           </div>
@@ -332,7 +341,7 @@ const SDET = () => {
             </p>
           </div>
 
-         <div className="border-[#00775F] border-l-[3px]"></div>
+          <div className="border-[#00775F] border-l-[3px]"></div>
 
           <div className="flex-1 gap-[clamp(20px,2.5vw,40px)] grid grid-cols-1 sm:grid-cols-2">
             <div className="flex items-start gap-3 max-w-xl">
@@ -440,14 +449,237 @@ const SDET = () => {
                 {question}
               </span>
               <span>
-                <img src={Arowdwon} alt="" className="md:mr-6"/>
+                <img src={Arowdwon} alt="" className="md:mr-6" />
               </span>
             </div>
           ))}
         </div>
       </section>
+      <section
+        id="Contact-Us"
+        className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 md:px-16 py-12 w-full"
+      >
+        {/* Contact Info */}
+        <div className="space-y-3">
+          <h2 className="font-bold text-[#12161F] text-[clamp(18px,8.7vw,36px)] leading-[clamp(23px,11.2vw,46.5px)]">
+            Contact Details
+          </h2>
+          <h3 className="font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] leading-[clamp(24px,7.2vw,30px)]">
+            Let's Connect
+          </h3>
+          <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] leading-[clamp(18.9px,5.1vw,21.6px)]">
+            We’re here to help! Whether you have questions about our courses,
+            need IT consultancy, or just want to say hello — don’t hesitate to
+            reach out. Fill out the form below, and our team will get back to
+            you as soon as possible.
+          </p>
+
+          {/* Contact Icons */}
+          <div className="space-y-4 text-[clamp(14px,2vw,16px)]">
+            <div className="flex gap-[6px]">
+              <img src={mapIcon} className="w-8 h-8" />
+              <div className="font-medium text-[12px] leading-4">
+                <p className="leading-4">Location:</p>
+                <p className="text-[#21B495] leading-4">Pune , Maharashtra</p>
+              </div>
+            </div>
+            <div className="flex gap-[6px]">
+              <img src={phoneIcon} className="w-8 h-8" />
+              <div className="font-medium text-[12px] leading-4">
+                <p className="leading-4">Phone(9am - 6am):</p>
+                <p className="text-[#21B495] leading-4">+91-9322374766</p>
+              </div>
+            </div>
+            <div className="flex gap-[6px]">
+              <img src={emailIcon} className="w-8 h-8" />
+              <div className="font-medium text-[12px] leading-4">
+                <p className="leading-4">E-mail::</p>
+                <p className="text-[#21B495] leading-4">
+                  info@kamlaniltech.com
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="px-4">
+          <div className="bg-[rgba(167,159,168,0.34)] md:p-8 px-5 py-3 rounded-[13.583px] w-full">
+            <form className="flex flex-col gap-1">
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  Name *
+                </label>
+                <input type="text" placeholder="Enter Name" className="input" />
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  Phone no. *
+                </label>
+                <div className="flex py-2 input">
+                  <div className="inline-flex items-center bg-[#EEE] px-4 border border-gray-300 rounded-md whitespace-nowrap">
+                    🇮🇳 +91{"   "}
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="Enter phone number"
+                    className="input"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  placeholder="Enter email"
+                  className="input"
+                />
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  Course *
+                </label>
+                <select className="input">
+                  <option>Select Course</option>
+                  <option>Full Stack</option>
+                  <option>QA Testing</option>
+                  <option>AWS DevOps</option>
+                </select>
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  City *
+                </label>
+                <input type="text" placeholder="Enter City" className="input" />
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  Message
+                </label>
+                <textarea
+                  placeholder="Type your message here..."
+                  rows="3"
+                  className="input"
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-[#21B495] hover:bg-[#00b970] mt-3 py-4 rounded-[33px] w-full font-bold text-[#000] text-[12px] transition cursor-pointer"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <footer className="flex justify-center bg-[#2F3645] px-4 md:px-16 py-10 pb-20">
+        <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
+          {/* Logo & Description */}
+          <div className="flex flex-col items-center space-y-4">
+            <div className="flex items-center gap-2">
+              <img src={company_logo} alt="Logo" className="w-[140px]" />
+            </div>
+            <p className="w-[70%] text-[#fff] text-[12px] text-center">
+              Empowering future-ready professionals through practical tech
+              training and real-world skills.
+            </p>
+            {/* <div className="flex gap-3 mt-4">
+                    <a href="#">
+                      <img
+                        src="/icons/linkedin.svg"
+                        alt="LinkedIn"
+                        className="w-6 h-6"
+                      />
+                    </a>
+                    <a href="#">
+                      <img
+                        src="/icons/instagram.svg"
+                        alt="Instagram"
+                        className="w-6 h-6"
+                      />
+                    </a>
+                    <a href="#">
+                      <img
+                        src="/icons/whatsapp.svg"
+                        alt="WhatsApp"
+                        className="w-6 h-6"
+                      />
+                    </a>
+                  </div> */}
+          </div>
+
+          {/* Quick Links */}
+          <div className="flex flex-col items-center space-y-4">
+            <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
+              Quick Links
+            </h3>
+            <ul className="space-y-2 font-medium text-[#00FFCA] text-sm">
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Courses</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="flex flex-col items-center space-y-4">
+            <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
+              CONTACT
+            </h3>
+            <div className="flex flex-col items-center">
+              <img src={smallMapIcon} className="w-[15px] h-[17px]" />
+              <p className="font-bold text-[12px] text-white">Location</p>
+              <p className="font-medium text-[#21B495] text-[12px]">
+                Pune , Maharashtra
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src={smallPhoneSvg} className="w-[15px] h-[17px]" />
+              <p className="font-bold text-[12px] text-white">Phone</p>
+              <p className="font-medium text-[#21B495] text-[12px]">
+                +91-9322374766
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src={smallEmailSvg} className="w-[15px] h-[17px]" />
+              <p className="font-bold text-[12px] text-white">Email</p>
+              <p className="font-medium text-[#21B495] text-[12px]">
+                info@kamlaniltech.com
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center space-y-4">
+            <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
+              Social Media
+            </h3>
+            <div className="flex flex-row gap-3">
+              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                <img src={linkedin} className="w-[16px] h-[16px]" />
+              </div>
+              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                <img src={instagram} className="w-[16px] h-[16px]" />
+              </div>
+              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                <img src={whatsapp} className="w-[16px] h-[16px]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
 
 export default SDET;
+
+

@@ -12,10 +12,24 @@ import image66 from "../../assets/image 66.png";
 import image65 from "../../assets/image 65.png";
 import image114 from "../../assets/image 114.png";
 import gh from "../../assets/gh.svg";
+import Navbar from "../../components/Navbar";
+
+import mapIcon from "../../assets/images/mapIcon.svg";
+import phoneIcon from "../../assets/images/phoneIcon.png";
+import emailIcon from "../../assets/images/emailIcon.png";
+
+import instagram from "../../assets/images/instagram.png";
+import linkedin from "../../assets/images/linkedin.png";
+import whatsapp from "../../assets/images/whatsapp.png";
+import company_logo from "../../assets/company_logo.png";
+import smallEmailSvg from "../../assets/images/smallEmailSvg.svg";
+import smallMapIcon from "../../assets/images/smallMapIcon.svg";
+import smallPhoneSvg from "../../assets/images/smallPhoneSvg.svg";
 
 const Fullstack = () => {
   return (
     <>
+      <Navbar />
       <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 section-padding">
         <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
           <div className="flex flex-col gap-2">
@@ -115,7 +129,7 @@ const Fullstack = () => {
           </div>
         </div>
         <img
-          src={imageHeroSectio }
+          src={imageHeroSectio}
           alt=""
           className="rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[clamp(w-full,40vw,720px)] object-cover"
         />
@@ -319,7 +333,10 @@ const Fullstack = () => {
             </h2>
 
             <p className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
-             The goal of a Full Stack Developer is to design and build fully functional, end-to-end web applications that meet user needs and business requirements—handling both front-end (client-side) and back-end (server-side) development.
+              The goal of a Full Stack Developer is to design and build fully
+              functional, end-to-end web applications that meet user needs and
+              business requirements—handling both front-end (client-side) and
+              back-end (server-side) development.
             </p>
           </div>
 
@@ -334,10 +351,13 @@ const Fullstack = () => {
               />
               <div className="flex flex-col">
                 <h3 className="font-bold text-[#12161F] text-[clamp(12px,3.39vw,14px)] md:text-[clamp(14px,1.39vw,40px)] leading-[clamp(28px,7.52vw,31.77px)] md:leading-[clamp(31.77px,2.20vw,63.54px)]">
-                   Front-end Developer
+                  Front-end Developer
                 </h3>
                 <p className="font-medium text-[#575757] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.12vw,36px)] leading-[clamp(18px,3.88vw,19px)] md:leading-[clamp(19px,1.52vw,44px)]">
-                  Front-End Developers focus on building the user-facing part of web applications. They use technologies like HTML, CSS, JavaScript, and frameworks such as React or Angular to create intuitive and responsive interfaces.
+                  Front-End Developers focus on building the user-facing part of
+                  web applications. They use technologies like HTML, CSS,
+                  JavaScript, and frameworks such as React or Angular to create
+                  intuitive and responsive interfaces.
                 </p>
               </div>
             </div>
@@ -352,7 +372,10 @@ const Fullstack = () => {
                   Back-end Developer
                 </h3>
                 <p className="font-medium text-[#575757] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.12vw,36px)] leading-[clamp(18px,3.88vw,19px)] md:leading-[clamp(19px,1.52vw,44px)]">
-                 Back-End Developers manage the server-side logic, databases, APIs, and application performance. They work with languages like Node.js, Java, or Python and databases such as MySQL or MongoDB to ensure smooth data handling and system operations.
+                  Back-End Developers manage the server-side logic, databases,
+                  APIs, and application performance. They work with languages
+                  like Node.js, Java, or Python and databases such as MySQL or
+                  MongoDB to ensure smooth data handling and system operations.
                 </p>
               </div>
             </div>
@@ -368,7 +391,10 @@ const Fullstack = () => {
                   Web Application Developer
                 </h3>
                 <p className="font-medium text-[#575757] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.12vw,36px)] leading-[clamp(18px,3.88vw,19px)] md:leading-[clamp(19px,1.52vw,44px)]">
-                   Web Application Developers specialize in creating dynamic websites and online platforms. They work on designing, coding, and maintaining web-based software applications, often collaborating closely with designers and other developers.
+                  Web Application Developers specialize in creating dynamic
+                  websites and online platforms. They work on designing, coding,
+                  and maintaining web-based software applications, often
+                  collaborating closely with designers and other developers.
                 </p>
               </div>
             </div>
@@ -384,7 +410,10 @@ const Fullstack = () => {
                   Software Engineer (Web Focus)
                 </h3>
                 <p className="font-medium text-[#575757] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.12vw,36px)] leading-[clamp(18px,3.88vw,19px)] md:leading-[clamp(19px,1.52vw,44px)]">
-                  Software Engineers in web development roles design robust, scalable systems that power online platforms and digital tools. They apply software engineering principles to build secure and efficient web applications across various domains.
+                  Software Engineers in web development roles design robust,
+                  scalable systems that power online platforms and digital
+                  tools. They apply software engineering principles to build
+                  secure and efficient web applications across various domains.
                 </p>
               </div>
             </div>
@@ -415,12 +444,234 @@ const Fullstack = () => {
                 {question}
               </span>
               <span>
-                <img src={Arowdwon} alt="" className="md:mr-6"/>
+                <img src={Arowdwon} alt="" className="md:mr-6" />
               </span>
             </div>
           ))}
         </div>
       </section>
+
+      <section
+        id="Contact-Us"
+        className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 md:px-16 py-12 w-full"
+      >
+        {/* Contact Info */}
+        <div className="space-y-3">
+          <h2 className="font-bold text-[#12161F] text-[clamp(18px,8.7vw,36px)] leading-[clamp(23px,11.2vw,46.5px)]">
+            Contact Details
+          </h2>
+          <h3 className="font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] leading-[clamp(24px,7.2vw,30px)]">
+            Let's Connect
+          </h3>
+          <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] leading-[clamp(18.9px,5.1vw,21.6px)]">
+            We’re here to help! Whether you have questions about our courses,
+            need IT consultancy, or just want to say hello — don’t hesitate to
+            reach out. Fill out the form below, and our team will get back to
+            you as soon as possible.
+          </p>
+
+          {/* Contact Icons */}
+          <div className="space-y-4 text-[clamp(14px,2vw,16px)]">
+            <div className="flex gap-[6px]">
+              <img src={mapIcon} className="w-8 h-8" />
+              <div className="font-medium text-[12px] leading-4">
+                <p className="leading-4">Location:</p>
+                <p className="text-[#21B495] leading-4">Pune , Maharashtra</p>
+              </div>
+            </div>
+            <div className="flex gap-[6px]">
+              <img src={phoneIcon} className="w-8 h-8" />
+              <div className="font-medium text-[12px] leading-4">
+                <p className="leading-4">Phone(9am - 6am):</p>
+                <p className="text-[#21B495] leading-4">+91-9322374766</p>
+              </div>
+            </div>
+            <div className="flex gap-[6px]">
+              <img src={emailIcon} className="w-8 h-8" />
+              <div className="font-medium text-[12px] leading-4">
+                <p className="leading-4">E-mail::</p>
+                <p className="text-[#21B495] leading-4">
+                  info@kamlaniltech.com
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Contact Form */}
+        <div className="px-4">
+          <div className="bg-[rgba(167,159,168,0.34)] md:p-8 px-5 py-3 rounded-[13.583px] w-full">
+            <form className="flex flex-col gap-1">
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  Name *
+                </label>
+                <input type="text" placeholder="Enter Name" className="input" />
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  Phone no. *
+                </label>
+                <div className="flex py-2 input">
+                  <div className="inline-flex items-center bg-[#EEE] px-4 border border-gray-300 rounded-md whitespace-nowrap">
+                    🇮🇳 +91{"   "}
+                  </div>
+                  <input
+                    type="tel"
+                    placeholder="Enter phone number"
+                    className="input"
+                  />
+                </div>
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  placeholder="Enter email"
+                  className="input"
+                />
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  Course *
+                </label>
+                <select className="input">
+                  <option>Select Course</option>
+                  <option>Full Stack</option>
+                  <option>QA Testing</option>
+                  <option>AWS DevOps</option>
+                </select>
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  City *
+                </label>
+                <input type="text" placeholder="Enter City" className="input" />
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] leading-[42px]">
+                  Message
+                </label>
+                <textarea
+                  placeholder="Type your message here..."
+                  rows="3"
+                  className="input"
+                />
+              </div>
+              <button
+                type="submit"
+                className="bg-[#21B495] hover:bg-[#00b970] mt-3 py-4 rounded-[33px] w-full font-bold text-[#000] text-[12px] transition cursor-pointer"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <footer className="flex justify-center bg-[#2F3645] px-4 md:px-16 py-10 pb-20">
+        <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
+          {/* Logo & Description */}
+          <div className="flex flex-col items-center space-y-4">
+            <div className="flex items-center gap-2">
+              <img src={company_logo} alt="Logo" className="w-[140px]" />
+            </div>
+            <p className="w-[70%] text-[#fff] text-[12px] text-center">
+              Empowering future-ready professionals through practical tech
+              training and real-world skills.
+            </p>
+            {/* <div className="flex gap-3 mt-4">
+                          <a href="#">
+                            <img
+                              src="/icons/linkedin.svg"
+                              alt="LinkedIn"
+                              className="w-6 h-6"
+                            />
+                          </a>
+                          <a href="#">
+                            <img
+                              src="/icons/instagram.svg"
+                              alt="Instagram"
+                              className="w-6 h-6"
+                            />
+                          </a>
+                          <a href="#">
+                            <img
+                              src="/icons/whatsapp.svg"
+                              alt="WhatsApp"
+                              className="w-6 h-6"
+                            />
+                          </a>
+                        </div> */}
+          </div>
+
+          {/* Quick Links */}
+          <div className="flex flex-col items-center space-y-4">
+            <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
+              Quick Links
+            </h3>
+            <ul className="space-y-2 font-medium text-[#00FFCA] text-sm">
+              <li>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <a href="#">About</a>
+              </li>
+              <li>
+                <a href="#">Courses</a>
+              </li>
+              <li>
+                <a href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div className="flex flex-col items-center space-y-4">
+            <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
+              CONTACT
+            </h3>
+            <div className="flex flex-col items-center">
+              <img src={smallMapIcon} className="w-[15px] h-[17px]" />
+              <p className="font-bold text-[12px] text-white">Location</p>
+              <p className="font-medium text-[#21B495] text-[12px]">
+                Pune , Maharashtra
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src={smallPhoneSvg} className="w-[15px] h-[17px]" />
+              <p className="font-bold text-[12px] text-white">Phone</p>
+              <p className="font-medium text-[#21B495] text-[12px]">
+                +91-9322374766
+              </p>
+            </div>
+            <div className="flex flex-col items-center">
+              <img src={smallEmailSvg} className="w-[15px] h-[17px]" />
+              <p className="font-bold text-[12px] text-white">Email</p>
+              <p className="font-medium text-[#21B495] text-[12px]">
+                info@kamlaniltech.com
+              </p>
+            </div>
+          </div>
+          <div className="flex flex-col items-center space-y-4">
+            <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
+              Social Media
+            </h3>
+            <div className="flex flex-row gap-3">
+              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                <img src={linkedin} className="w-[16px] h-[16px]" />
+              </div>
+              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                <img src={instagram} className="w-[16px] h-[16px]" />
+              </div>
+              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                <img src={whatsapp} className="w-[16px] h-[16px]" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 };
