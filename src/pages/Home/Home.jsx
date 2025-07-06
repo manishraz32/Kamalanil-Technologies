@@ -567,7 +567,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="Contact-Us" className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 md:px-16 py-12 w-full">
+      <section id="contact" className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 md:px-16 py-12 w-full">
         {/* Contact Info */}
         <div className="space-y-3">
           <h2 className="font-bold text-[#12161F] text-[clamp(18px,8.7vw,36px)] leading-[clamp(23px,11.2vw,46.5px)]">
