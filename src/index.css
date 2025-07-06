@@ -10,6 +10,22 @@
   --font-inter: 'Inter', sans-serif;
 }
 
+@layer utilities {
+  .section-padding {
+    padding-left: clamp(16px, 6.5vw, 94px);
+    padding-right: clamp(16px, 6.5vw, 94px);
+    padding-top: clamp(16px, 6.5vw, 88px);
+    padding-bottom: clamp(16px, 6.5vw, 88px);
+  }
+  .secound-section-padding {
+  padding-left: clamp(16px, 6vw, 184px);
+  padding-right: clamp(16px, 6vw, 184px);
+  padding-top: clamp(16px, 6vw, 30px);
+  padding-bottom: clamp(16px, 6vw, 30px);
+}
+
+}
+
 
 :root {
   font-family: var(--font-montserrat);
@@ -99,4 +115,9 @@
     -webkit-text-fill-color: transparent;
     color: transparent;
   }
+}
+
+
+html {
+  scroll-behavior: smooth;
 }
