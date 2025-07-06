@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import image110 from "../../assets/image 110 (1).png";
 import image79 from "../../assets/image 79.png";
 import image111 from "../../assets/image 111-pica.png";
@@ -14,10 +14,10 @@ import image65 from "../../assets/image 65.png";
 import image114 from "../../assets/image 114.png";
 import gh from "../../assets/gh.svg";
 
-const About = () => {
+const SDET = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
       {/* hero section */}
       <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 section-padding">
         <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
@@ -440,7 +440,7 @@ const About = () => {
                 {question}
               </span>
               <span>
-                <img src={Arowdwon} alt="" />
+                <img src={Arowdwon} alt="" className="md:mr-6"/>
               </span>
             </div>
           ))}
@@ -450,4 +450,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default SDET;

@@ -1,5 +1,5 @@
 import React from "react";
-import image110 from "../../assets/image 110 (1).png";
+import imageHeroSectio from "../../assets/image.png";
 import image79 from "../../assets/image 79.png";
 import image111 from "../../assets/image 111-pica.png";
 import image86 from "../../assets/image 86.png";
@@ -115,7 +115,7 @@ const Fullstack = () => {
           </div>
         </div>
         <img
-          src={image110}
+          src={imageHeroSectio }
           alt=""
           className="rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[clamp(w-full,40vw,720px)] object-cover"
         />
@@ -415,7 +415,7 @@ const Fullstack = () => {
                 {question}
               </span>
               <span>
-                <img src={Arowdwon} alt="" />
+                <img src={Arowdwon} alt="" className="md:mr-6"/>
               </span>
             </div>
           ))}
