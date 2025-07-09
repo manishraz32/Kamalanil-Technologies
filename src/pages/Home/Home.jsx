@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import hero_section_image from "../../assets/images/hero_section_image.jpg";
 import thumbUpIcon from "../../assets/images/thumbUpIcon.png";
@@ -37,756 +37,966 @@ import image65 from "../../assets/image 65.png";
 import image66 from "../../assets/image 66.png";
 import imageHeroSectio from "../../assets/image.png";
 
+import { useLocation } from "react-router-dom";
+
 export default function Home() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      const sectionId = location.state.scrollTo;
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
+
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    course: "",
+    city: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    console.log("e", e);
+    console.log("e.target", e.target);
+    const { name, value } = e.target;
+    console.log("name", name);
+    console.log("value", value);
+    setFormData((prev) => {
+      console.log("Previous formData:", prev);
+      const updated = { ...prev, [name]: value };
+      console.log("Updated formData:", updated);
+      return updated;
+    });
+
+    //Clear error for the current field if it's being fixed
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "",
+    }));
+  };
+
+  const validate = () => {
+    let newErrors = {};
+
+    // Name validation
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+
+    // Phone number validation
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      newErrors.phone = "Enter a valid 10-digit Indian mobile number";
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email)) {
+      newErrors.email = "Email is invalid";
+    }
+
+    // Course validation
+    if (!formData.course) newErrors.course = "Please select a course";
+
+    // City validation
+    if (!formData.city.trim()) newErrors.city = "City is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (validate()) {
+      console.log("Form submitted:", formData);
+      alert("Form submitted successfully!");
+
+      fetch("https://formsubmit.co/ajax/a210361cacd9034e3d6942f4defe891c", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: "FormSubmit",
+          message: "I'm from Devro LABS",
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log(data))
+        .catch((error) => console.log(error));
+
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        course: "",
+        city: "",
+        message: "",
+      });
+      setErrors({});
+    }
+  };
+
   return (
-    <div className="w-full scroll-smooth">
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <div
-          className="flex-1 bg-cover bg-center hero-section"
-          style={{ backgroundImage: `url(${hero_section_image})` }}
-        >
-          <div className="flex flex-col gap-10 mt-[5vh] md:mt-[20vh] px-[clamp(20px,5.76vw,83px)]">
-            <div className="flex flex-col gap-4 md:gap-6">
-              <h1 className="font-semibold text-22px text-white text-center">
-                Step Into the World of Tech
-              </h1>
-              <div className="font-bold text-[40px] text-white md:text-[clamp(28px,3.82vw,60px)] text-center leading-[56px] md:leading-[clamp(40.6px,5.54vw,100px)]">
-                Start your journey in Software Technology with{" "}
-                <span className="font-montserrat font-bold text-gradient">
-                  Kamlanil Technologies.
-                </span>
-              </div>
-            </div>
-            <div className="flex justify-center">
-              <button className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[800] font-inter text-20px text-black">
-                Book A Free Demo
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="section-padding-x">
-        <div className="flex flex-col gap-10 md:gap-20 py-6">
-          <div className="flex flex-col gap-4 md:gap-0">
-            <p className="pr-10 font-bold text-[#12161F] text-[clamp(18px,5vw,24px)] md:text-[clamp(20px,2.22vw,32px)] leading-[clamp(24px,6vw,30px)] md:leading-[clamp(40px,5.55vw,80px)]">
-              Your Gateway to a Bright Career in the IT Industry – Learn from
-              the Best.
-            </p>
-            <p className="pr-10 font-medium text-[#575757] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(14px,1.32vw,19px)] md:text-center leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(18px,1.5vw,21.6px)]">
-              Join <span className="font-semibold">KAMLANIL TECHNOLOGIES</span>{" "}
-              and be sure about the future
-            </p>
-          </div>
-          <div className="flex md:flex-row flex-col md:justify-center gap-4">
-            <FeatureCard
-              icon={thumbUpIcon}
-              title="100% Placement"
-              description="We guide you from training to hiring with complete placement support and interview preparation."
-              bgColor="rgba(94, 47, 163, 0.1)"
-            />
-
-            <FeatureCard
-              icon={manWithLaptopIcon}
-              title="Learn with Experts"
-              description="Get trained by experienced industry professionals who know what top companies expect."
-              bgColor="rgba(253, 101, 0, 0.10)"
-            />
-            <FeatureCard
-              icon={projectIcon}
-              title="Live Projects"
-              description="Apply your skills in real-world projects and build job-ready confidence."
-              bgColor="rgba(6, 101, 230, 0.10)"
-            />
-          </div>
-        </div>
-      </div>
-      {/* step into the world */}
-      <div className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left w-full h-[672px] md:h-[74vh]">
-        <div className="flex flex-col gap-5 pt-27 md:pt-30 section-padding-x">
-          <h2 className="font-bold text-[clamp(16px,4.8vw,20px)] text-white md:text-[clamp(28px,3.47vw,70px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(44px,5.56vw,100px)]">
-            Step in the World of Tech with Confidence
-          </h2>
-          <p className="font-medium text-[clamp(12px,3.6vw,14px)] text-white md:text-[clamp(14px,1.32vw,25px)] leading-[clamp(22px,6.7vw,26px)] md:leading-[clamp(18px,1.5vw,30px)]">
-            The tech industry is evolving rapidly, and skilled professionals are
-            in high demand. Whether you dream of building robust applications or
-            ensuring software quality through automation, now is the perfect
-            time to start your journey.
-          </p>
-          <p className="font-medium text-[clamp(12px,3.6vw,14px)] text-white md:text-[clamp(14px,1.32vw,25px)] leading-[clamp(22px,6.7vw,26px)] md:leading-[clamp(18px,1.5vw,30px)]">
-            At Kamlanil Technologies, we offer hands-on, career-focused training
-            in SDET (QA Automation with Python & Selenium) and Full Stack
-            Development, delivered through flexible online sessions and
-            real-time projects. We've already helped hundreds of learners unlock
-            their potential — and we’re here to help you do the same.
-          </p>
-          <div className="flex justify-start items-center gap-3 md:pt-10">
-            <button className="bg-[#00FFCA] px-[12px] md:px-[clamp(16px,2.23vw,32.073px)] py-[8px] md:py-[clamp(12px,1.48vw,21.382px)] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[600] text-[clamp(14px,3.8vw,16px)] text-black md:text-[clamp(14px,1.53vw,30px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(13.7px,1.5vw,30.6px)]">
-              Find out which course is for you
-            </button>
-            <img
-              src={downArrow}
-              alt="Down Arrow"
-              className="ml-4 w-[clamp(20px,4.3vw,80px)] h-[clamp(20px,4.3vw,80px)]"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* sdet sectiion */}
-      <div className="px-4 md:px-[clamp(15px,6.51vw,187.64px)] md:py-[clamp(14px,3.88vw,112px)] overflow-hidden">
-        <div className="flex md:flex-row flex-col md:gap-20">
-          {/* LEFT SIDE */}
-          <div className="flex flex-col gap-2 md:gap-[clamp(10px,2.083vw,60px)]">
-            {/* Heading */}
-            <div className="flex flex-col gap-2">
-              <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
-                <h1>Kick Start your</h1>
-                <h1>
-                  <span className="text-[#21B495]">SDET</span> Career
-                </h1>
-              </div>
-              <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,2.02vw,29px)]">
-                Our programs are delivered through flexible online training,
-                with offline batches launching soon. Designed for beginners and
-                aspiring professionals, our courses build strong foundations in
-                both core concepts and technical skills—no prior coding
-                experience required.
-              </p>
-            </div>
-
-            {/* CTA Button */}
-            <button className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
-              Learn More
-            </button>
-
-            {/* Features */}
-            <div className="flex md:flex-row flex-col items-center gap-5 bg-white pt-2 text-[#12161F]">
-              {/* Feature 1 */}
-              <div className="flex items-start gap-3">
-                <img
-                  src={image61}
-                  alt="Rupee"
-                  className="w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
-                />
-                <div>
-                  <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
-                    Get 65% OFF
-                  </p>
-                  <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
-                    Starting from ₹4,000
-                  </p>
-                </div>
-              </div>
-
-              {/* Feature 2 */}
-              <div className="flex items-start gap-3 pl-0 md:pl-6 md:border-[#00775F] md:border-l-2 border-none">
-                <img
-                  src={image65}
-                  alt="Calendar"
-                  className="w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
-                />
-                <div>
-                  <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
-                    3 Months
-                  </p>
-                  <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
-                    Course Duration
-                  </p>
-                </div>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="flex items-start gap-3 pl-6 border-[#00775F] border-l-2">
-                <img
-                  src={image66}
-                  alt="Placement"
-                  className="mt-1 w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
-                />
-                <div>
-                  <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
-                    100% Placement
-                  </p>
-                  <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
-                    Placement Assurance
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT SIDE IMAGE */}
-          <img
-            src={image110}
-            alt="Coding Setup"
-            className="pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[387.708px] h-auto object-cover"
-          />
-        </div>
-      </div>
-
-      {/* fullstack section */}
-      <div className="px-4 md:px-[clamp(15px,6.51vw,187.64px)] py-5 md:pb-[clamp(14px,3.88vw,112px)] overflow-hidden">
-        <div className="flex md:flex-row flex-col md:gap-20">
-          <img
-            src={imageHeroSectio}
-            alt="Coding Setup"
-            className="hidden md:flex rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[387.708px] h-auto object-cover"
-          />
-          {/* LEFT SIDE */}
-          <div className="flex flex-col gap-2 md:gap-[clamp(10px,2.083vw,60px)]">
-            {/* Heading */}
-            <div className="flex flex-col gap-2">
-              <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
-                <h1>Build It All.Be a </h1>
-                <h1>
-                  <span className="text-[#21B495]">Full Stack</span> Pro
-                </h1>
-              </div>
-              <p className="w-[80%] font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,2.02vw,29px)]">
-                Our programs are delivered through flexible online training,
-                with offline batches launching soon. Designed for beginners and
-                aspiring professionals, our courses build strong foundations in
-                both core concepts and technical skills—no prior coding
-                experience required.
-              </p>
-            </div>
-
-            {/* CTA Button */}
-            <button className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
-              Learn More
-            </button>
-
-            {/* Features */}
-            <div className="flex md:flex-row flex-col items-center gap-5 bg-white pt-2 text-[#12161F]5">
-              {/* Feature 1 */}
-              <div className="flex items-start gap-3">
-                <img
-                  src={image61}
-                  alt="Rupee"
-                  className="w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
-                />
-                <div>
-                  <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
-                    Get 65% OFF
-                  </p>
-                  <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
-                    Starting from ₹4,000
-                  </p>
-                </div>
-              </div>
-
-              {/* Feature 2 */}
-              <div className="flex items-start gap-3 pl-0 md:pl-6 md:border-[#00775F] md:border-l-2 border-none">
-                <img
-                  src={image65}
-                  alt="Calendar"
-                  className="w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
-                />
-                <div>
-                  <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
-                    3 Months
-                  </p>
-                  <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
-                    Course Duration
-                  </p>
-                </div>
-              </div>
-
-              {/* Feature 3 */}
-              <div className="flex items-start gap-3 pl-6 border-[#00775F] border-l-2">
-                <img
-                  src={image66}
-                  alt="Placement"
-                  className="mt-1 w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
-                />
-                <div>
-                  <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
-                    100% Placement
-                  </p>
-                  <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
-                    Placement Assurance
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* RIGHT SIDE IMAGE */}
-          <img
-            src={imageHeroSectio}
-            alt="Coding Setup"
-            className="md:hidden pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[387.708px] h-auto object-cover"
-          />
-        </div>
-      </div>
-
-      {/* placed students */}
-      <div className="gap-8 grid grid-cols-1 md:grid-cols-3 bg-[#2F3645] px-4 md:px-[clamp(16px,6.53vw,120px)] py-17 text-white text-center">
-        {/* Block 1 */}
-        <div className="flex flex-col items-center">
-          <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
-            1,000+
-          </h2>
-          <p className="mt-2 font-bold text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)]">
-            Students trained & Placed
-          </p>
-        </div>
-
-        {/* Block 2 */}
-        <div className="flex flex-col items-center">
-          <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
-            10+
-          </h2>
-          <p className="mt-2 font-bold text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)]">
-            Year of Experience
-          </p>
-        </div>
-
-        {/* Block 3 */}
-        <div className="flex flex-col items-center">
-          <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
-            60%
-          </h2>
-          <p className="mt-2 font-bold text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)]">
-            MNC & MLC Placements
-          </p>
-        </div>
-      </div>
-
-      {/* Effective learning */}
-      <div className="gap-8 grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] bg-white px-4 md:px-[clamp(16px,6.53vw,120px)] py-10 md:py-[clamp(16px,6.53vw,120px)]">
-        {/* Left Section */}
-        <div className="flex flex-col gap-6 md:text-left">
-          <h2 className="font-bold text-[#0F172A] text-[clamp(18px,8.7vw,36px)] md:text-[clamp(28px,3.47vw,70px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[126%]">
-            Equipped with the
-            <br /> Finest Tools for
-            <br /> Effective Learning
-          </h2>
-          <div className="hidden md:block">
-            <button className="hidden md:block bg-[#00FFD1] shadow-md px-8 md:px-[90px] py-3 md:py-[21px] rounded-full font-semibold text-[clamp(14px,2vw,16px)] text-black md:text-[clamp(16px,1.48vw,40px)] md:leading-[clamp(24px,2.23vw,40px)]">
-              Register for Free
-            </button>
-          </div>
-        </div>
-
-        {/* Right Section */}
-        <div className="gap-6 md:gap-x-[clamp(16px,2.08vw,30px)] md:gap-y-[clamp(20px,2.78vw,40px)] grid grid-cols-1 sm:grid-cols-2 px-[clamp(16px,10vw,40px)] md:px-0">
-          <BenefitCard
-            icon={videoIcon}
-            title="Interactive Sessions"
-            description="Engage in real-time learning with interactive sessions led by expert instructors."
-          />
-          <BenefitCard
-            icon={docIcon}
-            title="In-Depth Reading Resources"
-            description="Access comprehensive written resources like articles, handouts, and guides to deepen your understanding of each topic."
-          />
-          <BenefitCard
-            icon={performanceDocs}
-            title="Performance Assessments"
-            description="Evaluate your progress through structured assessments designed to strengthen your skills and knowledge."
-          />
-          <BenefitCard
-            icon={certificateIcon}
-            title="Certified Awards"
-            description="Gain confidence, validate your expertise, and become a certified professional in your field."
-          />
-        </div>
-        <button className="md:hidden bg-[#21B495] shadow-md px-8 py-3 rounded-full font-semibold text-[#FFFFFF] text-[clamp(16px,5.08vw,21.382px)] leading-[clamp(24px,7.62vw,32.073px)]">
-          Register for Free
-        </button>
-      </div>
-
-    {/* about section     */}
-    <section id="about"  className="relative bg-white w-full">
-        {/* Background for mobile and desktop */}
-        <img
-          src={greenMobileBackgroundImage}
-          alt="Green Background"
-          className="top-0 z-0 absolute w-full h-auto"
-        />
-
-        {/* Top Section */}
-        <div className="z-10 relative mx-auto px-[clamp(16px,5vw,230px)] text-center">
-          <h2 className="pt-2 font-bold text-[#292C34] text-[clamp(30px,8.737vw,36px)] md:text-[clamp(36px,3.819vw,110px)] leading-[clamp(54px,15.29vw,63px)] md:leading-[clamp(54px,4.375vw,126px)]">
-            About Us
-          </h2>
-          <p className="font-semibold text-[#292C34] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.04vw,32px)] leading-[clamp(25px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
-            Empowering Careers Through Real-World Tech Training
-          </p>
-          <div className="mt-2">
-            <img
-              src={mobileMeetingWithborder}
-              alt="Meeting"
-              className="mx-auto rounded-[clamp(18px,2vw,26px)] w-full md:w-[clamp(300px,58.65vw,1689.316px)] object-cover"
-            />
-          </div>
-        </div>
-
-        <div className="flex md:flex-row flex-col justify-between md:p-[clamp(16px,12.43vw,179px)] pt-6 md:pxl-[clamp(16px,6.53vw,120px)]">
-          {/* Left Text */}
-          <div className="px-4 md:w-[50%]">
-            <h3 className="font-semibold text-[#12161F] text-[clamp(18px,5.82vw,24px)] md:text-[clamp(24px,2.23vw,64px)] leading-[clamp(26px,7.28vw,30px)] md:leading-[clamp(30px,4.375vw,126px)]">
-              Our story
-              <div className="text-[#21B495]">
-                Kamlanil Technologies
-              </div>
-            </h3>
-
-            <p className="mt-2 text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.11vw,32px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,6.55vw,1.875px)]">
-              At KamlanilTech, we empower future-ready tech professionals
-              through practical, hands-on IT training and expert consultancy.
-              Our programs in Full Stack Development, Software Testing, and
-              AWS-DevOps are designed to bridge the gap between theory and
-              industry demands.
-            </p>
-
-            {/* Mission & Vision */}
-            <div className="space-y-4">
-              <div>
-                <h4 className="mt-5 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
-                  Mission
-                </h4>
-                <p className="text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(14px,1.31vw,38px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
-                  To transform careers and businesses by delivering real-world,
-                  expert-led IT education and consultancy.
-                </p>
-              </div>
-              <div>
-                <h4 className="font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
-                  Vision
-                </h4>
-                <p className="text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(14px,1.31vw,38px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
-                  To be a trusted leader in IT training, building a skilled
-                  workforce through quality, innovation, and practical learning.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Feature Box */}
+    <>
+      <Navbar />
+      <div id="home" className="w-full scroll-smooth">
+        <div className="flex flex-col min-h-screen">
           <div
-            className="relative bg-cover bg-no-repeat bg-center px-10 md:px-10 md:py-[clamp(20px,2.77vw,40px)] rounded-2xl md:w-[clamp(280px,30.2vw,435.414px)]"
-            style={{
-              backgroundImage: `url(${greenTextBackgroundImage})`
-             
-            }}
+            className="flex-1 bg-cover bg-center hero-section"
+            style={{ backgroundImage: `url(${hero_section_image})` }}
           >
-            <div className="flex justify-center items-center w-full h-full">
-              <div className="space-y-3 bg-[#21B495] p-6 rounded-[21px] text-white">
-                {[
-                  "Diverse Programs: Full Stack Development, Software Testing (Manual + Automation), and AWS-DevOps",
-                  "Flexible Learning: 100% Online Courses with Weekend & Weekday Batches",
-                  "Industry-Focused Training: Hands-on projects aligned with real-world technologies",
-                  "Career-Driven Outcomes: Empowering students to land jobs with practical, job-ready skills",
-                  "Integrated Approach: Blending coding, cloud, testing, and DevOps for a complete IT foundation",
-                ].map((text, index) => (
-                  <div key={index}>
-                    <div className="flex gap-2">
-                      <img
-                        src={rightIconSvg}
-                        className="mt-1 w-[20px] h-[20px]"
-                      />
-                      <p className="font-medium text-[clamp(9px,2.88vw,11.87px)] md:text-[clamp(11.87px,0.82vw,23.74px)] leading-[clamp(17px,4.80vw,19.784px)] md:leading-[clamp(19.784px,1.373vw,39.568px)]">
-                        {text}
-                      </p>
-                    </div>
-                    {index !== 4 && (
-                      <div className="bg-[#FFFFFF] opacity-30 my-[7px] h-[1px]"></div>
-                    )}
-                  </div>
-                ))}
+            <div className="flex flex-col gap-10 mt-[5vh] md:mt-[20vh] px-[clamp(20px,5.76vw,83px)]">
+              <div className="flex flex-col gap-4 md:gap-6">
+                <h1 className="font-semibold text-22px text-white text-center">
+                  Step Into the World of Tech
+                </h1>
+                <div className="font-bold text-[40px] text-white md:text-[clamp(28px,3.82vw,60px)] text-center leading-[56px] md:leading-[clamp(40.6px,5.54vw,100px)]">
+                  Start your journey in Software Technology with{" "}
+                  <span className="font-montserrat font-bold text-gradient">
+                    Kamlanil Technologies.
+                  </span>
+                </div>
+              </div>
+              <div className="flex justify-center">
+                <button className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[800] font-inter text-20px text-black">
+                  Book A Free Demo
+                </button>
               </div>
             </div>
           </div>
         </div>
-      </section>
+        <div className="section-padding-x">
+          <div className="flex flex-col gap-10 md:gap-20 py-6">
+            <div className="flex flex-col gap-4 md:gap-0">
+              <p className="pr-10 font-bold text-[#12161F] text-[clamp(18px,5vw,24px)] md:text-[clamp(20px,2.22vw,32px)] leading-[clamp(24px,6vw,30px)] md:leading-[clamp(40px,5.55vw,80px)]">
+                Your Gateway to a Bright Career in the IT Industry – Learn from
+                the Best.
+              </p>
+              <p className="pr-10 font-medium text-[#575757] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(14px,1.32vw,19px)] md:text-center leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(18px,1.5vw,21.6px)]">
+                Join{" "}
+                <span className="font-semibold">KAMLANIL TECHNOLOGIES</span> and
+                be sure about the future
+              </p>
+            </div>
+            <div className="flex md:flex-row flex-col md:justify-center gap-4">
+              <FeatureCard
+                icon={thumbUpIcon}
+                title="100% Placement"
+                description="We guide you from training to hiring with complete placement support and interview preparation."
+                bgColor="rgba(94, 47, 163, 0.1)"
+              />
 
-      {/* sdet trainer banner */}
-      <section className="w-full">
-        {/* Section 1: SDET Training Banner */}
-        <div className="relative bg-[url('/images/sdetBackgrounImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left px-4 md:px-[clamp(16px,5vw,230px)] pt-[120px] md:pt-[150px] w-full h-[820px] md:h-[74vh]">
-          <h2 className="font-bold text-[clamp(18px,8.7vw,36px)] text-white md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5px,5.56vw,160px)]">
-            Break into <span className="text-[#71ffe5]">IT</span> with Practical{" "}
-            <span className="text-[#00FFD1]">SDET Training</span>
-          </h2>
-          <div className="flex flex-col gap-3 mt-6">
-            <p className="font-medium text-[#fff] text-[clamp(12px,3.39vw,14px)] md:text-[clamp(14px,1.319vw,38px)] leading-[clamp(23px,6.310vw,26px)] md:leading-[clamp(23px,1.80vw,52px)]">
-              An SDET is much more than just a tester or QA professional. They
-              bring a powerful blend of development skills, quality assurance
-              expertise, and project insight. SDETs work closely with
-              development teams, contribute to product development, write
-              application code, understand end-user requirements, and build
-              custom automation tools.
-            </p>
-            <p className="font-medium text-[#fff] text-[clamp(12px,3.39vw,14px)] md:text-[clamp(14px,1.319vw,38px)] leading-[clamp(23px,6.310vw,26px)] md:leading-[clamp(23px,1.80vw,52px)]">
-              This unique combination of skills makes the SDET role highly
-              valuable and in demand across the software industry. While a QA
-              engineer may be sufficient for small web applications, complex
-              systems with advanced business logic and long development cycles
-              absolutely require the depth and versatility that an SDET brings.
-            </p>
-          </div>
-        </div>
-
-        {/* Section 2: Flexible Learning */}
-        <div className="bg-white px-5">
-          <h2 className="mb-4 font-bold text-[#000] text-[clamp(18px,8.7vw,36px)] leading-[clamp(23px,11.2vw,46.5px)]">
-            Flexible Learning That Fits Your Schedule
-          </h2>
-          <div className="flex flex-col">
-            <div className="flex justify-center">
-              <img
-                src={trainingsvg}
-                alt="Flexible Learning"
-                className="w-full max-w-md object-contain"
+              <FeatureCard
+                icon={manWithLaptopIcon}
+                title="Learn with Experts"
+                description="Get trained by experienced industry professionals who know what top companies expect."
+                bgColor="rgba(253, 101, 0, 0.10)"
+              />
+              <FeatureCard
+                icon={projectIcon}
+                title="Live Projects"
+                description="Apply your skills in real-world projects and build job-ready confidence."
+                bgColor="rgba(6, 101, 230, 0.10)"
               />
             </div>
-            {/* Content */}
-            <div className="flex flex-col gap-5 pt-5">
-              <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] leading-[clamp(18.9px,5.1vw,21.6px)]">
-                One of the key advantages of learning with Kamlanil Technologies
-                is the flexibility we offer for working professionals and
-                students alike.
+          </div>
+        </div>
+        {/* step into the world */}
+        <div className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left w-full h-[672px] md:h-[74vh]">
+          <div className="flex flex-col gap-5 pt-27 md:pt-30 section-padding-x">
+            <h2 className="font-bold text-[clamp(16px,4.8vw,20px)] text-white md:text-[clamp(28px,3.47vw,70px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(44px,5.56vw,100px)]">
+              Step in the World of Tech with Confidence
+            </h2>
+            <p className="font-medium text-[clamp(12px,3.6vw,14px)] text-white md:text-[clamp(14px,1.32vw,25px)] leading-[clamp(22px,6.7vw,26px)] md:leading-[clamp(18px,1.5vw,30px)]">
+              The tech industry is evolving rapidly, and skilled professionals
+              are in high demand. Whether you dream of building robust
+              applications or ensuring software quality through automation, now
+              is the perfect time to start your journey.
+            </p>
+            <p className="font-medium text-[clamp(12px,3.6vw,14px)] text-white md:text-[clamp(14px,1.32vw,25px)] leading-[clamp(22px,6.7vw,26px)] md:leading-[clamp(18px,1.5vw,30px)]">
+              At Kamlanil Technologies, we offer hands-on, career-focused
+              training in SDET (QA Automation with Python & Selenium) and Full
+              Stack Development, delivered through flexible online sessions and
+              real-time projects. We've already helped hundreds of learners
+              unlock their potential — and we’re here to help you do the same.
+            </p>
+            <div className="flex justify-start items-center gap-3 md:pt-10">
+              <button className="bg-[#00FFCA] px-[12px] md:px-[clamp(16px,2.23vw,32.073px)] py-[8px] md:py-[clamp(12px,1.48vw,21.382px)] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[600] text-[clamp(14px,3.8vw,16px)] text-black md:text-[clamp(14px,1.53vw,30px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(13.7px,1.5vw,30.6px)]">
+                Find out which course is for you
+              </button>
+              <img
+                src={downArrow}
+                alt="Down Arrow"
+                className="ml-4 w-[clamp(20px,4.3vw,80px)] h-[clamp(20px,4.3vw,80px)]"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* sdet sectiion */}
+        <div className="px-4 md:px-[clamp(15px,6.51vw,187.64px)] md:py-[clamp(14px,3.88vw,112px)] overflow-hidden">
+          <div className="flex md:flex-row flex-col md:gap-20">
+            {/* LEFT SIDE */}
+            <div className="flex flex-col gap-2 md:gap-[clamp(10px,2.083vw,60px)]">
+              {/* Heading */}
+              <div className="flex flex-col gap-2">
+                <div className="pt-8 font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
+                  <h1>Kick Start your</h1>
+                  <h1>
+                    <span className="text-[#21B495]">SDET</span> Career
+                  </h1>
+                </div>
+                <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,2.02vw,29px)]">
+                  Our programs are delivered through flexible online training,
+                  with offline batches launching soon. Designed for beginners
+                  and aspiring professionals, our courses build strong
+                  foundations in both core concepts and technical skills—no
+                  prior coding experience required.
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <button className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
+                Learn More
+              </button>
+
+              {/* Features */}
+              <div className="py-7 md:py-0">
+                <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
+                  {/* Feature 1 */}
+                  <div className="flex items-start gap-3">
+                    <img
+                      src={image61}
+                      alt="Rupee"
+                      className="w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
+                    />
+                    <div>
+                      <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
+                        Get 65% OFF
+                      </p>
+                      <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
+                        Starting from ₹4,000
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Feature 2 */}
+                  <div className="flex items-start gap-3 md:gap-3 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
+                    <img
+                      src={image65}
+                      alt="Calendar"
+                      className="ml-2 md:ml-0 w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
+                    />
+                    <div>
+                      <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
+                        100% Placement
+                      </p>
+                      <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
+                        Course Duration
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Feature 3 */}
+                  <div className="flex items-start gap-3 md:gap-3 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
+                    <img
+                      src={image66}
+                      alt="Placement"
+                      className="mt-1 w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
+                    />
+                    <div>
+                      <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
+                        3 Months
+                      </p>
+                      <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
+                        Placement Assurance
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT SIDE IMAGE */}
+            <img
+              src={image110}
+              alt="Coding Setup"
+              className="pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
+            />
+          </div>
+        </div>
+
+        {/* fullstack section */}
+        <div className="px-4 md:px-[clamp(15px,6.51vw,187.64px)] py-5 md:pb-[clamp(14px,3.88vw,112px)] overflow-hidden">
+          <div className="flex md:flex-row flex-col md:gap-20">
+            <img
+              src={imageHeroSectio}
+              alt="Coding Setup"
+              className="hidden md:flex rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[387.708px] h-auto object-cover"
+            />
+            {/* LEFT SIDE */}
+            <div className="flex flex-col gap-2 md:gap-[clamp(10px,2.083vw,60px)]">
+              {/* Heading */}
+              <div className="flex flex-col gap-2">
+                <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
+                  <h1>Build It All.Be a </h1>
+                  <h1>
+                    <span className="text-[#21B495]">Full Stack</span> Pro
+                  </h1>
+                </div>
+                <p className="md:w-[80%] font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,2.02vw,29px)]">
+                  Our programs are delivered through flexible online training,
+                  with offline batches launching soon. Designed for beginners
+                  and aspiring professionals, our courses build strong
+                  foundations in both core concepts and technical skills—no
+                  prior coding experience required.
+                </p>
+              </div>
+
+              {/* CTA Button */}
+              <button className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
+                Learn More
+              </button>
+
+              {/* Features */}
+              <div className="py-7 md:py-0">
+                <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
+                  {/* Feature 1 */}
+                  <div className="flex items-start gap-3">
+                    <img
+                      src={image61}
+                      alt="Rupee"
+                      className="w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
+                    />
+                    <div>
+                      <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
+                        Get 65% OFF
+                      </p>
+                      <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
+                        Starting from ₹4,000
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Feature 2 */}
+                  <div className="flex items-start gap-3 md:gap-3 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
+                    <img
+                      src={image65}
+                      alt="Calendar"
+                      className="ml-2 md:ml-0 w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
+                    />
+                    <div>
+                      <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
+                        100% Placement
+                      </p>
+                      <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
+                        Course Duration
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Feature 3 */}
+                  <div className="flex items-start gap-3 md:gap-3 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
+                    <img
+                      src={image66}
+                      alt="Placement"
+                      className="mt-1 w-[clamp(25px,7.73vw,32px)] md:w-[clamp(25px,2.43vw,70px)] h-auto"
+                    />
+                    <div>
+                      <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
+                        3 Months
+                      </p>
+                      <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
+                        Placement Assurance
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT SIDE IMAGE */}
+            <img
+              src={imageHeroSectio}
+              alt="Coding Setup"
+              className="md:hidden pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
+            />
+          </div>
+        </div>
+
+        {/* placed students */}
+        <div className="gap-8 grid grid-cols-1 md:grid-cols-3 bg-[#2F3645] px-4 md:px-[clamp(16px,6.53vw,120px)] py-17 text-white text-center">
+          {/* Block 1 */}
+          <div className="flex flex-col items-center">
+            <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
+              1,000+
+            </h2>
+            <p className="mt-2 font-bold text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)]">
+              Students trained & Placed
+            </p>
+          </div>
+
+          {/* Block 2 */}
+          <div className="flex flex-col items-center">
+            <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
+              10+
+            </h2>
+            <p className="mt-2 font-bold text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)]">
+              Year of Experience
+            </p>
+          </div>
+
+          {/* Block 3 */}
+          <div className="flex flex-col items-center">
+            <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
+              60%
+            </h2>
+            <p className="mt-2 font-bold text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)]">
+              MNC & MLC Placements
+            </p>
+          </div>
+        </div>
+
+        {/* Effective learning */}
+        <div className="gap-8 grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] bg-white px-4 md:px-[clamp(16px,6.53vw,120px)] py-10 md:py-[clamp(16px,6.53vw,120px)]">
+          {/* Left Section */}
+          <div className="flex flex-col gap-6 md:text-left">
+            <h2 className="font-bold text-[#0F172A] text-[clamp(18px,8.7vw,36px)] md:text-[clamp(28px,3.47vw,70px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[126%]">
+              Equipped with the
+              <br /> Finest Tools for
+              <br /> Effective Learning
+            </h2>
+            <div className="hidden md:block">
+              <button className="hidden md:block bg-[#00FFD1] shadow-md px-8 md:px-[90px] py-3 md:py-[21px] rounded-full font-semibold text-[clamp(14px,2vw,16px)] text-black md:text-[clamp(16px,1.48vw,40px)] md:leading-[clamp(24px,2.23vw,40px)]">
+                Register for Free
+              </button>
+            </div>
+          </div>
+
+          {/* Right Section */}
+          <div className="gap-6 md:gap-x-[clamp(16px,2.08vw,30px)] md:gap-y-[clamp(20px,2.78vw,40px)] grid grid-cols-1 sm:grid-cols-2 px-[clamp(16px,10vw,40px)] md:px-0">
+            <BenefitCard
+              icon={videoIcon}
+              title="Interactive Sessions"
+              description="Engage in real-time learning with interactive sessions led by expert instructors."
+            />
+            <BenefitCard
+              icon={docIcon}
+              title="In-Depth Reading Resources"
+              description="Access comprehensive written resources like articles, handouts, and guides to deepen your understanding of each topic."
+            />
+            <BenefitCard
+              icon={performanceDocs}
+              title="Performance Assessments"
+              description="Evaluate your progress through structured assessments designed to strengthen your skills and knowledge."
+            />
+            <BenefitCard
+              icon={certificateIcon}
+              title="Certified Awards"
+              description="Gain confidence, validate your expertise, and become a certified professional in your field."
+            />
+          </div>
+          <button className="md:hidden bg-[#21B495] shadow-md px-8 py-3 rounded-full font-semibold text-[#FFFFFF] text-[clamp(16px,5.08vw,21.382px)] leading-[clamp(24px,7.62vw,32.073px)]">
+            Register for Free
+          </button>
+        </div>
+
+        {/* about section     */}
+        <section id="about" className="relative bg-white w-full">
+          {/* Background for mobile and desktop */}
+          <img
+            src={greenMobileBackgroundImage}
+            alt="Green Background"
+            className="top-0 z-0 absolute w-full h-auto"
+          />
+
+          {/* Top Section */}
+          <div className="z-10 relative mx-auto md:pt-[clamp(30px,3.81vw,110px)] text-center">
+            <h2 className="pt-2 font-bold text-[#292C34] text-[clamp(30px,8.737vw,36px)] md:text-[clamp(36px,3.819vw,110px)] leading-[clamp(54px,15.29vw,63px)] md:leading-[clamp(54px,4.375vw,126px)]">
+              About Us
+            </h2>
+            <p className="font-semibold text-[#292C34] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.04vw,32px)] leading-[clamp(25px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
+              Empowering Careers Through Real-World Tech Training
+            </p>
+            <div className="md:mx-[clamp(16px,17.99vw,518px)] mt-2 px-4 md:pt-[clamp(30px,1.73vw,50px)]">
+              <img
+                src={mobileMeetingWithborder}
+                alt="Meeting"
+                className="mx-auto rounded-[clamp(18px,2vw,26px)] w-full"
+              />
+            </div>
+          </div>
+
+          <div className="flex md:flex-row flex-col justify-between md:px-[clamp(16px,6.39vw,184px)] pt-6 md:pb-[clamp(30px,6.45vw,186px)]">
+            {/* Left Text */}
+            <div className="px-4 md:w-[50%]">
+              <div className="px-1.5 w-[95]">
+                <h3 className="font-semibold text-[#12161F] text-[clamp(18px,5.82vw,24px)] md:text-[clamp(24px,2.23vw,64px)] leading-[clamp(26px,7.28vw,30px)] md:leading-[clamp(30px,4.375vw,126px)]">
+                  Our story
+                  <div className="text-[#21B495]">Kamlanil Technologies</div>
+                </h3>
+
+                <p className="mt-2 text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.11vw,32px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,6.55vw,1.875px)]">
+                  At KamlanilTech, we empower future-ready tech professionals
+                  through practical, hands-on IT training and expert
+                  consultancy. Our programs in Full Stack Development, Software
+                  Testing, and AWS-DevOps are designed to bridge the gap between
+                  theory and industry demands.
+                </p>
+              </div>
+              {/* Mission & Vision */}
+              <div className="space-y-4 px-2.5 w-[95%]">
+                <div>
+                  <h4 className="mt-5 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
+                    Mission
+                  </h4>
+                  <p className="text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(14px,1.31vw,38px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
+                    To transform careers and businesses by delivering
+                    real-world, expert-led IT education and consultancy.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
+                    Vision
+                  </h4>
+                  <p className="text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(14px,1.31vw,38px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
+                    To be a trusted leader in IT training, building a skilled
+                    workforce through quality, innovation, and practical
+                    learning.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Feature Box */}
+
+            <div className="mt-6 px-4">
+              <div
+                className="relative bg-cover bg-no-repeat bg-center px-7.5 md:px-[clamp(38px,4.57vw,131.74px)] md:py-[clamp(20px,5.55vw,160px)] pt-9.5 pb-14.5 rounded-2xl md:w-[clamp(280px,30.23vw,870.828px)]"
+                style={{
+                  backgroundImage: `url(${greenTextBackgroundImage})`,
+                }}
+              >
+                <div className="flex justify-center items-center w-full h-full">
+                  <div className="space-y-3 bg-[#21B495] p-6 rounded-[21px] text-white">
+                    {[
+                      "Diverse Programs: Full Stack Development, Software Testing (Manual + Automation), and AWS-DevOps",
+                      "Flexible Learning: 100% Online Courses with Weekend & Weekday Batches",
+                      "Industry-Focused Training: Hands-on projects aligned with real-world technologies",
+                      "Career-Driven Outcomes: Empowering students to land jobs with practical, job-ready skills",
+                      "Integrated Approach: Blending coding, cloud, testing, and DevOps for a complete IT foundation",
+                    ].map((text, index) => (
+                      <div key={index}>
+                        <div className="flex gap-2">
+                          <img
+                            src={rightIconSvg}
+                            className="mt-1 w-[20px] h-[20px]"
+                          />
+                          <p className="font-medium text-[clamp(9px,2.88vw,11.87px)] md:text-[clamp(11.87px,0.82vw,23.74px)] leading-[clamp(17px,4.80vw,19.784px)] md:leading-[clamp(19.784px,1.373vw,39.568px)]">
+                            {text}
+                          </p>
+                        </div>
+                        {index !== 4 && (
+                          <div className="bg-[#FFFFFF] opacity-30 my-[7px] h-[1px]"></div>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* sdet trainer banner */}
+        <section className="w-full">
+          {/* Section 1: SDET Training Banner */}
+          <div className="relative bg-[url('/images/sdetBackgrounImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left px-4 md:px-[clamp(16px,5vw,230px)] pt-[120px] md:pt-[150px] w-full h-[820px] md:h-[74vh]">
+            <h2 className="font-bold text-[clamp(18px,8.7vw,36px)] text-white md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5px,5.56vw,160px)]">
+              Break into <span className="text-[#71ffe5]">IT</span> with
+              Practical <span className="text-[#00FFD1]">SDET Training</span>
+            </h2>
+            <div className="flex flex-col gap-3 mt-6">
+              <p className="font-medium text-[#fff] text-[clamp(12px,3.39vw,14px)] md:text-[clamp(14px,1.319vw,38px)] leading-[clamp(23px,6.310vw,26px)] md:leading-[clamp(23px,1.80vw,52px)]">
+                An SDET is much more than just a tester or QA professional. They
+                bring a powerful blend of development skills, quality assurance
+                expertise, and project insight. SDETs work closely with
+                development teams, contribute to product development, write
+                application code, understand end-user requirements, and build
+                custom automation tools.
               </p>
-              <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] leading-[clamp(18.9px,5.1vw,21.6px)]">
-                Our classes are scheduled to fit around your existing
-                commitments, with twice-weekly weekday sessions in the early
-                evening, so there's no need to take time off from work or
-                studies. For added convenience, weekend classes are available as
-                well — attend on Saturday or Sunday, either online or at our
-                training center.
-                <br />
-                Plus, all sessions are recorded, so if you miss a class, you can
-                easily catch up at your own pace.
+              <p className="font-medium text-[#fff] text-[clamp(12px,3.39vw,14px)] md:text-[clamp(14px,1.319vw,38px)] leading-[clamp(23px,6.310vw,26px)] md:leading-[clamp(23px,1.80vw,52px)]">
+                This unique combination of skills makes the SDET role highly
+                valuable and in demand across the software industry. While a ]QA
+                engineer may be sufficient for small web applications, complex
+                systems with advanced business logic and long development cycles
+                absolutely require the depth and versatility that an SDET
+                brings.
               </p>
             </div>
           </div>
-          {/* Image */}
-        </div>
-      </section>
 
-      {/* Contact Section */}
-      <section id="Contact-Us" className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 md:px-16 py-12 w-full">
-        {/* Contact Info */}
-        <div className="space-y-3">
-          <h2 className="font-bold text-[#12161F] text-[clamp(18px,8.7vw,36px)] leading-[clamp(23px,11.2vw,46.5px)]">
-            Contact Details
-          </h2>
-          <h3 className="font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] leading-[clamp(24px,7.2vw,30px)]">
-            Let's Connect
-          </h3>
-          <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] leading-[clamp(18.9px,5.1vw,21.6px)]">
-            We’re here to help! Whether you have questions about our courses,
-            need IT consultancy, or just want to say hello — don’t hesitate to
-            reach out. Fill out the form below, and our team will get back to
-            you as soon as possible.
-          </p>
-
-          {/* Contact Icons */}
-          <div className="space-y-4 text-[clamp(14px,2vw,16px)]">
-            <div className="flex gap-[6px]">
-              <img src={mapIcon} className="w-8 h-8" />
-              <div className="font-medium text-[12px] leading-4">
-                <p className="leading-4">Location:</p>
-                <p className="text-[#21B495] leading-4">Pune , Maharashtra</p>
+          {/* Section 2: Flexible Learning */}
+          <div className="bg-white">
+            <h2 className="mb-4 md:mb-0 px-4 pt-[clamp(40px,4.93vw,142px)] md:pl-[clamp(50px,6.45vw,183px)] font-bold text-[#000] text-[clamp(18px,8.7vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5px,5.56vw,160px)]">
+              Flexible Learning That Fits Your Schedule
+            </h2>
+            <div className="flex md:flex-row flex-col justify-between md:pr-[clamp(50px,6.45vw,186px)] md:pl-[clamp(94px,10.41vw,300px)]">
+              <div className="flex justify-center">
+                <img
+                  src={trainingsvg}
+                  alt="Flexible Learning"
+                  className="w-full max-w-md object-contain"
+                />
               </div>
-            </div>
-            <div className="flex gap-[6px]">
-              <img src={phoneIcon} className="w-8 h-8" />
-              <div className="font-medium text-[12px] leading-4">
-                <p className="leading-4">Phone(9am - 6am):</p>
-                <p className="text-[#21B495] leading-4">+91-9322374766</p>
-              </div>
-            </div>
-            <div className="flex gap-[6px]">
-              <img src={emailIcon} className="w-8 h-8" />
-              <div className="font-medium text-[12px] leading-4">
-                <p className="leading-4">E-mail::</p>
-                <p className="text-[#21B495] leading-4">
-                  info@kamlaniltech.com
+              {/* Content */}
+              <div className="flex flex-col gap-5 md:my-20 px-4 pt-5 md:w-[45%]">
+                <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6px,1.80vw,52px)]">
+                  One of the key advantages of learning with Kamlanil
+                  Technologies is the flexibility we offer for working
+                  professionals and students alike.
+                </p>
+                <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6px,1.80vw,52px)]">
+                  Our classes are scheduled to fit around your existing
+                  commitments, with twice-weekly weekday sessions in the early
+                  evening, so there's no need to take time off from work or
+                  studies. For added convenience, weekend classes are available
+                  as well — attend on Saturday or Sunday, either online or at
+                  our training center.
+                  <br />
+                  Plus, all sessions are recorded, so if you miss a class, you
+                  can easily catch up at your own pace.
                 </p>
               </div>
             </div>
+            {/* Image */}
           </div>
-        </div>
+        </section>
 
-        {/* Contact Form */}
-        <div className="px-4">
-          <div className="bg-[rgba(167,159,168,0.34)] md:p-8 px-5 py-3 rounded-[13.583px] w-full">
-            <form className="flex flex-col gap-1">
-              <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
-                  Name *
-                </label>
-                <input type="text" placeholder="Enter Name" className="input" />
-              </div>
-              <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
-                  Phone no. *
-                </label>
-                <div className="flex py-2 input">
-                  <div className="inline-flex items-center bg-[#EEE] px-4 border border-gray-300 rounded-md whitespace-nowrap">
-                    🇮🇳 +91{"   "}
-                  </div>
-                  <input
-                    type="tel"
-                    placeholder="Enter phone number"
-                    className="input"
-                  />
+        {/* Contact Section */}
+        <section
+          id="contact"
+          className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 md:px-16 py-12 w-full"
+        >
+          {/* Contact Info */}
+          <div className="">
+            <h2 className="font-bold text-[#12161F] text-[clamp(18px,8.7vw,36px)] md:text-[clamp(16px,3.48vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
+              Contact Details
+            </h2>
+            <h3 className="font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] md:text-[clamp(24px,1.67vw,48px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
+              Let's Connect
+            </h3>
+            <p className="py-4.5 md:py-4 md:max-w-[86%] md:font-normal font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6pxpx,2.08vw,60px)] ]">
+              We’re here to help! Whether you have questions about our courses,
+              need IT consultancy, or just want to say hello — don’t hesitate to
+              reach out. Fill out the form below, and our team will get back to
+              you as soon as possible.
+            </p>
+
+            {/* Contact Icons */}
+            <div className="space-y-4 text-[clamp(14px,2vw,16px)]">
+              <div className="flex gap-[6px]">
+                <img
+                  src={mapIcon}
+                  className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
+                />
+                <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                  <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
+                    Location:
+                  </p>
+                  <p className="text-[#21B495] leading-4">Pune , Maharashtra</p>
                 </div>
               </div>
-              <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  placeholder="Enter email"
-                  className="input"
+              <div className="flex gap-[6px]">
+                <img
+                  src={phoneIcon}
+                  className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
                 />
+                <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                  <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
+                    Phone(9am - 6am):
+                  </p>
+                  <p className="text-[#21B495] leading-4">+91-9322374766</p>
+                </div>
               </div>
-              <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
-                  Course *
-                </label>
-                <select className="input">
-                  <option>Select Course</option>
-                  <option>Full Stack</option>
-                  <option>QA Testing</option>
-                  <option>AWS DevOps</option>
-                </select>
-              </div>
-              <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
-                  City *
-                </label>
-                <input type="text" placeholder="Enter City" className="input" />
-              </div>
-              <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
-                  Message
-                </label>
-                <textarea
-                  placeholder="Type your message here..."
-                  rows="3"
-                  className="input"
+              <div className="flex gap-[6px]">
+                <img
+                  src={emailIcon}
+                  className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
                 />
+                <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                  <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
+                    E-mail::
+                  </p>
+                  <p className="text-[#21B495] leading-4">
+                    info@kamlaniltech.com
+                  </p>
+                </div>
               </div>
-              <button
-                type="submit"
-                className="bg-[#21B495] hover:bg-[#00b970] mt-3 py-4 rounded-[33px] w-full font-bold text-[#000] text-[12px] transition cursor-pointer"
-              >
-                Send Message
-              </button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="flex justify-center bg-[#2F3645] px-4 md:px-16 py-10 pb-20">
-        <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
-          {/* Logo & Description */}
-          <div className="flex flex-col items-center space-y-4">
-            <div className="flex items-center gap-2">
-              <img src={company_logo} alt="Logo" className="w-[140px]" />
             </div>
-            <p className="w-[70%] text-[#fff] text-[12px] text-center">
-              Empowering future-ready professionals through practical tech
-              training and real-world skills.
-            </p>
-            {/* <div className="flex gap-3 mt-4">
-              <a href="#">
-                <img
-                  src="/icons/linkedin.svg"
-                  alt="LinkedIn"
-                  className="w-6 h-6"
-                />
-              </a>
-              <a href="#">
-                <img
-                  src="/icons/instagram.svg"
-                  alt="Instagram"
-                  className="w-6 h-6"
-                />
-              </a>
-              <a href="#">
-                <img
-                  src="/icons/whatsapp.svg"
-                  alt="WhatsApp"
-                  className="w-6 h-6"
-                />
-              </a>
-            </div> */}
           </div>
 
-          {/* Quick Links */}
-          <div className="flex flex-col items-center space-y-4">
-            <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
-              Quick Links
-            </h3>
-            <ul className="space-y-2 font-medium text-[#00FFCA] text-sm">
-              <li>
-                <a href="#">Home</a>
-              </li>
-              <li>
-                <a href="#">About</a>
-              </li>
-              <li>
-                <a href="#">Courses</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
-              </li>
-            </ul>
+          {/* Contact Form */}
+          <div className="px-4">
+            <div className="bg-[rgba(167,159,168,0.34)] md:p-8 px-5 py-3 rounded-[13.583px] w-full">
+              <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Enter Name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                  />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm">{errors.name}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    Phone no. *
+                  </label>
+                  <div className="flex py-2 input">
+                    <div className="inline-flex items-center bg-[#EEE] px-4 border border-gray-300 rounded-md whitespace-nowrap">
+                      🇮🇳 +91{"   "}
+                    </div>
+                    <input
+                      type="tel"
+                      placeholder="Enter phone number"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                    />
+                  </div>
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm">{errors.phone}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Enter email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm">{errors.email}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    Course *
+                  </label>
+                  <select
+                    className="input"
+                    name="course"
+                    value={formData.course}
+                    onChange={handleChange}
+                  >
+                    <option>Select Course</option>
+                    <option>Full Stack</option>
+                    <option>QA Testing</option>
+                    <option>AWS DevOps</option>
+                  </select>
+                  {errors.course && (
+                    <p className="text-red-500 text-sm">{errors.course}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    City *
+                  </label>
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="Enter City"
+                    value={formData.city}
+                    onChange={handleChange}
+                    className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                  />
+                  {errors.city && (
+                    <p className="text-red-500 text-sm">{errors.city}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    Message
+                  </label>
+                  <textarea
+                    placeholder="Type your message here..."
+                    rows="3"
+                    name="message"
+                    className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                    value={formData.message}
+                    onChange={handleChange}
+                  />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm">{errors.message}</p>
+                  )}
+                </div>
+                <button
+                  type="submit"
+                  className="block bg-[#21B495] hover:bg-[#00b970] mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition cursor-pointer"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
+        </section>
 
-          {/* Contact Info */}
-          <div className="flex flex-col items-center space-y-4">
-            <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
-              CONTACT
-            </h3>
-            <div className="flex flex-col items-center">
-              <img src={smallMapIcon} className="w-[15px] h-[17px]" />
-              <p className="font-bold text-[12px] text-white">Location</p>
-              <p className="font-medium text-[#21B495] text-[12px]">
-                Pune , Maharashtra
+        {/* Footer */}
+        <footer className="flex justify-center bg-[#2F3645] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]">
+          <div className="gap-8 md:gap-30 grid grid-cols-1 md:grid-cols-3">
+            {/* Logo & Description */}
+            <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-start">
+              <div className="flex items-center gap-2">
+                <img src={company_logo} alt="Logo" />
+              </div>
+              <p className="w-[75%] md:w-[120%] text-[#fff] text-[12px] md:text-[clamp(12px,1.04vw,30px)] text-center md:text-start">
+                Empowering future-ready professionals through practical tech
+                training and real-world skills.
               </p>
+              <div className="hidden md:flex gap-3 mt-4">
+                <a
+                  href="#"
+                  className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
+                >
+                  <img src={linkedin} alt="LinkedIn" className="w-7 h-7" />
+                </a>
+                <a
+                  href="#"
+                  className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
+                >
+                  <img src={instagram} alt="Instagram" className="w-7 h-7" />
+                </a>
+                <a
+                  href="#"
+                  className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
+                >
+                  <img src={whatsapp} alt="WhatsApp" className="w-7 h-7" />
+                </a>
+              </div>
             </div>
-            <div className="flex flex-col items-center">
-              <img src={smallPhoneSvg} className="w-[15px] h-[17px]" />
-              <p className="font-bold text-[12px] text-white">Phone</p>
-              <p className="font-medium text-[#21B495] text-[12px]">
-                +91-9322374766
-              </p>
+
+            {/* Quick Links */}
+            <div className="flex flex-col items-center gap-4 md:gap-0 text-center">
+              <h3 className="font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(12px,1.38vw,40px)] text-center md:leading-[clamp(50px,4.375vw,126px)]">
+                Quick Links
+              </h3>
+              <ul className="space-y-4 font-medium text-[#00FFCA] text-sm">
+                <li className="md:text-[clamp(12px,1.041vw,30px)]">
+                  <a href="#">Home</a>
+                </li>
+                <li className="md:text-[clamp(12px,1.041vw,30px)]">
+                  <a href="#">About</a>
+                </li>
+                <li className="md:text-[clamp(12px,1.041vw,30px)]">
+                  <a href="#">Courses</a>
+                </li>
+                <li className="md:text-[clamp(12px,1.041vw,30px)]">
+                  <a href="#">Contact</a>
+                </li>
+              </ul>
             </div>
-            <div className="flex flex-col items-center">
-              <img src={smallEmailSvg} className="w-[15px] h-[17px]" />
-              <p className="font-bold text-[12px] text-white">Email</p>
-              <p className="font-medium text-[#21B495] text-[12px]">
-                info@kamlaniltech.com
-              </p>
+
+            {/* Contact Info */}
+            <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-start">
+              <h3 className="font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(16px,1.38vw,40px)]">
+                CONTACT
+              </h3>
+
+              <div className="flex md:flex-row flex-col items-center md:items-start">
+                <div className="flex flex-col">
+                  <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                    <img
+                      src={smallMapIcon}
+                      className="md:mt-2 w-[15px] h-[17px]"
+                    />
+                    <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
+                      Location
+                    </p>
+                  </div>
+                  <p className="font-medium text-[#21B495] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)]">
+                    Pune, Maharashtra
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center md:items-start">
+                <div className="flex flex-col">
+                  <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                    <img
+                      src={smallPhoneSvg}
+                      className="md:mt-2 w-[15px] h-[17px]"
+                    />
+                    <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
+                      Phone
+                    </p>
+                  </div>
+                  <p className="font-medium text-[#21B495] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)]">
+                    +91-9322374766
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col items-center md:items-start">
+                <div className="flex flex-col">
+                  <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                    <img
+                      src={smallEmailSvg}
+                      className="md:mt-2 w-[15px] h-[17px]"
+                    />
+                    <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
+                      Email
+                    </p>
+                  </div>
+                  <p className="font-medium text-[#21B495] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)]">
+                    info@kamlaniltech.com
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="md:hidden flex flex-col items-center space-y-4">
+              <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
+                Social Media
+              </h3>
+              <div className="flex flex-row gap-3">
+                <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                  <img src={linkedin} className="w-[16px] h-[16px]" />
+                </div>
+                <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                  <img src={instagram} className="w-[16px] h-[16px]" />
+                </div>
+                <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                  <img src={whatsapp} className="w-[16px] h-[16px]" />
+                </div>
+              </div>
             </div>
           </div>
-          <div className="flex flex-col items-center space-y-4">
-            <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
-              Social Media
-            </h3>
-            <div className="flex flex-row gap-3">
-              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
-                <img src={linkedin} className="w-[16px] h-[16px]" />
-              </div>
-              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
-                <img src={instagram} className="w-[16px] h-[16px]" />
-              </div>
-              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
-                <img src={whatsapp} className="w-[16px] h-[16px]" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
-    </div>
+        </footer>
+      </div>
+    </>
   );
 }

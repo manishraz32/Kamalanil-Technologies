@@ -4,10 +4,18 @@ import image1 from "../assets/image 113.png";
 import company_logo from "../assets/company_logo.png";
 import Arrow_down from "../assets/Arrow down filled triangle.png";
 import image117 from "../assets/image 117.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleNavigation = (sectionId) => {
+    navigate("/", { state: { scrollTo: sectionId } });
+    setIsMobileMenuOpen(false); // close menu if open
+  };
 
   return (
     <>
@@ -15,19 +23,30 @@ const Navbar = () => {
         <div className="flex justify-between items-center w-full">
           {/* Logo */}
           <div className="md:flex items-center gap-4">
-            <img src={company_logo} alt="company_logo" />
+            <img src={company_logo} 
+            alt="company_logo"
+            onClick={() => handleNavigation("#home")}
+             />
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden relative md:flex items-center gap-[clamp(16px,4.17vw,80px)]">
             <a
               href="#home"
+              onClick={() => handleNavigation("#home")}
               className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
             >
               Home
             </a>
-            <a
+            {/* <a
               href="#about"
+              className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
+            >
+              About Us
+            </a> */}
+
+            <a
+              onClick={() => handleNavigation("about")}
               className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
             >
               About Us
@@ -61,8 +80,15 @@ const Navbar = () => {
               )}
             </div>
 
-            <a
+            {/* <a
               href="#contact"
+              className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
+            >
+              Contact Us
+            </a> */}
+
+            <a
+              onClick={() => handleNavigation("contact")}
               className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
             >
               Contact Us
@@ -117,7 +143,6 @@ const Navbar = () => {
             <div className="pb-2 border-b">
               <div
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-               
                 className="flex justify-between items-center cursor-pointer"
               >
                 <span>Courses</span>
