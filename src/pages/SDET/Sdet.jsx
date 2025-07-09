@@ -26,13 +26,12 @@ import smallEmailSvg from "../../assets/images/smallEmailSvg.svg";
 import smallMapIcon from "../../assets/images/smallMapIcon.svg";
 import smallPhoneSvg from "../../assets/images/smallPhoneSvg.svg";
 
-
 const SDET = () => {
   return (
     <>
       <Navbar />
       {/* hero section */}
-      <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 section-padding">
+      <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(28px,6.53vw,188px)] py-8 md:py-[clamp(28px,4.86vw,70px)]">
         <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
           <div className="flex flex-col gap-2">
             <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
@@ -138,39 +137,39 @@ const SDET = () => {
       </div>
 
       {/* secound section */}
-      <div className="flex sm:flex-row flex-col justify-between gap-6 lg:gap-10 bg-[rgba(55,55,55,0.10)] px-10 md:px-[clamp(138px,6.5vw,138px)] w-full">
-        <div className="flex flex-col md:gap-5 w-full">
+      <div className="flex sm:flex-row flex-col justify-between gap-6 lg:gap-10 bg-[rgba(55,55,55,0.10)] px-4 md:px-[clamp(138px,6.5vw,138px)] py-7 w-full">
+        <div className="flex flex-col gap-3 md:gap-5 w-full">
           {/* Heading */}
-          <h1 className="md:pt-12 w-full font-montserrat font-bold text-[#12161F] text-[clamp(30px,8.73vw,36px)] md:text-[clamp(36px,3.472vw,100px)] leading-[clamp(40px,11.16vw,46.482px)] md:leading-[clamp(36px,4.375vw,126px)]">
+          <h1 className="items-center md:pt-12 w-full font-montserrat font-bold text-[#12161F] text-[clamp(30px,8.73vw,36px)] md:text-[clamp(36px,3.472vw,100px)] text-center md:text-start leading-[clamp(40px,11.16vw,46.482px)] md:leading-[clamp(36px,4.375vw,126px)]">
             Secure Your Spot in the Next{" "}
             <span className="text-[#21B495]">SDET</span> Batch
           </h1>
           <div className="flex lg:flex-row flex-col md:gap-[clamp(20px,9.73vw,280px)] md:px-10">
             {/* Left side - Dates */}
-            <div className="flex flex-col items-start xl:text-left text-center">
+            <div className="flex flex-col items-center md:items-start md:text-left text-center">
               <div className="flex items-center gap-2">
                 <img src={image79} alt="calendar" className="w-8 h-8" />
-                <h2 className="font-bold text-[#12161F] text-[clamp(16px,1.73vw,25px)] md:text-[clamp(16px,1.73vw,50px)] leading-[clamp(24px,15.29vw,63px)] md:leading-[clamp(24px,4.375vw,126px)]">
+                <h2 className="font-bold text-[#12161F] text-[clamp(16px,6.06vw,25px)] md:text-[clamp(16px,1.73vw,50px)] leading-[clamp(24px,15.29vw,63px)] md:leading-[clamp(24px,4.375vw,126px)]">
                   July 1st, 2025
                 </h2>
               </div>
 
               <div className="flex items-center gap-2">
                 <img src={image79} alt="calendar" className="w-8 h-8" />
-                <h2 className="font-bold text-[#12161F] text-[clamp(16px,1.73vw,25px)] md:text-[clamp(16px,1.73vw,50px)] leading-[clamp(24px,15.29vw,63px)] md:leading-[clamp(24px,4.375vw,126px)]">
+                <h2 className="font-bold text-[#12161F] text-[clamp(16px,6.06vw,25px)] md:text-[clamp(16px,1.73vw,50px)] leading-[clamp(24px,15.29vw,63px)] md:leading-[clamp(24px,4.375vw,126px)]">
                   Oct 1st, 2025
                 </h2>
               </div>
 
               <div className="flex items-center gap-2">
                 <img src={image79} alt="calendar" className="w-8 h-8" />
-                <h2 className="font-bold text-[#12161F] text-[clamp(16px,1.73vw,25px)] md:text-[clamp(16px,1.73vw,50px)] leading-[clamp(24px,15.29vw,63px)] md:leading-[clamp(24px,4.375vw,126px)]">
+                <h2 className="font-bold text-[#12161F] text-[clamp(16px,6.06vw,25px)] md:text-[clamp(16px,1.73vw,50px)] leading-[clamp(24px,15.29vw,63px)] md:leading-[clamp(24px,4.375vw,126px)]">
                   Jan 1st, 2026
                 </h2>
               </div>
             </div>
 
-            <div className="flex items-start gap-2 mt-8 lg:mt-0 w-[65%]">
+            <div className="flex items-start gap-2 mt-8 lg:mt-0 md:w-[65%]">
               <span className="hidden sm:flex mb-60 text-[#00C853] text-[48px] leading-[48px]">
                 •
               </span>
@@ -188,7 +187,7 @@ const SDET = () => {
 
       {/* secound section */}
       <div
-        className="bg-black"
+        className="bg-black py-14 md:py-0"
         style={{
           backgroundImage: `url('/path-to-your-image.jpg')`,
         }}
@@ -199,7 +198,7 @@ const SDET = () => {
             <p className="text-[#00FFCA]">#LearnandGrow</p>
           </div>
 
-          <p className="md:mt-5 font-montserrat font-semibold text-[#F5F5F5] text-[clamp(12px,3.64vw,15px)] md:text-[clamp(15px,1.52vw,44px)] text-center leading-[clamp(19px,5.33vw,22px)] md:leading-[clamp(22px,2.08vw,60px)]">
+          <p className="mt-4 md:mt-5 w-[95%] font-montserrat font-semibold text-[#F5F5F5] text-[clamp(12px,3.64vw,15px)] md:text-[clamp(15px,1.52vw,44px)] text-center leading-[clamp(19px,5.33vw,22px)] md:leading-[clamp(22px,2.08vw,60px)]">
             We will help you unlock your inner potential so you can excel in
             your professional field. Learn to use all the related tools, walk
             into a job and be a rockstar from day one.
@@ -294,20 +293,23 @@ const SDET = () => {
 
       {/* 5th section */}
 
-      <section className="bg-white px-[5px] md:px-[clamp(15px,7.23vw,208px)] md:py-[clamp(15px,5.56vw,160px)] pt-8 overflow-hidden">
-        <div className="flex lg:flex-row flex-col gap-10 bg-[rgba(55,55,55,0.10)] p-5 md:p-9.5">
+      <section className="bg-white px-4 md:px-[clamp(15px,7.23vw,208px)] md:py-[clamp(15px,5.56vw,160px)] pt-8 overflow-hidden">
+        <div className="flex lg:flex-row flex-col gap-10 bg-[rgba(55,55,55,0.10)] md:p-9.5 px-4 py-6 m:py-0">
           <div className="flex flex-col flex-1 items-center sm:items-start gap-[clamp(24px,2.055vw,470px)]">
             <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(35px,9.89vw,40.742px)] md:text-[clamp(40.742px,3.47vw,100px)] text-center md:text-start leading-[clamp(46px,12.45vw,51.335px)] md:leading-[clamp(51.335px,4.375vw,126px)">
               No background in tech? No problem.
             </h2>
 
-            <p className="font-montserrat font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.56vw,27px)] md:leading-[clamp(23px,1.875vw,54px)]">
+            <p className="px-2 font-montserrat font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.56vw,27px)] md:leading-[clamp(23px,1.875vw,54px)]">
               This course is perfect for individuals from non-IT backgrounds who
-              want to break into the world of software testing. You'll learn how
+              want to break into the world of software testing.
+              <br/>
+               You'll learn how
               to become an SDET (Software Development Engineer in Test) —
               someone who designs, writes, and maintains automated tests to
               ensure software quality. As an SDET, you'll collaborate closely
               with developers to deliver reliable, high-performing applications.
+              <br/>
               No prior IT experience is needed. We provide complete training and
               hands-on resources to support your learning journey. If you're
               ready to start a career in software testing, this course is the
@@ -328,7 +330,7 @@ const SDET = () => {
           </div>
         </div>
 
-        <div className="flex lg:flex-row flex-col gap-7 bg-white px-4 pt-15 text-[#12161F]">
+        <div className="flex lg:flex-row flex-col gap-3 bg-white px-4 pt-15 text-[#12161F]">
           <div className="flex-1 sm:pl-5 w-full max-w-[450px]">
             <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(31px,9.15vw,37.72px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(52.78px,4.75vw,126px)] md:leading-[clamp(52.78px,15.29vw,63px)]">
               SDET Careers
@@ -425,7 +427,7 @@ const SDET = () => {
           </div>
         </div>
       </section>
-      <section className="bg-white px-[20px]">
+      <section className="bg-white px-[20px] pt-7 md:pt-0">
         <h2 className="sm:pb-2 font-montserrat font-bold text-[#12161F] text-[clamp(30px,8.49vw,35px)] md:text-[clamp(35px,3.47vw,100px)] text-center leading-[clamp(43.146px,6vw,51.335px)] md:leading-[clamp(51.335px,4.375vw,126px)]">
           Frequently asked Questions
         </h2>
@@ -443,9 +445,9 @@ const SDET = () => {
           ].map((question, index) => (
             <div
               key={index}
-              className="flex justify-between items-center px-2 border-[#9E9E9E] border-b-[1px] font-montserrat font-semibold text-[#12161F] text-[clamp(14px,1.8vw,18px)] leading-[1.6]"
+              className="flex justify-between items-center gap-2 px-3.5 border-[#9E9E9E] border-b-[1px] font-montserrat font-semibold text-[#12161F] text-[clamp(14px,1.8vw,18px)] leading-[1.6]"
             >
-              <span className="p-7 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)]">
+              <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)]">
                 {question}
               </span>
               <span>
@@ -456,18 +458,18 @@ const SDET = () => {
         </div>
       </section>
       <section
-        id="Contact-Us"
+        id="contact"
         className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 md:px-16 py-12 w-full"
       >
         {/* Contact Info */}
-        <div className="space-y-3">
-          <h2 className="font-bold text-[#12161F] text-[clamp(18px,8.7vw,36px)] leading-[clamp(23px,11.2vw,46.5px)]">
+        <div className="">
+          <h2 className="font-bold text-[#12161F] text-[clamp(18px,8.7vw,36px)] md:text-[clamp(16px,3.48vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
             Contact Details
           </h2>
-          <h3 className="font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] leading-[clamp(24px,7.2vw,30px)]">
+          <h3 className="font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] md:text-[clamp(24px,1.67vw,48px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
             Let's Connect
           </h3>
-          <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] leading-[clamp(18.9px,5.1vw,21.6px)]">
+          <p className="py-4.5 md:py-4 md:max-w-[86%] md:font-normal font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6pxpx,2.08vw,60px)] ]">
             We’re here to help! Whether you have questions about our courses,
             need IT consultancy, or just want to say hello — don’t hesitate to
             reach out. Fill out the form below, and our team will get back to
@@ -477,23 +479,38 @@ const SDET = () => {
           {/* Contact Icons */}
           <div className="space-y-4 text-[clamp(14px,2vw,16px)]">
             <div className="flex gap-[6px]">
-              <img src={mapIcon} className="w-8 h-8" />
-              <div className="font-medium text-[12px] leading-4">
-                <p className="leading-4">Location:</p>
+              <img
+                src={mapIcon}
+                className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
+              />
+              <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
+                  Location:
+                </p>
                 <p className="text-[#21B495] leading-4">Pune , Maharashtra</p>
               </div>
             </div>
             <div className="flex gap-[6px]">
-              <img src={phoneIcon} className="w-8 h-8" />
-              <div className="font-medium text-[12px] leading-4">
-                <p className="leading-4">Phone(9am - 6am):</p>
+              <img
+                src={phoneIcon}
+                className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
+              />
+              <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
+                  Phone(9am - 6am):
+                </p>
                 <p className="text-[#21B495] leading-4">+91-9322374766</p>
               </div>
             </div>
             <div className="flex gap-[6px]">
-              <img src={emailIcon} className="w-8 h-8" />
-              <div className="font-medium text-[12px] leading-4">
-                <p className="leading-4">E-mail::</p>
+              <img
+                src={emailIcon}
+                className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
+              />
+              <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
+                  E-mail::
+                </p>
                 <p className="text-[#21B495] leading-4">
                   info@kamlaniltech.com
                 </p>
@@ -507,13 +524,17 @@ const SDET = () => {
           <div className="bg-[rgba(167,159,168,0.34)] md:p-8 px-5 py-3 rounded-[13.583px] w-full">
             <form className="flex flex-col gap-1">
               <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
+                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
                   Name *
                 </label>
-                <input type="text" placeholder="Enter Name" className="input" />
+                <input
+                  type="text"
+                  placeholder="Enter Name"
+                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                />
               </div>
               <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
+                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
                   Phone no. *
                 </label>
                 <div className="flex py-2 input">
@@ -523,22 +544,22 @@ const SDET = () => {
                   <input
                     type="tel"
                     placeholder="Enter phone number"
-                    className="input"
+                    className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   />
                 </div>
               </div>
               <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
+                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
                   Email *
                 </label>
                 <input
                   type="email"
                   placeholder="Enter email"
-                  className="input"
+                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                 />
               </div>
               <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
+                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
                   Course *
                 </label>
                 <select className="input">
@@ -549,24 +570,28 @@ const SDET = () => {
                 </select>
               </div>
               <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
+                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
                   City *
                 </label>
-                <input type="text" placeholder="Enter City" className="input" />
+                <input
+                  type="text"
+                  placeholder="Enter City"
+                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                />
               </div>
               <div>
-                <label className="block font-bold text-[12px] leading-[42px]">
+                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
                   Message
                 </label>
                 <textarea
                   placeholder="Type your message here..."
                   rows="3"
-                  className="input"
+                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                 />
               </div>
               <button
                 type="submit"
-                className="bg-[#21B495] hover:bg-[#00b970] mt-3 py-4 rounded-[33px] w-full font-bold text-[#000] text-[12px] transition cursor-pointer"
+                className="block bg-[#21B495] hover:bg-[#00b970] mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition cursor-pointer"
               >
                 Send Message
               </button>
@@ -574,91 +599,120 @@ const SDET = () => {
           </div>
         </div>
       </section>
-      <footer className="flex justify-center bg-[#2F3645] px-4 md:px-16 py-10 pb-20">
-        <div className="gap-8 grid grid-cols-1 md:grid-cols-3">
+
+      <footer className="flex justify-center bg-[#2F3645] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]">
+        <div className="gap-8 md:gap-30 grid grid-cols-1 md:grid-cols-3">
           {/* Logo & Description */}
-          <div className="flex flex-col items-center space-y-4">
+          <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-start">
             <div className="flex items-center gap-2">
-              <img src={company_logo} alt="Logo" className="w-[140px]" />
+              <img src={company_logo} alt="Logo" />
             </div>
-            <p className="w-[70%] text-[#fff] text-[12px] text-center">
+            <p className="w-[75%] md:w-[120%] text-[#fff] text-[12px] md:text-[clamp(12px,1.04vw,30px)] text-center md:text-start">
               Empowering future-ready professionals through practical tech
               training and real-world skills.
             </p>
-            {/* <div className="flex gap-3 mt-4">
-                    <a href="#">
-                      <img
-                        src="/icons/linkedin.svg"
-                        alt="LinkedIn"
-                        className="w-6 h-6"
-                      />
-                    </a>
-                    <a href="#">
-                      <img
-                        src="/icons/instagram.svg"
-                        alt="Instagram"
-                        className="w-6 h-6"
-                      />
-                    </a>
-                    <a href="#">
-                      <img
-                        src="/icons/whatsapp.svg"
-                        alt="WhatsApp"
-                        className="w-6 h-6"
-                      />
-                    </a>
-                  </div> */}
+            <div className="hidden md:flex gap-3 mt-4">
+              <a
+                href="#"
+                className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
+              >
+                <img src={linkedin} alt="LinkedIn" className="w-7 h-7" />
+              </a>
+              <a
+                href="#"
+                className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
+              >
+                <img src={instagram} alt="Instagram" className="w-7 h-7" />
+              </a>
+              <a
+                href="#"
+                className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
+              >
+                <img src={whatsapp} alt="WhatsApp" className="w-7 h-7" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col items-center space-y-4">
-            <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
+          <div className="flex flex-col items-center gap-4 md:gap-0">
+            <h3 className="font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(12px,1.38vw,40px)] text-center md:leading-[clamp(50px,4.375vw,126px)]">
               Quick Links
             </h3>
-            <ul className="space-y-2 font-medium text-[#00FFCA] text-sm">
-              <li>
+            <ul className="space-y-4 font-medium text-[#00FFCA] text-sm">
+              <li className="md:text-[clamp(12px,1.041vw,30px)]">
                 <a href="#">Home</a>
               </li>
-              <li>
+              <li className="md:text-[clamp(12px,1.041vw,30px)]">
                 <a href="#">About</a>
               </li>
-              <li>
+              <li className="md:text-[clamp(12px,1.041vw,30px)]">
                 <a href="#">Courses</a>
               </li>
-              <li>
+              <li className="md:text-[clamp(12px,1.041vw,30px)]">
                 <a href="#">Contact</a>
               </li>
             </ul>
           </div>
 
           {/* Contact Info */}
-          <div className="flex flex-col items-center space-y-4">
-            <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
+          <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-start">
+            <h3 className="font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(16px,1.38vw,40px)]">
               CONTACT
             </h3>
-            <div className="flex flex-col items-center">
-              <img src={smallMapIcon} className="w-[15px] h-[17px]" />
-              <p className="font-bold text-[12px] text-white">Location</p>
-              <p className="font-medium text-[#21B495] text-[12px]">
-                Pune , Maharashtra
-              </p>
+
+            <div className="flex md:flex-row flex-col items-center md:items-start">
+              <div className="flex flex-col">
+                <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                  <img
+                    src={smallMapIcon}
+                    className="md:mt-2 w-[15px] h-[17px]"
+                  />
+                  <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
+                    Location
+                  </p>
+                </div>
+                <p className="font-medium text-[#21B495] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)]">
+                  Pune, Maharashtra
+                </p>
+              </div>
             </div>
-            <div className="flex flex-col items-center">
-              <img src={smallPhoneSvg} className="w-[15px] h-[17px]" />
-              <p className="font-bold text-[12px] text-white">Phone</p>
-              <p className="font-medium text-[#21B495] text-[12px]">
-                +91-9322374766
-              </p>
+
+            <div className="flex flex-col items-center md:items-start">
+              <div className="flex flex-col">
+                <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                  <img
+                    src={smallPhoneSvg}
+                    className="md:mt-2 w-[15px] h-[17px]"
+                  />
+                  <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
+                    Phone
+                  </p>
+                </div>
+                <p className="font-medium text-[#21B495] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)]">
+                  +91-9322374766
+                </p>
+              </div>
             </div>
-            <div className="flex flex-col items-center">
-              <img src={smallEmailSvg} className="w-[15px] h-[17px]" />
-              <p className="font-bold text-[12px] text-white">Email</p>
-              <p className="font-medium text-[#21B495] text-[12px]">
-                info@kamlaniltech.com
-              </p>
+
+            <div className="flex flex-col items-center md:items-start">
+              <div className="flex flex-col">
+                <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                  <img
+                    src={smallEmailSvg}
+                    className="md:mt-2 w-[15px] h-[17px]"
+                  />
+                  <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
+                    Email
+                  </p>
+                </div>
+                <p className="font-medium text-[#21B495] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)]">
+                  info@kamlaniltech.com
+                </p>
+              </div>
             </div>
           </div>
-          <div className="flex flex-col items-center space-y-4">
+
+          <div className="md:hidden flex flex-col items-center space-y-4">
             <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
               Social Media
             </h3>
@@ -681,5 +735,3 @@ const SDET = () => {
 };
 
 export default SDET;
-
-
