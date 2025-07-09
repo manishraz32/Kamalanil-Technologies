@@ -25,10 +25,116 @@ import company_logo from "../../assets/company_logo.png";
 import smallEmailSvg from "../../assets/images/smallEmailSvg.svg";
 import smallMapIcon from "../../assets/images/smallMapIcon.svg";
 import smallPhoneSvg from "../../assets/images/smallPhoneSvg.svg";
+import emailjs from "emailjs-com";
+import { useState } from "react";
+import ScrollToTop from "../../components/ScrollToTop";
 
 const SDET = () => {
+    const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    course: "",
+    city: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({});
+
+  const handleChange = (e) => {
+    console.log("e", e);
+    console.log("e.target", e.target);
+    const { name, value } = e.target;
+    console.log("name", name);
+    console.log("value", value);
+    setFormData((prev) => {
+      console.log("Previous formData:", prev);
+      const updated = { ...prev, [name]: value };
+      console.log("Updated formData:", updated);
+      return updated;
+    });
+
+    //Clear error for the current field if it's being fixed
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "",
+    }));
+  };
+
+  const validate = () => {
+    let newErrors = {};
+
+    // Name validation
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+
+    // Phone number validation
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      newErrors.phone = "Enter a valid 10-digit Indian mobile number";
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email)) {
+      newErrors.email = "Email is invalid";
+    }
+
+    // Course validation
+    if (!formData.course) newErrors.course = "Please select a course";
+
+    // City validation
+    if (!formData.city.trim()) newErrors.city = "City is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+ const handleSubmit = (e) => {
+  e.preventDefault();
+
+  if (validate()) {
+    console.log("Form submitted:", formData);
+
+    // Add timestamp if using {{time}} in template
+    const fullData = {
+      ...formData,
+      time: new Date().toLocaleString(),
+    };
+
+    // Send form data to EmailJS
+    emailjs
+      .send(
+        "service_rg7zslu",       // Your service ID
+        "template_q99yq7q",      // Your template ID
+        fullData,                //  Your form data + time
+        "2qMCy92i-24VLWAM9"      // Your public key
+      )
+      .then((response) => {
+        alert("Form submitted successfully!");
+        console.log("Email sent:", response.status, response.text);
+
+        
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          course: "",
+          city: "",
+          message: "",
+        });
+        setErrors({});
+      })
+      .catch((error) => {
+        alert("Failed to send email.");
+        console.error("EmailJS error:", error);
+      });
+  }
+};
+
   return (
     <>
+     <ScrollToTop />
       <Navbar />
       {/* hero section */}
       <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(28px,6.53vw,188px)] py-8 md:py-[clamp(28px,4.86vw,70px)]">
@@ -170,7 +276,7 @@ const SDET = () => {
             </div>
 
             <div className="flex items-start gap-2 mt-8 lg:mt-0 md:w-[65%]">
-              <span className="hidden sm:flex mb-60 text-[#00C853] text-[48px] leading-[48px]">
+              <span className="hidden relative sm:flex mt-[-11px] text-[#138A71] text-[48px] leading-[50px]">
                 •
               </span>
               <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.88vw,16px)] md:text-[#000000] md:text-[clamp(16px,1.52vw,44px)] leading-[clamp(24px,3vw,40px)] md:leading-[clamp(24px,2.5vw,72px)]">
@@ -520,84 +626,122 @@ const SDET = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="px-4">
-          <div className="bg-[rgba(167,159,168,0.34)] md:p-8 px-5 py-3 rounded-[13.583px] w-full">
-            <form className="flex flex-col gap-1">
-              <div>
-                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                  Name *
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Name"
-                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
-                />
-              </div>
-              <div>
-                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                  Phone no. *
-                </label>
-                <div className="flex py-2 input">
-                  <div className="inline-flex items-center bg-[#EEE] px-4 border border-gray-300 rounded-md whitespace-nowrap">
-                    🇮🇳 +91{"   "}
-                  </div>
+         <div className="px-4">
+            <div className="bg-[rgba(167,159,168,0.34)] md:p-8 px-5 py-3 rounded-[13.583px] w-full">
+              <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    Name *
+                  </label>
                   <input
-                    type="tel"
-                    placeholder="Enter phone number"
+                    type="text"
+                    name="name"
+                    placeholder="Enter Name"
+                    value={formData.name}
+                    onChange={handleChange}
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   />
+                  {errors.name && (
+                    <p className="text-red-500 text-sm">{errors.name}</p>
+                  )}
                 </div>
-              </div>
-              <div>
-                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                  Email *
-                </label>
-                <input
-                  type="email"
-                  placeholder="Enter email"
-                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
-                />
-              </div>
-              <div>
-                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                  Course *
-                </label>
-                <select className="input">
-                  <option>Select Course</option>
-                  <option>Full Stack</option>
-                  <option>QA Testing</option>
-                  <option>AWS DevOps</option>
-                </select>
-              </div>
-              <div>
-                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                  City *
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter City"
-                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
-                />
-              </div>
-              <div>
-                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                  Message
-                </label>
-                <textarea
-                  placeholder="Type your message here..."
-                  rows="3"
-                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
-                />
-              </div>
-              <button
-                type="submit"
-                className="block bg-[#21B495] hover:bg-[#00b970] mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition cursor-pointer"
-              >
-                Send Message
-              </button>
-            </form>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    Phone no. *
+                  </label>
+                  <div className="flex py-2 input">
+                    <div className="inline-flex items-center bg-[#EEE] px-4 border border-gray-300 rounded-md whitespace-nowrap">
+                      🇮🇳 +91{"   "}
+                    </div>
+                    <input
+                      type="tel"
+                      placeholder="Enter phone number"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                    />
+                  </div>
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm">{errors.phone}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="Enter email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                  />
+                  {errors.email && (
+                    <p className="text-red-500 text-sm">{errors.email}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    Course *
+                  </label>
+                  <select
+                    className="input"
+                    name="course"
+                    value={formData.course}
+                    onChange={handleChange}
+                  >
+                    <option>Select Course</option>
+                    <option>Full Stack</option>
+                    <option>QA Testing</option>
+                    <option>AWS DevOps</option>
+                  </select>
+                  {errors.course && (
+                    <p className="text-red-500 text-sm">{errors.course}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    City *
+                  </label>
+                  <input
+                    type="text"
+                    name="city"
+                    placeholder="Enter City"
+                    value={formData.city}
+                    onChange={handleChange}
+                    className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                  />
+                  {errors.city && (
+                    <p className="text-red-500 text-sm">{errors.city}</p>
+                  )}
+                </div>
+                <div>
+                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                    Message
+                  </label>
+                  <textarea
+                    placeholder="Type your message here..."
+                    rows="3"
+                    name="message"
+                    className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                    value={formData.message}
+                    onChange={handleChange}
+                  />
+                  {errors.message && (
+                    <p className="text-red-500 text-sm">{errors.message}</p>
+                  )}
+                </div>
+                <button
+                  type="submit"
+                  className="block bg-[#21B495] hover:bg-[#00b970] mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition cursor-pointer"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
-        </div>
       </section>
 
       <footer className="flex justify-center bg-[#2F3645] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]">

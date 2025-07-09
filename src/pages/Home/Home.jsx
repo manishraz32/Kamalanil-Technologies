@@ -36,6 +36,7 @@ import image61 from "../../assets/image 61.png";
 import image65 from "../../assets/image 65.png";
 import image66 from "../../assets/image 66.png";
 import imageHeroSectio from "../../assets/image.png";
+import ScrollToTop from "../../components/ScrollToTop";
 import emailjs from "emailjs-com";
 
 import { useLocation } from "react-router-dom";
@@ -128,10 +129,10 @@ export default function Home() {
     // Send form data to EmailJS
     emailjs
       .send(
-        "service_rg7zslu",       // ✅ Your service ID
-        "template_q99yq7q",      // ✅ Your template ID
-        fullData,                // ✅ Your form data + time
-        "2qMCy92i-24VLWAM9"      // ✅ Your public key
+        "service_rg7zslu",       // Your service ID
+        "template_q99yq7q",      // Your template ID
+        fullData,                // Your form data + time
+        "2qMCy92i-24VLWAM9"      // Your public key
       )
       .then((response) => {
         alert("Form submitted successfully!");
@@ -158,6 +159,7 @@ export default function Home() {
 
   return (
     <>
+     <ScrollToTop />
       <Navbar />
       <div id="home" className="w-full scroll-smooth">
         <div className="flex flex-col min-h-screen">
@@ -187,7 +189,7 @@ export default function Home() {
         </div>
         <div className="section-padding-x">
           <div className="flex flex-col gap-10 md:gap-20 py-6">
-            <div className="flex flex-col gap-4 md:gap-0">
+            <div className="flex flex-col md:items-center gap-4 md:gap-0">
               <p className="pr-10 font-bold text-[#12161F] text-[clamp(18px,5vw,24px)] md:text-[clamp(20px,2.22vw,32px)] leading-[clamp(24px,6vw,30px)] md:leading-[clamp(40px,5.55vw,80px)]">
                 Your Gateway to a Bright Career in the IT Industry – Learn from
                 the Best.
@@ -352,7 +354,7 @@ export default function Home() {
             <img
               src={imageHeroSectio}
               alt="Coding Setup"
-              className="hidden md:flex rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[387.708px] h-auto object-cover"
+              className="hidden md:flex pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
             />
             {/* LEFT SIDE */}
             <div className="flex flex-col gap-2 md:gap-[clamp(10px,2.083vw,60px)]">
