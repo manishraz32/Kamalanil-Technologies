@@ -36,6 +36,8 @@ import image61 from "../../assets/image 61.png";
 import image65 from "../../assets/image 65.png";
 import image66 from "../../assets/image 66.png";
 import imageHeroSectio from "../../assets/image.png";
+import ScrollToTop from "../../components/ScrollToTop";
+import emailjs from "emailjs-com";
 
 import { useLocation } from "react-router-dom";
 
@@ -112,42 +114,52 @@ export default function Home() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+ const handleSubmit = (e) => {
+  e.preventDefault();
 
-    if (validate()) {
-      console.log("Form submitted:", formData);
-      alert("Form submitted successfully!");
+  if (validate()) {
+    console.log("Form submitted:", formData);
 
-      fetch("https://formsubmit.co/ajax/a210361cacd9034e3d6942f4defe891c", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          name: "FormSubmit",
-          message: "I'm from Devro LABS",
-        }),
+    // Add timestamp if using {{time}} in template
+    const fullData = {
+      ...formData,
+      time: new Date().toLocaleString(),
+    };
+
+    // Send form data to EmailJS
+    emailjs
+      .send(
+        "service_rg7zslu",       // Your service ID
+        "template_q99yq7q",      // Your template ID
+        fullData,                // Your form data + time
+        "2qMCy92i-24VLWAM9"      // Your public key
+      )
+      .then((response) => {
+        alert("Form submitted successfully!");
+        console.log("Email sent:", response.status, response.text);
+
+        
+        setFormData({
+          name: "",
+          phone: "",
+          email: "",
+          course: "",
+          city: "",
+          message: "",
+        });
+        setErrors({});
       })
-        .then((response) => response.json())
-        .then((data) => console.log(data))
-        .catch((error) => console.log(error));
-
-      setFormData({
-        name: "",
-        phone: "",
-        email: "",
-        course: "",
-        city: "",
-        message: "",
+      .catch((error) => {
+        alert("Failed to send email.");
+        console.error("EmailJS error:", error);
       });
-      setErrors({});
-    }
-  };
+  }
+};
+
 
   return (
     <>
+     <ScrollToTop />
       <Navbar />
       <div id="home" className="w-full scroll-smooth">
         <div className="flex flex-col min-h-screen">
@@ -177,7 +189,7 @@ export default function Home() {
         </div>
         <div className="section-padding-x">
           <div className="flex flex-col gap-10 md:gap-20 py-6">
-            <div className="flex flex-col gap-4 md:gap-0">
+            <div className="flex flex-col md:items-center gap-4 md:gap-0">
               <p className="pr-10 font-bold text-[#12161F] text-[clamp(18px,5vw,24px)] md:text-[clamp(20px,2.22vw,32px)] leading-[clamp(24px,6vw,30px)] md:leading-[clamp(40px,5.55vw,80px)]">
                 Your Gateway to a Bright Career in the IT Industry – Learn from
                 the Best.
@@ -342,7 +354,7 @@ export default function Home() {
             <img
               src={imageHeroSectio}
               alt="Coding Setup"
-              className="hidden md:flex rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[387.708px] h-auto object-cover"
+              className="hidden md:flex pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
             />
             {/* LEFT SIDE */}
             <div className="flex flex-col gap-2 md:gap-[clamp(10px,2.083vw,60px)]">
@@ -537,16 +549,16 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex md:flex-row flex-col justify-between md:px-[clamp(16px,6.39vw,184px)] pt-6 md:pb-[clamp(30px,6.45vw,186px)]">
+          <div className="flex md:flex-row flex-col md:gap-[clamp(16px,8.33vw,240px)] pt-6 md:pr-[clamp(16px,7.63vw,220px)] md:pb-[clamp(30px,6.45vw,186px)] md:pl-[clamp(16px,6.39vw,184px)]">
             {/* Left Text */}
-            <div className="px-4 md:w-[50%]">
-              <div className="px-1.5 w-[95]">
+            <div className="px-4">
+              <div className="px-1.5 w-[95%]">
                 <h3 className="font-semibold text-[#12161F] text-[clamp(18px,5.82vw,24px)] md:text-[clamp(24px,2.23vw,64px)] leading-[clamp(26px,7.28vw,30px)] md:leading-[clamp(30px,4.375vw,126px)]">
                   Our story
                   <div className="text-[#21B495]">Kamlanil Technologies</div>
                 </h3>
 
-                <p className="mt-2 text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.11vw,32px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,6.55vw,1.875px)]">
+                <p className="mt-2 pr-7 md:pr-0 text-[#12161F] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.11vw,32px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,6.55vw,1.875px)]">
                   At KamlanilTech, we empower future-ready tech professionals
                   through practical, hands-on IT training and expert
                   consultancy. Our programs in Full Stack Development, Software
