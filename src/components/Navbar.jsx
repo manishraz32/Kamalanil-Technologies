@@ -106,7 +106,7 @@ const Navbar = () => {
                 src={image1}
                 alt="Mobile Logo"
                 onClick={() => setIsMobileMenuOpen(true)}
-                className="w-10 h-10 object-contain cursor-pointer"
+                className="brightness-105 w-10 h-10 object-contain cursor-pointer contrast-110"
               />
             ) : (
               <div>
