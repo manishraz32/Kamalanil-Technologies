@@ -531,7 +531,7 @@ export default function Home() {
           <img
             src={greenMobileBackgroundImage}
             alt="Green Background"
-            className="top-0 z-0 absolute w-full h-auto"
+            className="top-0 z-0 absolute w-full h-[12%] md:h-[25%]"
           />
 
           {/* Top Section */}
@@ -542,13 +542,13 @@ export default function Home() {
             <p className="font-semibold text-[#292C34] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.04vw,32px)] leading-[clamp(25px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
               Empowering Careers Through Real-World Tech Training
             </p>
-            <div className="px-4 md:px-50 overflow-hidden">
+            <div className="relative px-4 md:px-50 overflow-hidden">
               {/* Wrapper with fixed spacing */}
-              <div className="flex flex-col justify-end mx-auto px-4 md:px-10 pt-1 pb-10 border-[#21B495] border-[2px] rounded-[32px] md:rounded-[50px] w-full min-h-[300px]">
+              <div className="flex flex-col justify-end mx-auto px-4 md:px-10 pt-1 pb-4 md:pb-10 border-[#21B495] border-[2px] rounded-[32px] md:rounded-[50px] w-full">
                 <img
                   src={image124}
                   alt="Meeting"
-                  className="block mx-auto mt-4 md:mt-10 rounded-[15px] md:rounded-[30px] w-full object-cover"
+                  className="block mx-auto md:mt-5 mb-[-4px] rounded-[15px] md:rounded-[50px] w-full object-cover"
                 />
               </div>
 

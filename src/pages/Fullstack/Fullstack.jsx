@@ -29,6 +29,7 @@ import emailjs from "emailjs-com";
 import { useState } from "react";
 import ScrollToTop from "../../components/ScrollToTop";
 // import { toast } from "react-toastify";
+import image44 from "../../assets/image44.png";
 
 const Fullstack = () => {
 
@@ -292,25 +293,33 @@ const Fullstack = () => {
       </div>
 
       {/* secound section */}
-      <div
-        className="bg-black py-14 md:py-0"
-        style={{
-          backgroundImage: `url('/path-to-your-image.jpg')`,
-        }}
-      >
-        <div className="z-10 relative mx-auto px-[16px] md:px-[184px] md:py-20 md:pb-25 text-white text-center">
-          <div className="flex flex-col justify-center items-center font-montserrat font-bold text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] text-center leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
-            <p className="m-0 text-[#FFF]">Our motto is</p>
-            <p className="text-[#00FFCA]">#LearnandGrow</p>
-          </div>
+             <div
+               className="relative py-14 md:py-0"
+               style={{
+                 backgroundImage: `url(${image44})`,
+                 backgroundSize: "cover",
+                 backgroundRepeat: "no-repeat",
+                 backgroundPosition: "center",
+               }}
+             >
+               {/* 🔹 Overlay Layer */}
+                <div className="z-0 absolute inset-0 bg-[#373737d6]"></div>
 
-          <p className="mt-4 md:mt-5 font-montserrat font-semibold text-[#F5F5F5] text-[clamp(12px,3.64vw,15px)] md:text-[clamp(15px,1.52vw,44px)] text-center leading-[clamp(19px,5.33vw,22px)] md:leading-[clamp(22px,2.08vw,60px)]">
-            We will help you unlock your inner potential so you can excel in
-            your professional field. Learn to use all the related tools, walk
-            into a job and be a rockstar from day one.
-          </p>
-        </div>
-      </div>
+               {/* 🔸 Content (on top of overlay) */}
+               <div className="z-10 relative mx-auto px-[16px] md:px-[184px] md:py-20 md:pb-25 text-white text-center">
+                 <div className="flex flex-col justify-center items-center font-montserrat font-bold text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] text-center leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
+                   <p className="m-0 text-[#FFF]">Our motto is</p>
+                   <p className="text-[#00FFCA]">#LearnandGrow</p>
+                 </div>
+       
+                 <p className="mt-4 md:mt-5 w-[95%] font-montserrat font-semibold text-[#F5F5F5] text-[clamp(12px,3.64vw,15px)] md:text-[clamp(15px,1.52vw,44px)] text-center leading-[clamp(19px,5.33vw,22px)] md:leading-[clamp(22px,2.08vw,60px)]">
+                   We will help you unlock your inner potential so you can excel in
+                   your professional field. Learn to use all the related tools, walk
+                   into a job and be a rockstar from day one.
+                 </p>
+               </div>
+             </div>
+       
 
       {/* third section */}
       <section className="px-[20px] md:px-[clamp(16px,8.89vw,246px)] py-[clamp(28px,7.76vw,40px)] sm:py-20 md:py-[clamp(40px,4.16vw,120px)]">
