@@ -7,6 +7,7 @@ import downArrow from "../../assets/images/downArrow.png";
 // import certificateIcon from "../../assets/images/certificateIcon.png";
 import image109 from "../../assets/image 109.svg";
 import image108 from "../../assets/image 108 (1).svg";
+import image124 from "../../assets/image 124- (1).png";
 import docIcon from "../../assets/images/docIcon.png";
 import performanceDocs from "../../assets/images/performanceDocs.png";
 import videoIcon from "../../assets/images/videoIcon.png";
@@ -41,7 +42,6 @@ import imageHeroSectio from "../../assets/image.png";
 import ScrollToTop from "../../components/ScrollToTop";
 import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
-
 
 import { useLocation } from "react-router-dom";
 
@@ -118,52 +118,50 @@ export default function Home() {
     return Object.keys(newErrors).length === 0;
   };
 
- const handleSubmit = (e) => {
-  e.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  if (validate()) {
-    console.log("Form submitted:", formData);
+    if (validate()) {
+      console.log("Form submitted:", formData);
 
-    // Add timestamp if using {{time}} in template
-    const fullData = {
-      ...formData,
-      time: new Date().toLocaleString(),
-    };
+      // Add timestamp if using {{time}} in template
+      const fullData = {
+        ...formData,
+        time: new Date().toLocaleString(),
+      };
 
-    // Send form data to EmailJS
-    emailjs
-      .send(
-        "service_rg7zslu",       // Your service ID
-        "template_q99yq7q",      // Your template ID
-        fullData,                // Your form data + time
-        "2qMCy92i-24VLWAM9"      // Your public key
-      )
-      .then((response) => {
-         toast.success("Form submitted successfully! ");
-        console.log("Email sent:", response.status, response.text);
+      // Send form data to EmailJS
+      emailjs
+        .send(
+          "service_rg7zslu", // Your service ID
+          "template_q99yq7q", // Your template ID
+          fullData, // Your form data + time
+          "2qMCy92i-24VLWAM9" // Your public key
+        )
+        .then((response) => {
+          toast.success("Form submitted successfully! ");
+          console.log("Email sent:", response.status, response.text);
 
-        
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          course: "",
-          city: "",
-          message: "",
+          setFormData({
+            name: "",
+            phone: "",
+            email: "",
+            course: "",
+            city: "",
+            message: "",
+          });
+          setErrors({});
+        })
+        .catch((error) => {
+          toast.error("Failed to send email.");
+          console.error("EmailJS error:", error);
         });
-        setErrors({});
-      })
-      .catch((error) => {
-        toast.error("Failed to send email.");
-        console.error("EmailJS error:", error);
-      });
-  }
-};
-
+    }
+  };
 
   return (
     <>
-     <ScrollToTop />
+      <ScrollToTop />
       <Navbar />
       <div id="home" className="w-full scroll-smooth">
         <div className="flex flex-col min-h-screen">
@@ -544,12 +542,31 @@ export default function Home() {
             <p className="font-semibold text-[#292C34] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.04vw,32px)] leading-[clamp(25px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
               Empowering Careers Through Real-World Tech Training
             </p>
-            <div className="md:mx-[clamp(16px,17.99vw,518px)] mt-2 px-4 md:pt-[clamp(30px,1.73vw,50px)]">
-              <img
-                src={mobileMeetingWithborder}
-                alt="Meeting"
-                className="mx-auto rounded-[clamp(18px,2vw,26px)] w-full"
-              />
+            <div className="px-4 overflow-hidden">
+              {/* Image */}
+              <div className="mx-auto px-4 py-4 border-[#21B495] border-[2px] rounded-[32px] w-full max-w-5xl">
+                <img
+                  src={image124}
+                  alt="Meeting"
+                  className="block mx-auto -mt-6 rounded-[15px] md:rounded-[30px] w-full object-cover"
+                />
+              </div>
+
+              {/* SVG Border */}
+              {/* <div className="right-0 bottom-[-5px] left-2 absolute w-full overflow-hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 800 200"
+                  fill="none"
+                  className="w-full h-auto"
+                >
+                  <path
+                    d="M1 0V160C1 180 20 199 40 199H760C780 199 799 180 799 160V0"
+                    stroke="#21B495"
+                    strokeWidth="2"
+                  />
+                </svg>
+              </div> */}
             </div>
           </div>
 
