@@ -4,7 +4,9 @@ import hero_section_image from "../../assets/images/hero_section_image.jpg";
 import thumbUpIcon from "../../assets/images/thumbUpIcon.png";
 import manWithLaptopIcon from "../../assets/images/manWithLaptopIcon.png";
 import downArrow from "../../assets/images/downArrow.png";
-import certificateIcon from "../../assets/images/certificateIcon.png";
+// import certificateIcon from "../../assets/images/certificateIcon.png";
+import image109 from "../../assets/image 109.svg";
+import image108 from "../../assets/image 108 (1).svg";
 import docIcon from "../../assets/images/docIcon.png";
 import performanceDocs from "../../assets/images/performanceDocs.png";
 import videoIcon from "../../assets/images/videoIcon.png";
@@ -510,12 +512,12 @@ export default function Home() {
               description="Access comprehensive written resources like articles, handouts, and guides to deepen your understanding of each topic."
             />
             <BenefitCard
-              icon={performanceDocs}
+              icon={image108}
               title="Performance Assessments"
               description="Evaluate your progress through structured assessments designed to strengthen your skills and knowledge."
             />
             <BenefitCard
-              icon={certificateIcon}
+              icon={image109}
               title="Certified Awards"
               description="Gain confidence, validate your expertise, and become a certified professional in your field."
             />
