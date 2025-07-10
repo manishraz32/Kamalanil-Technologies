@@ -28,7 +28,7 @@ import smallPhoneSvg from "../../assets/images/smallPhoneSvg.svg";
 import emailjs from "emailjs-com";
 import { useState } from "react";
 import ScrollToTop from "../../components/ScrollToTop";
-
+// import { toast } from "react-toastify";
 
 const Fullstack = () => {
 
