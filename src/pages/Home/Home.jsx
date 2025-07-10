@@ -38,6 +38,8 @@ import image66 from "../../assets/image 66.png";
 import imageHeroSectio from "../../assets/image.png";
 import ScrollToTop from "../../components/ScrollToTop";
 import emailjs from "emailjs-com";
+import { toast } from "react-toastify";
+
 
 import { useLocation } from "react-router-dom";
 
@@ -135,7 +137,7 @@ export default function Home() {
         "2qMCy92i-24VLWAM9"      // Your public key
       )
       .then((response) => {
-        alert("Form submitted successfully!");
+         toast.success("Form submitted successfully! ");
         console.log("Email sent:", response.status, response.text);
 
         
@@ -150,7 +152,7 @@ export default function Home() {
         setErrors({});
       })
       .catch((error) => {
-        alert("Failed to send email.");
+        toast.error("Failed to send email.");
         console.error("EmailJS error:", error);
       });
   }
