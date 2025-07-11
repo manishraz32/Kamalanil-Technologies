@@ -42,6 +42,7 @@ import imageHeroSectio from "../../assets/image.png";
 import ScrollToTop from "../../components/ScrollToTop";
 import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
+import image113 from "../../assets/image 131.svg";
 
 import { useLocation } from "react-router-dom";
 
@@ -574,12 +575,17 @@ export default function Home() {
             {/* Left Text */}
             <div className="px-4">
               <div className="px-1.5 w-[95%]">
-                <h3 className="font-semibold text-[#12161F] text-[clamp(18px,5.82vw,24px)] md:text-[clamp(24px,2.23vw,64px)] leading-[clamp(26px,7.28vw,30px)] md:leading-[clamp(30px,4.375vw,126px)]">
-                  Our story
-                  <div className="text-[#21B495]">Kamlanil Technologies</div>
-                </h3>
+                
+                  <h3 className="font-semibold text-[#12161F] text-[clamp(18px,5.82vw,24px)] md:text-[clamp(24px,2.23vw,64px)] leading-[clamp(26px,7.28vw,30px)] md:leading-[clamp(30px,4.375vw,126px)]">
+                    Our story
+                  </h3>
 
-                <p className="md:py-4 pr-7 md:pr-0 text-[#12161F] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.11vw,32px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,6.55vw,1.875px)]">
+                  <h2 className="font-bold text-[#21B495] text-[clamp(18px,5.82vw,24px)] md:text-[clamp(50px,2.8vw,72px)] leading-[clamp(30px,7.28vw,63px)] md:leading-[clamp(63px,4.375vw,126px)] tracking-wide">
+                    Kamlanil Technologies
+                  </h2>
+                
+
+                <p className="md:py-4 pr-7 md:pr-0 md:w-[95%] text-[#12161F] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.11vw,32px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,6.55vw,1.875px)]">
                   At KamlanilTech, we empower future-ready tech professionals
                   through practical, hands-on IT training and expert
                   consultancy. Our programs in Full Stack Development, Software
@@ -726,10 +732,10 @@ export default function Home() {
             <h2 className="font-bold text-[#12161F] text-[clamp(18px,8.7vw,36px)] md:text-[clamp(16px,3.48vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
               Contact Details
             </h2>
-            <h3 className="font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] md:text-[clamp(24px,1.67vw,48px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
+            <h3 className="md:py-5.5 font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] md:text-[clamp(24px,1.67vw,48px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
               Let's Connect
             </h3>
-            <p className="py-4.5 md:py-4 md:max-w-[86%] md:font-normal font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6pxpx,2.08vw,60px)] ]">
+            <p className="py-4.5 md:py-0 md:pt-3.4 md:pb-5 md:max-w-[86%] md:font-normal font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6pxpx,2.08vw,60px)]]">
               We’re here to help! Whether you have questions about our courses,
               need IT consultancy, or just want to say hello — don’t hesitate to
               reach out. Fill out the form below, and our team will get back to
@@ -737,8 +743,8 @@ export default function Home() {
             </p>
 
             {/* Contact Icons */}
-            <div className="space-y-4 text-[clamp(14px,2vw,16px)]">
-              <div className="flex gap-[6px]">
+            <div className="flex flex-col gap-5 text-[clamp(14px,2vw,16px)]">
+              <div className="flex md:gap-[6px]">
                 <img
                   src={mapIcon}
                   className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
@@ -776,12 +782,50 @@ export default function Home() {
                   </p>
                 </div>
               </div>
+
+              <div className="hidden md:flex items-start gap-[6px]">
+                {/* Left Globe Icon */}
+                <div className="bg-[#EDEE1] p-4">
+                  <img
+                    src={image113}
+                    className="md:mt-2 w-5 h-5 text-[#21B495]"
+                    alt="Globe Icon"
+                  />
+                </div>
+
+                {/* Text + Social Icons */}
+                <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                  <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
+                    Follow us on:
+                  </p>
+
+                  <div className="flex items-center gap-[6px]">
+                    {/* LinkedIn */}
+                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-7 h-6 md:h-7">
+                      <img
+                        src={linkedin}
+                        alt="LinkedIn"
+                        className="w-3.5 h-3.5"
+                      />
+                    </div>
+
+                    {/* Instagram */}
+                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-7 h-6 md:h-7">
+                      <img
+                        src={instagram}
+                        alt="Instagram"
+                        className="w-3.5 h-3.5"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="px-4">
-            <div className="bg-[rgba(167,159,168,0.34)] md:px-5 py-3 rounded-[13.583px] w-full">
+            <div className="bg-[rgba(167,159,168,0.34)] px-5 md:px-5 py-3 rounded-[13.583px] w-full">
               <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
                 <div>
                   <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
@@ -847,9 +891,8 @@ export default function Home() {
                     onChange={handleChange}
                   >
                     <option>Select Course</option>
-                    <option>Full Stack</option>
-                    <option>QA Testing</option>
-                    <option>AWS DevOps</option>
+                    <option>SEDT</option>
+                    <option>Full Stack Developer</option>
                   </select>
                   {errors.course && (
                     <p className="text-red-500 text-sm">{errors.course}</p>
