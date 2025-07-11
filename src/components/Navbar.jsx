@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import image1 from "../assets/image 113.png";
+import image1 from "../assets/image 113.svg";
 import company_logo from "../assets/company_logo.png";
 import Arrow_down from "../assets/Arrow down filled triangle.png";
 import image117 from "../assets/image 117.png";

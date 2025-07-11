@@ -261,16 +261,16 @@ export default function Home() {
         <div className="px-4 md:px-[clamp(15px,6.51vw,187.64px)] md:py-[clamp(14px,3.88vw,112px)] overflow-hidden">
           <div className="flex md:flex-row flex-col md:gap-20">
             {/* LEFT SIDE */}
-            <div className="flex flex-col gap-2 md:gap-[clamp(10px,2.083vw,60px)]">
+            <div className="flex flex-col gap-2 md:gap-[clamp(10px,2.77vw,80px)]">
               {/* Heading */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 md:gap-10">
                 <div className="pt-8 font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
                   <h1>Kick Start your</h1>
                   <h1>
                     <span className="text-[#21B495]">SDET</span> Career
                   </h1>
                 </div>
-                <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,2.02vw,29px)]">
+                <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,1.875vw,54px)]">
                   Our programs are delivered through flexible online training,
                   with offline batches launching soon. Designed for beginners
                   and aspiring professionals, our courses build strong
@@ -351,7 +351,7 @@ export default function Home() {
         </div>
 
         {/* fullstack section */}
-        <div className="px-4 md:px-[clamp(15px,6.51vw,187.64px)] py-5 md:pb-[clamp(14px,3.88vw,112px)] overflow-hidden">
+        <div className="px-4 md:px-[clamp(15px,6.51vw,187.64px)] py-5 md:py-0 md:pb-[clamp(14px,3.88vw,112px)] overflow-hidden">
           <div className="flex md:flex-row flex-col md:gap-20">
             <img
               src={imageHeroSectio}
@@ -359,16 +359,16 @@ export default function Home() {
               className="hidden md:flex pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
             />
             {/* LEFT SIDE */}
-            <div className="flex flex-col gap-2 md:gap-[clamp(10px,2.083vw,60px)]">
+            <div className="flex flex-col gap-2 md:gap-[clamp(10px,2.77vw,80px)]">
               {/* Heading */}
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-10">
                 <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
-                  <h1>Build It All.Be a </h1>
+                  <h1>Build It All. </h1>
                   <h1>
-                    <span className="text-[#21B495]">Full Stack</span> Pro
+                    Be a <span className="text-[#21B495]">Full Stack</span> Pro
                   </h1>
                 </div>
-                <p className="md:w-[80%] font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,2.02vw,29px)]">
+                <p className="md:w-[80%] font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,1.875vw,54px)]">
                   Our programs are delivered through flexible online training,
                   with offline batches launching soon. Designed for beginners
                   and aspiring professionals, our courses build strong
@@ -570,7 +570,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex md:flex-row flex-col md:gap-[clamp(16px,8.33vw,240px)] pt-6 md:pr-[clamp(16px,7.63vw,220px)] md:pb-[clamp(30px,6.45vw,186px)] md:pl-[clamp(16px,6.39vw,184px)]">
+          <div className="flex md:flex-row flex-col md:gap-[clamp(16px,3.47vw,100px)] pt-6 md:pr-[clamp(16px,7.63vw,220px)] md:pb-[clamp(30px,6.45vw,186px)] md:pl-[clamp(16px,6.39vw,184px)]">
             {/* Left Text */}
             <div className="px-4">
               <div className="px-1.5 w-[95%]">
@@ -579,7 +579,7 @@ export default function Home() {
                   <div className="text-[#21B495]">Kamlanil Technologies</div>
                 </h3>
 
-                <p className="mt-2 pr-7 md:pr-0 text-[#12161F] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.11vw,32px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,6.55vw,1.875px)]">
+                <p className="md:py-4 pr-7 md:pr-0 text-[#12161F] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.11vw,32px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,6.55vw,1.875px)]">
                   At KamlanilTech, we empower future-ready tech professionals
                   through practical, hands-on IT training and expert
                   consultancy. Our programs in Full Stack Development, Software
@@ -590,7 +590,7 @@ export default function Home() {
               {/* Mission & Vision */}
               <div className="space-y-4 px-2.5 w-[95%]">
                 <div>
-                  <h4 className="mt-5 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
+                  <h4 className="mt-7 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
                     Mission
                   </h4>
                   <p className="text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(14px,1.31vw,38px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
@@ -599,7 +599,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
+                  <h4 className="md:mt-7 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
                     Vision
                   </h4>
                   <p className="text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(14px,1.31vw,38px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
@@ -615,13 +615,13 @@ export default function Home() {
 
             <div className="mt-6 px-4">
               <div
-                className="relative bg-cover bg-no-repeat bg-center px-7.5 md:px-[clamp(38px,4.57vw,131.74px)] md:py-[clamp(20px,5.55vw,160px)] pt-9.5 pb-14.5 rounded-2xl md:w-[clamp(280px,30.23vw,870.828px)]"
+                className="relative bg-cover bg-no-repeat bg-center px-5 md:px-[clamp(38px,4.57vw,131.74px)] md:py-[clamp(20px,5.55vw,160px)] pt-9.5 pb-14.5 rounded-2xl md:w-[clamp(280px,30.23vw,870.828px)]"
                 style={{
                   backgroundImage: `url(${greenTextBackgroundImage})`,
                 }}
               >
                 <div className="flex justify-center items-center w-full h-full">
-                  <div className="space-y-3 bg-[#21B495] p-6 rounded-[21px] text-white">
+                  <div className="space-y-3 bg-[#21B495] p-6 md:p-3 rounded-[21px] text-white">
                     {[
                       "Diverse Programs: Full Stack Development, Software Testing (Manual + Automation), and AWS-DevOps",
                       "Flexible Learning: 100% Online Courses with Weekend & Weekday Batches",
@@ -781,7 +781,7 @@ export default function Home() {
 
           {/* Contact Form */}
           <div className="px-4">
-            <div className="bg-[rgba(167,159,168,0.34)] md:p-8 px-5 py-3 rounded-[13.583px] w-full">
+            <div className="bg-[rgba(167,159,168,0.34)] md:px-5 py-3 rounded-[13.583px] w-full">
               <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
                 <div>
                   <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
@@ -964,7 +964,7 @@ export default function Home() {
                   <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
                     <img
                       src={smallMapIcon}
-                      className="md:mt-2 w-[15px] h-[17px]"
+                      className="md:mt-2 w-[11px] h-[15px]"
                     />
                     <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
                       Location
@@ -981,7 +981,7 @@ export default function Home() {
                   <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
                     <img
                       src={smallPhoneSvg}
-                      className="md:mt-2 w-[15px] h-[17px]"
+                      className="md:mt-2 w-[11px] h-[15px]"
                     />
                     <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
                       Phone
@@ -998,7 +998,7 @@ export default function Home() {
                   <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
                     <img
                       src={smallEmailSvg}
-                      className="md:mt-2 w-[15px] h-[17px]"
+                      className="md:mt-2 w-[11px] h-[15px]"
                     />
                     <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
                       Email
@@ -1016,13 +1016,13 @@ export default function Home() {
                 Social Media
               </h3>
               <div className="flex flex-row gap-3">
-                <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
                   <img src={linkedin} className="w-[16px] h-[16px]" />
                 </div>
-                <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
                   <img src={instagram} className="w-[16px] h-[16px]" />
                 </div>
-                <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+                <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
                   <img src={whatsapp} className="w-[16px] h-[16px]" />
                 </div>
               </div>
