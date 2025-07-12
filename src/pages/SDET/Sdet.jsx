@@ -411,7 +411,7 @@ const SDET = () => {
       <section className="bg-white px-4 md:px-[clamp(15px,7.23vw,208px)] md:py-[clamp(15px,5.56vw,160px)] pt-8 overflow-hidden">
         <div className="flex lg:flex-row flex-col gap-10 bg-[rgba(55,55,55,0.10)] md:p-9.5 px-4 py-6 m:py-0">
           <div className="flex flex-col flex-1 items-center sm:items-start gap-[clamp(24px,2.055vw,470px)]">
-            <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(35px,9.89vw,40.742px)] md:text-[clamp(40.742px,3.47vw,100px)] text-center md:text-start leading-[clamp(46px,12.45vw,51.335px)] md:leading-[clamp(51.335px,4.375vw,126px)">
+            <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(35px,9.89vw,40.742px)] md:text-[clamp(40.742px,3.47vw,150px)] text-center md:text-start leading-[clamp(46px,12.45vw,51.335px)] md:leading-[clamp(51.335px,4.375vw,183px)">
               No background in tech? No problem.
             </h2>
 
@@ -594,12 +594,12 @@ const SDET = () => {
 
           {/* Contact Icons */}
           <div className="flex flex-col gap-5 text-[clamp(14px,2vw,16px)]">
-            <div className="flex md:gap-[6px]">
+            <div className="flex gap-2 md:gap-[6px]">
               <img
                 src={mapIcon}
                 className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
               />
-              <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+              <div className="font-semibold text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
                 <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
                   Location:
                 </p>
@@ -611,7 +611,7 @@ const SDET = () => {
                 src={phoneIcon}
                 className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
               />
-              <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+              <div className="font-semibold text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
                 <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
                   Phone(9am - 6am):
                 </p>
@@ -623,7 +623,7 @@ const SDET = () => {
                 src={emailIcon}
                 className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
               />
-              <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+              <div className="font-semibold text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
                 <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
                   E-mail::
                 </p>
@@ -636,12 +636,12 @@ const SDET = () => {
             <div className="hidden md:flex items-start gap-[6px] pt-3">
               {/* Left Globe Icon */}
 
-              <div className="flex justify-center items-center bg-[#E1DEE1] mt-2 md:p-2 rounded-lg w-10 h-10">
-                <img src={image131} alt="" className="w-16 h-16" />
+              <div className="flex justify-center items-center bg-[#E1DEE1] mt-2 rounded-lg w-[40px] h-[40px]">
+                <img src={image131} alt="" className="w-[20px] h-[20px]" />
               </div>
 
               {/* Text + Social Icons */}
-              <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+              <div className="font-semibold text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
                 <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
                   Follow us on:
                 </p>
