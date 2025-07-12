@@ -42,7 +42,7 @@ import imageHeroSectio from "../../assets/image.png";
 import ScrollToTop from "../../components/ScrollToTop";
 import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
-import image113 from "../../assets/image 131.svg";
+import image131 from "../../assets/image 131.svg";
 
 import { useLocation } from "react-router-dom";
 
@@ -259,7 +259,7 @@ export default function Home() {
         </div>
 
         {/* sdet sectiion */}
-        <div className="px-4 md:px-[clamp(15px,6.51vw,187.64px)] md:py-[clamp(14px,3.88vw,112px)] overflow-hidden">
+        <div className="px-4 md:px-[clamp(16px,6.53vw,120px)] md:py-[clamp(14px,3.88vw,112px)] overflow-hidden">
           <div className="flex md:flex-row flex-col md:gap-20">
             {/* LEFT SIDE */}
             <div className="flex flex-col gap-2 md:gap-[clamp(10px,2.77vw,80px)]">
@@ -271,7 +271,7 @@ export default function Home() {
                     <span className="text-[#21B495]">SDET</span> Career
                   </h1>
                 </div>
-                <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,1.875vw,54px)]">
+                <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,50px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(23px,1.875vw,108px)]">
                   Our programs are delivered through flexible online training,
                   with offline batches launching soon. Designed for beginners
                   and aspiring professionals, our courses build strong
@@ -286,7 +286,7 @@ export default function Home() {
               </button>
 
               {/* Features */}
-              <div className="py-7 md:py-0">
+                            <div className="py-7 md:py-0">
                 <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
                   {/* Feature 1 */}
                   <div className="flex items-start gap-3">
@@ -306,7 +306,7 @@ export default function Home() {
                   </div>
 
                   {/* Feature 2 */}
-                  <div className="flex items-start gap-3 md:gap-3 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
+                  <div className="flex items-start gap-3 md:gap-3 mr-7 md:mr-0 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
                     <img
                       src={image65}
                       alt="Calendar"
@@ -314,7 +314,7 @@ export default function Home() {
                     />
                     <div>
                       <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
-                        100% Placement
+                        3 Months
                       </p>
                       <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
                         Course Duration
@@ -323,7 +323,7 @@ export default function Home() {
                   </div>
 
                   {/* Feature 3 */}
-                  <div className="flex items-start gap-3 md:gap-3 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
+                  <div className="flex items-start gap-3 md:gap-3 ml-3 md:ml-0 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
                     <img
                       src={image66}
                       alt="Placement"
@@ -331,7 +331,7 @@ export default function Home() {
                     />
                     <div>
                       <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
-                        3 Months
+                        100% Placement
                       </p>
                       <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
                         Placement Assurance
@@ -352,7 +352,7 @@ export default function Home() {
         </div>
 
         {/* fullstack section */}
-        <div className="px-4 md:px-[clamp(15px,6.51vw,187.64px)] py-5 md:py-0 md:pb-[clamp(14px,3.88vw,112px)] overflow-hidden">
+        <div className="px-4 md:px-[clamp(16px,6.53vw,120px)] py-5 md:py-0 md:pb-[clamp(14px,3.88vw,112px)] overflow-hidden">
           <div className="flex md:flex-row flex-col md:gap-20">
             <img
               src={imageHeroSectio}
@@ -369,7 +369,7 @@ export default function Home() {
                     Be a <span className="text-[#21B495]">Full Stack</span> Pro
                   </h1>
                 </div>
-                <p className="md:w-[80%] font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,1.875vw,54px)]">
+                <p className="md:w-[80%] font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,50px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(23px,1.875vw,108px)]">
                   Our programs are delivered through flexible online training,
                   with offline batches launching soon. Designed for beginners
                   and aspiring professionals, our courses build strong
@@ -404,7 +404,7 @@ export default function Home() {
                   </div>
 
                   {/* Feature 2 */}
-                  <div className="flex items-start gap-3 md:gap-3 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
+                  <div className="flex items-start gap-3 md:gap-3 mr-7 md:mr-0 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
                     <img
                       src={image65}
                       alt="Calendar"
@@ -412,7 +412,7 @@ export default function Home() {
                     />
                     <div>
                       <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
-                        100% Placement
+                        3 Months
                       </p>
                       <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
                         Course Duration
@@ -421,7 +421,7 @@ export default function Home() {
                   </div>
 
                   {/* Feature 3 */}
-                  <div className="flex items-start gap-3 md:gap-3 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
+                  <div className="flex items-start gap-3 md:gap-3 ml-3 md:ml-0 pl-0 md:pl-3 md:border-[#00775F] md:border-l-2">
                     <img
                       src={image66}
                       alt="Placement"
@@ -429,7 +429,7 @@ export default function Home() {
                     />
                     <div>
                       <p className="font-inter font-bold text-[clamp(14px,3.77vw,16px)] md:text-[clamp(16px,1.528vw,44px)]">
-                        3 Months
+                        100% Placement
                       </p>
                       <p className="font-inter text-[#6C6C6C] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.39vw,40px)]">
                         Placement Assurance
@@ -571,19 +571,17 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex md:flex-row flex-col md:gap-[clamp(16px,3.47vw,100px)] pt-6 md:pr-[clamp(16px,7.63vw,220px)] md:pb-[clamp(30px,6.45vw,186px)] md:pl-[clamp(16px,6.39vw,184px)]">
+          <div className="flex md:flex-row flex-col md:gap-[clamp(16px,3.47vw,100px)] pt-6 md:pr-[clamp(16px,7.63vw,220px)] md:pb-[clamp(30px,6.45vw,186px)] md:pl-[clamp(16px,6.53vw,120px)]">
             {/* Left Text */}
-            <div className="px-4">
+            <div className="px-4 md:px-0">
               <div className="px-1.5 w-[95%]">
-                
-                  <h3 className="font-semibold text-[#12161F] text-[clamp(18px,5.82vw,24px)] md:text-[clamp(24px,2.23vw,64px)] leading-[clamp(26px,7.28vw,30px)] md:leading-[clamp(30px,4.375vw,126px)]">
-                    Our story
-                  </h3>
+                <h3 className="font-semibold text-[#12161F] text-[clamp(18px,5.82vw,24px)] md:text-[clamp(24px,2.23vw,64px)] leading-[clamp(26px,7.28vw,30px)] md:leading-[clamp(30px,4.375vw,126px)]">
+                  Our story
+                </h3>
 
-                  <h2 className="font-bold text-[#21B495] text-[clamp(18px,5.82vw,24px)] md:text-[clamp(50px,2.8vw,72px)] leading-[clamp(30px,7.28vw,63px)] md:leading-[clamp(63px,4.375vw,126px)] tracking-wide">
-                    Kamlanil Technologies
-                  </h2>
-                
+                <h2 className="font-bold text-[#21B495] text-[clamp(18px,5.82vw,24px)] md:text-[clamp(50px,2.8vw,72px)] leading-[clamp(30px,7.28vw,63px)] md:leading-[clamp(63px,4.375vw,126px)] tracking-wide">
+                  Kamlanil Technologies
+                </h2>
 
                 <p className="md:py-4 pr-7 md:pr-0 md:w-[95%] text-[#12161F] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.11vw,32px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,6.55vw,1.875px)]">
                   At KamlanilTech, we empower future-ready tech professionals
@@ -596,7 +594,7 @@ export default function Home() {
               {/* Mission & Vision */}
               <div className="space-y-4 px-2.5 w-[95%]">
                 <div>
-                  <h4 className="mt-7 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
+                  <h4 className="mt-6 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
                     Mission
                   </h4>
                   <p className="text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(14px,1.31vw,38px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
@@ -605,7 +603,7 @@ export default function Home() {
                   </p>
                 </div>
                 <div>
-                  <h4 className="md:mt-7 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
+                  <h4 className="md:mt-6 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
                     Vision
                   </h4>
                   <p className="text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(14px,1.31vw,38px)] leading-[clamp(18.9px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
@@ -660,7 +658,7 @@ export default function Home() {
         {/* sdet trainer banner */}
         <section className="w-full">
           {/* Section 1: SDET Training Banner */}
-          <div className="relative bg-[url('/images/sdetBackgrounImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left px-4 md:px-[clamp(16px,5vw,230px)] pt-[120px] md:pt-[150px] w-full h-[820px] md:h-[74vh]">
+          <div className="relative bg-[url('/images/sdetBackgrounImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left px-4 md:px-[clamp(16px,6.53vw,120px)] pt-[120px] md:pt-[150px] w-full h-[820px] md:h-[74vh]">
             <h2 className="font-bold text-[clamp(18px,8.7vw,36px)] text-white md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5px,5.56vw,160px)]">
               Break into <span className="text-[#71ffe5]">IT</span> with
               Practical <span className="text-[#00FFD1]">SDET Training</span>
@@ -687,7 +685,7 @@ export default function Home() {
 
           {/* Section 2: Flexible Learning */}
           <div className="bg-white">
-            <h2 className="mb-4 md:mb-0 px-4 pt-[clamp(40px,4.93vw,142px)] md:pl-[clamp(50px,6.45vw,183px)] font-bold text-[#000] text-[clamp(18px,8.7vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5px,5.56vw,160px)]">
+            <h2 className="mb-4 md:mb-0 px-4 pt-[clamp(40px,4.93vw,142px)] md:pl-[clamp(16px,6.53vw,120px)] font-bold text-[#000] text-[clamp(18px,8.7vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5px,5.56vw,160px)]">
               Flexible Learning That Fits Your Schedule
             </h2>
             <div className="flex md:flex-row flex-col justify-between md:pr-[clamp(50px,6.45vw,186px)] md:pl-[clamp(94px,10.41vw,300px)]">
@@ -725,7 +723,7 @@ export default function Home() {
         {/* Contact Section */}
         <section
           id="contact"
-          className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 md:px-16 py-12 w-full"
+          className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 py-12 md:pr-[clamp(50px,11.79vw,339.66px)] md:pl-[clamp(16px,6.53vw,120px)] w-full"
         >
           {/* Contact Info */}
           <div className="">
@@ -735,7 +733,7 @@ export default function Home() {
             <h3 className="md:py-5.5 font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] md:text-[clamp(24px,1.67vw,48px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
               Let's Connect
             </h3>
-            <p className="py-4.5 md:py-0 md:pt-3.4 md:pb-5 md:max-w-[86%] md:font-normal font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6pxpx,2.08vw,60px)]]">
+            <p className="py-4.5 md:py-0 md:pt-3.4 md:pb-5 md:max-w-[95%] md:font-normal font-medium text-[#12161F] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,50px)] leading-[clamp(21px,1.67vw,26px)] md:leading-[clamp(23px,1.875vw,108px)]">
               We’re here to help! Whether you have questions about our courses,
               need IT consultancy, or just want to say hello — don’t hesitate to
               reach out. Fill out the form below, and our team will get back to
@@ -783,14 +781,11 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="hidden md:flex items-start gap-[6px]">
+              <div className="hidden md:flex items-start gap-[6px] pt-3">
                 {/* Left Globe Icon */}
-                <div className="bg-[#EDEE1] p-4">
-                  <img
-                    src={image113}
-                    className="md:mt-2 w-5 h-5 text-[#21B495]"
-                    alt="Globe Icon"
-                  />
+
+                <div className="flex justify-center items-center bg-[#E1DEE1] mt-2 md:p-2 rounded-lg w-10 h-10">
+                  <img src={image131} alt="" className="w-16 h-16" />
                 </div>
 
                 {/* Text + Social Icons */}
@@ -801,7 +796,7 @@ export default function Home() {
 
                   <div className="flex items-center gap-[6px]">
                     {/* LinkedIn */}
-                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-7 h-6 md:h-7">
+                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-6 h-6 md:h-6">
                       <img
                         src={linkedin}
                         alt="LinkedIn"
@@ -810,7 +805,7 @@ export default function Home() {
                     </div>
 
                     {/* Instagram */}
-                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-7 h-6 md:h-7">
+                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-6 h-6 md:h-6">
                       <img
                         src={instagram}
                         alt="Instagram"
@@ -881,7 +876,7 @@ export default function Home() {
                   )}
                 </div>
                 <div>
-                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                  <label className="block md:pr-10 font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
                     Course *
                   </label>
                   <select
@@ -1004,7 +999,7 @@ export default function Home() {
 
               <div className="flex md:flex-row flex-col items-center md:items-start">
                 <div className="flex flex-col">
-                  <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                  <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                     <img
                       src={smallMapIcon}
                       className="md:mt-2 w-[11px] h-[15px]"
@@ -1021,7 +1016,7 @@ export default function Home() {
 
               <div className="flex flex-col items-center md:items-start">
                 <div className="flex flex-col">
-                  <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                  <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                     <img
                       src={smallPhoneSvg}
                       className="md:mt-2 w-[11px] h-[15px]"
@@ -1038,7 +1033,7 @@ export default function Home() {
 
               <div className="flex flex-col items-center md:items-start">
                 <div className="flex flex-col">
-                  <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                  <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                     <img
                       src={smallEmailSvg}
                       className="md:mt-2 w-[11px] h-[15px]"

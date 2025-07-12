@@ -29,6 +29,7 @@ import emailjs from "emailjs-com";
 import { useState } from "react";
 import ScrollToTop from "../../components/ScrollToTop";
 import image44 from "../../assets/image44.png";
+import image131 from "../../assets/image 131.svg";
 
 const SDET = () => {
   const [formData, setFormData] = useState({
@@ -137,7 +138,7 @@ const SDET = () => {
       <ScrollToTop />
       <Navbar />
       {/* hero section */}
-      <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(28px,6.53vw,188px)] py-8 md:py-[clamp(28px,4.86vw,70px)]">
+      <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(16px,6.53vw,120px)] py-8 md:py-[clamp(28px,4.86vw,70px)]">
         <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
           <div className="flex flex-col gap-2">
             <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
@@ -147,7 +148,7 @@ const SDET = () => {
               </h1>
             </div>
 
-            <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,2.02vw,29px)]">
+            <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,50px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(23px,1.875vw,108px)]">
               Our programs are delivered through flexible online training, with
               offline batches launching soon. Designed for beginners and
               aspiring professionals, our courses build strong foundations in
@@ -327,7 +328,7 @@ const SDET = () => {
             <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(37px,4vw,100px)] leading-[clamp(37px,4vw,100px)">
               What is <span className="text-[#21B495]">SDET</span>?
             </h2>
-            <p className="p-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.56vw,27px)] md:leading-[clamp(23px,1.875vw,54px)] [font-montserrat">
+            <p className="p-2 font-montserrat font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(23px,6.56vw,27px)] md:leading-[clamp(23px,1.875vw,108px)]">
               SDET stands for "Software Development Engineer in Test." This role
               focuses on ensuring software quality by designing, developing, and
               maintaining tests for applications. SDETs play a crucial role in
@@ -559,7 +560,7 @@ const SDET = () => {
           ].map((question, index) => (
             <div
               key={index}
-              className="flex justify-between items-center gap-2 px-3.5 border-[#9E9E9E] border-b-[1px] font-montserrat font-semibold text-[#12161F] text-[clamp(14px,1.8vw,18px)] leading-[1.6]"
+              className="flex justify-between items-center gap-2 px-3.5 border-[#9E9E9E] border-b-[1px] last:border-b-0 font-montserrat font-semibold text-[#12161F] text-[clamp(14px,1.8vw,18px)] leading-[1.6]"
             >
               <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)]">
                 {question}
@@ -571,19 +572,20 @@ const SDET = () => {
           ))}
         </div>
       </section>
+
       <section
         id="contact"
-        className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 md:px-16 py-12 w-full"
+        className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 py-12 md:pr-[clamp(50px,11.79vw,339.66px)] md:pl-[clamp(15px,6.51vw,187.64px)] w-full"
       >
         {/* Contact Info */}
         <div className="">
           <h2 className="font-bold text-[#12161F] text-[clamp(18px,8.7vw,36px)] md:text-[clamp(16px,3.48vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
             Contact Details
           </h2>
-          <h3 className="font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] md:text-[clamp(24px,1.67vw,48px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
+          <h3 className="md:py-5.5 font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] md:text-[clamp(24px,1.67vw,48px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
             Let's Connect
           </h3>
-          <p className="py-4.5 md:py-4 md:max-w-[86%] md:font-normal font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6pxpx,2.08vw,60px)] ]">
+          <p className="py-4.5 md:py-0 md:pt-3.4 md:pb-5 md:max-w-[95%] md:font-normal font-medium text-[#12161F] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,50px)] leading-[clamp(21px,6.31vw,26px)] md:leading-[clamp(23px,1.875vw,108px)]">
             We’re here to help! Whether you have questions about our courses,
             need IT consultancy, or just want to say hello — don’t hesitate to
             reach out. Fill out the form below, and our team will get back to
@@ -591,8 +593,8 @@ const SDET = () => {
           </p>
 
           {/* Contact Icons */}
-          <div className="space-y-4 text-[clamp(14px,2vw,16px)]">
-            <div className="flex gap-[6px]">
+          <div className="flex flex-col gap-5 text-[clamp(14px,2vw,16px)]">
+            <div className="flex md:gap-[6px]">
               <img
                 src={mapIcon}
                 className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
@@ -630,12 +632,47 @@ const SDET = () => {
                 </p>
               </div>
             </div>
+
+            <div className="hidden md:flex items-start gap-[6px] pt-3">
+              {/* Left Globe Icon */}
+
+              <div className="flex justify-center items-center bg-[#E1DEE1] mt-2 md:p-2 rounded-lg w-10 h-10">
+                <img src={image131} alt="" className="w-16 h-16" />
+              </div>
+
+              {/* Text + Social Icons */}
+              <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
+                  Follow us on:
+                </p>
+
+                <div className="flex items-center gap-[6px]">
+                  {/* LinkedIn */}
+                  <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-6 h-6 md:h-6">
+                    <img
+                      src={linkedin}
+                      alt="LinkedIn"
+                      className="w-3.5 h-3.5"
+                    />
+                  </div>
+
+                  {/* Instagram */}
+                  <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-6 h-6 md:h-6">
+                    <img
+                      src={instagram}
+                      alt="Instagram"
+                      className="w-3.5 h-3.5"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Contact Form */}
         <div className="px-4">
-          <div className="bg-[rgba(167,159,168,0.34)] md:p-8 px-5 py-3 rounded-[13.583px] w-full">
+          <div className="bg-[rgba(167,159,168,0.34)] px-5 md:px-5 py-3 rounded-[13.583px] w-full">
             <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
               <div>
                 <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
@@ -691,7 +728,7 @@ const SDET = () => {
                 )}
               </div>
               <div>
-                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                <label className="block md:pr-10 font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
                   Course *
                 </label>
                 <select
@@ -701,9 +738,8 @@ const SDET = () => {
                   onChange={handleChange}
                 >
                   <option>Select Course</option>
-                  <option>Full Stack</option>
-                  <option>QA Testing</option>
-                  <option>AWS DevOps</option>
+                  <option>SEDT</option>
+                  <option>Full Stack Developer</option>
                 </select>
                 {errors.course && (
                   <p className="text-red-500 text-sm">{errors.course}</p>
@@ -814,7 +850,7 @@ const SDET = () => {
 
             <div className="flex md:flex-row flex-col items-center md:items-start">
               <div className="flex flex-col">
-                <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                   <img
                     src={smallMapIcon}
                     className="md:mt-2 w-[15px] h-[17px]"
@@ -831,7 +867,7 @@ const SDET = () => {
 
             <div className="flex flex-col items-center md:items-start">
               <div className="flex flex-col">
-                <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                   <img
                     src={smallPhoneSvg}
                     className="md:mt-2 w-[15px] h-[17px]"
@@ -848,7 +884,7 @@ const SDET = () => {
 
             <div className="flex flex-col items-center md:items-start">
               <div className="flex flex-col">
-                <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                   <img
                     src={smallEmailSvg}
                     className="md:mt-2 w-[15px] h-[17px]"
