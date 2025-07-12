@@ -43,6 +43,10 @@ import ScrollToTop from "../../components/ScrollToTop";
 import emailjs from "emailjs-com";
 import { toast } from "react-toastify";
 import image131 from "../../assets/image 131.svg";
+import image55 from "../../assets/image 55.png";
+import interactive from "../../assets/Interactive session icons.png";
+import resourcesicon from "../../assets/resourcesicon.png"
+import readingIcon from "../../assets/performace-Assesment.png"
 
 import { useLocation } from "react-router-dom";
 
@@ -175,7 +179,7 @@ export default function Home() {
                 <h1 className="font-semibold text-22px text-white text-center">
                   Step Into the World of Tech
                 </h1>
-                <div className="font-bold text-[40px] text-white md:text-[clamp(28px,3.82vw,60px)] text-center leading-[56px] md:leading-[clamp(40.6px,5.54vw,100px)]">
+                <div className="font-bold text-[40px] text-white md:text-[clamp(28px,3.82vw,90px)] text-center leading-[56px] md:leading-[clamp(40.6px,5.54vw,150px)]">
                   Start your journey in Software Technology with{" "}
                   <span className="font-montserrat font-bold text-gradient">
                     Kamlanil Technologies.
@@ -193,7 +197,7 @@ export default function Home() {
         <div className="section-padding-x">
           <div className="flex flex-col gap-10 md:gap-20 py-6">
             <div className="flex flex-col md:items-center gap-4 md:gap-0">
-              <p className="pr-10 font-bold text-[#12161F] text-[clamp(18px,5vw,24px)] md:text-[clamp(20px,2.22vw,32px)] leading-[clamp(24px,6vw,30px)] md:leading-[clamp(40px,5.55vw,80px)]">
+              <p className="pr-10 font-bold text-[#12161F] text-[clamp(18px,5vw,24px)] md:text-[clamp(20px,2.22vw,48px)] leading-[clamp(24px,6vw,30px)] md:leading-[clamp(40px,5.55vw,120px)]">
                 Your Gateway to a Bright Career in the IT Industry – Learn from
                 the Best.
               </p>
@@ -250,7 +254,7 @@ export default function Home() {
                 Find out which course is for you
               </button>
               <img
-                src={downArrow}
+                src={image55}
                 alt="Down Arrow"
                 className="ml-4 w-[clamp(20px,4.3vw,80px)] h-[clamp(20px,4.3vw,80px)]"
               />
@@ -286,7 +290,7 @@ export default function Home() {
               </button>
 
               {/* Features */}
-                            <div className="py-7 md:py-0">
+              <div className="py-7 md:py-0">
                 <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
                   {/* Feature 1 */}
                   <div className="flex items-start gap-3">
@@ -501,17 +505,17 @@ export default function Home() {
           {/* Right Section */}
           <div className="gap-6 md:gap-x-[clamp(16px,2.08vw,30px)] md:gap-y-[clamp(20px,2.78vw,40px)] grid grid-cols-1 sm:grid-cols-2 px-[clamp(16px,10vw,40px)] md:px-0">
             <BenefitCard
-              icon={videoIcon}
+              icon={interactive}
               title="Interactive Sessions"
               description="Engage in real-time learning with interactive sessions led by expert instructors."
             />
             <BenefitCard
-              icon={docIcon}
+              icon={resourcesicon}
               title="In-Depth Reading Resources"
               description="Access comprehensive written resources like articles, handouts, and guides to deepen your understanding of each topic."
             />
             <BenefitCard
-              icon={image108}
+              icon={readingIcon}
               title="Performance Assessments"
               description="Evaluate your progress through structured assessments designed to strengthen your skills and knowledge."
             />
@@ -742,12 +746,12 @@ export default function Home() {
 
             {/* Contact Icons */}
             <div className="flex flex-col gap-5 text-[clamp(14px,2vw,16px)]">
-              <div className="flex md:gap-[6px]">
+              <div className="flex gap-2 md:gap-[6px]">
                 <img
                   src={mapIcon}
                   className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
                 />
-                <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                <div className="font-semibold text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
                   <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
                     Location:
                   </p>
@@ -759,7 +763,7 @@ export default function Home() {
                   src={phoneIcon}
                   className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
                 />
-                <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                <div className="font-semibold text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
                   <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
                     Phone(9am - 6am):
                   </p>
@@ -771,7 +775,7 @@ export default function Home() {
                   src={emailIcon}
                   className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
                 />
-                <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                <div className="font-semibold text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
                   <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
                     E-mail::
                   </p>
@@ -784,12 +788,12 @@ export default function Home() {
               <div className="hidden md:flex items-start gap-[6px] pt-3">
                 {/* Left Globe Icon */}
 
-                <div className="flex justify-center items-center bg-[#E1DEE1] mt-2 md:p-2 rounded-lg w-10 h-10">
-                  <img src={image131} alt="" className="w-16 h-16" />
+                <div className="flex justify-center items-center bg-[#E1DEE1] mt-2 rounded-lg w-[40px] h-[40px]">
+                  <img src={image131} alt="" className="w-[20px] h-[20px]" />
                 </div>
 
                 {/* Text + Social Icons */}
-                <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                <div className="font-semibold text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
                   <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
                     Follow us on:
                   </p>
