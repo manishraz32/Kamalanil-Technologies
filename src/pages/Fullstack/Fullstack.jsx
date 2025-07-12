@@ -30,94 +30,93 @@ import { useState } from "react";
 import ScrollToTop from "../../components/ScrollToTop";
 // import { toast } from "react-toastify";
 import image44 from "../../assets/image44.png";
+import image131 from "../../assets/image 131.svg";
 
 const Fullstack = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    course: "",
+    city: "",
+    message: "",
+  });
+  const [errors, setErrors] = useState({});
 
-      const [formData, setFormData] = useState({
-      name: "",
-      phone: "",
-      email: "",
-      course: "",
-      city: "",
-      message: "",
+  const handleChange = (e) => {
+    console.log("e", e);
+    console.log("e.target", e.target);
+    const { name, value } = e.target;
+    console.log("name", name);
+    console.log("value", value);
+    setFormData((prev) => {
+      console.log("Previous formData:", prev);
+      const updated = { ...prev, [name]: value };
+      console.log("Updated formData:", updated);
+      return updated;
     });
-    const [errors, setErrors] = useState({});
-  
-    const handleChange = (e) => {
-      console.log("e", e);
-      console.log("e.target", e.target);
-      const { name, value } = e.target;
-      console.log("name", name);
-      console.log("value", value);
-      setFormData((prev) => {
-        console.log("Previous formData:", prev);
-        const updated = { ...prev, [name]: value };
-        console.log("Updated formData:", updated);
-        return updated;
-      });
-  
-      //Clear error for the current field if it's being fixed
-      setErrors((prevErrors) => ({
-        ...prevErrors,
-        [name]: "",
-      }));
-    };
-  
-    const validate = () => {
-      let newErrors = {};
-  
-      // Name validation
-      if (!formData.name.trim()) newErrors.name = "Name is required";
-  
-      // Phone number validation
-      if (!formData.phone.trim()) {
-        newErrors.phone = "Phone number is required";
-      } else if (!/^[6-9]\d{9}$/.test(formData.phone)) {
-        newErrors.phone = "Enter a valid 10-digit Indian mobile number";
-      }
-  
-      // Email validation
-      if (!formData.email.trim()) {
-        newErrors.email = "Email is required";
-      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email)) {
-        newErrors.email = "Email is invalid";
-      }
-  
-      // Course validation
-      if (!formData.course) newErrors.course = "Please select a course";
-  
-      // City validation
-      if (!formData.city.trim()) newErrors.city = "City is required";
-  
-      setErrors(newErrors);
-      return Object.keys(newErrors).length === 0;
-    };
-  
-   const handleSubmit = (e) => {
+
+    //Clear error for the current field if it's being fixed
+    setErrors((prevErrors) => ({
+      ...prevErrors,
+      [name]: "",
+    }));
+  };
+
+  const validate = () => {
+    let newErrors = {};
+
+    // Name validation
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+
+    // Phone number validation
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      newErrors.phone = "Enter a valid 10-digit Indian mobile number";
+    }
+
+    // Email validation
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email)) {
+      newErrors.email = "Email is invalid";
+    }
+
+    // Course validation
+    if (!formData.course) newErrors.course = "Please select a course";
+
+    // City validation
+    if (!formData.city.trim()) newErrors.city = "City is required";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-  
+
     if (validate()) {
       console.log("Form submitted:", formData);
-  
+
       // Add timestamp if using {{time}} in template
       const fullData = {
         ...formData,
         time: new Date().toLocaleString(),
       };
-  
+
       // Send form data to EmailJS
       emailjs
         .send(
-          "service_rg7zslu",       //  Your service ID
-          "template_q99yq7q",      //  Your template ID
-          fullData,                // Your form data + time
-          "2qMCy92i-24VLWAM9"      //  Your public key
+          "service_rg7zslu", //  Your service ID
+          "template_q99yq7q", //  Your template ID
+          fullData, // Your form data + time
+          "2qMCy92i-24VLWAM9" //  Your public key
         )
         .then((response) => {
           alert("Form submitted successfully!");
           console.log("Email sent:", response.status, response.text);
-  
-          
+
           setFormData({
             name: "",
             phone: "",
@@ -136,19 +135,19 @@ const Fullstack = () => {
   };
   return (
     <>
-     <ScrollToTop />
+      <ScrollToTop />
       <Navbar />
       <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(28px,6.53vw,188px)] py-8 md:py-[clamp(28px,4.86vw,70px)]">
         <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
           <div className="flex flex-col gap-2">
             <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
-              <h1>Build It All.Be a </h1>
+              <h1>Build It All.</h1>
               <h1>
-                <span className="text-[#21B495]"> Full Stack</span> Pro
+               Be a <span className="text-[#21B495]"> Full Stack</span> Pro
               </h1>
             </div>
 
-            <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(24px ,2.02vw,29px)]">
+            <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,50px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(23px,1.875vw,108px)]">
               Our programs are delivered through flexible online training, with
               offline batches launching soon. Designed for beginners and
               aspiring professionals, our courses build strong foundations in
@@ -293,33 +292,32 @@ const Fullstack = () => {
       </div>
 
       {/* secound section */}
-             <div
-               className="relative py-14 md:py-0"
-               style={{
-                 backgroundImage: `url(${image44})`,
-                 backgroundSize: "cover",
-                 backgroundRepeat: "no-repeat",
-                 backgroundPosition: "center",
-               }}
-             >
-               {/* 🔹 Overlay Layer */}
-                <div className="z-0 absolute inset-0 bg-[#373737d6]"></div>
+      <div
+        className="relative py-14 md:py-0"
+        style={{
+          backgroundImage: `url(${image44})`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+        }}
+      >
+        {/* 🔹 Overlay Layer */}
+        <div className="z-0 absolute inset-0 bg-[#373737d6]"></div>
 
-               {/* 🔸 Content (on top of overlay) */}
-               <div className="z-10 relative mx-auto px-[16px] md:px-[184px] md:py-20 md:pb-25 text-white text-center">
-                 <div className="flex flex-col justify-center items-center font-montserrat font-bold text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] text-center leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
-                   <p className="m-0 text-[#FFF]">Our motto is</p>
-                   <p className="text-[#00FFCA]">#LearnandGrow</p>
-                 </div>
-       
-                 <p className="mt-4 md:mt-5 w-[95%] font-montserrat font-semibold text-[#F5F5F5] text-[clamp(12px,3.64vw,15px)] md:text-[clamp(15px,1.52vw,44px)] text-center leading-[clamp(19px,5.33vw,22px)] md:leading-[clamp(22px,2.08vw,60px)]">
-                   We will help you unlock your inner potential so you can excel in
-                   your professional field. Learn to use all the related tools, walk
-                   into a job and be a rockstar from day one.
-                 </p>
-               </div>
-             </div>
-       
+        {/* 🔸 Content (on top of overlay) */}
+        <div className="z-10 relative mx-auto px-[16px] md:px-[184px] md:py-20 md:pb-25 text-white text-center">
+          <div className="flex flex-col justify-center items-center font-montserrat font-bold text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] text-center leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
+            <p className="m-0 text-[#FFF]">Our motto is</p>
+            <p className="text-[#00FFCA]">#LearnandGrow</p>
+          </div>
+
+          <p className="mt-4 md:mt-5 w-[95%] font-montserrat font-semibold text-[#F5F5F5] text-[clamp(12px,3.64vw,15px)] md:text-[clamp(15px,1.52vw,44px)] text-center leading-[clamp(19px,5.33vw,22px)] md:leading-[clamp(22px,2.08vw,60px)]">
+            We will help you unlock your inner potential so you can excel in
+            your professional field. Learn to use all the related tools, walk
+            into a job and be a rockstar from day one.
+          </p>
+        </div>
+      </div>
 
       {/* third section */}
       <section className="px-[20px] md:px-[clamp(16px,8.89vw,246px)] py-[clamp(28px,7.76vw,40px)] sm:py-20 md:py-[clamp(40px,4.16vw,120px)]">
@@ -424,14 +422,13 @@ const Fullstack = () => {
               building complete web applications from start to finish. From
               designing responsive user interfaces to managing databases and
               servers, you’ll gain the knowledge to build real-world projects.
-              <br/>
+              <br />
               No prior coding or IT experience is required.
-              <br/>
-              We offer
-              comprehensive training, hands-on practice, and expert guidance
-              throughout your learning journey. If you're ready to launch a
-              career in software development, this course is the perfect
-              starting point.
+              <br />
+              We offer comprehensive training, hands-on practice, and expert
+              guidance throughout your learning journey. If you're ready to
+              launch a career in software development, this course is the
+              perfect starting point.
             </p>
             <button className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300">
               <span className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
@@ -549,7 +546,7 @@ const Fullstack = () => {
       </section>
 
       <section className="padding-left: bg-[rgba(55,55,55,0.10)] px-4 md:px-[clamp(15px,6.51vw,187.64px)] py-3.5 md:py-[clamp(14px,3.88vw,112px)]">
-        <div className="flex flex-col bg-white mx-auto sm:p-2">
+        <div className="flex flex-col bg-white mx-auto sm:p-2 md:p-0">
           {[
             "Is an IT background required to enroll in the SDET course?",
             "Which certification is recommended to pursue a career as an SDET?",
@@ -560,7 +557,7 @@ const Fullstack = () => {
           ].map((question, index) => (
             <div
               key={index}
-              className="flex justify-between items-center gap-2 px-3.5 border-[#9E9E9E] border-b-[1px] font-montserrat font-semibold text-[#12161F] text-[clamp(14px,1.8vw,18px)] leading-[1.6]"
+              className="flex justify-between items-center gap-2 px-3.5 border-[#9E9E9E] border-b-[1px] last:border-b-0 font-montserrat font-semibold text-[#12161F] text-[clamp(14px,1.8vw,18px)] leading-[1.6]"
             >
               <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)]">
                 {question}
@@ -575,17 +572,17 @@ const Fullstack = () => {
 
       <section
         id="contact"
-        className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 md:px-16 py-12 w-full"
+        className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 py-12 md:pr-[clamp(50px,11.79vw,339.66px)] md:pl-[clamp(15px,6.51vw,187.64px)] w-full"
       >
         {/* Contact Info */}
         <div className="">
           <h2 className="font-bold text-[#12161F] text-[clamp(18px,8.7vw,36px)] md:text-[clamp(16px,3.48vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
             Contact Details
           </h2>
-          <h3 className="font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] md:text-[clamp(24px,1.67vw,48px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
+          <h3 className="md:py-5.5 font-bold text-[#12161F] text-[clamp(18px,5.8vw,24px)] md:text-[clamp(24px,1.67vw,48px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
             Let's Connect
           </h3>
-          <p className="py-4.5 md:py-4 md:max-w-[86%] md:font-normal font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6pxpx,2.08vw,60px)] ]">
+          <p className="py-4.5 md:py-0 md:pt-3.4 md:pb-5 md:max-w-[95%] md:font-normal font-medium text-[#12161F] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,50px)] leading-[clamp(21px,6.31vw,26px)] md:leading-[clamp(23px,1.875vw,108px)]">
             We’re here to help! Whether you have questions about our courses,
             need IT consultancy, or just want to say hello — don’t hesitate to
             reach out. Fill out the form below, and our team will get back to
@@ -593,8 +590,8 @@ const Fullstack = () => {
           </p>
 
           {/* Contact Icons */}
-          <div className="space-y-4 text-[clamp(14px,2vw,16px)]">
-            <div className="flex gap-[6px]">
+          <div className="flex flex-col gap-5 text-[clamp(14px,2vw,16px)]">
+            <div className="flex md:gap-[6px]">
               <img
                 src={mapIcon}
                 className="md:mt-2 w-8 md:w-[clamp(24px,2.77vw,79.698px)] h-8 md:h-[clamp(24px,2.75vw,79.246px)]"
@@ -632,126 +629,160 @@ const Fullstack = () => {
                 </p>
               </div>
             </div>
+
+            <div className="hidden md:flex items-start gap-[6px] pt-3">
+              {/* Left Globe Icon */}
+
+              <div className="flex justify-center items-center bg-[#E1DEE1] mt-2 md:p-2 rounded-lg w-10 h-10">
+                <img src={image131} alt="" className="w-16 h-16" />
+              </div>
+
+              {/* Text + Social Icons */}
+              <div className="font-medium text-[12px] md:text-[clamp(12px,1.25vw,36px)] leading-4 md:leading-[clamp(18.9px,3.69vw,106.496px)]">
+                <p className="leading-4 md:leading-[clamp(18.9px,2.08vw,60px)]">
+                  Follow us on:
+                </p>
+
+                <div className="flex items-center gap-[6px]">
+                  {/* LinkedIn */}
+                  <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-6 h-6 md:h-6">
+                    <img
+                      src={linkedin}
+                      alt="LinkedIn"
+                      className="w-3.5 h-3.5"
+                    />
+                  </div>
+
+                  {/* Instagram */}
+                  <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-6 h-6 md:h-6">
+                    <img
+                      src={instagram}
+                      alt="Instagram"
+                      className="w-3.5 h-3.5"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Contact Form */}
-           <div className="px-4">
-            <div className="bg-[rgba(167,159,168,0.34)] md:p-8 px-5 py-3 rounded-[13.583px] w-full">
-              <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
-                <div>
-                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                    Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Enter Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
-                  />
-                  {errors.name && (
-                    <p className="text-red-500 text-sm">{errors.name}</p>
-                  )}
-                </div>
-                <div>
-                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                    Phone no. *
-                  </label>
-                  <div className="flex py-2 input">
-                    <div className="inline-flex items-center bg-[#EEE] px-4 border border-gray-300 rounded-md whitespace-nowrap">
-                      🇮🇳 +91{"   "}
-                    </div>
-                    <input
-                      type="tel"
-                      placeholder="Enter phone number"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
-                    />
+        <div className="px-4">
+          <div className="bg-[rgba(167,159,168,0.34)] px-5 md:px-5 py-3 rounded-[13.583px] w-full">
+            <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
+              <div>
+                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                />
+                {errors.name && (
+                  <p className="text-red-500 text-sm">{errors.name}</p>
+                )}
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                  Phone no. *
+                </label>
+                <div className="flex py-2 input">
+                  <div className="inline-flex items-center bg-[#EEE] px-4 border border-gray-300 rounded-md whitespace-nowrap">
+                    🇮🇳 +91{"   "}
                   </div>
-                  {errors.phone && (
-                    <p className="text-red-500 text-sm">{errors.phone}</p>
-                  )}
-                </div>
-                <div>
-                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                    Email *
-                  </label>
                   <input
-                    type="email"
-                    placeholder="Enter email"
-                    name="email"
-                    value={formData.email}
+                    type="tel"
+                    placeholder="Enter phone number"
+                    name="phone"
+                    value={formData.phone}
                     onChange={handleChange}
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   />
-                  {errors.email && (
-                    <p className="text-red-500 text-sm">{errors.email}</p>
-                  )}
                 </div>
-                <div>
-                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                    Course *
-                  </label>
-                  <select
-                    className="input"
-                    name="course"
-                    value={formData.course}
-                    onChange={handleChange}
-                  >
-                    <option>Select Course</option>
-                    <option>Full Stack</option>
-                    <option>QA Testing</option>
-                    <option>AWS DevOps</option>
-                  </select>
-                  {errors.course && (
-                    <p className="text-red-500 text-sm">{errors.course}</p>
-                  )}
-                </div>
-                <div>
-                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                    City *
-                  </label>
-                  <input
-                    type="text"
-                    name="city"
-                    placeholder="Enter City"
-                    value={formData.city}
-                    onChange={handleChange}
-                    className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
-                  />
-                  {errors.city && (
-                    <p className="text-red-500 text-sm">{errors.city}</p>
-                  )}
-                </div>
-                <div>
-                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                    Message
-                  </label>
-                  <textarea
-                    placeholder="Type your message here..."
-                    rows="3"
-                    name="message"
-                    className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
-                    value={formData.message}
-                    onChange={handleChange}
-                  />
-                  {errors.message && (
-                    <p className="text-red-500 text-sm">{errors.message}</p>
-                  )}
-                </div>
-                <button
-                  type="submit"
-                  className="block bg-[#21B495] hover:bg-[#00b970] mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition cursor-pointer"
+                {errors.phone && (
+                  <p className="text-red-500 text-sm">{errors.phone}</p>
+                )}
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  placeholder="Enter email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                />
+                {errors.email && (
+                  <p className="text-red-500 text-sm">{errors.email}</p>
+                )}
+              </div>
+              <div>
+                <label className="block md:pr-10 font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                  Course *
+                </label>
+                <select
+                  className="input"
+                  name="course"
+                  value={formData.course}
+                  onChange={handleChange}
                 >
-                  Send Message
-                </button>
-              </form>
-            </div>
+                  <option>Select Course</option>
+                  <option>SEDT</option>
+                  <option>Full Stack Developer</option>
+                </select>
+                {errors.course && (
+                  <p className="text-red-500 text-sm">{errors.course}</p>
+                )}
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                  City *
+                </label>
+                <input
+                  type="text"
+                  name="city"
+                  placeholder="Enter City"
+                  value={formData.city}
+                  onChange={handleChange}
+                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                />
+                {errors.city && (
+                  <p className="text-red-500 text-sm">{errors.city}</p>
+                )}
+              </div>
+              <div>
+                <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                  Message
+                </label>
+                <textarea
+                  placeholder="Type your message here..."
+                  rows="3"
+                  name="message"
+                  className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
+                  value={formData.message}
+                  onChange={handleChange}
+                />
+                {errors.message && (
+                  <p className="text-red-500 text-sm">{errors.message}</p>
+                )}
+              </div>
+              <button
+                type="submit"
+                className="block bg-[#21B495] hover:bg-[#00b970] mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition cursor-pointer"
+              >
+                Send Message
+              </button>
+            </form>
           </div>
+        </div>
       </section>
 
       <footer className="flex justify-center bg-[#2F3645] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]">
@@ -816,7 +847,7 @@ const Fullstack = () => {
 
             <div className="flex md:flex-row flex-col items-center md:items-start">
               <div className="flex flex-col">
-                <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                   <img
                     src={smallMapIcon}
                     className="md:mt-2 w-[15px] h-[17px]"
@@ -833,7 +864,7 @@ const Fullstack = () => {
 
             <div className="flex flex-col items-center md:items-start">
               <div className="flex flex-col">
-                <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                   <img
                     src={smallPhoneSvg}
                     className="md:mt-2 w-[15px] h-[17px]"
@@ -850,7 +881,7 @@ const Fullstack = () => {
 
             <div className="flex flex-col items-center md:items-start">
               <div className="flex flex-col">
-                <div className="flex md:flex-row flex-col items-center md:items-start gap-2 md:pl-2">
+                <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                   <img
                     src={smallEmailSvg}
                     className="md:mt-2 w-[15px] h-[17px]"
@@ -889,4 +920,3 @@ const Fullstack = () => {
 };
 
 export default Fullstack;
-

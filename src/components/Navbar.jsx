@@ -19,22 +19,26 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="top-0 z-50 sticky bg-[#12161F] py-4 md:py-[26px] text-white section-padding-x">
+      <nav className="top-0 z-50 sticky bg-[#12161F] py-4 text-white section-padding-x">
         <div className="flex justify-between items-center w-full">
           {/* Logo */}
           <div className="md:flex items-center gap-4">
-            <img src={company_logo} 
-            alt="company_logo"
-            onClick={() => handleNavigation("#home")}
-             />
+            <img
+              src={company_logo}
+              alt="company_logo"
+              onClick={() => handleNavigation("#home")}
+            />
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden relative md:flex items-center gap-[clamp(16px,4.17vw,80px)]">
             <a
               href="#home"
-              onClick={() => handleNavigation("#home")}
-              className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
+              onClick={() => {
+                handleNavigation("#home");
+                setIsDropdownOpen(false);
+              }}
+              className="font-medium text-18px hover:text-[#00FFCA] cursor-pointer"
             >
               Home
             </a>
@@ -46,8 +50,11 @@ const Navbar = () => {
             </a> */}
 
             <a
-              onClick={() => handleNavigation("about")}
-              className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
+              onClick={() => {
+                handleNavigation("about");
+                setIsDropdownOpen(false);
+              }}
+              className="font-medium text-18px hover:text-[#00FFCA] cursor-pointer"
             >
               About Us
             </a>
@@ -56,9 +63,9 @@ const Navbar = () => {
             <div className="relative">
               <span
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-1 font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
+                className="flex items-center gap-1 font-medium text-18px hover:text-[#00FFCA] cursor-pointer"
               >
-                Courses ▼
+                Courses
               </span>
 
               {isDropdownOpen && (
@@ -88,13 +95,16 @@ const Navbar = () => {
             </a> */}
 
             <a
-              onClick={() => handleNavigation("contact")}
-              className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
+              onClick={() => {
+                handleNavigation("contact");
+                setIsDropdownOpen(false);
+              }}
+              className="font-medium text-18px hover:text-[#00FFCA] cursor-pointer"
             >
               Contact Us
             </a>
 
-            <button className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-semibold text-20px text-black">
+            <button className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-semibold text-18px text-black">
               Apply Now
             </button>
           </div>
