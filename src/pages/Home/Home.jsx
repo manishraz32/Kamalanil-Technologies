@@ -505,11 +505,13 @@ export default function Home() {
           {/* Right Section */}
           <div className="gap-6 md:gap-x-[clamp(16px,2.08vw,30px)] md:gap-y-[clamp(20px,2.78vw,40px)] grid grid-cols-1 sm:grid-cols-2 px-[clamp(16px,10vw,40px)] md:px-0">
             <BenefitCard
+    
               icon={interactive}
               title="Interactive Sessions"
               description="Engage in real-time learning with interactive sessions led by expert instructors."
             />
             <BenefitCard
+              
               icon={resourcesicon}
               title="In-Depth Reading Resources"
               description="Access comprehensive written resources like articles, handouts, and guides to deepen your understanding of each topic."

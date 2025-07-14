@@ -901,13 +901,13 @@ const Fullstack = () => {
               Social Media
             </h3>
             <div className="flex flex-row gap-3">
-              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+              <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
                 <img src={linkedin} className="w-[16px] h-[16px]" />
               </div>
-              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+              <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
                 <img src={instagram} className="w-[16px] h-[16px]" />
               </div>
-              <div className="flex justify-center items-center bg-[#00FFCA] rounded-full w-[24px] h-[24px]">
+              <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
                 <img src={whatsapp} className="w-[16px] h-[16px]" />
               </div>
             </div>

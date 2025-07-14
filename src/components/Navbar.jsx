@@ -19,7 +19,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="top-0 z-50 sticky bg-[#12161F] py-4 text-white section-padding-x">
+      <nav className="top-0 z-50 sticky bg-[#12161F] py-4 md:py-8.5 text-white md section-padding-x">
         <div className="flex justify-between items-center w-full">
           {/* Logo */}
           <div className="md:flex items-center gap-4">
@@ -38,7 +38,7 @@ const Navbar = () => {
                 handleNavigation("#home");
                 setIsDropdownOpen(false);
               }}
-              className="font-medium text-18px hover:text-[#00FFCA] cursor-pointer"
+              className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
             >
               Home
             </a>
@@ -54,7 +54,7 @@ const Navbar = () => {
                 handleNavigation("about");
                 setIsDropdownOpen(false);
               }}
-              className="font-medium text-18px hover:text-[#00FFCA] cursor-pointer"
+              className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
             >
               About Us
             </a>
@@ -63,7 +63,7 @@ const Navbar = () => {
             <div className="relative">
               <span
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-1 font-medium text-18px hover:text-[#00FFCA] cursor-pointer"
+                className="flex items-center gap-1 font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
               >
                 Courses
               </span>
@@ -99,7 +99,7 @@ const Navbar = () => {
                 handleNavigation("contact");
                 setIsDropdownOpen(false);
               }}
-              className="font-medium text-18px hover:text-[#00FFCA] cursor-pointer"
+              className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
             >
               Contact Us
             </a>
@@ -169,14 +169,14 @@ const Navbar = () => {
                   <Link
                     to="/sdet"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="hover:underline"
+                    className="hover:text-[#00FFCA] hover:underline"
                   >
                     SDET
                   </Link>
                   <Link
                     to="/fullstack"
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className="hover:underline"
+                    className="hover:text-[#00FFCA] hover:underline"
                   >
                     Full Stack Development
                   </Link>
