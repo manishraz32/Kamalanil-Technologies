@@ -47,7 +47,7 @@ import image55 from "../../assets/image 55.png";
 import interactive from "../../assets/Interactive session icons.png";
 import resourcesicon from "../../assets/resourcesicon.png"
 import readingIcon from "../../assets/performace-Assesment.png"
-
+import SuccessModal from "../../components/SuccessModal";
 import { useLocation } from "react-router-dom";
 
 export default function Home() {
@@ -72,6 +72,7 @@ export default function Home() {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (e) => {
     console.log("e", e);
@@ -144,7 +145,7 @@ export default function Home() {
           "2qMCy92i-24VLWAM9" // Your public key
         )
         .then((response) => {
-          toast.success("Form submitted successfully! ");
+          // toast.success("Form submitted successfully! ");
           console.log("Email sent:", response.status, response.text);
 
           setFormData({
@@ -156,6 +157,7 @@ export default function Home() {
             message: "",
           });
           setErrors({});
+          setShowSuccess(true);
         })
         .catch((error) => {
           toast.error("Failed to send email.");
@@ -1074,6 +1076,7 @@ export default function Home() {
           </div>
         </footer>
       </div>
+      {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
     </>
   );
 }

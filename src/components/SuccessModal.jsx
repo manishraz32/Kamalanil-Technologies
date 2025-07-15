@@ -5,7 +5,7 @@ import CheckIcon from "../assets/Group 4699.svg";
 import Ractangle from "../assets/images/Rectangle 62.svg";
 const SuccessModal = ({ onClose }) => {
   return (
-    <div className="z-50 fixed inset-0 flex justify-center items-center bg-gradient-to-b from-[#09EBA7] to-[#2337B7] w-full h-screen">
+    <div className="z-50 fixed inset-0 flex justify-center items-center bg-[linear-gradient(to_bottom,_#77CBB9_0%,_#7C8DBE_100%)] md:bg-[linear-gradient(to_right,_#77CBB9_0%,_#7C8DBE_100%)] w-full h-screen">
       <div className="relative bg-white shadow-xl pt-14 md:pt-40 rounded-[20px] w-[clamp(247.1815px,17.16vw,247.1815px)] md:w-[clamp(280px,34.72vw,500px)] overflow-hidden text-center">
         <div className="relative">
           <div className="relative h-[180px]">
@@ -14,7 +14,7 @@ const SuccessModal = ({ onClose }) => {
               <img
                 src={Group}
                 alt="Wave Background"
-                className="md:hidden block top-0 right-0 left-[-1px] z-10 absolute w-full h-full object-cover"
+                className="md:hidden block top-0 left-[-1px] z-10 absolute w-full h-full object-cover"
               />
 
              
