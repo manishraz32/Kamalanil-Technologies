@@ -31,8 +31,10 @@ import ScrollToTop from "../../components/ScrollToTop";
 // import { toast } from "react-toastify";
 import image44 from "../../assets/image44.png";
 import image131 from "../../assets/image 131.svg";
+import SuccessModal from "../../components/SuccessModal";
 
 const Fullstack = () => {
+  
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -42,6 +44,7 @@ const Fullstack = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const handleChange = (e) => {
     console.log("e", e);
@@ -114,7 +117,7 @@ const Fullstack = () => {
           "2qMCy92i-24VLWAM9" //  Your public key
         )
         .then((response) => {
-          alert("Form submitted successfully!");
+          // toast.success("Form submitted successfully!");
           console.log("Email sent:", response.status, response.text);
 
           setFormData({
@@ -126,6 +129,7 @@ const Fullstack = () => {
             message: "",
           });
           setErrors({});
+          setShowSuccess(true);
         })
         .catch((error) => {
           alert("Failed to send email.");
@@ -133,6 +137,8 @@ const Fullstack = () => {
         });
     }
   };
+
+  
   return (
     <>
       <ScrollToTop />
@@ -914,8 +920,10 @@ const Fullstack = () => {
           </div>
         </div>
       </footer>
+      {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
     </>
-  );
+   
+);
 };
 
 export default Fullstack;
