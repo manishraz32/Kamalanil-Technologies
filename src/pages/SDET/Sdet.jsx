@@ -30,6 +30,7 @@ import { useState } from "react";
 import ScrollToTop from "../../components/ScrollToTop";
 import image44 from "../../assets/image44.png";
 import image131 from "../../assets/image 131.svg";
+import SuccessModal from "../../components/SuccessModal";
 
 const SDET = () => {
   const [formData, setFormData] = useState({
@@ -41,7 +42,7 @@ const SDET = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
-
+  const [showSuccess, setShowSuccess] = useState(false);
   const handleChange = (e) => {
     console.log("e", e);
     console.log("e.target", e.target);
@@ -125,6 +126,8 @@ const SDET = () => {
             message: "",
           });
           setErrors({});
+          setShowSuccess(true);
+         
         })
         .catch((error) => {
           alert("Failed to send email.");
@@ -918,6 +921,7 @@ const SDET = () => {
           </div>
         </div>
       </footer>
+      {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
     </>
   );
 };
