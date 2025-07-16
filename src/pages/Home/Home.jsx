@@ -49,6 +49,7 @@ import resourcesicon from "../../assets/resourcesicon.png";
 import readingIcon from "../../assets/performace-Assesment.png";
 import SuccessModal from "../../components/SuccessModal";
 import { useLocation } from "react-router-dom";
+import Rectangle from "../../assets/images/Rectangle115.svg";
 
 export default function Home() {
   const location = useLocation();
