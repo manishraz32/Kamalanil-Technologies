@@ -45,8 +45,8 @@ import { toast } from "react-toastify";
 import image131 from "../../assets/image 131.svg";
 import image55 from "../../assets/image 55.png";
 import interactive from "../../assets/Interactive session icons.png";
-import resourcesicon from "../../assets/resourcesicon.png"
-import readingIcon from "../../assets/performace-Assesment.png"
+import resourcesicon from "../../assets/resourcesicon.png";
+import readingIcon from "../../assets/performace-Assesment.png";
 import SuccessModal from "../../components/SuccessModal";
 import { useLocation } from "react-router-dom";
 
@@ -507,13 +507,11 @@ export default function Home() {
           {/* Right Section */}
           <div className="gap-6 md:gap-x-[clamp(16px,2.08vw,30px)] md:gap-y-[clamp(20px,2.78vw,40px)] grid grid-cols-1 sm:grid-cols-2 px-[clamp(16px,10vw,40px)] md:px-0">
             <BenefitCard
-    
               icon={interactive}
               title="Interactive Sessions"
               description="Engage in real-time learning with interactive sessions led by expert instructors."
             />
             <BenefitCard
-              
               icon={resourcesicon}
               title="In-Depth Reading Resources"
               description="Access comprehensive written resources like articles, handouts, and guides to deepen your understanding of each topic."
@@ -945,10 +943,10 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="flex justify-center bg-[#2F3645] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]">
-          <div className="gap-8 md:gap-30 grid grid-cols-1 md:grid-cols-3">
+        <footer className="flex justify-center bg-[rgb(47,54,69)] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]">
+          <div className="flex md:flex-row flex-col justify-between w-full">
             {/* Logo & Description */}
-            <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-start">
+            <div className="flex flex-col items-center md:items-start space-y-4 md:w-[25%] text-center md:text-start">
               <div className="flex items-center gap-2">
                 <img src={company_logo} alt="Logo" />
               </div>
@@ -979,8 +977,8 @@ export default function Home() {
             </div>
 
             {/* Quick Links */}
-            <div className="flex flex-col items-center gap-4 md:gap-0 text-center">
-              <h3 className="font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(12px,1.38vw,40px)] text-center md:leading-[clamp(50px,4.375vw,126px)]">
+            <div className="flex flex-col items-center md:items-start gap-4 md:gap-0 text-center">
+              <h3 className="md:mb-5 font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(12px,1.38vw,40px)] text-center">
                 Quick Links
               </h3>
               <ul className="space-y-4 font-medium text-[#00FFCA] text-sm">
@@ -999,8 +997,8 @@ export default function Home() {
               </ul>
             </div>
 
-            {/* Contact Info */}
-            <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-start">
+            {/* Contact Info  */}
+             <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-center">
               <h3 className="font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(16px,1.38vw,40px)]">
                 CONTACT
               </h3>
@@ -1010,7 +1008,7 @@ export default function Home() {
                   <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                     <img
                       src={smallMapIcon}
-                      className="md:mt-2 w-[11px] h-[15px]"
+                      className="md:mt-2 w-[20px] h-[16px]"
                     />
                     <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
                       Location
@@ -1027,7 +1025,7 @@ export default function Home() {
                   <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                     <img
                       src={smallPhoneSvg}
-                      className="md:mt-2 w-[11px] h-[15px]"
+                      className="md:mt-2 w-[20px] h-[16px]"
                     />
                     <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
                       Phone
@@ -1044,7 +1042,7 @@ export default function Home() {
                   <div className="flex md:flex-row flex-col items-center md:items-start gap-2">
                     <img
                       src={smallEmailSvg}
-                      className="md:mt-2 w-[11px] h-[15px]"
+                      className="md:mt-2 w-[20px] h-[16px]"
                     />
                     <p className="font-bold text-[12px] text-white md:text-[clamp(12px,1.38vw,40px)]">
                       Email
@@ -1056,6 +1054,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+
 
             <div className="md:hidden flex flex-col items-center space-y-4">
               <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
