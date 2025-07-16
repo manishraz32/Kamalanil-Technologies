@@ -51,7 +51,6 @@ import readingIcon from "../../assets/performace-Assesment.png";
 import SuccessModal from "../../components/SuccessModal";
 import { useLocation } from "react-router-dom";
 
-
 export default function Home() {
   const location = useLocation();
 
@@ -172,7 +171,10 @@ export default function Home() {
     <>
       <ScrollToTop />
       <Navbar />
-      <div id="home" className="w-full scroll-smooth">
+      <div
+        id="home"
+        className="w-full scroll-smooth"
+      >
         <div className="flex flex-col min-h-screen">
           <div
             className="flex-1 bg-cover bg-center hero-section"
@@ -666,7 +668,7 @@ export default function Home() {
         {/* sdet trainer banner */}
         <section className="w-full">
           {/* Section 1: SDET Training Banner */}
-          <div className="relative bg-[url('/images/sdetBackgrounImage.png')] md:bg-[url('/images/Rectangle.png')] md:bg-cover bg-no-repeat md:bg-left px-4 md:px-[clamp(16px,6.53vw,120px)] pt-[120px] md:pt-[135px] 2xl:pt-[230px] w-full h-[820px] md:h-[74vh] 2xl:h-[100vh]">
+          <div className="relative bg-[url('/images/sdetBackgrounImage.png')] md:bg-[url('/images/Rectangle.png')] md:bg-cover bg-no-repeat md:bg-left px-4 md:px-[clamp(16px,6.53vw,120px)] pt-[120px] md:pt-[130px] 2xl:pt-[200px] w-full h-[820px] md:h-[74vh] 2xl:h-[100vh] xl:h-[80vh]">
             <h2 className="font-bold text-[clamp(18px,8.7vw,36px)] text-white md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5px,5.56vw,160px)]">
               Break into <span className="text-[#71ffe5]">IT</span> with
               Practical <span className="text-[#00FFD1]">SDET Training</span>
@@ -950,7 +952,11 @@ export default function Home() {
             {/* Logo & Description */}
             <div className="flex flex-col items-center md:items-start space-y-4 md:w-[25%] text-center md:text-start">
               <div className="flex items-center gap-2">
-                <img src={company_logo} alt="Logo" className="md:w-[181.619px] md:h-[47.4427px]" />
+                <img
+                  src={company_logo}
+                  alt="Logo"
+                  className="md:w-[181.619px] md:h-[47.4427px]"
+                />
               </div>
               <p className="w-[75%] md:w-[120%] text-[#fff] text-[12px] md:text-[clamp(12px,1.04vw,30px)] text-center md:text-start">
                 Empowering future-ready professionals through practical tech
@@ -1000,7 +1006,7 @@ export default function Home() {
             </div>
 
             {/* Contact Info  */}
-             <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-center">
+            <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-center">
               <h3 className="font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(16px,1.38vw,40px)]">
                 CONTACT
               </h3>
@@ -1056,7 +1062,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
 
             <div className="md:hidden flex flex-col items-center space-y-4">
               <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
