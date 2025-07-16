@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import image1 from "../assets/image 113.svg";
-import company_logo from "../assets/company_logo.png";
+import company_logo from "../assets/Frame 4.svg";
 import Arrow_down from "../assets/Arrow down filled triangle.png";
 import image117 from "../assets/image 117.png";
 import { useNavigate } from "react-router-dom";
@@ -27,6 +27,7 @@ const Navbar = () => {
               src={company_logo}
               alt="company_logo"
               onClick={() => handleNavigation("#home")}
+              className="w-[86px] md:w-[181.619px] h-[22.4337px] md:h-[47.4427px] object-contain"
             />
           </div>
 
