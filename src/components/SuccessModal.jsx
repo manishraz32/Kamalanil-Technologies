@@ -52,7 +52,7 @@ const SuccessModal = ({ onClose }) => {
               src={image140}
               alt="Thumbs Up"
               // className="top-[-50px] right-1 z-1 absolute mr-5 w-[126px] h-auto md:-translate-x-[0px]"
-              className="top-[-50px] md:top-[-150px] right-1 md:right-auto md:left-1/2 z-5 absolute mr-5 md:mr-0 w-[126px] md:w-[211px] h-auto md:h-[211px] md:translate-x-[-50%]"
+              className="top-[-50px] md:top-[-150px] right-1 md:right-auto md:left-1/2 z-5 absolute mr-5 md:mr-0 w-[126px] md:w-[211px] h-auto md:h-[211px] md:translate-x-[-50%] image-rendering-auto"
 
             />
           </div>

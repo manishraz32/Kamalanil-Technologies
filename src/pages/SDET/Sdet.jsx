@@ -12,7 +12,7 @@ import image61 from "../../assets/image 61.png";
 import image66 from "../../assets/image 66.png";
 import image65 from "../../assets/image 65.png";
 import image114 from "../../assets/image 114.png";
-
+import company_logo  from "../../assets/Frame 4.svg";
 import gh from "../../assets/gh.svg";
 import mapIcon from "../../assets/images/mapIcon.svg";
 import phoneIcon from "../../assets/images/phoneIcon.png";
@@ -21,7 +21,7 @@ import emailIcon from "../../assets/images/emailIcon.png";
 import instagram from "../../assets/images/instagram.png";
 import linkedin from "../../assets/images/linkedin.png";
 import whatsapp from "../../assets/images/whatsapp.png";
-import company_logo from "../../assets/company_logo.png";
+
 import smallEmailSvg from "../../assets/images/smallEmailSvg.svg";
 import smallMapIcon from "../../assets/images/smallMapIcon.svg";
 import smallPhoneSvg from "../../assets/images/smallPhoneSvg.svg";
@@ -795,7 +795,7 @@ const SDET = () => {
           {/* Logo & Description */}
           <div className="flex flex-col items-center md:items-start space-y-4 md:w-[25%] text-center md:text-start">
             <div className="flex items-center gap-2">
-              <img src={company_logo} alt="Logo" />
+               <img src={company_logo} alt="Logo" className="md:w-[181.619px] md:h-[47.4427px]" />
             </div>
             <p className="w-[75%] md:w-[120%] text-[#fff] text-[12px] md:text-[clamp(12px,1.04vw,30px)] text-center md:text-start">
               Empowering future-ready professionals through practical tech
