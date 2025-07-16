@@ -17,6 +17,7 @@ import mobileMeetingWithborder from "../../assets/images/mobileMeetingWithborder
 import greenTextBackgroundImage from "../../assets/images/greenTextBackgroundImage.png";
 import rightIconSvg from "../../assets/images/rightIconSvg.svg";
 import sdetBackgrounImage from "../../assets/images/sdetBackgrounImage.png";
+import Rectangle from "../../../public/images/Rectangle.png";
 import trainingsvg from "../../assets/images/training.svg";
 import emailIcon from "../../assets/images/emailIcon.png";
 import mapIcon from "../../assets/images/mapIcon.svg";
@@ -49,7 +50,7 @@ import resourcesicon from "../../assets/resourcesicon.png";
 import readingIcon from "../../assets/performace-Assesment.png";
 import SuccessModal from "../../components/SuccessModal";
 import { useLocation } from "react-router-dom";
-import Rectangle from "../../assets/images/Rectangle115.svg";
+
 
 export default function Home() {
   const location = useLocation();
@@ -665,7 +666,7 @@ export default function Home() {
         {/* sdet trainer banner */}
         <section className="w-full">
           {/* Section 1: SDET Training Banner */}
-          <div className="relative bg-[url('/images/sdetBackgrounImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left px-4 md:px-[clamp(16px,6.53vw,120px)] pt-[120px] md:pt-[150px] 2xl:pt-[230px] w-full h-[820px] md:h-[74vh] 2xl:h-[100vh]">
+          <div className="relative bg-[url('/images/sdetBackgrounImage.png')] md:bg-[url('/images/Rectangle.png')] md:bg-cover bg-no-repeat md:bg-left px-4 md:px-[clamp(16px,6.53vw,120px)] pt-[120px] md:pt-[135px] 2xl:pt-[230px] w-full h-[820px] md:h-[74vh] 2xl:h-[100vh]">
             <h2 className="font-bold text-[clamp(18px,8.7vw,36px)] text-white md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5px,5.56vw,160px)]">
               Break into <span className="text-[#71ffe5]">IT</span> with
               Practical <span className="text-[#00FFD1]">SDET Training</span>

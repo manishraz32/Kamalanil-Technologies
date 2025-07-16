@@ -137,7 +137,10 @@ const Navbar = () => {
           <div className="flex flex-col gap-2 px-4 py-2 font-semibold text-[16px] text-black">
             <a
               href="#home"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={() => {
+                setIsMobileMenuOpen(false);
+                setIsDropdownOpen(false);
+              }}
               className="mt-2 pb-2 border-b"
             >
               Home
