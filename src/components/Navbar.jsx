@@ -15,17 +15,18 @@ const Navbar = () => {
   const hamburgerRef = useRef(null);
   const navigate = useNavigate();
 
+  // Outside click close
   useEffect(() => {
     const handleClickOutside = (event) => {
-      // For dropdown
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target)
       ) {
-        setIsDropdownOpen(false);
+        setTimeout(() => {
+          setIsDropdownOpen(false);
+        }, 150);
       }
 
-      // For mobile menu
       if (
         isMobileMenuOpen &&
         mobileMenuRef.current &&
@@ -50,7 +51,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="top-0 z-50 sticky bg-[#12161F] py-4 md:py-8.5 text-white md section-padding-x">
+      <nav className="top-0 z-50 sticky bg-[#12161F] py-4 md:py-8.5 text-white section-padding-x">
         <div className="flex justify-between items-center w-full">
           {/* Logo */}
           <div className="md:flex items-center gap-4">
@@ -62,10 +63,9 @@ const Navbar = () => {
             />
           </div>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <div className="hidden relative md:flex items-center gap-[clamp(16px,4.17vw,80px)]">
             <a
-              href="#home"
               onClick={() => handleNavigation("#home")}
               className="font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
             >
@@ -78,7 +78,6 @@ const Navbar = () => {
               About Us
             </a>
 
-            {/* Courses Dropdown */}
             <div className="relative" ref={dropdownRef}>
               <span
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
@@ -118,7 +117,7 @@ const Navbar = () => {
             </button>
           </div>
 
-          {/* Mobile Hamburger Icon */}
+          {/* Hamburger */}
           <div className="md:hidden flex justify-end" ref={hamburgerRef}>
             {!isMobileMenuOpen ? (
               <img
@@ -128,55 +127,50 @@ const Navbar = () => {
                 className="brightness-105 w-10 h-10 object-contain cursor-pointer contrast-110"
               />
             ) : (
-              <div>
-                <img
-                  src={image117}
-                  alt="Close Menu"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="w-10 h-10 object-contain cursor-pointer"
-                />
-              </div>
+              <img
+                src={image117}
+                alt="Close Menu"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-10 h-10 object-contain cursor-pointer"
+              />
             )}
           </div>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu (Fixed) */}
       {isMobileMenuOpen && (
         <div
-          className="md:hidden top-[70px] left-0 z-40 absolute bg-white shadow-md rounded-b-lg w-full"
+          className="md:hidden top-[70px] left-0 z-40 fixed bg-white shadow-md rounded-b-lg w-full"
           ref={mobileMenuRef}
         >
           <div className="flex flex-col gap-2 px-4 py-2 font-semibold text-[16px] text-black">
             <a
-              href="#home"
               onClick={() => handleNavigation("#home")}
               className="mt-2 pb-2 border-b"
             >
               Home
             </a>
             <a
-              href="#about"
               onClick={() => handleNavigation("about")}
               className="pb-2 border-b"
             >
               About us
             </a>
 
-            {/* Courses Dropdown */}
             <div className="pb-2 border-b">
               <div
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex justify-between items-center cursor-pointer"
               >
                 <span>Courses</span>
-                <span
-                  className={`transition-transform duration-200 ${
+                <img
+                  src={Arrow_down}
+                  alt="dropdown"
+                  className={`w-4 h-4 transform transition-transform duration-200 ${
                     isDropdownOpen ? "rotate-180" : ""
                   }`}
-                >
-                  <img src={Arrow_down} alt="dropdown" className="w-4 h-4" />
-                </span>
+                />
               </div>
               {isDropdownOpen && (
                 <div className="flex flex-col gap-2 mt-2 font-medium text-[14px]">
@@ -204,13 +198,7 @@ const Navbar = () => {
               )}
             </div>
 
-            <a
-              href="#contact"
-              onClick={() => handleNavigation("contact")}
-              className=""
-            >
-              Contact us
-            </a>
+            <a onClick={() => handleNavigation("contact")}>Contact us</a>
           </div>
         </div>
       )}
