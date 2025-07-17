@@ -11,7 +11,7 @@ export default function App() {
        <ToastContainer position="top-right" autoClose={3000} />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/Sdet' element={<Sdet />} />
+        <Route path='/sdet' element={<Sdet />} />
         <Route path='/fullstack' element={<Fullstack />} />
         {/* <Route path='/contact' element={<Contact />} /> */}
       </Routes>

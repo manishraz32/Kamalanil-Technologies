@@ -140,7 +140,7 @@ const SDET = () => {
       <ScrollToTop />
       <Navbar />
       {/* hero section */}
-      <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(16px,6.53vw,120px)] py-8 md:py-[clamp(28px,4.86vw,70px)]">
+      <div  className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(16px,6.53vw,120px)] py-8 md:py-[clamp(28px,4.86vw,70px)]">
         <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
           <div className="flex flex-col gap-2">
             <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
