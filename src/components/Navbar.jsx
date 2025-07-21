@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import image1 from "../assets/image 113.svg";
@@ -9,6 +8,7 @@ import image117 from "../assets/image 117.png";
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMobileDropdownOpen, setIsMobileDropdownOpen] = useState(false);
 
   const dropdownRef = useRef(null);
   const mobileMenuRef = useRef(null);
@@ -18,10 +18,7 @@ const Navbar = () => {
   // Outside click close
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         setTimeout(() => {
           setIsDropdownOpen(false);
         }, 150);
@@ -160,7 +157,7 @@ const Navbar = () => {
 
             <div className="pb-2 border-b">
               <div
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                onClick={() => setIsMobileDropdownOpen(!isMobileDropdownOpen)}
                 className="flex justify-between items-center cursor-pointer"
               >
                 <span>Courses</span>
@@ -168,17 +165,18 @@ const Navbar = () => {
                   src={Arrow_down}
                   alt="dropdown"
                   className={`w-4 h-4 transform transition-transform duration-200 ${
-                    isDropdownOpen ? "rotate-180" : ""
+                    isMobileDropdownOpen ? "rotate-180" : ""
                   }`}
                 />
               </div>
-              {isDropdownOpen && (
+
+              {isMobileDropdownOpen && (
                 <div className="flex flex-col gap-2 mt-2 font-medium text-[14px]">
                   <Link
                     to="/sdet"
                     onClick={() => {
                       setIsMobileMenuOpen(false);
-                      setIsDropdownOpen(false);
+                      setIsMobileDropdownOpen(false);
                     }}
                     className="hover:text-[#00FFCA] hover:underline"
                   >
@@ -188,7 +186,7 @@ const Navbar = () => {
                     to="/fullstack"
                     onClick={() => {
                       setIsMobileMenuOpen(false);
-                      setIsDropdownOpen(false);
+                      setIsMobileDropdownOpen(false);
                     }}
                     className="hover:text-[#00FFCA] hover:underline"
                   >

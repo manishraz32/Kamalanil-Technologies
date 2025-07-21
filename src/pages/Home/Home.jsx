@@ -208,7 +208,7 @@ export default function Home() {
                 Join{" "}
                 <span className="inline-block relative">
                   <span className="font-semibold">KAMLANIL TECHNOLOGIES</span>
-                  <span className="top-full left-0 absolute bg-gradient-to-r from-[#00FFCA] to-[#009979] mt-[1px] w-full h-[4px]"></span>
+                  <span className="top-full left-0 absolute bg-gradient-to-r from-[#00FFCA] to-[#009979] md:mt-[1px] w-full h-[2px] md:h-[4px]"></span>
                 </span> {" "}
                 be sure about the future
               </p>
