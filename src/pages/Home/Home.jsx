@@ -171,10 +171,7 @@ export default function Home() {
     <>
       <ScrollToTop />
       <Navbar />
-      <div
-        id="home"
-        className="w-full scroll-smooth"
-      >
+      <div id="home" className="w-full scroll-smooth">
         <div className="flex flex-col min-h-screen">
           <div
             className="flex-1 bg-cover bg-center hero-section"
@@ -209,7 +206,10 @@ export default function Home() {
               </p>
               <p className="pr-10 font-medium text-[#575757] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(14px,1.32vw,19px)] md:text-center leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(18px,1.5vw,21.6px)]">
                 Join{" "}
-                <span className="font-semibold">KAMLANIL TECHNOLOGIES</span> and
+                <span className="inline-block relative">
+                  <span className="font-semibold">KAMLANIL TECHNOLOGIES</span>
+                  <span className="top-full left-0 absolute bg-gradient-to-r from-[#00FFCA] to-[#009979] mt-[1px] w-full h-[4px]"></span>
+                </span> {" "}
                 be sure about the future
               </p>
             </div>
