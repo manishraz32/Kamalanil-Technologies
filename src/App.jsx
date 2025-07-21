@@ -4,6 +4,7 @@ import Sdet from "./pages/SDET/Sdet.jsx";
 import Fullstack from "./pages/Fullstack/Fullstack.jsx";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
+import FreeDemoForm  from "./pages/FreeDemoForm/FreeDemoForm";
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sdet" element={<Sdet />} />
         <Route path="/fullstack" element={<Fullstack />} />
+        <Route path="/Freedemo" element={<FreeDemoForm />} />
       </Routes>
     </>
   );
