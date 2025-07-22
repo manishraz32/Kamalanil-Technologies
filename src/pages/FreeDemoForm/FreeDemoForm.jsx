@@ -68,25 +68,26 @@ const FreeDemoForm = () => {
     <>
       <ScrollToTop />
       <Navbar />
-      <div className="flex justify-center bg-[#dbe2e3] px-4 md:px-[clamp(16px,6.53vw,120px)] py-10 min-h-screen overflow-x-hidden">
-        <div className="relative bg-white shadow-lg md:pb-10 rounded-[2rem] w-full xl:h-[clamp(500px,46.66vw,2015.6835px)]">
-          <div className="flex flex-col items-center md:bg-[linear-gradient(to_right,_#EAFDFB,_#DAF6F7)] px-6 rounded-[2rem] md:h-[clamp(300px,24.88vw,716.68px)] text-center">
-            <h2 className="md:mt-4 xl:mt-0 md:pt-2 font-['Montserrat'] font-bold text-gray-900 md:text-[clamp(20px,2.77vw,120px)] md:leading-[clamp(40px,5.55vw,240px)]">
+      <div className="flex justify-center bg-[#FFFFFF] md:bg-[#dbe2e3] md:px-[clamp(16px,6.53vw,120px)] md:py-10 pb-20 min-h-screen overflow-x-hidden">
+        <div className="md:relative md:bg-white md:shadow-lg md:pb-10 md:rounded-[2rem] md:w-full md:xl:h-[clamp(500px,46.66vw,2015.6835px)]">
+          <div className="flex flex-col items-center gap-3 md:gap-0 bg-[linear-gradient(to_right,_#EAFDFB,_#DAF6F7)] md:bg-[linear-gradient(to_right,_#EAFDFB,_#DAF6F7)] px-4 pt-9 md:pt-0 pb-10.5 md:pb-0 md:rounded-[2rem] rounded-b-[2rem] md:h-[clamp(300px,24.88vw,716.68px)] text-center">
+            <h2 className="items-center md:mt-4 xl:mt-0 md:pt-2 w-[76%] md:w-full font-['Montserrat'] font-bold text-[36px] text-gray-900 md:text-[clamp(20px,2.77vw,120px)] leading-[43px] md:leading-[clamp(40px,5.55vw,240px)]">
               Get 3–5 Days of Free Live Demo Classes
             </h2>
-            <p className="w-[80%] font-['Montserrat'] font-normal text-gray-600 md:text-[clamp(16px,1.25vw,54px)] text-center md:leading-[clamp(18px,2.01vw,87px)]">
+            <p className="w-[82%] md:w-[80%] font-['Montserrat'] font-normal text-[#1216F] md:text-[clamp(16px,1.25vw,54px)] text-center md:leading-[clamp(18px,2.01vw,87px)]">
               Experience real course content through live sessions with
               instructors, interactive doubt-clearing, and flexible time
               slots—absolutely free.
             </p>
           </div>
+
           <form
             onSubmit={handleSubmit}
-            className="md:top-[160px] 2xl:top-[200px] 4xl:top-[250px] left-1/2 z-10 absolute md:gap-4 grid grid-cols-1 md:grid-cols-2 bg-white shadow-[0_4px_30px_rgba(33,180,149,0.4)] p-3 rounded-[2rem] w-[75%] -translate-x-1/2"
+            className="md:top-[160px] 2xl:top-[200px] 4xl:top-[250px] left-1/2 md:left-1/2 z-10 md:absolute relative gap-3 md:gap-4 grid grid-cols-1 md:grid-cols-2 bg-white shadow-[0_2px_20px_rgba(0,0,0,0.15)] md:shadow-[0_4px_30px_rgba(33,180,149,0.4)] mt-9 md:mt-0 md:p-3 px-6 py-3 rounded-[2rem] w-[90%] md:w-[75%] overflow-visible -translate-x-1/2 md:-translate-x-1/2"
           >
             {/* Full Name */}
             <div>
-              <label className="block font-semibold md:text-[clamp(10px,1.11vw,39px)] md:leading-[clamp(30px,2.971vw,128.3616px)]">
+              <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
                 Full Name *
               </label>
               <input
@@ -95,12 +96,12 @@ const FreeDemoForm = () => {
                 placeholder="Enter your full name"
                 value={formData.fullName}
                 onChange={handleChange}
-                className="bg-[#F4F4F4] px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full"
+                className="bg-[#F4F4F4] px-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px]"
                 required
               />
             </div>
 
-            {/* Email Address */}
+            {/* Email */}
             <div>
               <label className="block font-semibold md:text-[clamp(10px,1.11vw,39px)] md:leading-[clamp(30px,2.971vw,128.3616px)]">
                 Email Address *
@@ -111,7 +112,7 @@ const FreeDemoForm = () => {
                 placeholder="Enter email"
                 value={formData.email}
                 onChange={handleChange}
-                className="bg-[#F4F4F4] px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full"
+                className="bg-[#F4F4F4] px-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px]"
                 required
               />
             </div>
@@ -127,15 +128,16 @@ const FreeDemoForm = () => {
                 placeholder="+91"
                 value={formData.phone}
                 onChange={handleChange}
-                className="bg-[#F4F4F4] px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full"
+                className="bg-[#F4F4F4] px-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px]"
                 required
               />
             </div>
 
-            
             {/* Course */}
             <div className="relative">
-              <label className="block font-semibold md:text-[clamp(10px,1.11vw,39px)] md:leading-[clamp(30px,2.971vw,128.3616px)]">Course *</label>
+              <label className="block font-semibold md:text-[clamp(10px,1.11vw,39px)] md:leading-[clamp(30px,2.971vw,128.3616px)]">
+                Course *
+              </label>
               <div
                 onClick={() => toggleDropdown("courseOpen")}
                 className="flex justify-between items-center bg-[#F4F4F4] px-4 py-2 border border-gray-200 rounded-lg cursor-pointer"
@@ -150,7 +152,7 @@ const FreeDemoForm = () => {
                     dropdowns.courseOpen ? "rotate-180" : "rotate-0"
                   }`}
                 >
-                  <img src={ArrowDown} alt="arrow" />
+                  <img src={ArrowDown} alt="arrow" className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]" />
                 </span>
               </div>
 
@@ -160,9 +162,11 @@ const FreeDemoForm = () => {
                     <li
                       key={course}
                       onClick={() => selectOption("course", course)}
-                      className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 
-          md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] font-bold 
-          ${formData.course === course ? "font-semibold text-[#00b39f]" : ""}`}
+                      className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] font-bold ${
+                        formData.course === course
+                          ? "font-semibold text-[#00b39f]"
+                          : ""
+                      }`}
                     >
                       {course}
                     </li>
@@ -171,7 +175,6 @@ const FreeDemoForm = () => {
               )}
             </div>
 
-          
             {/* Preferred Demo Slot */}
             <div className="relative">
               <label className="block font-semibold md:text-[clamp(10px,1.11vw,39px)] md:leading-[clamp(30px,2.971vw,128.3616px)]">
@@ -191,7 +194,7 @@ const FreeDemoForm = () => {
                     dropdowns.timeSlotOpen ? "rotate-180" : "rotate-0"
                   }`}
                 >
-                  <img src={ArrowDown} alt="arrow" />
+                  <img src={ArrowDown} alt="arrow" className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]" />
                 </span>
               </div>
 
@@ -205,9 +208,11 @@ const FreeDemoForm = () => {
                     <li
                       key={slot}
                       onClick={() => selectOption("timeSlot", slot)}
-                      className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 
-          md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] font-bold 
-          ${formData.timeSlot === slot ? "font-semibold text-[#00b39f]" : ""}`}
+                      className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] font-bold ${
+                        formData.timeSlot === slot
+                          ? "font-semibold text-[#00b39f]"
+                          : ""
+                      }`}
                     >
                       {slot}
                     </li>
@@ -218,7 +223,9 @@ const FreeDemoForm = () => {
 
             {/* Background */}
             <div className="relative">
-              <label className="block font-semibold md:text-[clamp(10px,1.11vw,39px)] md:leading-[clamp(30px,2.971vw,128.3616px)]">Background *</label>
+              <label className="block font-semibold md:text-[clamp(10px,1.11vw,39px)] md:leading-[clamp(30px,2.971vw,128.3616px)]">
+                Background *
+              </label>
               <div
                 onClick={() => toggleDropdown("backgroundOpen")}
                 className="flex justify-between items-center bg-[#F4F4F4] px-4 py-2 border border-gray-200 rounded-lg cursor-pointer"
@@ -233,7 +240,7 @@ const FreeDemoForm = () => {
                     dropdowns.backgroundOpen ? "rotate-180" : "rotate-0"
                   }`}
                 >
-                  <img src={ArrowDown} alt="arrow" />
+                  <img src={ArrowDown} alt="arrow" className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]" />
                 </span>
               </div>
 
@@ -244,9 +251,11 @@ const FreeDemoForm = () => {
                       <li
                         key={bg}
                         onClick={() => selectOption("duration", bg)}
-                        className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 
-          md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] font-bold 
-          ${formData.duration === bg ? "text-[#00b39f] font-semibold" : ""}`}
+                        className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] font-bold ${
+                          formData.duration === bg
+                            ? "text-[#00b39f] font-semibold"
+                            : ""
+                        }`}
                       >
                         {bg}
                       </li>
@@ -256,16 +265,15 @@ const FreeDemoForm = () => {
               )}
             </div>
 
-            {/* Language and Message in same row */}
+            {/* Language and Message */}
             <div className="flex md:flex-row flex-col gap-6 col-span-1 md:col-span-2">
-              {/* Preferred Language */}
               <div className="w-full md:w-1/2">
                 <label className="block font-semibold md:text-[clamp(10px,1.11vw,39px)] md:leading-[clamp(30px,2.971vw,128.3616px)]">
                   Preferred Language *
                 </label>
                 <div className="flex items-center gap-4">
                   <div className="bg-[#F4F4F4] px-4 py-2 rounded-lg">
-                    <label className="flex flex-row justify-between items-center md:w-[clamp(16px,13.89vw,200px)]">
+                    <label className="flex flex-row justify-between items-center md:w-[clamp(16px,13.89vw,185px)]">
                       <span className="ml-2">English</span>
                       <input
                         type="checkbox"
@@ -277,7 +285,7 @@ const FreeDemoForm = () => {
                     </label>
                   </div>
                   <div className="bg-[#F4F4F4] px-4 py-2 rounded-lg">
-                    <label className="flex flex-row justify-between items-center md:w-[clamp(16px,13.89vw,200px)]">
+                    <label className="flex flex-row justify-between items-center md:w-[clamp(16px,13.89vw,185px)]">
                       <span className="ml-2">Hindi</span>
                       <input
                         type="checkbox"
@@ -291,7 +299,6 @@ const FreeDemoForm = () => {
                 </div>
               </div>
 
-              {/* Message */}
               <div className="w-full">
                 <label className="block font-semibold md:text-[clamp(10px,1.11vw,39px)] md:leading-[clamp(30px,2.971vw,128.3616px)]">
                   Message *
@@ -312,7 +319,7 @@ const FreeDemoForm = () => {
             <div className="flex justify-center col-span-1 md:col-span-2">
               <button
                 type="submit"
-                className="bg-[#00f5c6] hover:bg-[#00e6b7] shadow px-50 py-3 rounded-lg font-bold text-black transition"
+                className="bg-[#00f5c6] hover:bg-[#00e6b7] shadow md:px-50 py-3 rounded-lg font-bold text-black transition"
               >
                 SUBMIT
               </button>
@@ -320,6 +327,7 @@ const FreeDemoForm = () => {
           </form>
         </div>
       </div>
+
       <footer className="flex justify-center bg-[rgb(47,54,69)] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]">
         <div className="flex md:flex-row flex-col justify-between w-full">
           {/* Logo & Description */}
