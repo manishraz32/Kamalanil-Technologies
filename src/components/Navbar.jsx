@@ -178,7 +178,7 @@ const Navbar = () => {
                       setIsMobileMenuOpen(false);
                       setIsMobileDropdownOpen(false);
                     }}
-                    className="hover:text-[#00FFCA] hover:underline"
+                    className="hover:text-[#00FFCA]"
                   >
                     SDET
                   </Link>
@@ -188,7 +188,7 @@ const Navbar = () => {
                       setIsMobileMenuOpen(false);
                       setIsMobileDropdownOpen(false);
                     }}
-                    className="hover:text-[#00FFCA] hover:underline"
+                    className="hover:text-[#00FFCA]"
                   >
                     Full Stack Development
                   </Link>
