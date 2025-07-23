@@ -14,7 +14,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/sdet" element={<Sdet />} />
         <Route path="/fullstack" element={<Fullstack />} />
-        <Route path="/Freedemo" element={<FreeDemoForm />} />
+        <Route path="/freedemopage" element={<FreeDemoForm />} />
       </Routes>
     </>
   );

@@ -50,9 +50,11 @@ import resourcesicon from "../../assets/resourcesicon.png";
 import readingIcon from "../../assets/performace-Assesment.png";
 import SuccessModal from "../../components/SuccessModal";
 import { useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const location = useLocation();
+   const navigate = useNavigate();
 
   useEffect(() => {
     if (location.state?.scrollTo) {
@@ -190,7 +192,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex justify-center">
-                <button className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[800] font-inter text-20px text-black">
+                <button onClick={() => navigate("/freedemopage")} className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[800] font-inter text-20px text-black">
                   Book A Free Demo
                 </button>
               </div>
