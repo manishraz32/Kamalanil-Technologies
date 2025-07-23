@@ -1,4 +1,4 @@
-import React, { useState,useRef,useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import ScrollToTop from "../../components/ScrollToTop";
 import company_logo from "../../assets/Frame 4.svg";
@@ -9,7 +9,7 @@ import smallEmailSvg from "../../assets/images/smallEmailSvg.svg";
 import smallMapIcon from "../../assets/images/smallMapIcon.svg";
 import smallPhoneSvg from "../../assets/images/smallPhoneSvg.svg";
 import ArrowDown from "../../assets/Arrow down sign to navigate.png";
-
+import Scrollbar from "../../assets/Scrollbar.svg";
 const FreeDemoForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -18,15 +18,18 @@ const FreeDemoForm = () => {
     course: "",
     timeSlot: "",
     duration: "",
+    message:"",
     language: {
-      english: true,
+      english: false,
       hindi: false,
     },
     notes: "",
   });
 
-const dropdownRef = useRef(null);
-const formRef = useRef(null);
+  const [errors, setErrors] = useState({});
+
+  const dropdownRef = useRef(null);
+  const formRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value, checked } = e.target;
@@ -44,10 +47,60 @@ const formRef = useRef(null);
     }
   };
 
+  const validate = () => {
+    const newErrors = {};
+
+    if (!formData.fullName.trim()) newErrors.fullName = "Full name is required";
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^[6-9]\d{9}$/.test(formData.phone)) {
+      newErrors.phone = "Enter a valid 10-digit Indian mobile number";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(formData.email)) {
+      newErrors.email = "Email is invalid";
+    }
+
+    if (!formData.course) newErrors.course = "Please select a course";
+
+    if (!formData.duration) newErrors.duration = "Please select a background";
+
+    if (!formData.timeSlot) newErrors.timeSlot = "Please select a time slot";
+
+    if (!formData.message.trim() || formData.message.trim().length < 10) {
+      errors.message = "Message must be at least 10 characters.";
+    }
+
+    setErrors(newErrors);
+    return newErrors;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
-    // Add submission logic here
+    const validationErrors = validate();
+
+    if (Object.keys(validationErrors).length > 0) {
+      console.log("Form has errors:", validationErrors);
+      return;
+    }
+
+    alert("Form Submitted");
+    setFormData({
+      fullName: "",
+      email: "",
+      phone: "",
+      course: "",
+      timeSlot: "",
+      duration: "",
+      message:"",
+      language: {
+        english: false,
+        hindi: false,
+      },
+    });
   };
 
   const [dropdowns, setDropdowns] = useState({
@@ -68,29 +121,28 @@ const formRef = useRef(null);
   };
 
   useEffect(() => {
-  const handleClickOutside = (event) => {
-    // agar dropdown open hai aur click dropdown ke andar nahi hua
-    // but form ke kisi bhi element par hua
-    if (
-      dropdownRef.current &&
-      !dropdownRef.current.contains(event.target) &&
-      formRef.current &&
-      formRef.current.contains(event.target)
-    ) {
-      setDropdowns({
-        timeSlotOpen: false,
-        backgroundOpen: false,
-        courseOpen: false,
-      });
-    }
-  };
+    const handleClickOutside = (event) => {
+      // agar dropdown open hai aur click dropdown ke andar nahi hua
+      // but form ke kisi bhi element par hua
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        formRef.current &&
+        formRef.current.contains(event.target)
+      ) {
+        setDropdowns({
+          timeSlotOpen: false,
+          backgroundOpen: false,
+          courseOpen: false,
+        });
+      }
+    };
 
-  document.addEventListener("mousedown", handleClickOutside);
-  return () => {
-    document.removeEventListener("mousedown", handleClickOutside);
-  };
-}, []);
-
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -100,7 +152,7 @@ const formRef = useRef(null);
         <div className="md:relative md:bg-white md:shadow-lg md:pb-10 md:rounded-[2rem] md:w-full md:xl:h-[clamp(500px,48.66vw,2015.6835px)]">
           <div className="flex flex-col items-center gap-3 md:gap-0 bg-[linear-gradient(to_right,_#EAFDFB,_#DAF6F7)] md:bg-[linear-gradient(to_right,_#EAFDFB,_#DAF6F7)] px-4 pt-9 md:pt-0 pb-10.5 md:pb-0 md:rounded-[2rem] rounded-b-[2rem] md:h-[clamp(300px,24.88vw,716.68px)] text-center">
             <h2 className="items-center md:mt-4 xl:mt-0 md:pt-2 w-[76%] md:w-full font-['Montserrat'] font-bold text-[36px] text-gray-900 md:text-[clamp(20px,2.77vw,120px)] leading-[43px] md:leading-[clamp(40px,5.55vw,240px)]">
-              Get 3–5 Days of Free Live Demo Classes
+              Get 5 Days of Free Live Demo Classes
             </h2>
             <p className="w-[82%] md:w-[80%] font-['Montserrat'] font-normal text-[#1216F] md:text-[clamp(16px,1.25vw,54px)] text-center md:leading-[clamp(18px,2.01vw,87px)]">
               Experience real course content through live sessions with
@@ -111,7 +163,6 @@ const formRef = useRef(null);
 
           <form
             onSubmit={handleSubmit}
-            ref={formRef}
             className="md:top-[160px] 2xl:top-[200px] 4xl:top-[250px] left-1/2 md:left-1/2 z-10 md:absolute relative gap-3 md:gap-4 grid grid-cols-1 md:grid-cols-2 bg-white shadow-[0_2px_20px_rgba(0,0,0,0.15)] md:shadow-[0_4px_30px_rgba(33,180,149,0.4)] mt-9 md:mt-0 md:p-3 px-6 py-3 rounded-[2rem] w-[90%] md:w-[75%] overflow-visible -translate-x-1/2 md:-translate-x-1/2"
           >
             {/* Full Name */}
@@ -126,10 +177,11 @@ const formRef = useRef(null);
                 value={formData.fullName}
                 onChange={handleChange}
                 className="bg-[#F4F4F4] px-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px]"
-                required
               />
+              {errors.fullName && (
+                <p className="mt-1 text-red-500 text-sm">{errors.fullName}</p>
+              )}
             </div>
-
             {/* Email */}
             <div>
               <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
@@ -142,10 +194,11 @@ const formRef = useRef(null);
                 value={formData.email}
                 onChange={handleChange}
                 className="bg-[#F4F4F4] px-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px]"
-                required
               />
+              {errors.email && (
+                <p className="mt-1 text-red-500 text-sm">{errors.email}</p>
+              )}
             </div>
-
             {/* Phone */}
             <div>
               <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
@@ -158,151 +211,183 @@ const formRef = useRef(null);
                 value={formData.phone}
                 onChange={handleChange}
                 className="bg-[#F4F4F4] px-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px]"
-                required
               />
+              {errors.phone && (
+                <p className="mt-1 text-red-500 text-sm">{errors.phone}</p>
+              )}
             </div>
-
             {/* Course */}
-            <div className="relative"  ref={dropdownRef}>
-              <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
-                Course *
-              </label>
-              <div className="flex justify-between items-center bg-[#F4F4F4] px-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px] cursor-pointer">
-                <span
-                  className={formData.course ? "text-black" : "text-gray-500"}
-                >
-                  {formData.course || "Select course"}
-                </span>
-                <span
-                  className={`ml-2 transition-transform duration-300 ${
-                    dropdowns.courseOpen ? "rotate-180" : "rotate-0"
-                  }`}
-                >
-                  <img
-                    src={ArrowDown}
-                    alt="arrow"
-                    className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]"
-                    onClick={() => toggleDropdown("courseOpen")}
-                  />
-                </span>
-              </div>
+            <div>
+              <div className="relative">
+                <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
+                  Course *
+                </label>
+                <div className="flex justify-between items-center bg-[#F4F4F4] px-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px] cursor-pointer">
+                  <span
+                    className={formData.course ? "text-black" : "text-gray-500"}
+                  >
+                    {formData.course || "Select course"}
+                  </span>
+                  <span
+                    className={`ml-2 transition-transform duration-300 ${
+                      dropdowns.courseOpen ? "rotate-180" : "rotate-0"
+                    }`}
+                  >
+                    <img
+                      src={ArrowDown}
+                      alt="arrow"
+                      className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]"
+                      onClick={() => toggleDropdown("courseOpen")}
+                    />
+                  </span>
+                </div>
 
-              {dropdowns.courseOpen && (
-                <ul className="z-10 absolute bg-[#F4F4F4] shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
-                  {["SEDT", "FullStack Developer"].map((course) => (
-                    <li
-                      key={course}
-                      onClick={() => selectOption("course", course)}
-                      className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] font-bold ${
-                        formData.course === course
-                          ? "font-semibold text-[#00b39f]"
-                          : ""
-                      }`}
-                    >
-                      {course}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            {/* Preferred Demo Slot */}
-            <div className="relative"  ref={dropdownRef}>
-              <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
-                Preferred demo slot *
-              </label>
-              <div className="flex justify-between items-center bg-[#F4F4F4] px-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px] cursor-pointer">
-                <span
-                  className={formData.timeSlot ? "text-black" : "text-gray-500"}
-                >
-                  {formData.timeSlot || "Select time slot"}
-                </span>
-                <span
-                  className={`ml-2 transition-transform duration-300 ${
-                    dropdowns.timeSlotOpen ? "rotate-180" : "rotate-0"
-                  }`}
-                >
-                  <img
-                    src={ArrowDown}
-                    alt="arrow"
-                    className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]"
-                    onClick={() => toggleDropdown("timeSlotOpen")}
-                  />
-                </span>
-              </div>
-
-              {dropdowns.timeSlotOpen && (
-                <ul className="z-10 absolute bg-[#F4F4F4] shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
-                  {[
-                    "7:00am - 8:30am",
-                    "9:00am - 10:30am",
-                    "8:00pm - 9:30pm",
-                  ].map((slot) => (
-                    <li
-                      key={slot}
-                      onClick={() => selectOption("timeSlot", slot)}
-                      className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] font-bold ${
-                        formData.timeSlot === slot
-                          ? "font-semibold text-[#00b39f]"
-                          : ""
-                      }`}
-                    >
-                      {slot}
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </div>
-
-            {/* Background */}
-            <div className="relative"  ref={dropdownRef}>
-              <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
-                Background *
-              </label>
-              <div className="flex justify-between items-center bg-[#F4F4F4] px-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px] cursor-pointer">
-                <span
-                  className={formData.duration ? "text-black" : "text-gray-500"}
-                >
-                  {formData.duration || "Select your background"}
-                </span>
-                <span
-                  className={`ml-2 transition-transform duration-300 ${
-                    dropdowns.backgroundOpen ? "rotate-180" : "rotate-0"
-                  }`}
-                >
-                  <img
-                    src={ArrowDown}
-                    alt="arrow"
-                    className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]"
-                    onClick={() => toggleDropdown("backgroundOpen")}
-                  />
-                </span>
-              </div>
-
-              {dropdowns.backgroundOpen && (
-                <ul className="z-10 absolute bg-[#F4F4F4] shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full max-h-40 overflow-auto">
-                  {["Student", "Recent Graduate", "Working Professional"].map(
-                    (bg) => (
+                {dropdowns.courseOpen && (
+                  <ul className="z-10 absolute bg-[#F4F4F4] shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
+                    {["SEDT", "FullStack Developer"].map((course) => (
                       <li
-                        key={bg}
-                        onClick={() => selectOption("duration", bg)}
-                        className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] font-bold ${
-                          formData.duration === bg
-                            ? "text-[#00b39f] font-semibold"
+                        key={course}
+                        onClick={() => selectOption("course", course)}
+                        className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px] text-gray-500 md:text-black ${
+                          formData.course === course
+                            ? "font-semibold text-[#00b39f]"
                             : ""
                         }`}
                       >
-                        {bg}
+                        {course}
                       </li>
-                    )
-                  )}
-                </ul>
+                    ))}
+                  </ul>
+                )}
+              </div>
+
+              {errors.course && (
+                <p className="mt-1 text-red-500 text-sm">{errors.course}</p>
               )}
             </div>
+            {/* Preferred Demo Slot */}
+            <div>
+              <div className="relative">
+                <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
+                  Preferred demo slot *
+                </label>
+                <div className="flex justify-between items-center bg-[#F4F4F4] px-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px] cursor-pointer">
+                  <span
+                    className={
+                      formData.timeSlot ? "text-black" : "text-gray-500"
+                    }
+                  >
+                    {formData.timeSlot || "Select time slot"}
+                  </span>
+                  <span
+                    className={`ml-2 transition-transform duration-300 ${
+                      dropdowns.timeSlotOpen ? "rotate-180" : "rotate-0"
+                    }`}
+                  >
+                    <img
+                      src={ArrowDown}
+                      alt="arrow"
+                      className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]"
+                      onClick={() => toggleDropdown("timeSlotOpen")}
+                    />
+                  </span>
+                </div>
 
+                {dropdowns.timeSlotOpen && (
+                  <ul className="z-10 absolute bg-[#F4F4F4] shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
+                    {[
+                      "7:00am - 8:30am",
+                      "9:00am - 10:30am",
+                      "8:00pm - 9:30pm",
+                    ].map((slot) => (
+                      <li
+                        key={slot}
+                        onClick={() => selectOption("timeSlot", slot)}
+                        className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px] text-gray-500 md:text-black ${
+                          formData.timeSlot === slot
+                            ? "font-semibold text-[#00b39f]"
+                            : ""
+                        }`}
+                      >
+                        {slot}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+              {errors.timeSlot && (
+                <p className="mt-1 text-red-500 text-sm">{errors.timeSlot}</p>
+              )}
+            </div>
+            {/* Background */}
+            <div>
+              <div className="relative">
+                <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
+                  Background *
+                </label>
+
+                <div
+                  className="flex justify-between items-center bg-[#F4F4F4] px-4 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px] cursor-pointer"
+                  onClick={() => toggleDropdown("backgroundOpen")}
+                >
+                  <span
+                    className={
+                      formData.duration ? "text-black" : "text-gray-500"
+                    }
+                  >
+                    {formData.duration || "Select your background"}
+                  </span>
+                  <span
+                    className={`ml-2 transition-transform duration-300 ${
+                      dropdowns.backgroundOpen ? "rotate-180" : "rotate-0"
+                    }`}
+                  >
+                    <img
+                      src={ArrowDown}
+                      alt="arrow"
+                      className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]"
+                    />
+                  </span>
+                </div>
+
+                {dropdowns.backgroundOpen && (
+                  <div className="relative">
+                    <ul className="z-10 absolute bg-[#F4F4F4] shadow-md mt-1 px-2.5 pr-6 border border-gray-300 rounded-b-lg w-full max-h-40 overflow-y-auto">
+                      {[
+                        "Student",
+                        "Recent Graduate",
+                        "Working Professional",
+                      ].map((bg) => (
+                        <li
+                          key={bg}
+                          onClick={() => selectOption("duration", bg)}
+                          className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px] text-gray-500 md:text-black ${
+                            formData.duration === bg
+                              ? "text-[#00b39f] font-semibold"
+                              : ""
+                          }`}
+                        >
+                          {bg}
+                        </li>
+                      ))}
+                    </ul>
+
+                    {/* Custom SVG scrollbar icon shown on the right */}
+                    <img
+                      src={Scrollbar}
+                      alt="scroll icon"
+                      className="top-[10px] right-[8px] z-20 absolute w-[14px] h-[50px] md:h-[clamp(40px,8.65vw,120px)] pointer-events-none"
+                    />
+                  </div>
+                )}
+              </div>
+
+              {errors.duration && (
+                <p className="mt-1 text-red-500 text-sm">{errors.duration}</p>
+              )}
+            </div>
             {/* Language and Message */}
             <div className="flex md:flex-row flex-col gap-6 col-span-1 md:col-span-2 w-full">
-              
               <div className="w-full md:w-1/2">
                 <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
                   Preferred Language *
@@ -341,7 +426,7 @@ const formRef = useRef(null);
 
               <div className="w-full">
                 <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
-                  Message 
+                  Message
                 </label>
                 <input
                   type="text"
@@ -350,12 +435,12 @@ const formRef = useRef(null);
                   value={formData.message}
                   onChange={handleChange}
                   className="bg-[#F4F4F4] px-3 py-4 md:py-0 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px]"
-                  required
                 />
+                {errors.message && (
+                  <p className="mt-1 text-red-500 text-sm">{errors.message}</p>
+                )}
               </div>
             </div>
-          
-
             {/* Submit */}
             <div className="flex justify-center col-span-1 md:col-span-2">
               <button
@@ -508,4 +593,3 @@ const formRef = useRef(null);
 };
 
 export default FreeDemoForm;
-

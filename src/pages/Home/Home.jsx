@@ -54,7 +54,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Home() {
   const location = useLocation();
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (location.state?.scrollTo) {
@@ -122,6 +122,8 @@ export default function Home() {
 
     // City validation
     if (!formData.city.trim()) newErrors.city = "City is required";
+
+   
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -192,7 +194,10 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex justify-center">
-                <button onClick={() => navigate("/freedemopage")} className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[800] font-inter text-20px text-black">
+                <button
+                  onClick={() => navigate("/freedemopage")}
+                  className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[800] font-inter text-20px text-black"
+                >
                   Book A Free Demo
                 </button>
               </div>
@@ -211,7 +216,7 @@ export default function Home() {
                 <span className="inline-block relative">
                   <span className="font-semibold">KAMLANIL TECHNOLOGIES</span>
                   <span className="top-full left-0 absolute bg-gradient-to-r from-[#00FFCA] to-[#009979] md:mt-[1px] w-full h-[2px] md:h-[4px]"></span>
-                </span> {" "}
+                </span>{" "}
                 be sure about the future
               </p>
             </div>
