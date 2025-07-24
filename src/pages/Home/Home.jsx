@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import hero_section_image from "../../assets/images/hero_section_image.jpg";
-import thumbUpIcon from "../../assets/images/thumbUpIcon.png";
-import manWithLaptopIcon from "../../assets/images/manWithLaptopIcon.png";
+import thumbUpIcon from "../../assets/images/thumbUpIcon.svg";
+import manWithLaptopIcon from "../../assets/images/manWithLaptopIcon.svg";
 import downArrow from "../../assets/images/downArrow.png";
 // import certificateIcon from "../../assets/images/certificateIcon.png";
 import image109 from "../../assets/image 109.svg";
@@ -30,7 +30,7 @@ import instagram from "../../assets/images/instagram.png";
 import linkedin from "../../assets/images/linkedin.png";
 import whatsapp from "../../assets/images/whatsapp.png";
 
-import projectIcon from "../../assets/images/projectIcon.png";
+import projectIcon from "../../assets/images/projectIcon.svg";
 import FeatureCard from "../../components/FeatureCard";
 import BenefitCard from "../../components/BenefitCard";
 
