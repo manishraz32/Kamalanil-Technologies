@@ -26,12 +26,13 @@ import smallEmailSvg from "../../assets/images/smallEmailSvg.svg";
 import smallMapIcon from "../../assets/images/smallMapIcon.svg";
 import smallPhoneSvg from "../../assets/images/smallPhoneSvg.svg";
 import emailjs from "emailjs-com";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import ScrollToTop from "../../components/ScrollToTop";
 import image44 from "../../assets/image44.png";
 import image131 from "../../assets/image 131.svg";
 import SuccessModal from "../../components/SuccessModal";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 const SDET = () => {
   const [formData, setFormData] = useState({
@@ -135,6 +136,75 @@ const SDET = () => {
         });
     }
   };
+
+  // ************************************
+  const fullText = "#LearnandGrow";
+  const [displayedText, setDisplayedText] = useState("");
+  const { ref: typeRef, inView: typeInView } = useInView({
+    triggerOnce: false,
+    threshold: 0.5,
+  })
+
+  useEffect(() => {
+    let index = -1;
+    let timeoutId;
+
+    if (typeInView) {
+      setDisplayedText("");
+
+      const typeLetter = () => {
+        if (index < fullText.length) {
+          setDisplayedText((prev) => prev + fullText.charAt(index));
+          index++;
+          timeoutId = setTimeout(typeLetter, 100);
+        }
+      };
+
+      typeLetter();
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [typeInView]);
+
+
+  // ****************************
+  const { ref: fadeRef, inView: isFadeInView } = useInView({
+    threshold: 0.2,
+    triggerOnce: true,
+  });
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    if (isFadeInView) {
+      setIsVisible(true);
+    }
+  }, [isFadeInView]);
+
+  // *****************************************
+  const SedtText =
+    "An SDET’s primary goal is to ensure the software developed meets high-quality standards and aligns with business or client requirements.";
+  const words = SedtText.split(" ");
+  const [displayedWords, setDisplayedWords] = useState([]);
+  const [startTyping, setStartTyping] = useState(false);
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    if (startTyping) {
+      setDisplayedWords([]); // Reset before typing again
+      let index = 0;
+
+      if (intervalRef.current) clearInterval(intervalRef.current);
+
+      intervalRef.current = setInterval(() => {
+        setDisplayedWords((prev) => [...prev, words[index]]);
+        index++;
+        if (index >= words.length) {
+          clearInterval(intervalRef.current);
+        }
+      }, 200);
+    }
+  }, [startTyping]);
+
 
   return (
     <>
@@ -324,7 +394,11 @@ const SDET = () => {
         <div className="z-10 relative mx-auto px-[16px] md:px-[184px] md:py-20 md:pb-25 text-white text-center">
           <div className="flex flex-col justify-center items-center font-montserrat font-bold text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] text-center leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
             <p className="m-0 text-[#FFF]">Our motto is</p>
-            <p className="text-[#00FFCA]">#LearnandGrow</p>
+            <motion.p
+              whileInView={{ opacity: [0, 1], transition: { duration: 1 } }}
+              ref={typeRef} className="text-[#00FFCA]">
+              {displayedText}
+            </motion.p>
           </div>
 
           <p
@@ -344,10 +418,13 @@ const SDET = () => {
               What is <span className="text-[#21B495]">SDET</span>?
             </h2>
             <motion.p
-              initial={{ opacity: 0, y: -100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="p-2 font-montserrat font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(23px,6.56vw,27px)] md:leading-[clamp(23px,1.875vw,108px)]">
+              ref={fadeRef}
+              initial={{ opacity: 0, y: -50 }} // Start higher (above view)
+              whileInView={{ opacity: 1, y: 0 }} // Move to original position
+              transition={{ duration: 2, ease: "easeOut" }} // Slow motion
+              viewport={{ once: true, amount: 0.2 }} // Trigger when 20% in view
+              className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
+            >
               SDET stands for "Software Development Engineer in Test." This role
               focuses on ensuring software quality by designing, developing, and
               maintaining tests for applications. SDETs play a crucial role in
@@ -355,6 +432,7 @@ const SDET = () => {
               They also work on automating testing processes and creating tools
               to streamline and enhance testing efficiency.
             </motion.p>
+
           </div>
 
           {/* Right Image */}
@@ -370,10 +448,10 @@ const SDET = () => {
             />
           </motion.div>
         </div>
-      </section>
+      </section >
 
       {/* fourth section */}
-      <section className="bg-[#2A2E3B] px-[20px] md:md:px-[clamp(16px,8.89vw,246px)] py-[clamp(60px,15.77vw,65px)] md:py-[clamp(60px,5.56vw,160px)] text-white">
+      < section className="bg-[#2A2E3B] px-[20px] md:md:px-[clamp(16px,8.89vw,246px)] py-[clamp(60px,15.77vw,65px)] md:py-[clamp(60px,5.56vw,160px)] text-white" >
         <div className="flex sm:flex-row flex-col sm:justify-between items-center gap-20">
           {/* Stat 1 */}
           <motion.div
@@ -439,11 +517,11 @@ const SDET = () => {
             </div>
           </motion.div>
         </div>
-      </section>
+      </section >
 
       {/* 5th section */}
 
-      <section className="bg-white px-4 md:px-[clamp(15px,7.23vw,208px)] md:py-[clamp(15px,5.56vw,160px)] pt-8 overflow-hidden">
+      < section className="bg-white px-4 md:px-[clamp(15px,7.23vw,208px)] md:py-[clamp(15px,5.56vw,160px)] pt-8 overflow-hidden" >
         <div className="flex lg:flex-row flex-col gap-10 bg-[rgba(55,55,55,0.10)] md:p-9.5 px-4 py-6 m:py-0">
           <div className="flex flex-col flex-1 items-center sm:items-start gap-[clamp(24px,2.055vw,470px)]">
             <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(35px,9.89vw,40.742px)] md:text-[clamp(40.742px,3.47vw,150px)] text-center md:text-start leading-[clamp(46px,12.45vw,51.335px)] md:leading-[clamp(51.335px,4.375vw,183px)">
@@ -468,7 +546,7 @@ const SDET = () => {
             <motion.button
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 1 }}
+              transition={{ duration: 0.8, }}
               className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300">
               <span className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
                 Learn More <img src={gh} alt="" className="mt-1 w-6 h-6" />
@@ -494,11 +572,16 @@ const SDET = () => {
               SDET Careers
             </h2>
 
-            <p className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
-              An SDET’s primary goal is to ensure the software developed meets
-              high-quality standards and aligns with business or client
-              requirements.
-            </p>
+            <motion.p
+              whileInView={() => setStartTyping(true)}
+              onViewportLeave={() => setStartTyping(false)} 
+              className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.1 }}
+            >
+              {displayedWords.join(" ")}
+            </motion.p>
           </div>
 
           <div className="border-[#00775F] border-l-[3px]"></div>
@@ -584,7 +667,7 @@ const SDET = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
       <section className="bg-white px-[20px] pt-7 md:pt-0">
         <h2 className="sm:pb-2 font-montserrat font-bold text-[#12161F] text-[clamp(30px,8.49vw,35px)] md:text-[clamp(35px,3.47vw,100px)] text-center leading-[clamp(43.146px,6vw,51.335px)] md:leading-[clamp(51.335px,4.375vw,126px)]">
           Frequently asked Questions
