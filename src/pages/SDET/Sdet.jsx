@@ -12,7 +12,7 @@ import image61 from "../../assets/image 61.png";
 import image66 from "../../assets/image 66.png";
 import image65 from "../../assets/image 65.png";
 import image114 from "../../assets/image 114.png";
-import company_logo  from "../../assets/Frame 4.svg";
+import company_logo from "../../assets/Frame 4.svg";
 import gh from "../../assets/gh.svg";
 import mapIcon from "../../assets/images/mapIcon.svg";
 import phoneIcon from "../../assets/images/phoneIcon.png";
@@ -31,6 +31,7 @@ import ScrollToTop from "../../components/ScrollToTop";
 import image44 from "../../assets/image44.png";
 import image131 from "../../assets/image 131.svg";
 import SuccessModal from "../../components/SuccessModal";
+import { motion } from "framer-motion";
 
 const SDET = () => {
   const [formData, setFormData] = useState({
@@ -140,7 +141,7 @@ const SDET = () => {
       <ScrollToTop />
       <Navbar />
       {/* hero section */}
-      <div  className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(16px,6.53vw,120px)] py-8 md:py-[clamp(28px,4.86vw,70px)]">
+      <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(16px,6.53vw,120px)] py-8 md:py-[clamp(28px,4.86vw,70px)]">
         <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
           <div className="flex flex-col gap-2">
             <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
@@ -171,7 +172,11 @@ const SDET = () => {
             Apply now
           </button>
 
-          <div className="gap-5 grid grid-cols-2 bg-white text-[#12161F]">
+          <motion.div
+            initial={{ opacity: 0, x: -100 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.36 }}
+            className="gap-5 grid grid-cols-2 bg-white text-[#12161F]">
             <div className="flex items-start gap-3">
               <img
                 src={image61}
@@ -236,9 +241,12 @@ const SDET = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-        <img
+        <motion.img
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
           src={image110}
           alt=""
           className="rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[clamp(w-full,40vw,720px)] object-cover"
@@ -278,7 +286,11 @@ const SDET = () => {
               </div>
             </div>
 
-            <div className="flex items-start gap-2 mt-8 lg:mt-0 md:w-[65%]">
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              className="flex items-start gap-2 mt-8 lg:mt-0 md:w-[65%]">
               <span className="hidden relative sm:flex mt-[-11px] text-[#138A71] text-[48px] leading-[50px]">
                 •
               </span>
@@ -289,7 +301,7 @@ const SDET = () => {
                 support to help you confidently step into the industry as a
                 skilled SDET.
               </p>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
@@ -315,7 +327,8 @@ const SDET = () => {
             <p className="text-[#00FFCA]">#LearnandGrow</p>
           </div>
 
-          <p className="mt-4 md:mt-5 w-[95%] font-montserrat font-semibold text-[#F5F5F5] text-[clamp(12px,3.64vw,15px)] md:text-[clamp(15px,1.52vw,44px)] text-center leading-[clamp(19px,5.33vw,22px)] md:leading-[clamp(22px,2.08vw,60px)]">
+          <p
+            className="mt-4 md:mt-5 w-[95%] font-montserrat font-semibold text-[#F5F5F5] text-[clamp(12px,3.64vw,15px)] md:text-[clamp(15px,1.52vw,44px)] text-center leading-[clamp(19px,5.33vw,22px)] md:leading-[clamp(22px,2.08vw,60px)]">
             We will help you unlock your inner potential so you can excel in
             your professional field. Learn to use all the related tools, walk
             into a job and be a rockstar from day one.
@@ -330,24 +343,32 @@ const SDET = () => {
             <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(37px,4vw,100px)] leading-[clamp(37px,4vw,100px)">
               What is <span className="text-[#21B495]">SDET</span>?
             </h2>
-            <p className="p-2 font-montserrat font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(23px,6.56vw,27px)] md:leading-[clamp(23px,1.875vw,108px)]">
+            <motion.p
+              initial={{ opacity: 0, y: -100 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="p-2 font-montserrat font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(23px,6.56vw,27px)] md:leading-[clamp(23px,1.875vw,108px)]">
               SDET stands for "Software Development Engineer in Test." This role
               focuses on ensuring software quality by designing, developing, and
               maintaining tests for applications. SDETs play a crucial role in
               verifying that software meets business or client requirements.
               They also work on automating testing processes and creating tools
               to streamline and enhance testing efficiency.
-            </p>
+            </motion.p>
           </div>
 
           {/* Right Image */}
-          <div className="flex justify-center w-full">
+          <motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="flex justify-center w-full">
             <img
               src={image111}
               alt="What is SDET"
               className="w-[clamp(280px,35.55vw,full)] h-[clamp(220px,27.43vw,full)] object-contain"
             />
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -355,7 +376,11 @@ const SDET = () => {
       <section className="bg-[#2A2E3B] px-[20px] md:md:px-[clamp(16px,8.89vw,246px)] py-[clamp(60px,15.77vw,65px)] md:py-[clamp(60px,5.56vw,160px)] text-white">
         <div className="flex sm:flex-row flex-col sm:justify-between items-center gap-20">
           {/* Stat 1 */}
-          <div className="flex flex-row items-center gap-2">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="flex flex-row items-center gap-2">
             <img
               src={image87}
               alt="clock"
@@ -370,9 +395,13 @@ const SDET = () => {
                 Learners
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-row items-center gap-2">
+          <motion.div
+            initial={{ opacity: 0.4, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="flex flex-row items-center gap-2">
             <img
               src={image88}
               alt="clock"
@@ -387,9 +416,13 @@ const SDET = () => {
                 Assignments
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex flex-row items-center gap-2">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="flex flex-row items-center gap-2">
             <img
               src={image86}
               alt="clock"
@@ -404,7 +437,7 @@ const SDET = () => {
                 Live Sessions
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -432,19 +465,27 @@ const SDET = () => {
               ready to start a career in software testing, this course is the
               ideal first step.
             </p>
-            <button className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300">
+            <motion.button
+              initial={{ opacity: 0, scale: 0.5 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+              className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300">
               <span className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
                 Learn More <img src={gh} alt="" className="mt-1 w-6 h-6" />
               </span>
-            </button>
+            </motion.button>
           </div>
-          <div className="flex flex-1 justify-center w-full">
+          <motion.div
+            initial={{ opacity: 0, x: 150 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="flex flex-1 justify-center w-full">
             <img
               src={image89}
               alt="Smiling woman working on laptop"
               className="bg-white p-3 sm:p-8 rounded sm:w-full sm:h-full object-contain5"
             />
-          </div>
+          </motion.div>
         </div>
 
         <div className="flex lg:flex-row flex-col gap-3 bg-white px-4 pt-15 text-[#12161F]">
@@ -673,7 +714,11 @@ const SDET = () => {
         </div>
 
         {/* Contact Form */}
-        <div className="px-4">
+        <motion.div
+          initial={{ opacity: 0, x: 150 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="px-4">
           <div className="bg-[rgba(167,159,168,0.34)] px-5 md:px-5 py-3 rounded-[13.583px] w-full">
             <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
               <div>
@@ -787,7 +832,7 @@ const SDET = () => {
               </button>
             </form>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       <footer className="flex justify-center bg-[rgb(47,54,69)] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]">
@@ -795,7 +840,7 @@ const SDET = () => {
           {/* Logo & Description */}
           <div className="flex flex-col items-center md:items-start space-y-4 md:w-[25%] text-center md:text-start">
             <div className="flex items-center gap-2">
-               <img src={company_logo} alt="Logo" className="md:w-[181.619px] md:h-[47.4427px]" />
+              <img src={company_logo} alt="Logo" className="md:w-[181.619px] md:h-[47.4427px]" />
             </div>
             <p className="w-[75%] md:w-[120%] text-[#fff] text-[12px] md:text-[clamp(12px,1.04vw,30px)] text-center md:text-start">
               Empowering future-ready professionals through practical tech
