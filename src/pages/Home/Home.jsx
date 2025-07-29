@@ -51,10 +51,13 @@ import readingIcon from "../../assets/performace-Assesment.png";
 import SuccessModal from "../../components/SuccessModal";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { motion, scale } from "framer-motion";
 
 export default function Home() {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const MotionFeatureCard = motion(FeatureCard);
 
   useEffect(() => {
     if (location.state?.scrollTo) {
@@ -123,7 +126,7 @@ export default function Home() {
     // City validation
     if (!formData.city.trim()) newErrors.city = "City is required";
 
-   
+
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -186,20 +189,44 @@ export default function Home() {
                 <h1 className="font-semibold text-22px text-white text-center">
                   Step Into the World of Tech
                 </h1>
-                <div className="font-bold text-[40px] text-white md:text-[clamp(28px,3.82vw,90px)] text-center leading-[56px] md:leading-[clamp(40.6px,5.54vw,150px)]">
+                <motion.div
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1 }}
+                  className="font-bold text-[40px] text-white md:text-[clamp(28px,3.82vw,90px)] text-center leading-[56px] md:leading-[clamp(40.6px,5.54vw,150px)]">
                   Start your journey in Software Technology with{" "}
                   <span className="font-montserrat font-bold text-gradient">
                     Kamlanil Technologies.
                   </span>
-                </div>
+                </motion.div>
               </div>
               <div className="flex justify-center">
-                <button
+                <motion.button
+                  initial={{
+                    opacity: 0,
+                    scale: 0,
+
+                  }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+
+                    borderRadius: "50px", // Animate to rounded pill shape
+                  }}
+                  transition={{
+                    duration: 1,
+                    ease: "easeInOut",
+                  }}
                   onClick={() => navigate("/freedemopage")}
                   className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[800] font-inter text-20px text-black"
                 >
-                  Book A Free Demo
-                </button>
+                  <motion.span
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1, duration: 1 }}
+                  > Book A Free Demo
+                  </motion.span>
+                </motion.button>
               </div>
             </div>
           </div>
@@ -221,12 +248,14 @@ export default function Home() {
               </p>
             </div>
             <div className="flex md:flex-row flex-col md:justify-center gap-4">
+
               <FeatureCard
                 icon={thumbUpIcon}
                 title="100% Placement"
                 description="We guide you from training to hiring with complete placement support and interview preparation."
                 bgColor="rgba(94, 47, 163, 0.1)"
               />
+
 
               <FeatureCard
                 icon={manWithLaptopIcon}
@@ -298,12 +327,20 @@ export default function Home() {
               </div>
 
               {/* CTA Button */}
-              <button className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
+              <motion.button
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
                 Learn More
-              </button>
+              </motion.button>
 
               {/* Features */}
-              <div className="py-7 md:py-0">
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className="py-7 md:py-0">
                 <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
                   {/* Feature 1 */}
                   <div className="flex items-start gap-3">
@@ -356,11 +393,14 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* RIGHT SIDE IMAGE */}
-            <img
+            <motion.img
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
               src={image110}
               alt="Coding Setup"
               className="pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
@@ -371,7 +411,10 @@ export default function Home() {
         {/* fullstack section */}
         <div className="px-4 md:px-[clamp(16px,6.53vw,120px)] py-5 md:py-0 md:pb-[clamp(14px,3.88vw,112px)] overflow-hidden">
           <div className="flex md:flex-row flex-col md:gap-20">
-            <img
+            <motion.img
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
               src={imageHeroSectio}
               alt="Coding Setup"
               className="hidden md:flex pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
@@ -396,12 +439,20 @@ export default function Home() {
               </div>
 
               {/* CTA Button */}
-              <button className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
+              <motion.button
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
                 Learn More
-              </button>
+              </motion.button>
 
               {/* Features */}
-              <div className="py-7 md:py-0">
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className="py-7 md:py-0">
                 <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
                   {/* Feature 1 */}
                   <div className="flex items-start gap-3">
@@ -454,7 +505,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* RIGHT SIDE IMAGE */}
@@ -469,34 +520,46 @@ export default function Home() {
         {/* placed students */}
         <div className="gap-8 grid grid-cols-1 md:grid-cols-3 bg-[#2F3645] px-4 md:px-[clamp(16px,6.53vw,120px)] py-17 text-white text-center">
           {/* Block 1 */}
-          <div className="flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               1,000+
             </h2>
             <p className="mt-2 font-bold text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)]">
               Students trained & Placed
             </p>
-          </div>
+          </motion.div>
 
           {/* Block 2 */}
-          <div className="flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0.4, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               10+
             </h2>
             <p className="mt-2 font-bold text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)]">
               Year of Experience
             </p>
-          </div>
+          </motion.div>
 
           {/* Block 3 */}
-          <div className="flex flex-col items-center">
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               60%
             </h2>
             <p className="mt-2 font-bold text-[clamp(14px,1.32vw,38px)] leading-[clamp(18px,1.5vw,40px)]">
               MNC & MLC Placements
             </p>
-          </div>
+          </motion.div>
         </div>
 
         {/* Effective learning */}
@@ -509,9 +572,13 @@ export default function Home() {
               <br /> Effective Learning
             </h2>
             <div className="hidden md:block">
-              <button className="hidden md:block bg-[#00FFD1] shadow-md px-8 md:px-[90px] py-3 md:py-[21px] rounded-full font-semibold text-[clamp(14px,2vw,16px)] text-black md:text-[clamp(16px,1.48vw,40px)] md:leading-[clamp(24px,2.23vw,40px)]">
+              <motion.button
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className="hidden md:block bg-[#00FFD1] shadow-md px-8 md:px-[90px] py-3 md:py-[21px] rounded-full font-semibold text-[clamp(14px,2vw,16px)] text-black md:text-[clamp(16px,1.48vw,40px)] md:leading-[clamp(24px,2.23vw,40px)]">
                 Register for Free
-              </button>
+              </motion.button>
             </div>
           </div>
 

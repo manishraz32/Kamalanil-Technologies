@@ -1,11 +1,14 @@
 // FeatureCard.jsx
 import React from "react";
-
+import { motion } from "framer-motion";
 const BenefitCard = ({ icon, title, description }) => {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex justify-center md:justify-start">
-        <img
+        <motion.img
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1}}
           src={icon}
           alt={title}
           className="w-[clamp(40px,14.8vw,62px)] h-auto mt-1"
