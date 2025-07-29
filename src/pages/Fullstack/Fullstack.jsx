@@ -26,14 +26,14 @@ import smallEmailSvg from "../../assets/images/smallEmailSvg.svg";
 import smallMapIcon from "../../assets/images/smallMapIcon.svg";
 import smallPhoneSvg from "../../assets/images/smallPhoneSvg.svg";
 import emailjs from "emailjs-com";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import ScrollToTop from "../../components/ScrollToTop";
 // import { toast } from "react-toastify";
 import image44 from "../../assets/image44.png";
 import image131 from "../../assets/image 131.svg";
 import SuccessModal from "../../components/SuccessModal";
 import { motion } from "framer-motion";
-
+import { useInView } from "react-intersection-observer";
 
 const Fullstack = () => {
   const [formData, setFormData] = useState({
@@ -138,6 +138,61 @@ const Fullstack = () => {
         });
     }
   };
+  // *******************************************
+  const fullText = "#LearnandGrow";
+  const [displayedText, setDisplayedText] = useState("");
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.5,
+  });
+
+  useEffect(() => {
+    let index = -1;
+    let timeoutId;
+
+    if (inView) {
+      setDisplayedText("");
+
+      const typeLetter = () => {
+        if (index < fullText.length) {
+          setDisplayedText((prev) => prev + fullText.charAt(index));
+          index++;
+          timeoutId = setTimeout(typeLetter, 100);
+        }
+      };
+
+      typeLetter();
+    }
+
+    return () => clearTimeout(timeoutId);
+  }, [inView]);
+
+  //*************************************/
+  const fullstackText ="The goal of a Full Stack Developer is to design and build fully functional, end - to - end web applications that meet user needs and business requirements—handling both front - end(client - side) and back - end(server - side) development.";
+  
+   
+  const words = fullstackText.split(" ");
+  const [displayedWords, setDisplayedWords] = useState([]);
+  const [startTyping, setStartTyping] = useState(false);
+  const intervalRef = useRef(null);
+
+  useEffect(() => {
+    if (startTyping) {
+      setDisplayedWords([]);
+      let index = 0;
+
+      if (intervalRef.current) clearInterval(intervalRef.current);
+
+      intervalRef.current = setInterval(() => {
+        setDisplayedWords((prev) => [...prev, words[index]]);
+        index++;
+        if (index >= words.length) {
+          clearInterval(intervalRef.current);
+        }
+      }, 200);
+    }
+  }, [startTyping]);
+
 
   return (
     <>
@@ -326,7 +381,11 @@ const Fullstack = () => {
         <div className="z-10 relative mx-auto px-[16px] md:px-[184px] md:py-20 md:pb-25 text-white text-center">
           <div className="flex flex-col justify-center items-center font-montserrat font-bold text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] text-center leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
             <p className="m-0 text-[#FFF]">Our motto is</p>
-            <p className="text-[#00FFCA]">#LearnandGrow</p>
+            <motion.p
+              whileInView={{ opacity: [0, 1], transition: { duration: 1.5 } }}
+              ref={ref} className="text-[#00FFCA]">
+              {displayedText}
+            </motion.p>
           </div>
 
           <p className="mt-4 md:mt-5 w-[95%] font-montserrat font-semibold text-[#F5F5F5] text-[clamp(12px,3.64vw,15px)] md:text-[clamp(15px,1.52vw,44px)] text-center leading-[clamp(19px,5.33vw,22px)] md:leading-[clamp(22px,2.08vw,60px)]">
@@ -471,7 +530,7 @@ const Fullstack = () => {
             <motion.button
               initial={{ opacity: 0, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1, delay: 1 }}
+              transition={{ duration: 0.8 }}
               className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300">
               <span className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
                 Learn More <img src={gh} alt="" className="mt-1 w-6 h-6" />
@@ -496,13 +555,16 @@ const Fullstack = () => {
             <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(31px,9.15vw,37.72px)] md:text-[clamp(36px,3.47vw,50px)] leading-[clamp(52.78px,4.75vw,126px)] md:leading-[clamp(52.78px,15.29vw,63px)]">
               Full Stack Development Careers
             </h2>
-
-            <p className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
-              The goal of a Full Stack Developer is to design and build fully
-              functional, end-to-end web applications that meet user needs and
-              business requirements—handling both front-end (client-side) and
-              back-end (server-side) development.
-            </p>
+            <motion.p
+              whileInView={() => setStartTyping(true)}
+              onViewportLeave={() => setStartTyping(false)}
+              className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.1 }}
+            >
+              {displayedWords.join(" ")}
+            </motion.p>
           </div>
 
           <div className="border-[#00775F] border-l-[3px]"></div>
