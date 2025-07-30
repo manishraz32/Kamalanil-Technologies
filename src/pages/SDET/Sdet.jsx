@@ -544,13 +544,17 @@ const SDET = () => {
               ideal first step.
             </p>
             <motion.button
-              initial={{ opacity: 0, scale: 0.5 }}
+              initial={{ opacity: 0, scale: 0 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, }}
+              transition={{ duration: 0.8 }}
               className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300">
-              <span className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
+              <motion.span
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
                 Learn More <img src={gh} alt="" className="mt-1 w-6 h-6" />
-              </span>
+              </motion.span>
             </motion.button>
           </div>
           <motion.div
@@ -574,7 +578,7 @@ const SDET = () => {
 
             <motion.p
               whileInView={() => setStartTyping(true)}
-              onViewportLeave={() => setStartTyping(false)} 
+              onViewportLeave={() => setStartTyping(false)}
               className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}

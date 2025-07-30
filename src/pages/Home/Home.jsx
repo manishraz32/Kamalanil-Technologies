@@ -676,7 +676,11 @@ export default function Home() {
                 </p>
               </div>
               {/* Mission & Vision */}
-              <div className="space-y-4 px-2.5 w-[95%]">
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className="space-y-4 px-2.5 w-[95%]">
                 <div>
                   <h4 className="mt-6 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
                     Mission
@@ -696,12 +700,16 @@ export default function Home() {
                     learning.
                   </p>
                 </div>
-              </div>
+              </motion.div>
             </div>
 
             {/* Right Feature Box */}
 
-            <div className="mt-6 px-4">
+            <motion.div
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
+              className="mt-6 px-4">
               <div
                 className="relative bg-cover bg-no-repeat bg-center px-5 md:px-[clamp(38px,4.57vw,131.74px)] md:py-[clamp(20px,5.55vw,160px)] pt-9.5 pb-14.5 rounded-2xl md:w-[clamp(280px,30.23vw,870.828px)]"
                 style={{
@@ -735,7 +743,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -773,15 +781,23 @@ export default function Home() {
               Flexible Learning That Fits Your Schedule
             </h2>
             <div className="flex md:flex-row flex-col justify-between md:pr-[clamp(50px,6.45vw,186px)] md:pl-[clamp(94px,10.41vw,300px)]">
-              <div className="flex justify-center">
+              <motion.div
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className="flex justify-center">
                 <img
                   src={trainingsvg}
                   alt="Flexible Learning"
-                  className="w-full max-w-md object-contain"
+                  className="w-full object-contain"
                 />
-              </div>
+              </motion.div>
               {/* Content */}
-              <div className="flex flex-col gap-5 md:my-20 px-4 pt-5 md:w-[45%]">
+              <motion.div
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
+                className="flex flex-col gap-5 md:my-20 px-4 pt-5 md:w-[45%]">
                 <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6px,1.80vw,52px)]">
                   One of the key advantages of learning with Kamlanil
                   Technologies is the flexibility we offer for working
@@ -798,19 +814,19 @@ export default function Home() {
                   Plus, all sessions are recorded, so if you miss a class, you
                   can easily catch up at your own pace.
                 </p>
-              </div>
+              </motion.div>
             </div>
             {/* Image */}
           </div>
-        </section>
+        </section >
 
         {/* Contact Section */}
-        <section
+        < section
           id="contact"
           className="items-start gap-10 grid grid-cols-1 md:grid-cols-2 bg-white px-4 py-12 md:pr-[clamp(50px,11.79vw,339.66px)] md:pl-[clamp(16px,6.53vw,120px)] w-full"
         >
           {/* Contact Info */}
-          <div className="">
+          < div className="" >
             <h2 className="font-bold text-[#12161F] text-[clamp(18px,8.7vw,36px)] md:text-[clamp(16px,3.48vw,100px)] leading-[clamp(23px,11.2vw,46.5px)] md:leading-[clamp(46.5pxpx,4.375vw,126px)]">
               Contact Details
             </h2>
@@ -900,10 +916,14 @@ export default function Home() {
                 </div>
               </div>
             </div>
-          </div>
+          </div >
 
           {/* Contact Form */}
-          <div className="px-4">
+          < motion.div
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
+            className="px-4" >
             <div className="bg-[rgba(167,159,168,0.34)] px-5 md:px-5 py-3 rounded-[13.583px] w-full">
               <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
                 <div>
@@ -1017,11 +1037,11 @@ export default function Home() {
                 </button>
               </form>
             </div>
-          </div>
-        </section>
+          </motion.div >
+        </section >
 
         {/* Footer */}
-        <footer className="flex justify-center bg-[rgb(47,54,69)] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]">
+        < footer className="flex justify-center bg-[rgb(47,54,69)] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]" >
           <div className="flex md:flex-row flex-col justify-between w-full">
             {/* Logo & Description */}
             <div className="flex flex-col items-center md:items-start space-y-4 md:w-[25%] text-center md:text-start">
@@ -1154,9 +1174,10 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </footer>
-      </div>
-      {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
+        </footer >
+      </div >
+      {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />
+      }
     </>
   );
 }
