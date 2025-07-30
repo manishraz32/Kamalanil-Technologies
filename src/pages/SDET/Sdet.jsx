@@ -206,12 +206,26 @@ const SDET = () => {
   }, [startTyping]);
 
 
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
+
+
   return (
     <>
       <ScrollToTop />
       <Navbar />
       {/* hero section */}
-      <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(16px,6.53vw,120px)] py-8 md:py-[clamp(28px,4.86vw,70px)]">
+      <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(16px,6.53vw,120px)] py-8 md:py-[clamp(28px,4.86vw,70px)] overflow-x-hidden">
         <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
           <div className="flex flex-col gap-2">
             <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
@@ -243,7 +257,7 @@ const SDET = () => {
           </button>
 
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, x: isMobile ? -50 : -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.36 }}
             className="gap-5 grid grid-cols-2 bg-white text-[#12161F]">
@@ -314,7 +328,7 @@ const SDET = () => {
           </motion.div>
         </div>
         <motion.img
-          initial={{ opacity: 0, x: 100 }}
+          initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
           src={image110}
@@ -357,7 +371,7 @@ const SDET = () => {
             </div>
 
             <motion.div
-              initial={{ opacity: 0, x: 100 }}
+              initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               className="flex items-start gap-2 mt-8 lg:mt-0 md:w-[65%]">
@@ -419,10 +433,10 @@ const SDET = () => {
             </h2>
             <motion.p
               ref={fadeRef}
-              initial={{ opacity: 0, y: -50 }} // Start higher (above view)
-              whileInView={{ opacity: 1, y: 0 }} // Move to original position
+              initial={{ opacity: 0, x: isMobile ? -50 : -100 }} // Start higher (above view)
+              whileInView={{ opacity: 1, x: 0 }} // Move to original position
               transition={{ duration: 2, ease: "easeOut" }} // Slow motion
-              viewport={{ once: true, amount: 0.2 }} // Trigger when 20% in view
+              viewport={{ once: false, amount: 0.2 }} // Trigger when 20% in view
               className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
             >
               SDET stands for "Software Development Engineer in Test." This role
@@ -437,7 +451,7 @@ const SDET = () => {
 
           {/* Right Image */}
           <motion.div
-            initial={{ opacity: 0, x: 100 }}
+            initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             className="flex justify-center w-full">
@@ -455,7 +469,7 @@ const SDET = () => {
         <div className="flex sm:flex-row flex-col sm:justify-between items-center gap-20">
           {/* Stat 1 */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: isMobile ? -50 : -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
             className="flex flex-row items-center gap-2">
@@ -497,7 +511,7 @@ const SDET = () => {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
             className="flex flex-row items-center gap-2">
@@ -558,7 +572,7 @@ const SDET = () => {
             </motion.button>
           </div>
           <motion.div
-            initial={{ opacity: 0, x: 150 }}
+            initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             className="flex flex-1 justify-center w-full">
@@ -802,9 +816,9 @@ const SDET = () => {
 
         {/* Contact Form */}
         <motion.div
-          initial={{ opacity: 0, x: 150 }}
+          initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: 1 }}
           className="px-4">
           <div className="bg-[rgba(167,159,168,0.34)] px-5 md:px-5 py-3 rounded-[13.583px] w-full">
             <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
