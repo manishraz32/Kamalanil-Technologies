@@ -254,6 +254,8 @@ export default function Home() {
                 title="100% Placement"
                 description="We guide you from training to hiring with complete placement support and interview preparation."
                 bgColor="rgba(94, 47, 163, 0.1)"
+                animationType="slide-left"
+                delay={0}
               />
 
 
@@ -262,18 +264,27 @@ export default function Home() {
                 title="Learn with Experts"
                 description="Get trained by experienced industry professionals who know what top companies expect."
                 bgColor="rgba(253, 101, 0, 0.10)"
+                animationType="scale"
+                delay={0.40}
               />
               <FeatureCard
                 icon={projectIcon}
                 title="Live Projects"
                 description="Apply your skills in real-world projects and build job-ready confidence."
                 bgColor="rgba(6, 101, 230, 0.10)"
+                animationType="slide-right"
+                delay={1}
               />
             </div>
           </div>
         </div>
         {/* step into the world */}
-        <div className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left md:pt-[50px] 2xl:pt-[100px] w-full h-[672px] md:h-[74vh] 2xl:h-[100vh] 3xl:h-[120vh] xl:h-[85vh]">
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: false, amount: 0.5 }}
+          className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left md:pt-[50px] 2xl:pt-[100px] w-full h-[672px] md:h-[74vh] 2xl:h-[100vh] 3xl:h-[120vh] xl:h-[85vh]">
           <div className="flex flex-col gap-5 pt-27 md:pt-30 section-padding-x">
             <h2 className="font-bold text-[clamp(16px,4.8vw,20px)] text-white md:text-[clamp(28px,3.47vw,70px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(44px,5.56vw,100px)]">
               Step in the World of Tech with Confidence
@@ -302,7 +313,7 @@ export default function Home() {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
 
         {/* sdet sectiion */}
         <div className="px-4 md:px-[clamp(16px,6.53vw,120px)] md:py-[clamp(14px,3.88vw,112px)] overflow-hidden">
