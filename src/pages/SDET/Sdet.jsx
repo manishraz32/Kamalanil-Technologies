@@ -260,7 +260,7 @@ const SDET = () => {
             initial={{ opacity: 0, x: isMobile ? -50 : -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.36 }}
-            className="gap-5 grid grid-cols-2 bg-white text-[#12161F]">
+            className="gap-5 grid grid-cols-2 bg-white text-[#12161F] overflow-x-hidden">
             <div className="flex items-start gap-3">
               <img
                 src={image61}
@@ -333,7 +333,7 @@ const SDET = () => {
           transition={{ duration: 1 }}
           src={image110}
           alt=""
-          className="rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[clamp(w-full,40vw,720px)] object-cover"
+          className="rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[clamp(w-full,40vw,720px)] object-cover overflow-x-hidden"
         />
       </div>
 
@@ -374,7 +374,7 @@ const SDET = () => {
               initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-              className="flex items-start gap-2 mt-8 lg:mt-0 md:w-[65%]">
+              className="flex items-start gap-2 mt-8 lg:mt-0 md:w-[65%] overflow-x-hidden">
               <span className="hidden relative sm:flex mt-[-11px] text-[#138A71] text-[48px] leading-[50px]">
                 •
               </span>
@@ -437,7 +437,7 @@ const SDET = () => {
               whileInView={{ opacity: 1, x: 0 }} // Move to original position
               transition={{ duration: 2, ease: "easeOut" }} // Slow motion
               viewport={{ once: false, amount: 0.2 }} // Trigger when 20% in view
-              className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
+              className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] overflow-x-hidden md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
             >
               SDET stands for "Software Development Engineer in Test." This role
               focuses on ensuring software quality by designing, developing, and
@@ -458,7 +458,7 @@ const SDET = () => {
             <img
               src={image111}
               alt="What is SDET"
-              className="w-[clamp(280px,35.55vw,full)] h-[clamp(220px,27.43vw,full)] object-contain"
+              className="w-[clamp(280px,35.55vw,full)] h-[clamp(220px,27.43vw,full)] object-contain overflow-x-hidden"
             />
           </motion.div>
         </div>
@@ -466,13 +466,13 @@ const SDET = () => {
 
       {/* fourth section */}
       < section className="bg-[#2A2E3B] px-[20px] md:md:px-[clamp(16px,8.89vw,246px)] py-[clamp(60px,15.77vw,65px)] md:py-[clamp(60px,5.56vw,160px)] text-white" >
-        <div className="flex sm:flex-row flex-col sm:justify-between items-center gap-20">
+        <div className="flex sm:flex-row flex-col sm:justify-between items-center gap-20 overflow-x-hidden">
           {/* Stat 1 */}
           <motion.div
             initial={{ opacity: 0, x: isMobile ? -50 : -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="flex flex-row items-center gap-2">
+            className="flex flex-row items-center gap-2 overflow-x-hidden">
             <img
               src={image87}
               alt="clock"
@@ -493,7 +493,7 @@ const SDET = () => {
             initial={{ opacity: 0.4, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="flex flex-row items-center gap-2">
+            className="flex flex-row items-center gap-2 overflow-x-hidden">
             <img
               src={image88}
               alt="clock"
@@ -514,7 +514,7 @@ const SDET = () => {
             initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="flex flex-row items-center gap-2">
+            className="flex flex-row items-center gap-2 overflow-x-hidden">
             <img
               src={image86}
               alt="clock"
