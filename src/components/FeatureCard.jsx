@@ -36,13 +36,12 @@ const FeatureCard = ({
       className="flex flex-col items-center gap-2.5 md:gap-7.5 text-center md:w-[30%]"
     >
       <div
-        className="w-[clamp(72px,23.3vw,96px)] h-[clamp(72px,23.3vw,96px)] md:w-[clamp(96px,13.18vw,189.847px)] md:h-[clamp(96px,13.18vw,189.847px)] rounded-[24px] flex justify-center items-center"
-        style={{ backgroundColor: bgColor }}
+        className=" flex justify-center items-center"
       >
         <img
           src={icon}
           alt="Icon"
-          className="w-2/3 h-2/3 md:w-[30%] md:h-[30%] object-contain"
+          className="object-contain  w-[clamp(72px,23.3vw,96px)] h-[clamp(72px,23.3vw,96px)] md:w-[clamp(96px,13.18vw,189.847px)] md:h-[clamp(96px,13.18vw,189.847px)] rounded-[24px]"
         />
       </div>
 

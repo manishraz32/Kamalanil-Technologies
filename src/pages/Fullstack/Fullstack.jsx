@@ -969,8 +969,8 @@ const Fullstack = () => {
           </div>
 
           {/* Contact Info  */}
-          <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-center">
-            <h3 className="font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(16px,1.38vw,40px)]">
+          <div className="  mt-6 md:mt-0 flex flex-col items-center md:items-start space-y-4 text-center md:text-center ">
+            <h3 className="font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(16px,1.38vw,40px)] ">
               CONTACT
             </h3>
 
@@ -1026,7 +1026,7 @@ const Fullstack = () => {
             </div>
           </div>
 
-          <div className="md:hidden flex flex-col items-center space-y-4">
+          <div className="md:hidden flex flex-col items-center  mt-6">
             <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
               Social Media
             </h3>
