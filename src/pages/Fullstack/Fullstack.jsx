@@ -205,7 +205,13 @@ const Fullstack = () => {
     window.addEventListener("resize", checkScreenSize);
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
-
+  // ********************************************
+  const lines = [
+    "Full Stack Development involves building both the front-end and back-end of web applications.",
+    "A Full Stack Developer handles everything from user interfaces",
+    "to server-side logic and databases,",
+    "ensuring the application is fully functional and meets business or client needs.",
+  ];
 
 
   return (
@@ -419,16 +425,15 @@ const Fullstack = () => {
               <span className="text-[#21B495]">Full Stack Development</span>?
             </h2>
             <motion.p
-              initial={{ opacity: 0, y: -100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-              className="p-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.56vw,27px)] md:leading-[clamp(23px,1.875vw,54px)] [font-montserrat">
-              Full Stack Development involves building both the front-end and
-              back-end of web applications. A Full Stack Developer handles
-              everything from user interfaces to server-side logic and
-              databases, ensuring the application is fully functional and meets
-              business or client needs.
+              initial={{ clipPath: "inset(0% 0% 100% 0%)" }}   
+              whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}     
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="overflow-hidden p-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.56vw,27px)] md:leading-[clamp(23px,1.875vw,54px)] [font-montserrat]"
+            >
+              Full Stack Development involves building both the front-end and back-end of web applications. A Full Stack Developer handles everything from user interfaces to server-side logic and databases, ensuring the application is fully functional and meets business or client needs.
             </motion.p>
+
+
           </div>
 
           {/* Right Image */}
