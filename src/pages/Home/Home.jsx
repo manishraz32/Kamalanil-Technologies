@@ -7,7 +7,7 @@ import downArrow from "../../assets/images/downArrow.png";
 // import certificateIcon from "../../assets/images/certificateIcon.png";
 import image109 from "../../assets/image 109.svg";
 import image108 from "../../assets/image 108 (1).svg";
-import image124 from "../../assets/image 124- (1).png";
+import image144 from "../../assets/images/image 144.png"
 import docIcon from "../../assets/images/docIcon.png";
 import performanceDocs from "../../assets/images/performanceDocs.png";
 import videoIcon from "../../assets/images/videoIcon.png";
@@ -636,18 +636,18 @@ export default function Home() {
           />
 
           {/* Top Section */}
-          <div className="z-10 relative mx-auto md:pt-[clamp(30px,3.81vw,110px)] text-center">
-            <h2 className="pt-2 font-bold text-[#292C34] text-[clamp(30px,8.737vw,36px)] md:text-[clamp(36px,3.819vw,110px)] leading-[clamp(54px,15.29vw,63px)] md:leading-[clamp(54px,4.375vw,126px)]">
+          <div className="z-10 relative mx-auto md:pt-[clamp(30px,1.81vw,110px)] text-center">
+            <h2 className="font-bold text-[#292C34] text-[clamp(30px,8.737vw,36px)] md:text-[clamp(36px,3.819vw,110px)] leading-[clamp(54px,15.29vw,63px)] md:leading-[clamp(54px,4.375vw,126px)]">
               About Us
             </h2>
-            <p className="font-semibold text-[#292C34] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.04vw,32px)] leading-[clamp(25px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
+            <p className="font-semibold text-[#292C34] text-[clamp(10px,2.91vw,12px)] md:text-[clamp(12px,1.38vw,40px)] leading-[clamp(25px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]">
               Empowering Careers Through Real-World Tech Training
             </p>
             <div className="relative px-4 md:px-50 overflow-hidden">
               {/* Wrapper with fixed spacing */}
               <div className="flex flex-col justify-end mx-auto px-4 md:px-10 pt-1 pb-4 md:pb-10 border-[#21B495] border-[2px] rounded-[32px] md:rounded-[50px] w-full">
                 <img
-                  src={image124}
+                  src={image144}
                   alt="Meeting"
                   className="block mx-auto md:mt-5 mb-[-4px] rounded-[15px] md:rounded-[50px] w-full object-cover"
                 />
