@@ -280,41 +280,41 @@ export default function Home() {
         </div>
         {/* step into the world */}
         <div className="overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: false, amount: 0.5 }}
-          className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left md:pt-[50px] 2xl:pt-[100px] w-full h-[672px] md:h-[74vh] 2xl:h-[100vh] 3xl:h-[120vh] xl:h-[85vh]">
-          <div className="flex flex-col gap-5 pt-27 md:pt-30 section-padding-x">
-            <h2 className="font-bold text-[clamp(16px,4.8vw,20px)] text-white md:text-[clamp(28px,3.47vw,70px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(44px,5.56vw,100px)]">
-              Step in the World of Tech with Confidence
-            </h2>
-            <p className="font-medium text-[clamp(12px,3.6vw,14px)] text-white md:text-[clamp(14px,1.32vw,25px)] leading-[clamp(22px,6.7vw,26px)] md:leading-[clamp(18px,1.5vw,30px)]">
-              The tech industry is evolving rapidly, and skilled professionals
-              are in high demand. Whether you dream of building robust
-              applications or ensuring software quality through automation, now
-              is the perfect time to start your journey.
-            </p>
-            <p className="font-medium text-[clamp(12px,3.6vw,14px)] text-white md:text-[clamp(14px,1.32vw,25px)] leading-[clamp(22px,6.7vw,26px)] md:leading-[clamp(18px,1.5vw,30px)]">
-              At Kamlanil Technologies, we offer hands-on, career-focused
-              training in SDET (QA Automation with Python & Selenium) and Full
-              Stack Development, delivered through flexible online sessions and
-              real-time projects. We've already helped hundreds of learners
-              unlock their potential — and we’re here to help you do the same.
-            </p>
-            <div className="flex justify-start items-center gap-3 md:pt-10">
-              <button className="bg-[#00FFCA] px-[12px] md:px-[clamp(16px,2.23vw,32.073px)] py-[8px] md:py-[clamp(12px,1.48vw,21.382px)] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[600] text-[clamp(14px,3.8vw,16px)] text-black md:text-[clamp(14px,1.53vw,30px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(13.7px,1.5vw,30.6px)]">
-                Find out which course is for you
-              </button>
-              <img
-                src={image55}
-                alt="Down Arrow"
-                className="ml-4 w-[clamp(20px,4.3vw,80px)] h-[clamp(20px,4.3vw,80px)]"
-              />
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: false, amount: 0.5 }}
+            className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left md:pt-[50px] 2xl:pt-[100px] w-full h-[672px] md:h-[74vh] 2xl:h-[100vh] 3xl:h-[120vh] xl:h-[85vh]">
+            <div className="flex flex-col gap-5 pt-27 md:pt-30 section-padding-x">
+              <h2 className="font-bold text-[clamp(16px,4.8vw,20px)] text-white md:text-[clamp(28px,3.47vw,70px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(44px,5.56vw,100px)]">
+                Step in the World of Tech with Confidence
+              </h2>
+              <p className="font-medium text-[clamp(12px,3.6vw,14px)] text-white md:text-[clamp(14px,1.32vw,25px)] leading-[clamp(22px,6.7vw,26px)] md:leading-[clamp(18px,1.5vw,30px)]">
+                The tech industry is evolving rapidly, and skilled professionals
+                are in high demand. Whether you dream of building robust
+                applications or ensuring software quality through automation, now
+                is the perfect time to start your journey.
+              </p>
+              <p className="font-medium text-[clamp(12px,3.6vw,14px)] text-white md:text-[clamp(14px,1.32vw,25px)] leading-[clamp(22px,6.7vw,26px)] md:leading-[clamp(18px,1.5vw,30px)]">
+                At Kamlanil Technologies, we offer hands-on, career-focused
+                training in SDET (QA Automation with Python & Selenium) and Full
+                Stack Development, delivered through flexible online sessions and
+                real-time projects. We've already helped hundreds of learners
+                unlock their potential — and we’re here to help you do the same.
+              </p>
+              <div className="flex justify-start items-center gap-3 md:pt-10">
+                <button className="bg-[#00FFCA] px-[12px] md:px-[clamp(16px,2.23vw,32.073px)] py-[8px] md:py-[clamp(12px,1.48vw,21.382px)] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[600] text-[clamp(14px,3.8vw,16px)] text-black md:text-[clamp(14px,1.53vw,30px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(13.7px,1.5vw,30.6px)]">
+                  Find out which course is for you
+                </button>
+                <img
+                  src={image55}
+                  alt="Down Arrow"
+                  className="ml-4 w-[clamp(20px,4.3vw,80px)] h-[clamp(20px,4.3vw,80px)]"
+                />
+              </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
         </div>
 
         {/* sdet sectiion */}
@@ -522,7 +522,10 @@ export default function Home() {
             </div>
 
             {/* RIGHT SIDE IMAGE */}
-            <img
+            <motion.img
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
               src={imageHeroSectio}
               alt="Coding Setup"
               className="md:hidden pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
