@@ -168,9 +168,9 @@ const Fullstack = () => {
   }, [inView]);
 
   //*************************************/
-  const fullstackText ="The goal of a Full Stack Developer is to design and build fully functional, end - to - end web applications that meet user needs and business requirements—handling both front - end(client - side) and back - end(server - side) development.";
-  
-   
+  const fullstackText = "The goal of a Full Stack Developer is to design and build fully functional, end - to - end web applications that meet user needs and business requirements—handling both front - end(client - side) and back - end(server - side) development.";
+
+
   const words = fullstackText.split(" ");
   const [displayedWords, setDisplayedWords] = useState([]);
   const [startTyping, setStartTyping] = useState(false);
@@ -192,6 +192,20 @@ const Fullstack = () => {
       }, 200);
     }
   }, [startTyping]);
+
+  // ****************************
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
 
 
   return (
@@ -230,7 +244,7 @@ const Fullstack = () => {
           </button>
 
           <motion.div
-            initial={{ opacity: 0, x: -100 }}
+            initial={{ opacity: 0, x: isMobile ? -50 : -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.36 }}
             className="gap-5 grid grid-cols-2 bg-white text-[#12161F]">
@@ -301,8 +315,8 @@ const Fullstack = () => {
           </motion.div>
         </div>
         <motion.img
-          initial={{ opacity: 0, x: 100 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
           src={imageHeroSectio}
           alt=""
@@ -532,11 +546,11 @@ const Fullstack = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300">
-              <motion.span 
-              initial={{ opacity: 0, scale: 0 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8 }}
-              className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
+              <motion.span
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.8 }}
+                className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
                 Learn More <img src={gh} alt="" className="mt-1 w-6 h-6" />
               </motion.span>
             </motion.button>

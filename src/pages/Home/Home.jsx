@@ -190,9 +190,9 @@ export default function Home() {
                   Step Into the World of Tech
                 </h1>
                 <motion.div
-                  // initial={{ opacity: 0, y: 100 }}
-                  // animate={{ opacity: 1, y: 0 }}
-                  // transition={{ duration: 1 }}
+                  initial={{ opacity: 0, y: 100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1 }}
                   className="font-bold text-[40px] text-white md:text-[clamp(28px,3.82vw,90px)] text-center leading-[56px] md:leading-[clamp(40.6px,5.54vw,150px)]">
                   Start your journey in Software Technology with{" "}
                   <span className="font-montserrat font-bold text-gradient">
@@ -221,9 +221,9 @@ export default function Home() {
                   className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[800] font-inter text-20px text-black"
                 >
                   <motion.span
-                    // initial={{ opacity: 0, scale: 0 }}
-                    // animate={{ opacity: 1, scale: 1 }}
-                    // transition={{ delay: 1, duration: 1 }}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 1, duration: 1 }}
                   > Book A Free Demo
                   </motion.span>
                 </motion.button>
@@ -281,10 +281,10 @@ export default function Home() {
         {/* step into the world */}
         <div className="overflow-hidden">
         <motion.div
-          // initial={{ opacity: 0, scale: 0 }}
-          // whileInView={{ opacity: 1, scale: 1 }}
-          // transition={{ duration: 1 }}
-          // viewport={{ once: false, amount: 0.5 }}
+          initial={{ opacity: 0, scale: 0 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          viewport={{ once: false, amount: 0.5 }}
           className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left md:pt-[50px] 2xl:pt-[100px] w-full h-[672px] md:h-[74vh] 2xl:h-[100vh] 3xl:h-[120vh] xl:h-[85vh]">
           <div className="flex flex-col gap-5 pt-27 md:pt-30 section-padding-x">
             <h2 className="font-bold text-[clamp(16px,4.8vw,20px)] text-white md:text-[clamp(28px,3.47vw,70px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(44px,5.56vw,100px)]">
@@ -341,18 +341,18 @@ export default function Home() {
 
               {/* CTA Button */}
               <motion.button
-                // initial={{ opacity: 0, x: -100 }}
-                // whileInView={{ opacity: 1, x: 0 }}
-                // transition={{ duration: 1 }}
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
                 className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
                 Learn More
               </motion.button>
 
               {/* Features */}
               <motion.div
-                // initial={{ opacity: 0, x: -100 }}
-                // whileInView={{ opacity: 1, x: 0 }}
-                // transition={{ duration: 1 }}
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
                 className="py-7 md:py-0">
                 <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
                   {/* Feature 1 */}
@@ -411,9 +411,9 @@ export default function Home() {
 
             {/* RIGHT SIDE IMAGE */}
             <motion.img
-              // initial={{ opacity: 0, x: 100 }}
-              // whileInView={{ opacity: 1, x: 0 }}
-              // transition={{ duration: 1 }}
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
               src={image110}
               alt="Coding Setup"
               className="pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
@@ -425,9 +425,9 @@ export default function Home() {
         <div className="px-4 md:px-[clamp(16px,6.53vw,120px)] py-5 md:py-0 md:pb-[clamp(14px,3.88vw,112px)] overflow-hidden">
           <div className="flex md:flex-row flex-col md:gap-20">
             <motion.img
-              // initial={{ opacity: 0, x: -100 }}
-              // whileInView={{ opacity: 1, x: 0 }}
-              // transition={{ duration: 1 }}
+              initial={{ opacity: 0, x: -100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
               src={imageHeroSectio}
               alt="Coding Setup"
               className="hidden md:flex pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
@@ -453,18 +453,18 @@ export default function Home() {
 
               {/* CTA Button */}
               <motion.button
-                // initial={{ opacity: 0, x: 100 }}
-                // whileInView={{ opacity: 1, x: 0 }}
-                // transition={{ duration: 1 }}
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
                 className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
                 Learn More
               </motion.button>
 
               {/* Features */}
               <motion.div
-                // initial={{ opacity: 0, x: 100 }}
-                // whileInView={{ opacity: 1, x: 0 }}
-                // transition={{ duration: 1 }}
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
                 className="py-7 md:py-0">
                 <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
                   {/* Feature 1 */}
@@ -534,9 +534,9 @@ export default function Home() {
         <div className="gap-8 grid grid-cols-1 md:grid-cols-3 bg-[#2F3645] px-4 md:px-[clamp(16px,6.53vw,120px)] py-17 text-white text-center">
           {/* Block 1 */}
           <motion.div
-            // initial={{ opacity: 0, x: -50 }}
-            // whileInView={{ opacity: 1, x: 0 }}
-            // transition={{ duration: 1, delay: 0.3 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
             className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               1,000+
@@ -548,9 +548,9 @@ export default function Home() {
 
           {/* Block 2 */}
           <motion.div
-            // initial={{ opacity: 0.4, scale: 0.5 }}
-            // whileInView={{ opacity: 1, scale: 1 }}
-            // transition={{ duration: 1 }}
+            initial={{ opacity: 0.4, scale: 0.5 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
             className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               10+
@@ -562,9 +562,9 @@ export default function Home() {
 
           {/* Block 3 */}
           <motion.div
-            // initial={{ opacity: 0, x: 50 }}
-            // whileInView={{ opacity: 1, x: 0 }}
-            // transition={{ duration: 1, delay: 0.3 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
             className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               60%
@@ -586,9 +586,9 @@ export default function Home() {
             </h2>
             <div className="hidden md:block">
               <motion.button
-                // initial={{ opacity: 0, x: -100 }}
-                // whileInView={{ opacity: 1, x: 0 }}
-                // transition={{ duration: 1 }}
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
                 className="hidden md:block bg-[#00FFD1] shadow-md px-8 md:px-[90px] py-3 md:py-[21px] rounded-full font-semibold text-[clamp(14px,2vw,16px)] text-black md:text-[clamp(16px,1.48vw,40px)] md:leading-[clamp(24px,2.23vw,40px)]">
                 Register for Free
               </motion.button>
@@ -690,9 +690,9 @@ export default function Home() {
               </div>
               {/* Mission & Vision */}
               <motion.div
-                // initial={{ opacity: 0, x: -100 }}
-                // whileInView={{ opacity: 1, x: 0 }}
-                // transition={{ duration: 1 }}
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
                 className="space-y-4 px-2.5 w-[95%]">
                 <div>
                   <h4 className="mt-6 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
@@ -719,9 +719,9 @@ export default function Home() {
             {/* Right Feature Box */}
 
             <motion.div
-              // initial={{ opacity: 0, x: 100 }}
-              // whileInView={{ opacity: 1, x: 0 }}
-              // transition={{ duration: 1 }}
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
               className="mt-6 px-4">
               <div
                 className="relative bg-cover bg-no-repeat bg-center px-5 md:px-[clamp(38px,4.57vw,131.74px)] md:py-[clamp(20px,5.55vw,160px)] pt-9.5 pb-14.5 rounded-2xl md:w-[clamp(280px,30.23vw,870.828px)]"
@@ -795,9 +795,9 @@ export default function Home() {
             </h2>
             <div className="flex md:flex-row flex-col justify-between md:pr-[clamp(50px,6.45vw,186px)] md:pl-[clamp(94px,10.41vw,300px)]">
               <motion.div
-                // initial={{ opacity: 0, x: -100 }}
-                // whileInView={{ opacity: 1, x: 0 }}
-                // transition={{ duration: 1 }}
+                initial={{ opacity: 0, x: -100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
                 className="flex justify-center">
                 <img
                   src={trainingsvg}
@@ -807,9 +807,9 @@ export default function Home() {
               </motion.div>
               {/* Content */}
               <motion.div
-                // initial={{ opacity: 0, x: 100 }}
-                // whileInView={{ opacity: 1, x: 0 }}
-                // transition={{ duration: 1 }}
+                initial={{ opacity: 0, x: 100 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1 }}
                 className="flex flex-col gap-5 md:my-20 px-4 pt-5 md:w-[45%]">
                 <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6px,1.80vw,52px)]">
                   One of the key advantages of learning with Kamlanil
@@ -933,9 +933,9 @@ export default function Home() {
 
           {/* Contact Form */}
           < motion.div
-            // initial={{ opacity: 0, x: 100 }}
-            // whileInView={{ opacity: 1, x: 0 }}
-            // transition={{ duration: 1 }}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1 }}
             className="px-4" >
             <div className="bg-[rgba(167,159,168,0.34)] px-5 md:px-5 py-3 rounded-[13.583px] w-full">
               <form className="flex flex-col gap-1" onSubmit={handleSubmit}>

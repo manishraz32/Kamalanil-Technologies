@@ -123,6 +123,9 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  overflow-x: hidden;
+}
 
 
 @keyframes blink {

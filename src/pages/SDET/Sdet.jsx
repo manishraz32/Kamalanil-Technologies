@@ -225,6 +225,7 @@ const SDET = () => {
       <ScrollToTop />
       <Navbar />
       {/* hero section */}
+      <div className="overflow-x-hidden">
       <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(16px,6.53vw,120px)] py-8 md:py-[clamp(28px,4.86vw,70px)] overflow-x-hidden">
         <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
           <div className="flex flex-col gap-2">
@@ -260,7 +261,7 @@ const SDET = () => {
             initial={{ opacity: 0, x: isMobile ? -50 : -100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.36 }}
-            className="gap-5 grid grid-cols-2 bg-white text-[#12161F]">
+            className="gap-5 grid grid-cols-2 bg-white text-[#12161F] ">
             <div className="flex items-start gap-3">
               <img
                 src={image61}
@@ -333,12 +334,12 @@ const SDET = () => {
           transition={{ duration: 1 }}
           src={image110}
           alt=""
-          className="rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[clamp(w-full,40vw,720px)] object-cover"
+          className="rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[clamp(w-full,40vw,720px)] object-cover "
         />
       </div>
 
       {/* secound section */}
-      <div className="flex sm:flex-row flex-col justify-between gap-6 lg:gap-10 bg-[rgba(55,55,55,0.10)] px-4 md:px-[clamp(138px,6.5vw,138px)] py-7 w-full">
+      <div className="flex sm:flex-row flex-col justify-between gap-6 lg:gap-10 bg-[rgba(55,55,55,0.10)] px-4 md:px-[clamp(138px,6.5vw,138px)] py-7 w-full overflow-x-hidden">
         <div className="flex flex-col gap-3 md:gap-5 w-full">
           {/* Heading */}
           <h1 className="items-center md:pt-12 w-full font-montserrat font-bold text-[#12161F] text-[clamp(30px,8.73vw,36px)] md:text-[clamp(36px,3.472vw,100px)] text-center md:text-start leading-[clamp(40px,11.16vw,46.482px)] md:leading-[clamp(36px,4.375vw,126px)]">
@@ -374,7 +375,7 @@ const SDET = () => {
               initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-              className="flex items-start gap-2 mt-8 lg:mt-0 md:w-[65%]">
+              className="flex items-start gap-2 mt-8 lg:mt-0 md:w-[65%] ">
               <span className="hidden relative sm:flex mt-[-11px] text-[#138A71] text-[48px] leading-[50px]">
                 •
               </span>
@@ -393,7 +394,7 @@ const SDET = () => {
       {/* secound section */}
 
       <div
-        className="relative py-14 md:py-0"
+        className="relative py-14 md:py-0 overflow-x-hidden"
         style={{
           backgroundImage: `url(${image44})`,
           backgroundSize: "cover",
@@ -425,7 +426,7 @@ const SDET = () => {
       </div>
 
       {/* third section */}
-      <section className="px-[20px] md:px-[clamp(16px,8.89vw,246px)] py-[clamp(28px,7.76vw,40px)] sm:py-20 md:py-[clamp(40px,4.16vw,120px)]">
+      <section className="px-[20px] md:px-[clamp(16px,8.89vw,246px)] py-[clamp(28px,7.76vw,40px)] sm:py-20 md:py-[clamp(40px,4.16vw,120px)] overflow-x-hidden">
         <div className="flex lg:flex-row flex-col justify-between gap-10">
           <div className="max-w-[600px] lg:text-lef">
             <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(37px,4vw,100px)] leading-[clamp(37px,4vw,100px)">
@@ -437,7 +438,7 @@ const SDET = () => {
               whileInView={{ opacity: 1, x: 0 }} // Move to original position
               transition={{ duration: 2, ease: "easeOut" }} // Slow motion
               viewport={{ once: false, amount: 0.2 }} // Trigger when 20% in view
-              className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
+              className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)]  md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
             >
               SDET stands for "Software Development Engineer in Test." This role
               focuses on ensuring software quality by designing, developing, and
@@ -458,21 +459,21 @@ const SDET = () => {
             <img
               src={image111}
               alt="What is SDET"
-              className="w-[clamp(280px,35.55vw,full)] h-[clamp(220px,27.43vw,full)] object-contain"
+              className="w-[clamp(280px,35.55vw,full)] h-[clamp(220px,27.43vw,full)] object-contain overflow-x-hidden"
             />
           </motion.div>
         </div>
       </section >
 
       {/* fourth section */}
-      < section className="bg-[#2A2E3B] px-[20px] md:md:px-[clamp(16px,8.89vw,246px)] py-[clamp(60px,15.77vw,65px)] md:py-[clamp(60px,5.56vw,160px)] text-white" >
-        <div className="flex sm:flex-row flex-col sm:justify-between items-center gap-20">
+      < section className="overflow-x-hidden bg-[#2A2E3B] px-[20px] md:md:px-[clamp(16px,8.89vw,246px)] py-[clamp(60px,15.77vw,65px)] md:py-[clamp(60px,5.56vw,160px)] text-white" >
+        <div className="flex sm:flex-row flex-col sm:justify-between items-center gap-20 overflow-x-hidden">
           {/* Stat 1 */}
           <motion.div
             initial={{ opacity: 0, x: isMobile ? -50 : -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="flex flex-row items-center gap-2">
+            className="flex flex-row items-center gap-2 ">
             <img
               src={image87}
               alt="clock"
@@ -493,7 +494,7 @@ const SDET = () => {
             initial={{ opacity: 0.4, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="flex flex-row items-center gap-2">
+            className="flex flex-row items-center gap-2 ">
             <img
               src={image88}
               alt="clock"
@@ -514,7 +515,7 @@ const SDET = () => {
             initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-            className="flex flex-row items-center gap-2">
+            className="flex flex-row items-center gap-2 ">
             <img
               src={image86}
               alt="clock"
@@ -535,7 +536,7 @@ const SDET = () => {
 
       {/* 5th section */}
 
-      < section className="bg-white px-4 md:px-[clamp(15px,7.23vw,208px)] md:py-[clamp(15px,5.56vw,160px)] pt-8 overflow-hidden" >
+      < section className=" overflow-x-hidden bg-white px-4 md:px-[clamp(15px,7.23vw,208px)] md:py-[clamp(15px,5.56vw,160px)] pt-8 overflow-hidden" >
         <div className="flex lg:flex-row flex-col gap-10 bg-[rgba(55,55,55,0.10)] md:p-9.5 px-4 py-6 m:py-0">
           <div className="flex flex-col flex-1 items-center sm:items-start gap-[clamp(24px,2.055vw,470px)]">
             <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(35px,9.89vw,40.742px)] md:text-[clamp(40.742px,3.47vw,150px)] text-center md:text-start leading-[clamp(46px,12.45vw,51.335px)] md:leading-[clamp(51.335px,4.375vw,183px)">
@@ -1066,6 +1067,7 @@ const SDET = () => {
           </div>
         </div>
       </footer>
+      </div>
       {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
     </>
   );
