@@ -283,7 +283,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ duration:0.5 }}
             viewport={{ once: false, amount: 0.5 }}
             className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left md:pt-[50px] 2xl:pt-[100px] w-full h-[672px] md:h-[74vh] 2xl:h-[100vh] 3xl:h-[120vh] xl:h-[85vh]">
             <div className="flex flex-col gap-5 pt-27 md:pt-30 section-padding-x">
@@ -304,10 +304,17 @@ export default function Home() {
                 unlock their potential — and we’re here to help you do the same.
               </p>
               <div className="flex justify-start items-center gap-3 md:pt-10">
-                <button className="bg-[#00FFCA] px-[12px] md:px-[clamp(16px,2.23vw,32.073px)] py-[8px] md:py-[clamp(12px,1.48vw,21.382px)] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[600] text-[clamp(14px,3.8vw,16px)] text-black md:text-[clamp(14px,1.53vw,30px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(13.7px,1.5vw,30.6px)]">
+                <motion.button
+                  initial={{ opacity: 0, x: -100 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 1, delay: 0.8 }}
+                  className="bg-[#00FFCA] px-[12px] md:px-[clamp(16px,2.23vw,32.073px)] py-[8px] md:py-[clamp(12px,1.48vw,21.382px)] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[600] text-[clamp(14px,3.8vw,16px)] text-black md:text-[clamp(14px,1.53vw,30px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(13.7px,1.5vw,30.6px)]">
                   Find out which course is for you
-                </button>
-                <img
+                </motion.button>
+                <motion.img
+                  initial={{ opacity: 0, y: -100 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 1, delay: 0.8 }}
                   src={image55}
                   alt="Down Arrow"
                   className="ml-4 w-[clamp(20px,4.3vw,80px)] h-[clamp(20px,4.3vw,80px)]"
@@ -645,13 +652,17 @@ export default function Home() {
             </p>
             <div className="relative px-4 md:px-50 overflow-hidden">
               {/* Wrapper with fixed spacing */}
-              <div className="flex flex-col justify-end mx-auto px-4 md:px-10 pt-1 pb-4 md:pb-10 border-[#21B495] border-[2px] rounded-[32px] md:rounded-[50px] w-full">
+              <motion.div
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 1 }}
+                className="flex flex-col justify-end mx-auto px-4 md:px-10 pt-1 pb-4 md:pb-10 border-[#21B495] border-[2px] rounded-[32px] md:rounded-[50px] w-full">
                 <img
                   src={image144}
                   alt="Meeting"
                   className="block mx-auto md:mt-5 mb-[-4px] rounded-[15px] md:rounded-[50px] w-full object-cover"
                 />
-              </div>
+              </motion.div>
 
               {/* SVG Border */}
               {/* <div className="right-0 bottom-[-5px] left-2 absolute w-full overflow-hidden">
