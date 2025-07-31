@@ -266,7 +266,7 @@ const SDET = () => {
               <img
                 src={image61}
                 alt="Rupee"
-                className="w-[clamp(25px,7.73vw,31.878px] md:w-[clamp(25px,2.43vw,70px]] h-[clamp(25px,7.73vw,31.878px] md:h-[clamp(25px,2.43vw,70px]"
+                className="w-[clamp(25px,7.73vw,31.878px)] md:w-[clamp(25px,2.43vw,70px)] h-[clamp(25px,7.73vw,31.878px)] md:h-[clamp(25px,2.43vw,70px)]"
               />
               <div>
                 <p className="font-inter font-bold text-[#12161F] text-[clamp(14px,3.77vw,15.55px)] md:text-[clamp(15.55px,1.528vw,44px)] leading-[clamp(22.3px,5.98vw,24.67px)] md:leading-[clamp(24.67px,1.713vw,49.34px)]">
@@ -282,7 +282,7 @@ const SDET = () => {
               <img
                 src={image65}
                 alt="Calendar"
-                className="w-[clamp(25px,7.73vw,31.878px] md:w-[clamp(25px,2.43vw,70px]] h-[clamp(25px,7.73vw,31.878px] md:h-[clamp(25px,2.43vw,70px]"
+                className="w-[clamp(25px,7.73vw,31.878px)] md:w-[clamp(25px,2.43vw,70px)] h-[clamp(25px,7.73vw,31.878px)] md:h-[clamp(25px,2.43vw,70px)]"
               />
               <div>
                 <p className="font-inter font-bold text-[#12161F] text-[clamp(14px,3.77vw,15.55px)] md:text-[clamp(15.55px,1.528vw,44px)] leading-[clamp(22.3px,5.98vw,24.67px)] md:leading-[clamp(24.67px,1.713vw,49.34px)]">
@@ -298,7 +298,7 @@ const SDET = () => {
               <img
                 src={image114}
                 alt="Placement"
-                className="w-[clamp(25px,7.73vw,31.878px] md:w-[clamp(25px,2.43vw,70px]] h-[clamp(25px,7.73vw,31.878px] md:h-[clamp(25px,2.43vw,70px]"
+                className="w-[clamp(25px,7.73vw,31.878px] md:w-[clamp(25px,2.43vw,70px)] h-[clamp(25px,7.73vw,31.878px)] md:h-[clamp(25px,2.43vw,70px)]"
               />
               <div>
                 <p className="font-inter font-bold text-[#12161F] text-[clamp(14px,3.77vw,15.55px)] md:text-[clamp(15.55px,1.528vw,44px)] leading-[clamp(22.3px,5.98vw,24.67px)] md:leading-[clamp(24.67px,1.713vw,49.34px)]">
@@ -314,7 +314,7 @@ const SDET = () => {
               <img
                 src={image66}
                 alt="Certificate"
-                className="mt-1 w-[clamp(25px,7.73vw,31.878px] md:w-[clamp(25px,2.43vw,70px]] h-[clamp(25px,7.73vw,31.878px] md:h-[clamp(25px,2.43vw,70px]"
+                className="mt-1 w-[clamp(25px,7.73vw,31.878px] md:w-[clamp(25px,2.43vw,70px)] h-[clamp(25px,7.73vw,31.878px)] md:h-[clamp(25px,2.43vw,70px)]"
               />
               <div>
                 <p className="font-inter font-bold text-[#12161F] text-[clamp(14px,3.77vw,15.55px)] md:text-[clamp(15.55px,1.528vw,44px)] leading-[clamp(22.3px,5.98vw,24.67px)] md:leading-[clamp(24.67px,1.713vw,49.34px)]">
@@ -334,7 +334,7 @@ const SDET = () => {
           transition={{ duration: 1 }}
           src={image110}
           alt=""
-          className="rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[clamp(w-full,40vw,720px)] object-cover "
+          className="rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[clamp(400px,40vw,720px)] object-cover "
         />
       </div>
 
@@ -817,7 +817,7 @@ const SDET = () => {
 
         {/* Contact Form */}
         <motion.div
-          initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
+          initial={{ opacity: 0, x: isMobile ? 50 : 100}}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
           className="px-4">
