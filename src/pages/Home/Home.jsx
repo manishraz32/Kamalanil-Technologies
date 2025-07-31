@@ -281,10 +281,9 @@ export default function Home() {
         {/* step into the world */}
         <div className="overflow-hidden">
           <motion.div
-            initial={{ opacity: 0, scale: 0 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: false, amount: 0.5 }}
+            initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+            whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
+            transition={{ duration: 1, ease: "easeOut" }}
             className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left md:pt-[50px] 2xl:pt-[100px] w-full h-[672px] md:h-[74vh] 2xl:h-[100vh] 3xl:h-[120vh] xl:h-[85vh]">
             <div className="flex flex-col gap-5 pt-27 md:pt-30 section-padding-x">
               <h2 className="font-bold text-[clamp(16px,4.8vw,20px)] text-white md:text-[clamp(28px,3.47vw,70px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(44px,5.56vw,100px)]">
