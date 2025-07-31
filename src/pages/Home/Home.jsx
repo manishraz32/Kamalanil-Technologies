@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import hero_section_image from "../../assets/images/hero_section_image.jpg";
-import thumbUpIcon from "../../assets/images/thumbUpIcon.svg";
-import manWithLaptopIcon from "../../assets/images/manWithLaptopIcon.svg";
+import thumbUpIcon from "../../assets/images/2 icon.png"
+import manWithLaptopIcon from "../../assets/images/3 icon.png"
 import downArrow from "../../assets/images/downArrow.png";
 // import certificateIcon from "../../assets/images/certificateIcon.png";
 import image109 from "../../assets/image 109.svg";
@@ -30,7 +30,7 @@ import instagram from "../../assets/images/instagram.png";
 import linkedin from "../../assets/images/linkedin.png";
 import whatsapp from "../../assets/images/whatsapp.png";
 
-import projectIcon from "../../assets/images/projectIcon.svg";
+import projectIcon from "../../assets/images/1 icon.png"
 import FeatureCard from "../../components/FeatureCard";
 import BenefitCard from "../../components/BenefitCard";
 
@@ -283,7 +283,7 @@ export default function Home() {
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
             whileInView={{ opacity: 1, scale: 1 }}
-            transition={{ duration:0.5 }}
+            transition={{ duration: 0.5 }}
             viewport={{ once: false, amount: 0.5 }}
             className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left md:pt-[50px] 2xl:pt-[100px] w-full h-[672px] md:h-[74vh] 2xl:h-[100vh] 3xl:h-[120vh] xl:h-[85vh]">
             <div className="flex flex-col gap-5 pt-27 md:pt-30 section-padding-x">
@@ -317,7 +317,7 @@ export default function Home() {
                   transition={{ duration: 1, delay: 0.8 }}
                   src={image55}
                   alt="Down Arrow"
-                  className="ml-4 w-[clamp(20px,4.3vw,80px)] h-[clamp(20px,4.3vw,80px)]"
+                  className="ml-4 md:w-[clamp(20px,4.3vw,80px)] md:h-[clamp(20px,4.3vw,80px)] w-[45px] h-[45px]"
                 />
               </div>
             </div>
@@ -1127,7 +1127,7 @@ export default function Home() {
             </div>
 
             {/* Contact Info  */}
-            <div className="flex flex-col items-center md:items-start pt-6 md:pt-0 text-center md:text-center">
+            <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-center mt-6 md:mt-0">
               <h3 className="font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(16px,1.38vw,40px)]">
                 CONTACT
               </h3>
