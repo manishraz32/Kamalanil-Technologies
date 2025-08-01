@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="top-0 z-50 sticky bg-[#12161F] py-4 md:py-8.5 text-white section-padding-x">
+      <nav className="top-0 z-50 sticky bg-[#12161F] py-2.5 md:py-6 text-white section-padding-x relative">
         <div className="flex justify-between items-center w-full">
           {/* Logo */}
           <div className="md:flex items-center gap-4">
@@ -109,7 +109,7 @@ const Navbar = () => {
               Contact Us
             </a>
 
-            <button className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-semibold text-18px text-black">
+            <button onClick={() => handleNavigation("contact")} className="inline-flex flex-col justify-center items-center bg-[#00FFCA]  cursor-pointer hover:bg-[#008368] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px]  rounded-[50px] font-semibold text-18px text-black">
               Apply Now
             </button>
           </div>

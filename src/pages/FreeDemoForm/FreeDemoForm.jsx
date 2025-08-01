@@ -20,7 +20,7 @@ const FreeDemoForm = () => {
     course: "",
     timeSlot: "",
     duration: "",
-    message:"",
+    message: "",
     language: {
       english: false,
       hindi: false,
@@ -29,7 +29,7 @@ const FreeDemoForm = () => {
   });
 
   const [errors, setErrors] = useState({});
-   const [showSuccess, setShowSuccess] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
 
   const dropdownRef = useRef(null);
   const formRef = useRef(null);
@@ -96,7 +96,7 @@ const FreeDemoForm = () => {
       course: "",
       timeSlot: "",
       duration: "",
-      message:"",
+      message: "",
       language: {
         english: false,
         hindi: false,
@@ -104,25 +104,51 @@ const FreeDemoForm = () => {
     });
     setErrors({});
     setShowSuccess(true);
-   
+
 
   };
 
+
+
   const [dropdowns, setDropdowns] = useState({
+    courseOpen: false,
     timeSlotOpen: false,
     backgroundOpen: false,
   });
 
-  const toggleDropdown = (key) => {
-    setDropdowns((prev) => ({
-      ...prev,
-      [key]: !prev[key],
-    }));
+  // const toggleDropdown = (key) => {
+  //   setDropdowns((prev) => ({
+  //     ...prev,
+  //     [key]: !prev[key],
+  //   }));
+  // };
+
+    const toggleDropdown = (key) => {
+    setDropdowns({
+      courseOpen: false,
+      timeSlotOpen: false,
+      backgroundOpen: false,
+      [key]: !dropdowns[key],
+    });
   };
 
-  const selectOption = (key, value) => {
-    handleChange({ target: { name: key, value } });
-    setDropdowns((prev) => ({ ...prev, [`${key}Open`]: false }));
+
+  // const selectOption = (key, value) => {
+  //   handleChange({ target: { name: key, value } });
+  //   setDropdowns((prev) => ({ ...prev, [`${key}Open`]: false }));
+  // };
+
+   const selectOption = (field, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [field]: value,
+    }));
+    // Close all dropdowns after selection
+    setDropdowns({
+      courseOpen: false,
+      timeSlotOpen: false,
+      backgroundOpen: false,
+    });
   };
 
   useEffect(() => {
@@ -234,9 +260,8 @@ const FreeDemoForm = () => {
                     {formData.course || "Select course"}
                   </span>
                   <span
-                    className={`ml-2 transition-transform duration-300 ${
-                      dropdowns.courseOpen ? "rotate-180" : "rotate-0"
-                    }`}
+                    className={`ml-2 transition-transform duration-300 ${dropdowns.courseOpen ? "rotate-180" : "rotate-0"
+                      }`}
                   >
                     <img
                       src={ArrowDown}
@@ -253,11 +278,10 @@ const FreeDemoForm = () => {
                       <li
                         key={course}
                         onClick={() => selectOption("course", course)}
-                        className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px]  md:text-black ${
-                          formData.course === course
+                        className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px]  md:text-black ${formData.course === course
                             ? "font-semibold text-[#00b39f]"
                             : ""
-                        }`}
+                          }`}
                       >
                         {course}
                       </li>
@@ -285,9 +309,8 @@ const FreeDemoForm = () => {
                     {formData.timeSlot || "Select time slot"}
                   </span>
                   <span
-                    className={`ml-2 transition-transform duration-300 ${
-                      dropdowns.timeSlotOpen ? "rotate-180" : "rotate-0"
-                    }`}
+                    className={`ml-2 transition-transform duration-300 ${dropdowns.timeSlotOpen ? "rotate-180" : "rotate-0"
+                      }`}
                   >
                     <img
                       src={ArrowDown}
@@ -308,11 +331,10 @@ const FreeDemoForm = () => {
                       <li
                         key={slot}
                         onClick={() => selectOption("timeSlot", slot)}
-                        className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px]  md:text-black ${
-                          formData.timeSlot === slot
+                        className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px]  md:text-black ${formData.timeSlot === slot
                             ? "font-semibold text-[#00b39f]"
                             : ""
-                        }`}
+                          }`}
                       >
                         {slot}
                       </li>
@@ -343,9 +365,8 @@ const FreeDemoForm = () => {
                     {formData.duration || "Select your background"}
                   </span>
                   <span
-                    className={`ml-2 transition-transform duration-300 ${
-                      dropdowns.backgroundOpen ? "rotate-180" : "rotate-0"
-                    }`}
+                    className={`ml-2 transition-transform duration-300 ${dropdowns.backgroundOpen ? "rotate-180" : "rotate-0"
+                      }`}
                   >
                     <img
                       src={ArrowDown}
@@ -366,11 +387,10 @@ const FreeDemoForm = () => {
                         <li
                           key={bg}
                           onClick={() => selectOption("duration", bg)}
-                          className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px]  md:text-black ${
-                            formData.duration === bg
+                          className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px]  md:text-black ${formData.duration === bg
                               ? "text-[#00b39f] font-semibold"
                               : ""
-                          }`}
+                            }`}
                         >
                           {bg}
                         </li>
@@ -393,43 +413,43 @@ const FreeDemoForm = () => {
             </div>
             {/* Language and Message */}
 
-              <div className="w-full">
-                <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
-                  Preferred Language *
-                </label>
-                <div className="flex items-center gap-x-4">
-                  <div className="bg-[#F4F4F4] px-4 md:py-3 rounded-lg w-1/2">
-                    <label className="flex justify-between items-center w-full">
-                      <span className="ml-2 text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px]">
-                        English
-                      </span>
-                      <input
-                        type="checkbox"
-                        name="english"
-                        checked={formData.language.english}
-                        onChange={handleChange}
-                        className="w-5 h-5 accent-black"
-                      />
-                    </label>
-                  </div>
-                  <div className="bg-[#F4F4F4] px-3 md:py-3 rounded-lg w-1/2">
-                    <label className="flex justify-between items-center w-full">
-                      <span className="ml-2 text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px]">
-                        Hindi
-                      </span>
-                      <input
-                        type="checkbox"
-                        name="hindi"
-                        checked={formData.language.hindi}
-                        onChange={handleChange}
-                        className="w-5 h-5 accent-black"
-                      />
-                    </label>
-                  </div>
+            <div className="w-full">
+              <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
+                Preferred Language *
+              </label>
+              <div className="flex items-center gap-x-4">
+                <div className="bg-[#F4F4F4] px-4 md:py-3 rounded-lg w-1/2">
+                  <label className="flex justify-between items-center w-full">
+                    <span className="ml-2 text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px]">
+                      English
+                    </span>
+                    <input
+                      type="checkbox"
+                      name="english"
+                      checked={formData.language.english}
+                      onChange={handleChange}
+                      className="w-5 h-5 accent-black"
+                    />
+                  </label>
+                </div>
+                <div className="bg-[#F4F4F4] px-3 md:py-3 rounded-lg w-1/2">
+                  <label className="flex justify-between items-center w-full">
+                    <span className="ml-2 text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px]">
+                      Hindi
+                    </span>
+                    <input
+                      type="checkbox"
+                      name="hindi"
+                      checked={formData.language.hindi}
+                      onChange={handleChange}
+                      className="w-5 h-5 accent-black"
+                    />
+                  </label>
                 </div>
               </div>
+            </div>
 
-              {/* <div className="w-full">
+            {/* <div className="w-full">
                 <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
                   Message
                 </label>
@@ -446,23 +466,23 @@ const FreeDemoForm = () => {
                 )}
               </div> */}
 
-              <div>
-                  <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                    Message
-                  </label>
-                  <textarea
-                    placeholder="Type your message here..."
-                   
-                    name="message"
-                    className="bg-[#F4F4F4] px-3 md:px-3 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px] md:leading-6"
-                    value={formData.message}
-                    onChange={handleChange}
-                  />
-                  {errors.message && (
-                    <p className="mt-1 text-red-500 text-sm">{errors.message}</p>
-                  )}
-                </div>
-           
+            <div>
+              <label className="block font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                Message
+              </label>
+              <textarea
+                placeholder="Type your message here..."
+
+                name="message"
+                className="bg-[#F4F4F4] px-3 md:px-3 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px] md:leading-6"
+                value={formData.message}
+                onChange={handleChange}
+              />
+              {errors.message && (
+                <p className="mt-1 text-red-500 text-sm">{errors.message}</p>
+              )}
+            </div>
+
             {/* Submit */}
             <div className="flex justify-center col-span-1 md:col-span-2 mt-3.5 md:mt-5.5">
               <button

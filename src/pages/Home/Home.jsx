@@ -43,7 +43,7 @@ import image66 from "../../assets/image 66.png";
 import imageHeroSectio from "../../assets/image.png";
 import ScrollToTop from "../../components/ScrollToTop";
 import emailjs from "emailjs-com";
-import { toast } from "react-toastify";
+// import { toast } from "react-toastify";
 import image131 from "../../assets/image 131.svg";
 import image55 from "../../assets/image 55.png";
 import interactive from "../../assets/Interactive session icons.png";
@@ -179,13 +179,13 @@ export default function Home() {
     <>
       <ScrollToTop />
       <Navbar />
-      <div id="home" className="w-full scroll-smooth  overflow-hidden">
+      <div id="home" className="w-full scroll-smooth  overflow-hidden  absolute">
         <div className="flex flex-col min-h-screen">
           <div
             className="flex-1 bg-cover bg-center hero-section"
             style={{ backgroundImage: `url(${hero_section_image})` }}
           >
-            <div className="flex flex-col gap-10 mt-[5vh] md:mt-[30vh] px-[clamp(20px,5.76vw,83px)]">
+            <div className="flex flex-col gap-10 mt-[5vh] md:mt-[25vh] px-[clamp(20px,5.76vw,83px)]">
               <div className="flex flex-col gap-4 md:gap-6">
                 <h1 className="font-semibold text-22px text-white text-center">
                   Step Into the World of Tech
@@ -219,7 +219,7 @@ export default function Home() {
                     ease: "easeInOut",
                   }}
                   onClick={() => navigate("/freedemopage")}
-                  className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[800] font-inter text-20px text-black"
+                  className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px]  rounded-[50px] font-[800] font-inter text-20px md:text-21px text-black cursor-pointer hover:bg-[#008368]"
                 >
                   <motion.span
                     initial={{ opacity: 0, scale: 0 }}
@@ -351,7 +351,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
+                className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
                 Learn More
               </motion.button>
 
@@ -459,7 +459,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] border-[#00FFCA] border-2 rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
+                className="bg-[#00FFCA]  px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)] text-center">
                 Learn More
               </motion.button>
 
@@ -595,7 +595,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                className="hidden md:block bg-[#00FFD1] shadow-md px-8 md:px-[90px] py-3 md:py-[21px] rounded-full font-semibold text-[clamp(14px,2vw,16px)] text-black md:text-[clamp(16px,1.48vw,40px)] md:leading-[clamp(24px,2.23vw,40px)]">
+                className="hidden md:block bg-[#00FFD1] shadow-md px-8 md:px-[90px] py-3 md:py-[21px] rounded-full font-semibold text-[clamp(14px,2vw,16px)] text-black md:text-[clamp(16px,1.48vw,40px)] md:leading-[clamp(24px,2.23vw,40px)] cursor-pointer hover:bg-[#008368]">
                 Register for Free
               </motion.button>
             </div>
@@ -1054,7 +1054,7 @@ export default function Home() {
                 </div>
                 <button
                   type="submit"
-                  className="block bg-[#21B495]  mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition cursor-pointer"
+                  className="block bg-[#00FFD1]  hover:bg-[#008368] mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition cursor-pointer"
                 >
                   Send Message
                 </button>
