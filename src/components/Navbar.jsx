@@ -78,9 +78,9 @@ const Navbar = () => {
             <div className="relative" ref={dropdownRef}>
               <span
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-1 font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
+                className="flex items-center gap-1 md:gap-3 font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
               >
-                Courses
+                Courses  <span> <img src={Arrow_down} alt=""  className="filter invert brightness-200" /></span>
               </span>
 
               {isDropdownOpen && (

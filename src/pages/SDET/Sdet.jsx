@@ -139,32 +139,32 @@ const SDET = () => {
 
   // ************************************
   const fullText = "#LearnandGrow";
-  const [displayedText, setDisplayedText] = useState("");
-  const { ref: typeRef, inView: typeInView } = useInView({
-    triggerOnce: false,
-    threshold: 0.5,
-  })
+const [displayedText, setDisplayedText] = useState("");
+const { ref: typeRef, inView: typeInView } = useInView({
+  triggerOnce: false, // or true if you want it only once
+  threshold: 0.5,
+});
 
-  useEffect(() => {
-    let index = -1;
-    let timeoutId;
+useEffect(() => {
+  let index = -1;
+  let timeoutId;
 
-    if (typeInView) {
-      setDisplayedText("");
+  if (typeInView) {
+    setDisplayedText(""); // clear previous text
 
-      const typeLetter = () => {
-        if (index < fullText.length) {
-          setDisplayedText((prev) => prev + fullText.charAt(index));
-          index++;
-          timeoutId = setTimeout(typeLetter, 100);
-        }
-      };
+    const typeLetter = () => {
+      if (index < fullText.length) {
+        setDisplayedText((prev) => prev + fullText.charAt(index));
+        index++;
+        timeoutId = setTimeout(typeLetter, 100);
+      }
+    };
 
-      typeLetter();
-    }
+    timeoutId = setTimeout(typeLetter, 100); // small delay before starting
+  }
 
-    return () => clearTimeout(timeoutId);
-  }, [typeInView]);
+  return () => clearTimeout(timeoutId);
+}, [typeInView]);
 
 
   // *****************************************
@@ -961,10 +961,10 @@ const SDET = () => {
                 Quick Links
               </h3>
               <ul className="space-y-4 font-medium text-[#00FFCA] text-sm">
-                <li className="md:text-[clamp(12px,1.041vw,30px)]">
+                <li className="md:text-[clamp(12px,1.041vw,30px)] md:mr-3">
                   <a href="#">Home</a>
                 </li>
-                <li className="md:text-[clamp(12px,1.041vw,30px)]">
+                <li className="md:text-[clamp(12px,1.041vw,30px)] md:mr-3">
                   <a href="#">About</a>
                 </li>
                 <li className="md:text-[clamp(12px,1.041vw,30px)]">

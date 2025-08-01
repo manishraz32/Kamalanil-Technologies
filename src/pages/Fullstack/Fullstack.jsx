@@ -139,36 +139,38 @@ const Fullstack = () => {
     }
   };
   // *******************************************
-  const fullText = "#LearnandGrow";
-  const [displayedText, setDisplayedText] = useState("");
-  const { ref, inView } = useInView({
-    triggerOnce: false,
-    threshold: 0.5,
-  });
+ const fullText = "#LearnandGrow";
+const [displayedText, setDisplayedText] = useState("");
+const { ref, inView } = useInView({
+  triggerOnce: false,
+  threshold: 0.5,
+});
 
-  useEffect(() => {
-    let index = -1;
-    let timeoutId;
+useEffect(() => {
+  let index = -1;
+  let timeoutId;
 
-    if (inView) {
-      setDisplayedText("");
+  if (inView) {
+    setDisplayedText("");
 
-      const typeLetter = () => {
-        if (index < fullText.length) {
-          setDisplayedText((prev) => prev + fullText.charAt(index));
-          index++;
-          timeoutId = setTimeout(typeLetter, 100);
-        }
-      };
+    const typeLetter = () => {
+      if (index <= fullText.length) {
+        setDisplayedText((prev) => prev + fullText.charAt(index));
+        index++;
+        timeoutId = setTimeout(typeLetter, 100);
+      }
+    };
 
-      typeLetter();
-    }
+    // start with a tiny delay to avoid race condition
+    timeoutId = setTimeout(typeLetter, 100);
+  }
 
-    return () => clearTimeout(timeoutId);
-  }, [inView]);
+  return () => clearTimeout(timeoutId);
+}, [inView]);
+
 
   //*************************************/
-  const fullstackText = "The goal of a Full Stack Developer is to design and build fully functional, end - to - end web applications that meet user needs and business requirements—handling both front - end(client - side) and back - end(server - side) development.";
+  const fullstackText = "The goal of a Full Stack Developer is to design and build fully functional, end - to - end web applications that meet user needs and business requirements—handling both front-end (client-side) and back-end (server-side) development.";
 
 
   const words = fullstackText.split(" ");
@@ -679,12 +681,12 @@ const Fullstack = () => {
       <section className="padding-left: bg-[rgba(55,55,55,0.10)] px-4 md:px-[clamp(15px,6.51vw,187.64px)] py-3.5 md:py-[clamp(14px,3.88vw,112px)]">
         <div className="flex flex-col bg-white mx-auto sm:p-2 md:p-0">
           {[
-            "Is an IT background required to enroll in the SDET course?",
-            "Which certification is recommended to pursue a career as an SDET?",
-            "How much time does it take to learn and become an SDET?",
+            "Is an IT background required to enroll in the Full Stack Development course?",
+            "Which certification is recommended to pursue a career as an Full Stack Developer?",
+            "How much time does it take to learn and become an Full Stack Developer?",
             "Is there a trial period available for the course?",
-            "What is the average salary of a Software Development Engineer in Test (SDET)?",
-            "What is the tuition fee for the SDET training program?",
+            "What is the average salary of a Full Stack Developer?",
+            "What is the tuition fee for the Full Stack Development training program?",
           ].map((question, index) => (
             <div
               key={index}
@@ -958,10 +960,10 @@ const Fullstack = () => {
               Quick Links
             </h3>
             <ul className="space-y-4 font-medium text-[#00FFCA] text-sm">
-              <li className="md:text-[clamp(12px,1.041vw,30px)]">
+              <li className="md:text-[clamp(12px,1.041vw,30px)] md:mr-3">
                 <a href="#">Home</a>
               </li>
-              <li className="md:text-[clamp(12px,1.041vw,30px)]">
+              <li className="md:text-[clamp(12px,1.041vw,30px)] md:mr-3">
                 <a href="#">About</a>
               </li>
               <li className="md:text-[clamp(12px,1.041vw,30px)]">

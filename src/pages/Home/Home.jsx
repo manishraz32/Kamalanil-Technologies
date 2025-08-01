@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
-import hero_section_image from "../../assets/images/hero_section_image.jpg";
+// import hero_section_image from "../../assets/images/hero_section_image.jpg";
+import hero_section_image from "../../assets/images/Home page Background Image.jpg"
 import thumbUpIcon from "../../assets/images/2 icon.png"
 import manWithLaptopIcon from "../../assets/images/3 icon.png"
 import downArrow from "../../assets/images/downArrow.png";
@@ -184,7 +185,7 @@ export default function Home() {
             className="flex-1 bg-cover bg-center hero-section"
             style={{ backgroundImage: `url(${hero_section_image})` }}
           >
-            <div className="flex flex-col gap-10 mt-[5vh] md:mt-[20vh] px-[clamp(20px,5.76vw,83px)]">
+            <div className="flex flex-col gap-10 mt-[5vh] md:mt-[30vh] px-[clamp(20px,5.76vw,83px)]">
               <div className="flex flex-col gap-4 md:gap-6">
                 <h1 className="font-semibold text-22px text-white text-center">
                   Step Into the World of Tech
@@ -244,7 +245,7 @@ export default function Home() {
                   <span className="font-semibold">KAMLANIL TECHNOLOGIES</span>
                   <span className="top-full left-0 absolute bg-gradient-to-r from-[#00FFCA] to-[#009979] md:mt-[1px] w-full h-[2px] md:h-[4px]"></span>
                 </span>{" "}
-                be sure about the future
+               and be sure about the future
               </p>
             </div>
             <div className="flex md:flex-row flex-col md:justify-center gap-4">
@@ -302,7 +303,7 @@ export default function Home() {
                 real-time projects. We've already helped hundreds of learners
                 unlock their potential — and we’re here to help you do the same.
               </p>
-              <div className="flex justify-start items-center gap-3 md:pt-10">
+              <div className="flex justify-start items-center gap-3.5 md:pt-10">
                 <motion.button
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -316,7 +317,7 @@ export default function Home() {
                   transition={{ duration: 1, delay: 0.8 }}
                   src={image55}
                   alt="Down Arrow"
-                  className="ml-4 md:w-[clamp(20px,4.3vw,80px)] md:h-[clamp(20px,4.3vw,80px)] w-[45px] h-[45px]"
+                  className="md:w-[clamp(20px,5vw,80px)] md:h-[clamp(20px,5vw,80px)] w-[45px] h-[45px]"
                 />
               </div>
             </div>
@@ -448,12 +449,8 @@ export default function Home() {
                     Be a <span className="text-[#21B495]">Full Stack</span> Pro
                   </h1>
                 </div>
-                <p className="md:w-[80%] font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,50px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(23px,1.875vw,108px)]">
-                  Our programs are delivered through flexible online training,
-                  with offline batches launching soon. Designed for beginners
-                  and aspiring professionals, our courses build strong
-                  foundations in both core concepts and technical skills—no
-                  prior coding experience required.
+                <p className="font-montserrat font-medium text-[#575757] text-[clamp(14px,3.89vw,16px)] md:text-[clamp(16px,1.319vw,50px)] leading-[clamp(21px,1.67vw,24px)] md:leading-[clamp(23px,1.875vw,108px)]">
+                  Our programs are delivered through flexible online training, with offline batches launching soon. Designed for beginners and aspiring professionals, our courses build strong foundations in both core concepts and technical skills—no prior coding experience required.
                 </p>
               </div>
 
@@ -781,7 +778,7 @@ export default function Home() {
               Break into <span className="text-[#71ffe5]">IT</span> with
               Practical <span className="text-[#00FFD1]">SDET Training</span>
             </h2>
-            <div className="flex flex-col gap-3 mt-6">
+            <div className="flex flex-col gap-4 ">
               <p className="font-medium text-[#fff] text-[clamp(12px,3.39vw,14px)] md:text-[clamp(14px,1.319vw,38px)] leading-[clamp(23px,6.310vw,26px)] md:leading-[clamp(23px,1.80vw,52px)]">
                 An SDET is much more than just a tester or QA professional. They
                 bring a powerful blend of development skills, quality assurance
@@ -823,7 +820,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                className="flex flex-col gap-5 md:my-20 px-4 pt-5 md:w-[45%]">
+                className="flex flex-col gap-5 md:my-20 px-4 pt-5 md:w-[55%]">
                 <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6px,1.80vw,52px)]">
                   One of the key advantages of learning with Kamlanil
                   Technologies is the flexibility we offer for working
@@ -1057,7 +1054,7 @@ export default function Home() {
                 </div>
                 <button
                   type="submit"
-                  className="block bg-[#21B495] hover:bg-[#00b970] mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition cursor-pointer"
+                  className="block bg-[#21B495]  mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition cursor-pointer"
                 >
                   Send Message
                 </button>
@@ -1110,10 +1107,10 @@ export default function Home() {
                 Quick Links
               </h3>
               <ul className="space-y-4 font-medium text-[#00FFCA] text-sm">
-                <li className="md:text-[clamp(12px,1.041vw,30px)]">
+                <li className="md:text-[clamp(12px,1.041vw,30px)] md:mr-3">
                   <a href="#">Home</a>
                 </li>
-                <li className="md:text-[clamp(12px,1.041vw,30px)]">
+                <li className="md:text-[clamp(12px,1.041vw,30px)] md:mr-3">
                   <a href="#">About</a>
                 </li>
                 <li className="md:text-[clamp(12px,1.041vw,30px)]">
