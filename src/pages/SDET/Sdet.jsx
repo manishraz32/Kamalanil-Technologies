@@ -240,7 +240,7 @@ useEffect(() => {
                 <li>JIRA</li>
               </ul>
             </div>
-            <button className="flex flex-col justify-center items-center gap-[12.91px] md:gap-[clamp(8px,1vw,12.91px)] bg-[#00FFCA] px-[30.988px] md:px-[clamp(20px,5vw,30.98px)] py-[20.659px] md:py-[clamp(12px,3vw,20.66px)] border-[#00FFCA] border-[2.582px] rounded-[48.308px] md:rounded-[clamp(24px,5vw,48.3px)] w-full h-[56px] md:h-[clamp(50px,5vw,64.73px)] font-semibold text-[clamp(17px,4.917vw,20.659px)] text-black md:text-[clamp(20px,1.39vw,40.659px)] leading-[clamp(25.5px,2.6vw,30.988px)] md:leading-[clamp(30.988px,2.6vw,60.988px)]">
+            <button className="flex flex-col justify-center items-center gap-[12.91px] md:gap-[clamp(8px,1vw,12.91px)] bg-[#00FFCA] px-[30.988px] md:px-[clamp(20px,5vw,30.98px)] py-[20.659px] md:py-[clamp(12px,3vw,20.66px)]  rounded-[48.308px] md:rounded-[clamp(24px,5vw,48.3px)] w-full h-[56px] md:h-[clamp(50px,5vw,64.73px)] font-semibold text-[clamp(17px,4.917vw,20.659px)] text-black md:text-[clamp(20px,1.39vw,40.659px)] leading-[clamp(25.5px,2.6vw,30.988px)] md:leading-[clamp(30.988px,2.6vw,60.988px)] cursor-pointer hover:bg-[#008368]">
               Apply now
             </button>
 
@@ -547,7 +547,7 @@ useEffect(() => {
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
-                className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300">
+                className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300 cursor-pointer hover:bg-[#008368]">
                 <motion.span
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
@@ -913,7 +913,7 @@ useEffect(() => {
                 </div>
                 <button
                   type="submit"
-                  className="block bg-[#21B495] hover:bg-[#00b970] mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition cursor-pointer"
+                  className="block bg-[#00FFC3] cursor-pointer hover:bg-[#008368] mt-3 rounded-[33px] w-full font-bold text-[#000] text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)] transition "
                 >
                   Send Message
                 </button>
