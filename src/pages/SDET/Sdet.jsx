@@ -34,6 +34,10 @@ import SuccessModal from "../../components/SuccessModal";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
+import image91 from "../../assets/image 91.svg";
+import image92 from "../../assets/image 92.svg";
+import image97 from "../../assets/image 97.svg";
+
 const SDET = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -778,18 +782,18 @@ useEffect(() => {
 
                   <div className="flex items-center gap-[6px]">
                     {/* LinkedIn */}
-                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-6 h-6 md:h-6">
+                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-5 h-6 md:h-5">
                       <img
-                        src={linkedin}
+                        src={image91}
                         alt="LinkedIn"
                         className="w-3.5 h-3.5"
                       />
                     </div>
 
                     {/* Instagram */}
-                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-6 h-6 md:h-6">
+                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-5 h-6 md:h-5">
                       <img
-                        src={instagram}
+                        src={image92}
                         alt="Instagram"
                         className="w-3.5 h-3.5"
                       />
@@ -938,19 +942,19 @@ useEffect(() => {
                   href="#"
                   className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
                 >
-                  <img src={linkedin} alt="LinkedIn" className="w-7 h-7" />
+                  <img src={image91} alt="LinkedIn" className="w-7 h-7" />
                 </a>
                 <a
                   href="#"
                   className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
                 >
-                  <img src={instagram} alt="Instagram" className="w-7 h-7" />
+                  <img src={image92} alt="Instagram" className="w-7 h-7" />
                 </a>
                 <a
                   href="#"
                   className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
                 >
-                  <img src={whatsapp} alt="WhatsApp" className="w-7 h-7" />
+                  <img src={image97} alt="WhatsApp" className="w-7 h-7" />
                 </a>
               </div>
             </div>

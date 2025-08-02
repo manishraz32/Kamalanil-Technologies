@@ -12,6 +12,10 @@ import ArrowDown from "../../assets/Arrow down sign to navigate.png";
 import Scrollbar from "../../assets/Scrollbar.svg";
 import SuccessModal from "../../components/SuccessModal";
 
+import image91 from "../../assets/image 91.svg";
+import image92 from "../../assets/image 92.svg";
+import image97 from "../../assets/image 97.svg";
+
 const FreeDemoForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -179,8 +183,8 @@ const FreeDemoForm = () => {
     <>
       <ScrollToTop />
       <Navbar />
-      <div className="flex justify-center bg-[#FFFFFF] md:bg-[#dbe2e3] md:px-[clamp(16px,6.53vw,120px)] md:py-10 pb-20 min-h-screen overflow-x-hidden overflow-y-auto">
-        <div className="md:relative md:bg-white md:shadow-lg md:rounded-[2rem] md:w-full md:h-auto xl:h-[clamp(300px,_53vw,_3015px)]">
+      <div className="flex justify-center bg-[#FFFFFF] md:bg-[#dbe2e3] md:px-[clamp(16px,6.53vw,120px)] md:py-10 pb-20 min-h-screen h-auto overflow-x-hidden overflow-y-auto">
+        <div className="md:relative md:bg-white md:shadow-lg md:rounded-[2rem] md:w-full xl:h-[clamp(300px,_56vw,_3015px)] h-53%">
           <div className="flex flex-col items-center gap-3 md:gap-0 bg-[linear-gradient(to_right,_#EAFDFB,_#DAF6F7)] md:bg-[linear-gradient(to_right,_#EAFDFB,_#DAF6F7)] px-4 pt-9 md:pt-0 pb-10.5 md:pb-0 md:rounded-[2rem] rounded-b-[2rem] md:h-[clamp(300px,24.88vw,716.68px)] text-center">
             <h2 className="items-center md:mt-4 xl:mt-0 md:pt-2 w-[76%] md:w-full font-['Montserrat'] font-bold text-[36px] text-gray-900 md:text-[clamp(20px,2.77vw,120px)] leading-[43px] md:leading-[clamp(40px,5.55vw,240px)]">
               Get 5 Days of Free Live Demo Classes
@@ -539,10 +543,10 @@ const FreeDemoForm = () => {
               Quick Links
             </h3>
             <ul className="space-y-4 font-medium text-[#00FFCA] text-sm">
-              <li className="md:text-[clamp(12px,1.041vw,30px)]">
+              <li className="md:text-[clamp(12px,1.041vw,30px)] mr-3">
                 <a href="#">Home</a>
               </li>
-              <li className="md:text-[clamp(12px,1.041vw,30px)]">
+              <li className="md:text-[clamp(12px,1.041vw,30px)] mr-3">
                 <a href="#">About</a>
               </li>
               <li className="md:text-[clamp(12px,1.041vw,30px)]">
@@ -618,13 +622,13 @@ const FreeDemoForm = () => {
             </h3>
             <div className="flex flex-row gap-3">
               <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
-                <img src={linkedin} className="w-[16px] h-[16px]" />
+                <img src={image91} className="w-[16px] h-[16px]" />
               </div>
               <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
-                <img src={instagram} className="w-[16px] h-[16px]" />
+                <img src={image92} className="w-[16px] h-[16px]" />
               </div>
               <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
-                <img src={whatsapp} className="w-[16px] h-[16px]" />
+                <img src={image97} className="w-[16px] h-[16px]" />
               </div>
             </div>
           </div>
