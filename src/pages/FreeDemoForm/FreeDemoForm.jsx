@@ -16,6 +16,8 @@ import image91 from "../../assets/image 91.svg";
 import image92 from "../../assets/image 92.svg";
 import image97 from "../../assets/image 97.svg";
 
+import { motion } from "framer-motion"
+
 const FreeDemoForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -127,7 +129,7 @@ const FreeDemoForm = () => {
   //   }));
   // };
 
-    const toggleDropdown = (key) => {
+  const toggleDropdown = (key) => {
     setDropdowns({
       courseOpen: false,
       timeSlotOpen: false,
@@ -142,7 +144,7 @@ const FreeDemoForm = () => {
   //   setDropdowns((prev) => ({ ...prev, [`${key}Open`]: false }));
   // };
 
-   const selectOption = (field, value) => {
+  const selectOption = (field, value) => {
     setFormData((prevData) => ({
       ...prevData,
       [field]: value,
@@ -183,8 +185,13 @@ const FreeDemoForm = () => {
     <>
       <ScrollToTop />
       <Navbar />
-      <div className="flex justify-center bg-[#FFFFFF] md:bg-[#dbe2e3] md:px-[clamp(16px,6.53vw,120px)] md:py-10 pb-20 min-h-screen h-auto overflow-x-hidden overflow-y-auto">
-        <div className="md:relative md:bg-white md:shadow-lg md:rounded-[2rem] md:w-full xl:h-[clamp(300px,_56vw,_3015px)] h-53%">
+      <div
+        className="flex justify-center bg-[linear-gradient(to_right,#E5E5E5,#D9DFDF)] md:bg-[#dbe2e3] md:px-[clamp(16px,6.53vw,120px)] md:py-10 pb-20 min-h-screen h-auto overflow-x-hidden overflow-y-auto">
+        <motion.div
+          initial={{ opacity: 0, scale: 0 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1 }}
+          className="md:relative md:bg-white md:shadow-lg md:rounded-[2rem] md:w-full xl:h-[clamp(300px,_56vw,_3015px)] h-100%">
           <div className="flex flex-col items-center gap-3 md:gap-0 bg-[linear-gradient(to_right,_#EAFDFB,_#DAF6F7)] md:bg-[linear-gradient(to_right,_#EAFDFB,_#DAF6F7)] px-4 pt-9 md:pt-0 pb-10.5 md:pb-0 md:rounded-[2rem] rounded-b-[2rem] md:h-[clamp(300px,24.88vw,716.68px)] text-center">
             <h2 className="items-center md:mt-4 xl:mt-0 md:pt-2 w-[76%] md:w-full font-['Montserrat'] font-bold text-[36px] text-gray-900 md:text-[clamp(20px,2.77vw,120px)] leading-[43px] md:leading-[clamp(40px,5.55vw,240px)]">
               Get 5 Days of Free Live Demo Classes
@@ -283,8 +290,8 @@ const FreeDemoForm = () => {
                         key={course}
                         onClick={() => selectOption("course", course)}
                         className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px]  md:text-black ${formData.course === course
-                            ? "font-semibold text-[#00b39f]"
-                            : ""
+                          ? "font-semibold text-[#00b39f]"
+                          : ""
                           }`}
                       >
                         {course}
@@ -336,8 +343,8 @@ const FreeDemoForm = () => {
                         key={slot}
                         onClick={() => selectOption("timeSlot", slot)}
                         className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px]  md:text-black ${formData.timeSlot === slot
-                            ? "font-semibold text-[#00b39f]"
-                            : ""
+                          ? "font-semibold text-[#00b39f]"
+                          : ""
                           }`}
                       >
                         {slot}
@@ -392,8 +399,8 @@ const FreeDemoForm = () => {
                           key={bg}
                           onClick={() => selectOption("duration", bg)}
                           className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px]  md:text-black ${formData.duration === bg
-                              ? "text-[#00b39f] font-semibold"
-                              : ""
+                            ? "text-[#00b39f] font-semibold"
+                            : ""
                             }`}
                         >
                           {bg}
@@ -402,11 +409,12 @@ const FreeDemoForm = () => {
                     </ul>
 
                     {/* Custom SVG scrollbar icon shown on the right */}
-                    <img
-                      src={Scrollbar}
-                      alt="scroll icon"
-                      className="top-[10px] right-[8px] z-20 absolute w-[14px] h-[50px] md:h-[clamp(40px,8.65vw,120px)] pointer-events-none"
-                    />
+                    <div className="top-[10px] right-[8px] z-20 absolute w-[14px] h-[50px] md:h-[clamp(40px,8.65vw,120px)] pointer-events-none">
+                      <div className="w-full h-full bg-[#F4F4F4] rounded shadow-md border border-gray-300 p-1">
+                        <div className="w-full h-[30px] bg-gray-500 rounded-full"></div>
+                      </div>
+                    </div>
+
                   </div>
                 )}
               </div>
@@ -497,7 +505,7 @@ const FreeDemoForm = () => {
               </button>
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
 
       <footer className="flex justify-center bg-[rgb(47,54,69)] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]">
