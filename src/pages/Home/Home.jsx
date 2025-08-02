@@ -8,6 +8,11 @@ import downArrow from "../../assets/images/downArrow.png";
 // import certificateIcon from "../../assets/images/certificateIcon.png";
 import image109 from "../../assets/image 109.svg";
 import image108 from "../../assets/image 108 (1).svg";
+
+import image91 from "../../assets/image 91.svg";
+import image92 from "../../assets/image 92.svg";
+import image97 from "../../assets/image 97.svg";
+
 import image144 from "../../assets/images/image 144.png"
 import docIcon from "../../assets/images/docIcon.png";
 import performanceDocs from "../../assets/images/performanceDocs.png";
@@ -179,7 +184,7 @@ export default function Home() {
     <>
       <ScrollToTop />
       <Navbar />
-      <div id="home" className="w-full scroll-smooth  overflow-hidden  absolute">
+      <div id="home" className="w-full scroll-smooth  overflow-hidden ">
         <div className="flex flex-col min-h-screen">
           <div
             className="flex-1 bg-cover bg-center hero-section"
@@ -919,18 +924,18 @@ export default function Home() {
 
                   <div className="flex items-center gap-[6px]">
                     {/* LinkedIn */}
-                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-6 h-6 md:h-6">
+                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-4 md:w-5 h-4 md:h-5">
                       <img
-                        src={linkedin}
+                        src={image91}
                         alt="LinkedIn"
                         className="w-3.5 h-3.5"
                       />
                     </div>
 
                     {/* Instagram */}
-                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-6 md:w-6 h-6 md:h-6">
+                    <div className="flex justify-center items-center bg-[#21B495] rounded-full w-4 md:w-5 h-4 md:h-5">
                       <img
-                        src={instagram}
+                        src={image92}
                         alt="Instagram"
                         className="w-3.5 h-3.5"
                       />
@@ -1084,19 +1089,19 @@ export default function Home() {
                   href="#"
                   className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
                 >
-                  <img src={linkedin} alt="LinkedIn" className="w-7 h-7" />
+                  <img src={image91} alt="LinkedIn" className="w-7 h-7" />
                 </a>
                 <a
                   href="#"
                   className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
                 >
-                  <img src={instagram} alt="Instagram" className="w-7 h-7" />
+                  <img src={image92} alt="Instagram" className="w-7 h-7" />
                 </a>
                 <a
                   href="#"
                   className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
                 >
-                  <img src={whatsapp} alt="WhatsApp" className="w-7 h-7" />
+                  <img src={image97} alt="WhatsApp" className="w-7 h-7" />
                 </a>
               </div>
             </div>

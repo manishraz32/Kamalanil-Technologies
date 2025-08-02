@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="top-0 z-50 sticky bg-[#12161F] py-2.5 md:py-6 text-white section-padding-x relative">
+      <nav className="top-0 z-100 sticky bg-[#12161F] py-2.5 md:py-6 text-white section-padding-x ">
         <div className="flex justify-between items-center w-full">
           {/* Logo */}
           <div className="md:flex items-center gap-4">
