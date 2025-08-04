@@ -181,12 +181,15 @@ const FreeDemoForm = () => {
     };
   }, []);
 
+
+  
+
   return (
     <>
       <ScrollToTop />
       <Navbar />
       <div
-        className="flex justify-center bg-[linear-gradient(to_right,#E5E5E5,#D9DFDF)] md:bg-[#dbe2e3] md:px-[clamp(16px,6.53vw,120px)] md:py-10 pb-20 min-h-screen h-auto overflow-x-hidden overflow-y-auto">
+        className="flex justify-center md:bg-[linear-gradient(to_right,#E5E5E5,#D9DFDF)] md:bg-[#dbe2e3] md:px-[clamp(16px,6.53vw,120px)] md:py-10 pb-20 min-h-screen h-auto overflow-x-hidden overflow-y-auto bg-white ">
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
