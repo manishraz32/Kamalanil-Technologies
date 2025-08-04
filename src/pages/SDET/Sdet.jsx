@@ -143,32 +143,32 @@ const SDET = () => {
 
   // ************************************
   const fullText = "#LearnandGrow";
-const [displayedText, setDisplayedText] = useState("");
-const { ref: typeRef, inView: typeInView } = useInView({
-  triggerOnce: false, // or true if you want it only once
-  threshold: 0.5,
-});
+  const [displayedText, setDisplayedText] = useState("");
+  const { ref: typeRef, inView: typeInView } = useInView({
+    triggerOnce: false, // or true if you want it only once
+    threshold: 0.5,
+  });
 
-useEffect(() => {
-  let index = -1;
-  let timeoutId;
+  useEffect(() => {
+    let index = -1;
+    let timeoutId;
 
-  if (typeInView) {
-    setDisplayedText(""); // clear previous text
+    if (typeInView) {
+      setDisplayedText(""); // clear previous text
 
-    const typeLetter = () => {
-      if (index < fullText.length) {
-        setDisplayedText((prev) => prev + fullText.charAt(index));
-        index++;
-        timeoutId = setTimeout(typeLetter, 100);
-      }
-    };
+      const typeLetter = () => {
+        if (index < fullText.length) {
+          setDisplayedText((prev) => prev + fullText.charAt(index));
+          index++;
+          timeoutId = setTimeout(typeLetter, 100);
+        }
+      };
 
-    timeoutId = setTimeout(typeLetter, 100); // small delay before starting
-  }
+      timeoutId = setTimeout(typeLetter, 100); // small delay before starting
+    }
 
-  return () => clearTimeout(timeoutId);
-}, [typeInView]);
+    return () => clearTimeout(timeoutId);
+  }, [typeInView]);
 
 
   // *****************************************
@@ -209,6 +209,50 @@ useEffect(() => {
     return () => window.removeEventListener("resize", checkScreenSize);
   }, []);
 
+
+  // ********************************************
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAnswer = (index) => {
+    if (activeIndex === index) {
+      setActiveIndex(null); // Collapse if already open
+    } else {
+      setActiveIndex(index); // Show new
+    }
+  };
+
+  const questions = [
+    {
+      question: "Is an IT background required to enroll in the SDET course?",
+      answer:
+        "No, an IT background is not mandatory. Anyone with a strong interest in learning software testing and basic programming logic can join. We start from the basics and gradually move to advanced topics."
+    },
+    {
+      question: "Which certification is recommended to pursue a career as an SDET?",
+      answer:
+        "While not mandatory, certifications like ISTQB, Certified Selenium Tester, or AWS Developer Associate can strengthen your resume. Our course includes guidance on certification paths.",
+    },
+    {
+      question: "How much time does it take to learn and become an SDET?",
+      answer:
+        "On average, it takes 3 to 6 months to become proficient, depending on your learning pace and practice. Our structured program is designed to get you job-ready within this timeframe.",
+    },
+    {
+      question: "Is there a trial period available for the course?",
+      answer: "Yes, we offer a free trial or orientation session so you can understand the course structure, trainer style, and tools used before committing.",
+    },
+    {
+      question:
+        "What is the average salary of a Software Development Engineer in Test (SDET)?",
+      answer:
+        "In India, entry-level SDETs earn around ₹4.5 – ₹7 LPA, while experienced professionals can earn ₹12 – ₹20 LPA or more depending on skills and company.",
+    },
+    {
+      question: "What is the tuition fee for the SDET training program?",
+      answer:
+        "Our course is currently offered as part of a free internship program, with options for paid upgrades or certification assistance depending on your goals. Contact us for the latest details.",
+    },
+  ];
 
 
   return (
@@ -682,30 +726,38 @@ useEffect(() => {
           </h2>
         </section>
 
-        <section className="padding-left: bg-[rgba(55,55,55,0.10)] px-4 md:px-[clamp(15px,6.51vw,187.64px)] py-3.5 md:py-[clamp(14px,3.88vw,112px)]">
+        <section className="bg-[rgba(55,55,55,0.10)] px-4 md:px-[clamp(15px,6.51vw,187.64px)] py-3.5 md:py-[clamp(14px,3.88vw,112px)]">
           <div className="flex flex-col bg-white mx-auto sm:p-2">
-            {[
-              "Is an IT background required to enroll in the SDET course?",
-              "Which certification is recommended to pursue a career as an SDET?",
-              "How much time does it take to learn and become an SDET?",
-              "Is there a trial period available for the course?",
-              "What is the average salary of a Software Development Engineer in Test (SDET)?",
-              "What is the tuition fee for the SDET training program?",
-            ].map((question, index) => (
-              <div
-                key={index}
-                className="flex justify-between items-center gap-2 px-3.5 border-[#9E9E9E] border-b-[1px] last:border-b-0 font-montserrat font-semibold text-[#12161F] text-[clamp(14px,1.8vw,18px)] leading-[1.6]"
-              >
-                <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)]">
-                  {question}
-                </span>
-                <span>
-                  <img src={Arowdwon} alt="" className="md:mr-6" />
-                </span>
+            {questions.map((item, index) => (
+              <div key={index}>
+                <div
+                  onClick={() => toggleAnswer(index)}
+                  className="cursor-pointer flex justify-between items-center gap-2 px-3.5  font-montserrat font-semibold text-[#12161F] text-[clamp(14px,1.8vw,18px)] leading-[1.6]"
+                >
+                  <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)]">
+                    {item.question}
+                  </span>
+                  <span>
+                    <img
+                      src={Arowdwon}
+                      alt="arrow"
+                      className={`md:mr-6 transform transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""
+                        }`}
+                    />
+                  </span>
+                </div>
+
+                {/* ANSWER PART */}
+                {activeIndex === index && (
+                  <div className="px-10  text-[24px] md:text-base text-[#333] bg-white transition-all duration-300">
+                    {item.answer}
+                  </div>
+                )}
               </div>
             ))}
           </div>
         </section>
+
 
         <section
           id="contact"
@@ -1037,6 +1089,8 @@ useEffect(() => {
                 </div>
               </div>
             </div>
+
+            {/* border-[#9E9E9E] border-b-[1px] last:border-b-0 */}
 
             <div className="md:hidden flex flex-col items-center space-y-4 mt-6">
               <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">

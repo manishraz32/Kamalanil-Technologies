@@ -143,34 +143,34 @@ const Fullstack = () => {
     }
   };
   // *******************************************
- const fullText = "#LearnandGrow";
-const [displayedText, setDisplayedText] = useState("");
-const { ref, inView } = useInView({
-  triggerOnce: false,
-  threshold: 0.5,
-});
+  const fullText = "#LearnandGrow";
+  const [displayedText, setDisplayedText] = useState("");
+  const { ref, inView } = useInView({
+    triggerOnce: false,
+    threshold: 0.5,
+  });
 
-useEffect(() => {
-  let index = -1;
-  let timeoutId;
+  useEffect(() => {
+    let index = -1;
+    let timeoutId;
 
-  if (inView) {
-    setDisplayedText("");
+    if (inView) {
+      setDisplayedText("");
 
-    const typeLetter = () => {
-      if (index <= fullText.length) {
-        setDisplayedText((prev) => prev + fullText.charAt(index));
-        index++;
-        timeoutId = setTimeout(typeLetter, 100);
-      }
-    };
+      const typeLetter = () => {
+        if (index <= fullText.length) {
+          setDisplayedText((prev) => prev + fullText.charAt(index));
+          index++;
+          timeoutId = setTimeout(typeLetter, 100);
+        }
+      };
 
-    // start with a tiny delay to avoid race condition
-    timeoutId = setTimeout(typeLetter, 100);
-  }
+      // start with a tiny delay to avoid race condition
+      timeoutId = setTimeout(typeLetter, 100);
+    }
 
-  return () => clearTimeout(timeoutId);
-}, [inView]);
+    return () => clearTimeout(timeoutId);
+  }, [inView]);
 
 
   //*************************************/
@@ -219,6 +219,50 @@ useEffect(() => {
     "ensuring the application is fully functional and meets business or client needs.",
   ];
 
+  // **************************************
+  // *******************************************
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAnswer = (index) => {
+    if (activeIndex === index) {
+      setActiveIndex(null); // Collapse if already open
+    } else {
+      setActiveIndex(index); // Show new
+    }
+  };
+
+  const questions = [
+    {
+      question: "Is an IT background required to enroll in the Full Stack Development course?",
+      answer:
+        "No, an IT background is not necessary. Anyone with a willingness to learn coding, logical thinking, and problem-solving can join. We begin with the fundamentals and guide you step-by-step."
+    },
+    {
+      question: "Which certification is recommended to pursue a career as an Full Stack Developer?",
+      answer:
+        "While not mandatory, certifications from platforms like Meta (Meta Full Stack Certificate), freeCodeCamp, Google, or AWS Certified Developer can boost your profile. Our program also offers a completion certificate.",
+    },
+    {
+      question: "How much time does it take to learn and become an Full Stack Developer?",
+      answer:
+        "Typically, it takes 4 to 8 months to become job-ready, depending on your prior experience and consistency. We focus on hands-on projects to accelerate your learning.",
+    },
+    {
+      question: "Is there a trial period available for the course?",
+      answer: "Yes, we offer a free trial/demo session so you can understand our teaching style, tools, and curriculum before enrolling.",
+    },
+    {
+      question:
+        "What is the average salary of a Full Stack Developer?",
+      answer:
+        "→ In India, entry-level Full Stack Developers earn around ₹5 – ₹8 LPA, while experienced developers can earn ₹12 – ₹25 LPA or more, depending on skills and location.",
+    },
+    {
+      question: "What is the tuition fee for the Full Stack Development training program?",
+      answer:
+        "→ Our course is part of a free internship or training initiative. However, premium plans for certifications or one-on-one mentorship are available at an affordable cost. Contact us for current fee details.",
+    },
+  ];
 
   return (
     <>
@@ -431,8 +475,8 @@ useEffect(() => {
               <span className="text-[#21B495]">Full Stack Development</span>?
             </h2>
             <motion.p
-              initial={{ clipPath: "inset(0% 0% 100% 0%)" }}   
-              whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}     
+              initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
+              whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
               transition={{ duration: 1, ease: "easeOut" }}
               className="overflow-hidden p-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)] md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.56vw,27px)] md:leading-[clamp(23px,1.875vw,54px)] [font-montserrat]"
             >
@@ -682,26 +726,33 @@ useEffect(() => {
         </h2>
       </section>
 
-      <section className="padding-left: bg-[rgba(55,55,55,0.10)] px-4 md:px-[clamp(15px,6.51vw,187.64px)] py-3.5 md:py-[clamp(14px,3.88vw,112px)]">
-        <div className="flex flex-col bg-white mx-auto sm:p-2 md:p-0">
-          {[
-            "Is an IT background required to enroll in the Full Stack Development course?",
-            "Which certification is recommended to pursue a career as an Full Stack Developer?",
-            "How much time does it take to learn and become an Full Stack Developer?",
-            "Is there a trial period available for the course?",
-            "What is the average salary of a Full Stack Developer?",
-            "What is the tuition fee for the Full Stack Development training program?",
-          ].map((question, index) => (
-            <div
-              key={index}
-              className="flex justify-between items-center gap-2 px-3.5 border-[#9E9E9E] border-b-[1px] last:border-b-0 font-montserrat font-semibold text-[#12161F] text-[clamp(14px,1.8vw,18px)] leading-[1.6]"
-            >
-              <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)]">
-                {question}
-              </span>
-              <span>
-                <img src={Arowdwon} alt="" className="md:mr-6" />
-              </span>
+      <section className="bg-[rgba(55,55,55,0.10)] px-4 md:px-[clamp(15px,6.51vw,187.64px)] py-3.5 md:py-[clamp(14px,3.88vw,112px)]">
+        <div className="flex flex-col bg-white mx-auto sm:p-2">
+          {questions.map((item, index) => (
+            <div key={index}>
+              <div
+                onClick={() => toggleAnswer(index)}
+                className="cursor-pointer flex justify-between items-center gap-2 px-3.5  font-montserrat font-semibold text-[#12161F] text-[clamp(14px,1.8vw,18px)] leading-[1.6]"
+              >
+                <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)]">
+                  {item.question}
+                </span>
+                <span>
+                  <img
+                    src={Arowdwon}
+                    alt="arrow"
+                    className={`md:mr-6 transform transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""
+                      }`}
+                  />
+                </span>
+              </div>
+
+              {/* ANSWER PART */}
+              {activeIndex === index && (
+                <div className="px-7 py-3 text-sm md:text-base text-[#333] bg-white transition-all duration-300">
+                  {item.answer}
+                </div>
+              )}
             </div>
           ))}
         </div>
