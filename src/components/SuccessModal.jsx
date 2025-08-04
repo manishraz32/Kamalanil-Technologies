@@ -2,33 +2,38 @@ import React from "react";
 import Group from "../assets/Group 4704.svg";
 import image140 from "../assets/image 140.svg";
 import CheckIcon from "../assets/Group 4699.svg";
-// import Ractangle from "../assets/Rectangle 65.svg";
+import Rectangle65 from "../assets/images/Rectangle 65.png"
 import Rectangle from "../assets/Rectangle 65.svg";
-
+import { motion } from "framer-motion"
 
 const SuccessModal = ({ onClose }) => {
   return (
-    <div className="z-50 fixed inset-0 flex justify-center items-center w-full h-screen">
-      
+    <div
+      className="z-50 fixed inset-0 flex justify-center items-center w-full h-screen">
+
       {/* Overlay */}
-      
+
 
       <div className="absolute inset-0 bg-[#1F1F1FDE] z-0"></div>
-      
+
       {/* Modal box */}
-      <div className="relative z-10 bg-white shadow-xl pt-14 md:pt-40 rounded-[20px] w-[clamp(247.1815px,17.16vw,247.1815px)] md:w-[clamp(280px,34.72vw,500px)] overflow-hidden text-center md:shadow-lg  shadow-white  ">
+      <motion.div 
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1 }}
+      className="relative z-10 bg-white shadow-xl pt-14 md:pt-40 rounded-[20px] w-[clamp(247.1815px,17.16vw,247.1815px)] md:w-[clamp(280px,34.72vw,500px)] overflow-hidden text-center md:shadow-lg  shadow-white  ">
         <div className="relative">
           <div className="relative h-[180px]">
             <div className="">
               <img
                 src={Rectangle}
-                alt="Wave Background"
+                alt="mobile Background"
                 className="md:hidden block top-0 z-10 absolute w-full h-full object-cover"
               />
               <img
-                src={Rectangle}
+                src={Rectangle65}
                 alt="Wave Background"
-                className="hidden md:block top-0 left-0 z-10 absolute w-full h-full object-cover"
+                className="hidden md:block top-0 left-0 z-10 absolute w-full h-full object-cover "
               />
             </div>
 
@@ -60,11 +65,11 @@ const SuccessModal = ({ onClose }) => {
             <img
               src={image140}
               alt="Thumbs Up"
-              className="top-[-50px] md:top-[-150px] ml-15 md:right-auto md:left-1/2 z-5 absolute mr-5 md:mr-0 w-[126px] md:w-[211px] h-auto md:h-[211px] md:translate-x-[-50%] image-rendering-auto"
+              className="top-[-50px] md:top-[-140px] ml-15 md:ml-0 md:right-auto md:left-1/2 z-5 absolute mr-5 md:mr-0 w-[126px] md:w-[211px] h-auto md:h-[211px] md:translate-x-[-50%] image-rendering-auto"
             />
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
