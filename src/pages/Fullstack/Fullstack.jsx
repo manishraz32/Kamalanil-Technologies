@@ -730,9 +730,15 @@ const Fullstack = () => {
         <div className="flex flex-col bg-white mx-auto sm:p-2">
           {questions.map((item, index) => (
             <div key={index}>
+              {/* QUESTION */}
               <div
                 onClick={() => toggleAnswer(index)}
-                className="cursor-pointer flex justify-between items-center gap-2 px-3.5  font-montserrat font-semibold text-[#12161F] text-[clamp(14px,1.8vw,18px)] leading-[1.6]"
+                className={`
+            cursor-pointer flex justify-between items-center gap-2 px-3.5 
+            font-montserrat font-semibold text-[#12161F] 
+            text-[clamp(14px,1.8vw,18px)] leading-[1.6]
+            ${activeIndex !== index && index !== questions.length - 1 ? "border-b border-[#12161F]" : ""}
+          `}
               >
                 <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)]">
                   {item.question}
@@ -747,9 +753,15 @@ const Fullstack = () => {
                 </span>
               </div>
 
-              {/* ANSWER PART */}
+              {/* ANSWER */}
               {activeIndex === index && (
-                <div className="px-7 py-3 text-sm md:text-base text-[#333] bg-white transition-all duration-300">
+                <div
+                  className={`
+              px-10 md:text-[20px] text-[13px] text-[#000] bg-white transition-all duration-300 
+              font-normal leading-[33px]
+              ${index !== questions.length - 1 ? "border-b border-[#12161F]" : ""}
+            `}
+                >
                   {item.answer}
                 </div>
               )}
@@ -757,6 +769,7 @@ const Fullstack = () => {
           ))}
         </div>
       </section>
+
 
       <section
         id="contact"
