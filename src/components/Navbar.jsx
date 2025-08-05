@@ -78,10 +78,14 @@ const Navbar = () => {
             <div className="relative" ref={dropdownRef}>
               <span
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                className="flex items-center gap-1 md:gap-3 font-medium text-20px hover:text-[#00FFCA] cursor-pointer"
+                className="flex items-center gap-1 md:gap-2 font-medium text-[20px] hover:text-[#00FFCA] cursor-pointer"
               >
-                Courses  <span> <img src={Arrow_down} alt=""  className="filter invert brightness-200" /></span>
+                Courses
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 9" fill="none" className="transition-colors duration-300 mt-0.5 ">
+                  <path d="M7.65918 8.23633L0.15918 0.736328H15.1592L7.65918 8.23633Z" fill="currentColor" />
+                </svg>
               </span>
+
 
               {isDropdownOpen && (
                 <div className="top-full left-0 z-50 absolute bg-white shadow-md mt-2 py-2 rounded-md w-[208.775px] text-black">
@@ -161,13 +165,16 @@ const Navbar = () => {
                 className="flex justify-between items-center cursor-pointer"
               >
                 <span>Courses</span>
-                <img
+                {/* <img
                   src={Arrow_down}
                   alt="dropdown"
                   className={`w-4 h-4 transform transition-transform duration-200 ${
                     isMobileDropdownOpen ? "rotate-180" : ""
                   }`}
-                />
+                /> */}
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="9" viewBox="0 0 16 9" fill="none">
+                  <path d="M7.65918 8.23633L0.15918 0.736328H15.1592L7.65918 8.23633Z" fill="#121111ff" />
+                </svg>
               </div>
 
               {isMobileDropdownOpen && (

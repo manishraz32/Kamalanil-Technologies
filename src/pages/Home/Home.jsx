@@ -187,7 +187,7 @@ export default function Home() {
       <div id="home" className="w-full scroll-smooth  overflow-hidden ">
         <div className="flex flex-col min-h-screen">
           <div
-            className="flex-1 bg-cover bg-center hero-section"
+            className="flex-1 bg-cover bg-center hero-section h-[30vh]"
             style={{ backgroundImage: `url(${hero_section_image})` }}
           >
             <div className="flex flex-col gap-10 mt-[5vh] md:mt-[25vh] px-[clamp(20px,5.76vw,83px)]">
