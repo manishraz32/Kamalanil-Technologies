@@ -184,14 +184,14 @@ export default function Home() {
     <>
       <ScrollToTop />
       <Navbar />
-      <div id="home" className="w-full scroll-smooth  overflow-hidden ">
-        <div className="flex flex-col min-h-screen">
+      <div id="home" className="w-full scroll-smooth   overflow-x-hidden ">
+        <div className="flex flex-col min-h-screen  ">
           <div
-            className="flex-1 bg-cover bg-center hero-section h-[30vh]"
+            className="flex-1 bg-cover bg-center hero-section "
             style={{ backgroundImage: `url(${hero_section_image})` }}
           >
-            <div className="flex flex-col gap-10 mt-[5vh] md:mt-[25vh] px-[clamp(20px,5.76vw,83px)]">
-              <div className="flex flex-col gap-4 md:gap-6">
+            <div className="flex flex-col gap-13 mt-[5vh] md:mt-[25vh] px-[clamp(20px,8.76vw,83px)]">
+              <div className="flex flex-col gap-8.5 md:gap-6">
                 <h1 className="font-semibold text-22px text-white text-center">
                   Step Into the World of Tech
                 </h1>
@@ -224,7 +224,7 @@ export default function Home() {
                     ease: "easeInOut",
                   }}
                   onClick={() => navigate("/freedemopage")}
-                  className="inline-flex flex-col justify-center items-center bg-[#00FFCA] px-[clamp(12px,1.5vw,21.6px)] py-[14.4px]  rounded-[50px] font-[800] font-inter text-20px md:text-21px text-black cursor-pointer hover:bg-[#008368]"
+                  className="inline-flex flex-col justify-center items-center bg-[#00FFCA]  px-16 md:md:px-[clamp(12px,1.5vw,21.6px)] py-[14.4px]  rounded-[50px] font-[800] font-inter text-20px md:text-21px text-black cursor-pointer hover:bg-[#008368]"
                 >
                   <motion.span
                     initial={{ opacity: 0, scale: 0 }}

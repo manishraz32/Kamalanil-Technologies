@@ -138,3 +138,18 @@ html, body {
 }
 
 /* custom-scrollbar class ke liye scrollbar styling */
+/* Scrollbar styling */
+.scrollbar::-webkit-scrollbar {
+  width: 14px;
+}
+
+.scrollbar::-webkit-scrollbar-track {
+  background: #F4F4F4;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #393939;
+  border-radius: 8px;
+}
