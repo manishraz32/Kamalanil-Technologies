@@ -411,7 +411,7 @@ const FreeDemoForm = () => {
                       ))}
                     </ul>
 
-                    {/* Custom SVG scrollbar icon shown on the right */}
+                    
                     <div className="top-[10px] right-[8px] z-20 absolute w-[14px] h-[50px] md:h-[clamp(40px,8.65vw,120px)] pointer-events-none">
                       <div className="w-full h-full bg-[#F4F4F4] rounded shadow-md border border-gray-300 p-1">
                         <div className="w-full h-[30px] bg-gray-500 rounded-full"></div>
