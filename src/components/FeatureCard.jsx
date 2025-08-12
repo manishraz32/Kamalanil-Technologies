@@ -32,7 +32,7 @@ const FeatureCard = ({
     <motion.div
       {...animationProps}
       transition={{ duration: 1, delay }}
-      viewport={{ once: false, amount: 0.5 }}
+      viewport={{ once: true, amount: 0.5 }}
       className="flex flex-col items-center gap-2.5 md:gap-7.5 text-center md:w-[30%]"
     >
       <div

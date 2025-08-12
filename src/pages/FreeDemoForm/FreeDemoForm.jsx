@@ -18,6 +18,8 @@ import image97 from "../../assets/image 97.svg";
 
 import { motion } from "framer-motion"
 
+
+
 const FreeDemoForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -39,6 +41,8 @@ const FreeDemoForm = () => {
 
   const dropdownRef = useRef(null);
   const formRef = useRef(null);
+  const scrollRef = useRef(null);
+
 
   const handleChange = (e) => {
     const { name, value, checked } = e.target;
@@ -181,8 +185,52 @@ const FreeDemoForm = () => {
     };
   }, []);
 
+  //****************************************
+  const handleRef = useRef(null);
+  const [handleTop, setHandleTop] = useState(0);
 
-  
+  // Sync handle with scroll position
+  useEffect(() => {
+    const list = scrollRef.current;
+    if (!list) return;
+    const onScroll = () => {
+      const scrollPercent =
+        list.scrollTop / (list.scrollHeight - list.clientHeight);
+      const maxHandleTop = list.clientHeight - handleRef.current.clientHeight;
+      setHandleTop(scrollPercent * maxHandleTop);
+    };
+    list.addEventListener("scroll", onScroll);
+    return () => list.removeEventListener("scroll", onScroll);
+  }, []);
+
+  // Dragging logic
+  const onMouseDown = (e) => {
+    e.preventDefault();
+    const startY = e.clientY;
+    const startTop = handleTop;
+
+    const onMouseMove = (moveEvent) => {
+      const deltaY = moveEvent.clientY - startY;
+      const list = scrollRef.current;
+      const maxHandleTop = list.clientHeight - handleRef.current.clientHeight;
+      let newTop = Math.max(0, Math.min(maxHandleTop, startTop + deltaY));
+
+      // Scroll list based on handle position
+      const scrollPercent = newTop / maxHandleTop;
+      list.scrollTop =
+        scrollPercent * (list.scrollHeight - list.clientHeight);
+    };
+
+    const onMouseUp = () => {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  };
+
+
 
   return (
     <>
@@ -363,10 +411,11 @@ const FreeDemoForm = () => {
             {/* Background */}
             <div>
               <div className="relative">
-                <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
+                <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.36px)]">
                   Background *
                 </label>
 
+                {/* Dropdown trigger */}
                 <div
                   className="flex justify-between items-center bg-[#F4F4F4] px-4 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer"
                   onClick={() => toggleDropdown("backgroundOpen")}
@@ -390,18 +439,24 @@ const FreeDemoForm = () => {
                   </span>
                 </div>
 
+                {/* Dropdown list */}
                 {dropdowns.backgroundOpen && (
                   <div className="relative">
-                    <ul className="z-10 absolute bg-[#F4F4F4] shadow-md mt-1 px-2.5 pr-6 border border-gray-300 rounded-b-lg w-full max-h-40 overflow-y-auto">
+                    <ul
+                      ref={scrollRef}
+                      className="z-10 absolute bg-[#F4F4F4] shadow-md mt-1 px-2.5 pr-6 border border-gray-300 rounded-b-lg w-full max-h-40 overflow-y-auto scrollbar-hide"
+                    >
                       {[
                         "Student",
                         "Recent Graduate",
                         "Working Professional",
+                        "Freelancer",
+                        "Retired",
                       ].map((bg) => (
                         <li
                           key={bg}
                           onClick={() => selectOption("duration", bg)}
-                          className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px]  md:text-black ${formData.duration === bg
+                          className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px] md:text-black ${formData.duration === bg
                             ? "text-[#00b39f] font-semibold"
                             : ""
                             }`}
@@ -411,13 +466,15 @@ const FreeDemoForm = () => {
                       ))}
                     </ul>
 
-                    
-                    <div className="top-[10px] right-[8px] z-20 absolute w-[14px] h-[50px] md:h-[clamp(40px,8.65vw,120px)] pointer-events-none">
-                      <div className="w-full h-full bg-[#F4F4F4] rounded shadow-md border border-gray-300 p-1">
-                        <div className="w-full h-[30px] bg-gray-500 rounded-full"></div>
-                      </div>
-                    </div>
-
+                    {/* Custom scrollbar handle */}
+                    {/* <div className="top-[10px] right-[8px] z-20 absolute w-[14px] h-[160px] bg-[#F4F4F4] rounded shadow-md border border-gray-300 p-1">
+                      <div
+                        ref={handleRef}
+                        className="w-full h-[30px] bg-gray-500 rounded-full cursor-pointer"
+                        style={{ transform: `translateY(${handleTop}px)` }}
+                        onMouseDown={onMouseDown}
+                      ></div>
+                    </div> */}
                   </div>
                 )}
               </div>

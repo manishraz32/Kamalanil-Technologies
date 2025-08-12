@@ -59,6 +59,7 @@ import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { motion, scale } from "framer-motion";
 
+
 export default function Home() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -199,6 +200,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: 100 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   className="font-bold text-[40px] text-white md:text-[clamp(28px,3.82vw,90px)] text-center leading-[56px] md:leading-[clamp(40.6px,5.54vw,150px)]">
                   Start your journey in Software Technology with{" "}
                   <span className="font-montserrat font-bold text-gradient">
@@ -223,13 +225,15 @@ export default function Home() {
                     duration: 1,
                     ease: "easeInOut",
                   }}
+                  viewport={{ once: true, amount: 0.1 }}
                   onClick={() => navigate("/freedemopage")}
-                  className="inline-flex flex-col justify-center items-center bg-[#00FFCA]  px-16 md:md:px-[clamp(12px,1.5vw,21.6px)] py-[14.4px]  rounded-[50px] font-[800] font-inter text-20px md:text-21px text-black cursor-pointer hover:bg-[#008368]"
+                  className="inline-flex flex-col justify-center items-center bg-[#00FFCA]  px-16 md:md:px-[clamp(12px,1.5vw,21.6px)] md:py-[14.4px] py-5 rounded-[50px] font-[800] font-inter text-20px md:text-21px text-black cursor-pointer hover:bg-[#008368]"
                 >
                   <motion.span
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 1, duration: 1 }}
+                    viewport={{ once: true, amount: 0.1 }}
                   > Book A Free Demo
                   </motion.span>
                 </motion.button>
@@ -289,7 +293,8 @@ export default function Home() {
           <motion.div
             initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
             whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-            transition={{ duration: 1, ease: "easeOut" }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
             className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left md:pt-[50px] 2xl:pt-[100px] w-full h-[672px] md:h-[74vh] 2xl:h-[100vh] 3xl:h-[120vh] xl:h-[85vh]">
             <div className="flex flex-col gap-5 pt-27 md:pt-30 section-padding-x">
               <h2 className="font-bold text-[clamp(16px,4.8vw,20px)] text-white md:text-[clamp(28px,3.47vw,70px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(44px,5.56vw,100px)]">
@@ -313,6 +318,7 @@ export default function Home() {
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 1, delay: 0.8 }}
+                   viewport={{ once: true, amount: 0.1 }}
                   className="bg-[#00FFCA] px-[12px] md:px-[clamp(16px,2.23vw,32.073px)] py-[8px] md:py-[clamp(12px,1.48vw,21.382px)] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[600] text-[clamp(14px,3.8vw,16px)] text-black md:text-[clamp(14px,1.53vw,30px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(13.7px,1.5vw,30.6px)]">
                   Find out which course is for you
                 </motion.button>
@@ -320,6 +326,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: -100 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.8 }}
+                   viewport={{ once: true, amount: 0.1 }}
                   src={image55}
                   alt="Down Arrow"
                   className="md:w-[clamp(20px,5vw,80px)] md:h-[clamp(20px,5vw,80px)] w-[45px] h-[45px]"
@@ -356,6 +363,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
+                 viewport={{ once: true, amount: 0.1 }}
                 className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
                 Learn More
               </motion.button>
@@ -365,6 +373,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
+                 viewport={{ once: true, amount: 0.1 }}
                 className="py-7 md:py-0">
                 <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
                   {/* Feature 1 */}
@@ -426,6 +435,7 @@ export default function Home() {
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
+               viewport={{ once: true, amount: 0.1 }}
               src={image110}
               alt="Coding Setup"
               className="pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
@@ -441,6 +451,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               src={imageHeroSectio}
+               viewport={{ once: true, amount: 0.1 }}
               alt="Coding Setup"
               className="hidden md:flex pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
             />
@@ -464,6 +475,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
+                 viewport={{ once: true, amount: 0.1 }}
                 className="bg-[#00FFCA]  px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)] text-center">
                 Learn More
               </motion.button>
@@ -473,6 +485,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
+                 viewport={{ once: true, amount: 0.1 }}
                 className="py-7 md:py-0">
                 <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
                   {/* Feature 1 */}
@@ -534,6 +547,7 @@ export default function Home() {
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
+               viewport={{ once: true, amount: 0.1 }}
               src={imageHeroSectio}
               alt="Coding Setup"
               className="md:hidden pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
@@ -548,6 +562,7 @@ export default function Home() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
+             viewport={{ once: true, amount: 0.1 }}
             className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               1,000+
@@ -562,6 +577,7 @@ export default function Home() {
             initial={{ opacity: 0.4, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
+             viewport={{ once: true, amount: 0.1 }}
             className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               10+
@@ -576,6 +592,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
+             viewport={{ once: true, amount: 0.1 }}
             className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               60%
@@ -600,6 +617,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
+                 viewport={{ once: true, amount: 0.1 }}
                 className="hidden md:block bg-[#00FFD1] shadow-md px-8 md:px-[90px] py-3 md:py-[21px] rounded-full font-semibold text-[clamp(14px,2vw,16px)] text-black md:text-[clamp(16px,1.48vw,40px)] md:leading-[clamp(24px,2.23vw,40px)] cursor-pointer hover:bg-[#008368]">
                 Register for Free
               </motion.button>
@@ -657,6 +675,7 @@ export default function Home() {
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 1 }}
+                 viewport={{ once: true, amount: 0.1 }}
                 className="flex flex-col justify-end mx-auto px-4 md:px-10 pt-1 pb-4 md:pb-10 border-[#21B495] border-[2px] rounded-[32px] md:rounded-[50px] w-full">
                 <img
                   src={image144}
@@ -708,6 +727,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
+                 viewport={{ once: true, amount: 0.1 }}
                 className="space-y-4 px-2.5 w-[95%]">
                 <div>
                   <h4 className="mt-6 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
@@ -737,6 +757,7 @@ export default function Home() {
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
+               viewport={{ once: true, amount: 0.1 }}
               className="mt-6 px-4">
               <div
                 className="relative bg-cover bg-no-repeat bg-center px-5 md:px-[clamp(38px,4.57vw,131.74px)] md:py-[clamp(20px,5.55vw,160px)] pt-9.5 pb-14.5 rounded-2xl md:w-[clamp(280px,30.23vw,870.828px)]"
@@ -813,6 +834,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
+                 viewport={{ once: true, amount: 0.1 }}
                 className="flex justify-center">
                 <img
                   src={trainingsvg}
@@ -825,6 +847,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
+                 viewport={{ once: true, amount: 0.1 }}
                 className="flex flex-col gap-5 md:my-20 px-4 pt-5 md:w-[55%]">
                 <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6px,1.80vw,52px)]">
                   One of the key advantages of learning with Kamlanil
@@ -951,6 +974,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
+             viewport={{ once: true, amount: 0.1 }}
             className="px-4" >
             <div className="bg-[rgba(167,159,168,0.34)] px-5 md:px-5 py-3 rounded-[13.583px] w-full">
               <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
