@@ -37,6 +37,7 @@ import { useInView } from "react-intersection-observer";
 import image91 from "../../assets/image 91.svg";
 import image92 from "../../assets/image 92.svg";
 import image97 from "../../assets/image 97.svg";
+import ArrowDown from "../../assets/Arrow down sign to navigate.png";
 
 
 const SDET = () => {
@@ -257,7 +258,29 @@ const SDET = () => {
   ];
 
   // ******************************************
+  //************************************/
+  const [dropdowns, setDropdowns] = useState({
+    courseOpen: false,
+  });
 
+
+  const toggleDropdown = (key) => {
+    setDropdowns({
+      courseOpen: false,
+      [key]: !dropdowns[key],
+    });
+  };
+
+  const selectOption = (field, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [field]: value,
+    }));
+    // Close all dropdowns after selection
+    setDropdowns({
+      courseOpen: false,
+    });
+  };
 
 
   return (
@@ -480,9 +503,9 @@ const SDET = () => {
               <motion.p
                 initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
                 whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                transition={{ duration: 1}}
-                viewport={{ once: true }} 
-                
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+
                 className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)]  md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
               >
                 SDET stands for "Software Development Engineer in Test." This role
@@ -949,19 +972,46 @@ const SDET = () => {
                   )}
                 </div>
                 <div>
-                  <label className="block md:pr-10 font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                    Course *
-                  </label>
-                  <select
-                    className="input"
-                    name="course"
-                    value={formData.course}
-                    onChange={handleChange}
-                  >
-                    <option>Select Course</option>
-                    <option>SEDT</option>
-                    <option>Full Stack Developer</option>
-                  </select>
+                  <div className="relative">
+                    <label className="block md:pr-10 font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                      Course *
+                    </label>
+
+                    <div className="flex justify-between items-center bg-[#F4F4F4] px-4 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
+                      <span
+                        className={formData.course ? "text-black" : "text-gray-500"}
+                      >
+                        {formData.course || "Select course"}
+                      </span>
+                      <span
+                        className={`ml-2 transition-transform duration-300 ${dropdowns.courseOpen ? "rotate-180" : "rotate-0"
+                          }`}
+                      >
+                        <img
+                          src={ArrowDown}
+                          alt="arrow"
+                          className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]"
+                          onClick={() => toggleDropdown("courseOpen")}
+                        />
+                      </span>
+                    </div>
+
+                    {dropdowns.courseOpen && (
+                      <ul className="z-10 absolute bg-[#F4F4F4]  md:py-0 shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
+                        {["SEDT", "Full Stack Development"].map((course) => (
+                          <li
+                            key={course}
+                            onClick={() => selectOption("course", course)}
+                            className={`cursor-pointer py-2 md:py-0 hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px] md:text-black ${formData.course === course ? "font-semibold text-[#00b39f]" : ""
+                              }`}
+                          >
+                            {course}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+
                   {errors.course && (
                     <p className="text-red-500 text-sm">{errors.course}</p>
                   )}
