@@ -58,7 +58,7 @@ import SuccessModal from "../../components/SuccessModal";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { motion, scale } from "framer-motion";
-
+import ArrowDown from "../../assets/Arrow down sign to navigate.png";
 
 export default function Home() {
   const location = useLocation();
@@ -181,6 +181,31 @@ export default function Home() {
     }
   };
 
+  //************************************/
+  const [dropdowns, setDropdowns] = useState({
+    courseOpen: false,
+  });
+
+
+  const toggleDropdown = (key) => {
+    setDropdowns({
+      courseOpen: false,
+      [key]: !dropdowns[key],
+    });
+  };
+
+   const selectOption = (field, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [field]: value,
+    }));
+    // Close all dropdowns after selection
+    setDropdowns({
+      courseOpen: false,
+    });
+  };
+
+
   return (
     <>
       <ScrollToTop />
@@ -254,7 +279,7 @@ export default function Home() {
                   <span className="font-semibold">KAMLANIL TECHNOLOGIES</span>
                   <span className="top-full left-0 absolute bg-gradient-to-r from-[#00FFCA] to-[#009979] md:mt-[1px] w-full h-[2px] md:h-[4px]"></span>
                 </span>{" "}
-               and be sure about the future
+                and be sure about the future
               </p>
             </div>
             <div className="flex md:flex-row flex-col md:justify-center gap-4">
@@ -318,7 +343,7 @@ export default function Home() {
                   initial={{ opacity: 0, x: -100 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 1, delay: 0.8 }}
-                   viewport={{ once: true, amount: 0.1 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   className="bg-[#00FFCA] px-[12px] md:px-[clamp(16px,2.23vw,32.073px)] py-[8px] md:py-[clamp(12px,1.48vw,21.382px)] border-[#00FFCA] border-[1.8px] rounded-[50px] font-[600] text-[clamp(14px,3.8vw,16px)] text-black md:text-[clamp(14px,1.53vw,30px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(13.7px,1.5vw,30.6px)]">
                   Find out which course is for you
                 </motion.button>
@@ -326,7 +351,7 @@ export default function Home() {
                   initial={{ opacity: 0, y: -100 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 1, delay: 0.8 }}
-                   viewport={{ once: true, amount: 0.1 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   src={image55}
                   alt="Down Arrow"
                   className="md:w-[clamp(20px,5vw,80px)] md:h-[clamp(20px,5vw,80px)] w-[45px] h-[45px]"
@@ -363,7 +388,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                 viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
                 Learn More
               </motion.button>
@@ -373,7 +398,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                 viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="py-7 md:py-0">
                 <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
                   {/* Feature 1 */}
@@ -435,7 +460,7 @@ export default function Home() {
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-               viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
               src={image110}
               alt="Coding Setup"
               className="pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
@@ -451,7 +476,7 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
               src={imageHeroSectio}
-               viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
               alt="Coding Setup"
               className="hidden md:flex pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
             />
@@ -475,7 +500,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                 viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="bg-[#00FFCA]  px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)] text-center">
                 Learn More
               </motion.button>
@@ -485,7 +510,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                 viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="py-7 md:py-0">
                 <div className="flex md:flex-row flex-col items-center gap-9 md:gap-5 bg-white text-[#12161F]">
                   {/* Feature 1 */}
@@ -547,7 +572,7 @@ export default function Home() {
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-               viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
               src={imageHeroSectio}
               alt="Coding Setup"
               className="md:hidden pt-5 rounded-[clamp(24px,4.5vw,66px)] w-full md:max-w-[clamp(280px,26.92vw,775.416px)] h-auto object-cover"
@@ -562,7 +587,7 @@ export default function Home() {
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-             viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
             className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               1,000+
@@ -577,7 +602,7 @@ export default function Home() {
             initial={{ opacity: 0.4, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-             viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
             className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               10+
@@ -592,7 +617,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
-             viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
             className="flex flex-col items-center">
             <h2 className="font-inter font-extrabold text-[#00FFCA] text-[clamp(24px,2.78vw,80px)]">
               60%
@@ -617,7 +642,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                 viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="hidden md:block bg-[#00FFD1] shadow-md px-8 md:px-[90px] py-3 md:py-[21px] rounded-full font-semibold text-[clamp(14px,2vw,16px)] text-black md:text-[clamp(16px,1.48vw,40px)] md:leading-[clamp(24px,2.23vw,40px)] cursor-pointer hover:bg-[#008368]">
                 Register for Free
               </motion.button>
@@ -675,7 +700,7 @@ export default function Home() {
                 initial={{ scale: 0 }}
                 whileInView={{ scale: 1 }}
                 transition={{ duration: 1 }}
-                 viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="flex flex-col justify-end mx-auto px-4 md:px-10 pt-1 pb-4 md:pb-10 border-[#21B495] border-[2px] rounded-[32px] md:rounded-[50px] w-full">
                 <img
                   src={image144}
@@ -727,7 +752,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                 viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="space-y-4 px-2.5 w-[95%]">
                 <div>
                   <h4 className="mt-6 font-bold text-[#12161F] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.52vw,44px)]">
@@ -757,7 +782,7 @@ export default function Home() {
               initial={{ opacity: 0, x: 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
-               viewport={{ once: true, amount: 0.1 }}
+              viewport={{ once: true, amount: 0.1 }}
               className="mt-6 px-4">
               <div
                 className="relative bg-cover bg-no-repeat bg-center px-5 md:px-[clamp(38px,4.57vw,131.74px)] md:py-[clamp(20px,5.55vw,160px)] pt-9.5 pb-14.5 rounded-2xl md:w-[clamp(280px,30.23vw,870.828px)]"
@@ -834,7 +859,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                 viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="flex justify-center">
                 <img
                   src={trainingsvg}
@@ -847,7 +872,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
-                 viewport={{ once: true, amount: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="flex flex-col gap-5 md:my-20 px-4 pt-5 md:w-[55%]">
                 <p className="font-medium text-[#000] text-[clamp(14px,3.8vw,16px)] md:text-[clamp(16px,1.31vw,38px)] leading-[clamp(18.9px,5.1vw,21.6px)] md:leading-[clamp(21.6px,1.80vw,52px)]">
                   One of the key advantages of learning with Kamlanil
@@ -974,7 +999,7 @@ export default function Home() {
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-             viewport={{ once: true, amount: 0.1 }}
+            viewport={{ once: true, amount: 0.1 }}
             className="px-4" >
             <div className="bg-[rgba(167,159,168,0.34)] px-5 md:px-5 py-3 rounded-[13.583px] w-full">
               <form className="flex flex-col gap-1" onSubmit={handleSubmit}>
@@ -1032,19 +1057,46 @@ export default function Home() {
                   )}
                 </div>
                 <div>
+                  <div className="relative">
                   <label className="block md:pr-10 font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
                     Course *
                   </label>
-                  <select
-                    className="input"
-                    name="course"
-                    value={formData.course}
-                    onChange={handleChange}
-                  >
-                    <option>Select Course</option>
-                    <option>SEDT</option>
-                    <option>Full Stack Developer</option>
-                  </select>
+
+                  <div className="flex justify-between items-center bg-[#F4F4F4] px-4 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
+                    <span
+                      className={formData.course ? "text-black" : "text-gray-500"}
+                    >
+                      {formData.course || "Select course"}
+                    </span>
+                    <span
+                      className={`ml-2 transition-transform duration-300 ${dropdowns.courseOpen ? "rotate-180" : "rotate-0"
+                        }`}
+                    >
+                      <img
+                        src={ArrowDown}
+                        alt="arrow"
+                        className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]"
+                        onClick={() => toggleDropdown("courseOpen")}
+                      />
+                    </span>
+                  </div>
+
+                  {dropdowns.courseOpen && (
+                    <ul className="z-10 absolute bg-[#F4F4F4]  md:py-0 shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
+                      {["SEDT", "Full Stack Development"].map((course) => (
+                        <li
+                          key={course}
+                          onClick={() => selectOption("course", course)}
+                          className={`cursor-pointer py-2 md:py-0 hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px] md:text-black ${formData.course === course ? "font-semibold text-[#00b39f]" : ""
+                            }`}
+                        >
+                          {course}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                 </div>
+
                   {errors.course && (
                     <p className="text-red-500 text-sm">{errors.course}</p>
                   )}
