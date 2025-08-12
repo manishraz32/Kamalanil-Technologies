@@ -143,15 +143,16 @@ const SDET = () => {
   };
 
   // ************************************
-  const fullText = "#LearnandGrow";
+  const fullText = "# LearnandGrow";
   const [displayedText, setDisplayedText] = useState("");
   const { ref: typeRef, inView: typeInView } = useInView({
-    triggerOnce: false, // or true if you want it only once
-    threshold: 0.5,
+    triggerOnce: true,
+    threshold: 0.1,
   });
 
+
   useEffect(() => {
-    let index = -1;
+    let index = 0;
     let timeoutId;
 
     if (typeInView) {
@@ -297,9 +298,11 @@ const SDET = () => {
             </button>
 
             <motion.div
+
               initial={{ opacity: 0, x: isMobile ? -50 : -100 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.36 }}
+              viewport={{ once: true, amount: 0.1 }}
               className="gap-5 grid grid-cols-2 bg-white text-[#12161F] ">
               <div className="flex items-start gap-3">
                 <img
@@ -369,8 +372,9 @@ const SDET = () => {
           </div>
           <motion.img
             initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
             src={image110}
             alt=""
             className="rounded-[clamp(24px,4.5vw,66px)] w-full max-w-[clamp(400px,40vw,720px)] object-cover "
@@ -414,6 +418,7 @@ const SDET = () => {
                 initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="flex items-start gap-2 mt-8 lg:mt-0 md:w-[65%] ">
                 <span className="hidden relative sm:flex mt-[-11px] text-[#138A71] text-[48px] leading-[50px]">
                   •
@@ -450,6 +455,7 @@ const SDET = () => {
               <p className="m-0 text-[#FFF]">Our motto is</p>
               <motion.p
                 whileInView={{ opacity: [0, 1], transition: { duration: 1 } }}
+                viewport={{ once: true, amount: 0.1 }}
                 ref={typeRef} className="text-[#00FFCA]">
                 {displayedText}
               </motion.p>
@@ -474,7 +480,9 @@ const SDET = () => {
               <motion.p
                 initial={{ clipPath: "inset(0% 0% 100% 0%)" }}
                 whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                transition={{ duration: 1, ease: "easeOut" }}
+                transition={{ duration: 1}}
+                viewport={{ once: true }} 
+                
                 className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)]  md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
               >
                 SDET stands for "Software Development Engineer in Test." This role
@@ -492,6 +500,7 @@ const SDET = () => {
               initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
               className="flex justify-center w-full">
               <img
                 src={image111}
@@ -510,6 +519,7 @@ const SDET = () => {
               initial={{ opacity: 0, x: isMobile ? -50 : -100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
+              viewport={{ once: true, amount: 0.1 }}
               className="flex flex-row items-center gap-2 ">
               <img
                 src={image87}
@@ -531,6 +541,7 @@ const SDET = () => {
               initial={{ opacity: 0.4, scale: 0.5 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
               className="flex flex-row items-center gap-2 ">
               <img
                 src={image88}
@@ -552,6 +563,7 @@ const SDET = () => {
               initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
+              viewport={{ once: true, amount: 0.1 }}
               className="flex flex-row items-center gap-2 ">
               <img
                 src={image86}
@@ -599,11 +611,13 @@ const SDET = () => {
                 initial={{ opacity: 0, scale: 0 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
+                viewport={{ once: true, amount: 0.1 }}
                 className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300 cursor-pointer hover:bg-[#008368]">
                 <motion.span
                   initial={{ opacity: 0, scale: 0 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8 }}
+                  viewport={{ once: true, amount: 0.1 }}
                   className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
                   Learn More <img src={gh} alt="" className="mt-1 w-6 h-6" />
                 </motion.span>
@@ -613,6 +627,7 @@ const SDET = () => {
               initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 1 }}
+              viewport={{ once: true, amount: 0.1 }}
               className="flex flex-1 justify-center w-full">
               <img
                 src={image89}
@@ -635,6 +650,7 @@ const SDET = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.1 }}
+                viewport={{ once: true, amount: 0.1 }}
               >
                 {displayedWords.join(" ")}
               </motion.p>
@@ -875,6 +891,7 @@ const SDET = () => {
             initial={{ opacity: 0, x: isMobile ? 50 : 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
+            viewport={{ once: true, amount: 0.1 }}
             className="px-4">
             <div className="bg-[rgba(167,159,168,0.34)] px-5 md:px-5 py-3 rounded-[13.583px] w-full">
               <form className="flex flex-col gap-1" onSubmit={handleSubmit}>

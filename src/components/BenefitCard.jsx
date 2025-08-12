@@ -9,6 +9,7 @@ const BenefitCard = ({ icon, title, description }) => {
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1}}
+          viewport={{ once: true, amount: 0.1 }}
           src={icon}
           alt={title}
           className="w-[clamp(40px,14.8vw,62px)] h-auto mt-1"
