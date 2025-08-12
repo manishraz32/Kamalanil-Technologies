@@ -178,3 +178,9 @@ ul {
   scrollbar-width: thin;
   scrollbar-color: #999 transparent;
 }
+
+
+.hero-section {
+  margin-top: 0;
+  padding-top: 0;
+}

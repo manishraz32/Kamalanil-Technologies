@@ -976,7 +976,7 @@ const Fullstack = () => {
                     Course *
                   </label>
 
-                  <div className="flex justify-between items-center bg-[#F4F4F4] px-4 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
+                  <div className="flex justify-between  bg-white items-center  px-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
                     <span
                       className={formData.course ? "text-black" : "text-gray-500"}
                     >
@@ -996,7 +996,7 @@ const Fullstack = () => {
                   </div>
 
                   {dropdowns.courseOpen && (
-                    <ul className="z-10 absolute bg-[#F4F4F4]  md:py-0 shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
+                    <ul className="z-10 absolute bg-white md:py-0 shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
                       {["SEDT", "Full Stack Development"].map((course) => (
                         <li
                           key={course}

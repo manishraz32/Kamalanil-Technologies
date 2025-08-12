@@ -194,7 +194,7 @@ export default function Home() {
     });
   };
 
-   const selectOption = (field, value) => {
+  const selectOption = (field, value) => {
     setFormData((prevData) => ({
       ...prevData,
       [field]: value,
@@ -213,7 +213,7 @@ export default function Home() {
       <div id="home" className="w-full scroll-smooth   overflow-x-hidden ">
         <div className="flex flex-col min-h-screen  ">
           <div
-            className="flex-1 bg-cover bg-center hero-section "
+            className="flex-1 bg-cover bg-center hero-section"
             style={{ backgroundImage: `url(${hero_section_image})` }}
           >
             <div className="flex flex-col gap-13 mt-[5vh] md:mt-[25vh] px-[clamp(20px,8.76vw,83px)]">
@@ -389,9 +389,14 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
                 viewport={{ once: true, amount: 0.1 }}
-                className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)]">
+                className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] 
+             cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] 
+             w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] 
+             text-black flex items-center justify-center"
+              >
                 Learn More
               </motion.button>
+
 
               {/* Features */}
               <motion.div
@@ -501,9 +506,14 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
                 viewport={{ once: true, amount: 0.1 }}
-                className="bg-[#00FFCA]  px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] text-black leading-[clamp(25px,2.6vw,30px)] text-center">
+                className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] 
+             cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] 
+             w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] 
+             text-black flex items-center justify-center"
+              >
                 Learn More
               </motion.button>
+
 
               {/* Features */}
               <motion.div
@@ -1058,44 +1068,44 @@ export default function Home() {
                 </div>
                 <div>
                   <div className="relative">
-                  <label className="block md:pr-10 font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
-                    Course *
-                  </label>
+                    <label className="block md:pr-10 font-bold text-[12px] md:text-[clamp(12px,1.11vw,32.6px)] leading-[42px] md:leading-[clamp(36px,2.91vw,84px)]">
+                      Course *
+                    </label>
 
-                  <div className="flex justify-between items-center bg-[#F4F4F4] px-4 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
-                    <span
-                      className={formData.course ? "text-black" : "text-gray-500"}
-                    >
-                      {formData.course || "Select course"}
-                    </span>
-                    <span
-                      className={`ml-2 transition-transform duration-300 ${dropdowns.courseOpen ? "rotate-180" : "rotate-0"
-                        }`}
-                    >
-                      <img
-                        src={ArrowDown}
-                        alt="arrow"
-                        className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]"
-                        onClick={() => toggleDropdown("courseOpen")}
-                      />
-                    </span>
+                    <div className="flex justify-between items-center bg-white px-2   border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
+                      <span
+                        className={formData.course ? "text-black" : "text-gray-500"}
+                      >
+                        {formData.course || "Select course"}
+                      </span>
+                      <span
+                        className={`ml-2 transition-transform duration-300 ${dropdowns.courseOpen ? "rotate-180" : "rotate-0"
+                          }`}
+                      >
+                        <img
+                          src={ArrowDown}
+                          alt="arrow"
+                          className="w-[17px] md:w-[19px] h-[17px] md:h-[19px]"
+                          onClick={() => toggleDropdown("courseOpen")}
+                        />
+                      </span>
+                    </div>
+
+                    {dropdowns.courseOpen && (
+                      <ul className="z-10 absolute bg-white  md:py-0 shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
+                        {["SEDT", "Full Stack Development"].map((course) => (
+                          <li
+                            key={course}
+                            onClick={() => selectOption("course", course)}
+                            className={`cursor-pointer py-2 md:py-0 hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px] md:text-black ${formData.course === course ? "font-semibold text-[#00b39f]" : ""
+                              }`}
+                          >
+                            {course}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
-
-                  {dropdowns.courseOpen && (
-                    <ul className="z-10 absolute bg-[#F4F4F4]  md:py-0 shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
-                      {["SEDT", "Full Stack Development"].map((course) => (
-                        <li
-                          key={course}
-                          onClick={() => selectOption("course", course)}
-                          className={`cursor-pointer py-2 md:py-0 hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px] md:text-black ${formData.course === course ? "font-semibold text-[#00b39f]" : ""
-                            }`}
-                        >
-                          {course}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                 </div>
 
                   {errors.course && (
                     <p className="text-red-500 text-sm">{errors.course}</p>
