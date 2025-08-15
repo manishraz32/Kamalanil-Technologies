@@ -202,7 +202,7 @@ const FreeDemoForm = () => {
             <h2 className="items-center md:mt-4 xl:mt-0 md:pt-2 w-[76%] md:w-full font-['Montserrat'] font-bold text-[36px] text-gray-900 md:text-[clamp(20px,2.77vw,120px)] leading-[43px] md:leading-[clamp(40px,5.55vw,240px)]">
               Get 5 Days of Free Live Demo Classes
             </h2>
-            <p className="w-[82%] md:w-[80%] font-['Montserrat'] font-normal text-[#1216F] md:text-[clamp(16px,1.25vw,54px)] text-center md:leading-[clamp(18px,2.01vw,87px)]">
+            <p className="w-[82%] md:w-[79%] font-['Montserrat'] font-normal text-[#1216F] md:text-[clamp(16px,1.25vw,54px)] text-center md:leading-[clamp(18px,2.01vw,87px)]">
               Experience real course content through live sessions with
               instructors, interactive doubt-clearing, and flexible time
               slots—absolutely free.
@@ -224,7 +224,7 @@ const FreeDemoForm = () => {
                 placeholder="Enter your full name"
                 value={formData.fullName}
                 onChange={handleChange}
-                className="bg-[#F4F4F4] px-3 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px]"
+                className="bg-[#F4F4F4] px-3 md:px-3 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px]"
               />
               {errors.fullName && (
                 <p className="mt-1 text-red-500 text-sm">{errors.fullName}</p>
@@ -270,9 +270,9 @@ const FreeDemoForm = () => {
                 <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
                   Course *
                 </label>
-                <div className="flex justify-between items-center bg-[#F4F4F4] px-4 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
+                <div className="flex justify-between items-center bg-[#F4F4F4] px-3 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold  text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
                   <span
-                    className={formData.course ? "text-black" : "text-gray-500"}
+                    className={formData.course ? "text-black" : "text-gray-400"}
                   >
                     {formData.course || "Select course"}
                   </span>
@@ -317,10 +317,10 @@ const FreeDemoForm = () => {
                 <label className="block font-semibold text-[13px] md:text-[clamp(10px,1.11vw,39px)] leading-[46px] md:leading-[clamp(30px,2.971vw,128.3616px)]">
                   Preferred demo slot *
                 </label>
-                <div className="flex justify-between items-center bg-[#F4F4F4] px-4 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
+                <div className="flex justify-between items-center bg-[#F4F4F4] px-3 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
                   <span
                     className={
-                      formData.timeSlot ? "text-black" : "text-gray-500"
+                      formData.timeSlot ? "text-black" : "text-gray-400"
                     }
                   >
                     {formData.timeSlot || "Select time slot"}
@@ -372,12 +372,12 @@ const FreeDemoForm = () => {
 
                 {/* Dropdown trigger */}
                 <div
-                  className="flex justify-between items-center bg-[#F4F4F4] px-4 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer"
+                  className="flex justify-between items-center bg-[#F4F4F4] px-3 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer"
                   onClick={() => toggleDropdown("backgroundOpen")}
                 >
                   <span
                     className={
-                      formData.duration ? "text-black" : "text-gray-500"
+                      formData.duration ? "text-black" : "text-gray-400"
                     }
                   >
                     {formData.duration || "Select your background"}
@@ -433,7 +433,7 @@ const FreeDemoForm = () => {
                 Preferred Language *
               </label>
               <div className="flex items-center gap-x-4">
-                <div className="bg-[#F4F4F4] px-4 md:py-3 rounded-lg w-1/2">
+                <div className="bg-[#F4F4F4] px-3 md:py-3 rounded-lg w-1/2">
                   <label className="flex justify-between items-center w-full">
                     <span className="ml-2 text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px]">
                       English

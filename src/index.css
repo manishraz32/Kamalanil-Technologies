@@ -180,7 +180,23 @@ ul {
 }
 
 
-.hero-section {
+/* .hero-section {
   margin-top: 0;
   padding-top: 0;
+} */
+
+
+/* Body ka default margin/padding remove */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero section fix */
+.hero-section {
+  margin-top: 0;        /* upar ka gap remove */
+  padding-top: 0;       /* upar ka padding remove */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
