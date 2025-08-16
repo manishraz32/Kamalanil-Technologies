@@ -192,7 +192,7 @@ const FreeDemoForm = () => {
       <ScrollToTop />
       <Navbar />
       <div
-        className="flex justify-center md:bg-[linear-gradient(to_right,#E5E5E5,#D9DFDF)] md:bg-[#dbe2e3] md:px-[clamp(16px,6.53vw,120px)] md:py-10 pb-20 min-h-screen h-auto overflow-x-hidden overflow-y-auto bg-white ">
+        className="flex justify-center md:bg-[linear-gradient(to_right,#E5E5E5,#D9DFDF)] md:bg-[#dbe2e3] md:px-[clamp(16px,6.53vw,120px)] md:py-10 pb-20 min-h-screen h-auto overflow-x-hidden overflow-y-auto bg-white md:mt-25 mt-10 ">
         <motion.div
           initial={{ opacity: 0, scale: 0 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -410,8 +410,8 @@ const FreeDemoForm = () => {
                           key={bg}
                           onClick={() => selectOption("duration", bg)}
                           className={`cursor-pointer hover:text-[#00b39f] border-b border-gray-500 last:border-b-0 md:text-[clamp(12px,0.97vw,28px)] md:leading-[clamp(28px,2.97vw,42.78px)] md:font-bold font-semibold text-[13px] md:text-black ${formData.duration === bg
-                              ? "text-[#00b39f] font-semibold"
-                              : ""
+                            ? "text-[#00b39f] font-semibold"
+                            : ""
                             }`}
                         >
                           {bg}
@@ -511,7 +511,7 @@ const FreeDemoForm = () => {
         </motion.div>
       </div>
 
-      <footer className="flex justify-center bg-[rgb(47,54,69)] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]">
+      < footer className="flex justify-center bg-[rgb(47,54,69)] px-4 py-10 md:pt-[clamp(10px,3.125vw,45px)] md:pr-[clamp(94px,3.40vw,49px)] pb-20 md:pl-[clamp(94px,8.19vw,236px)]" >
         <div className="flex md:flex-row flex-col justify-between w-full">
           {/* Logo & Description */}
           <div className="flex flex-col items-center md:items-start space-y-4 md:w-[25%] text-center md:text-start">
@@ -531,19 +531,19 @@ const FreeDemoForm = () => {
                 href="#"
                 className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
               >
-                <img src={linkedin} alt="LinkedIn" className="w-7 h-7" />
+                <img src={image91} alt="LinkedIn" className="w-7 h-7" />
               </a>
               <a
                 href="#"
                 className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
               >
-                <img src={instagram} alt="Instagram" className="w-7 h-7" />
+                <img src={image92} alt="Instagram" className="w-7 h-7" />
               </a>
               <a
                 href="#"
                 className="flex justify-center items-center bg-[#21B495] rounded-full w-[50px] h-[50px]"
               >
-                <img src={whatsapp} alt="WhatsApp" className="w-7 h-7" />
+                <img src={image97} alt="WhatsApp" className="w-7 h-7" />
               </a>
             </div>
           </div>
@@ -554,10 +554,10 @@ const FreeDemoForm = () => {
               Quick Links
             </h3>
             <ul className="space-y-4 font-medium text-[#00FFCA] text-sm">
-              <li className="md:text-[clamp(12px,1.041vw,30px)] mr-3">
+              <li className="md:text-[clamp(12px,1.041vw,30px)] md:mr-3">
                 <a href="#">Home</a>
               </li>
-              <li className="md:text-[clamp(12px,1.041vw,30px)] mr-3">
+              <li className="md:text-[clamp(12px,1.041vw,30px)] md:mr-3">
                 <a href="#">About</a>
               </li>
               <li className="md:text-[clamp(12px,1.041vw,30px)]">
@@ -570,7 +570,7 @@ const FreeDemoForm = () => {
           </div>
 
           {/* Contact Info  */}
-          <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-center">
+          <div className="flex flex-col items-center md:items-start space-y-4 text-center md:text-center mt-6 md:mt-0">
             <h3 className="font-[Montserrat] font-bold text-[16px] text-white md:text-[clamp(16px,1.38vw,40px)]">
               CONTACT
             </h3>
@@ -627,24 +627,24 @@ const FreeDemoForm = () => {
             </div>
           </div>
 
-          <div className="md:hidden flex flex-col items-center space-y-4">
+          <div className="md:hidden flex flex-col gap-3 items-center pt-6 md:pt-0">
             <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
               Social Media
             </h3>
             <div className="flex flex-row gap-3">
-              <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
+              <div className="flex justify-center items-center bg-[#21B495] rounded-full w-[24px] h-[24px]">
                 <img src={image91} className="w-[16px] h-[16px]" />
               </div>
-              <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
+              <div className="flex justify-center items-center bg-[#21B495] rounded-full w-[24px] h-[24px]">
                 <img src={image92} className="w-[16px] h-[16px]" />
               </div>
-              <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
+              <div className="flex justify-center items-center bg-[#21B495] rounded-full w-[24px] h-[24px]">
                 <img src={image97} className="w-[16px] h-[16px]" />
               </div>
             </div>
           </div>
         </div>
-      </footer>
+      </footer >
 
       {showSuccess && <SuccessModal onClose={() => setShowSuccess(false)} />}
     </>

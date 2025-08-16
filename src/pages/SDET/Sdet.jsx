@@ -289,7 +289,7 @@ const SDET = () => {
       <Navbar />
       {/* hero section */}
       <div className="overflow-x-hidden">
-        <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(16px,6.53vw,120px)] py-8 md:py-[clamp(28px,4.86vw,70px)] overflow-x-hidden">
+        <div className="flex lg:flex-row 2xl:flex-row 3xl:flex-row xl:flex-row flex-col gap-15 px-4 md:px-[clamp(16px,6.53vw,120px)] py-8 md:py-[clamp(28px,4.86vw,70px)] overflow-x-hidden mt-10 md:mt-25">
           <div className="flex flex-col gap-[clamp(10px,2.083vw,60px)]">
             <div className="flex flex-col gap-2">
               <div className="font-montserrat font-bold text-[#12161F] text-[clamp(28px,8.73vw,36px)] md:text-[clamp(36px,3.47vw,100px)] leading-[clamp(36px,11.28vw,46.482px)] md:leading-[clamp(46px,4.375vw,126px)]">
@@ -497,7 +497,7 @@ const SDET = () => {
         <section className="px-[20px] md:px-[clamp(16px,8.89vw,246px)] py-[clamp(28px,7.76vw,40px)] sm:py-20 md:py-[clamp(40px,4.16vw,120px)] overflow-x-hidden">
           <div className="flex lg:flex-row flex-col justify-between gap-10">
             <div className="max-w-[600px] lg:text-lef">
-              <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(37px,4vw,100px)] leading-[clamp(37px,4vw,100px)">
+              <h2 className="font-montserrat font-bold text-[#12161F] text-[clamp(37px,4vw,100px)] leading-[clamp(37px,4vw,100px) md:text-[clamp(37px,3.47vw,100px)] md:leading-[63px]">
                 What is <span className="text-[#21B495]">SDET</span>?
               </h2>
               <motion.p
@@ -506,7 +506,7 @@ const SDET = () => {
                 transition={{ duration: 1 }}
                 viewport={{ once: true }}
 
-                className="mt-2 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)]  md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
+                className="mt-3 font-medium text-[#575757] text-[clamp(12px,3.88vw,16px)]  md:text-[clamp(16px,1.319vw,38px)] leading-[clamp(23px,6.55vw,27px)] md:leading-[clamp(27px,1.875vw,54px)]"
               >
                 SDET stands for "Software Development Engineer in Test." This role
                 focuses on ensuring software quality by designing, developing, and
@@ -998,7 +998,7 @@ const SDET = () => {
 
                     {dropdowns.courseOpen && (
                       <ul className="z-10 absolute bg-white  md:py-0 shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
-                        {["SEDT", "Full Stack Development"].map((course) => (
+                        {["SDET", "Full Stack Development"].map((course) => (
                           <li
                             key={course}
                             onClick={() => selectOption("course", course)}
@@ -1173,19 +1173,19 @@ const SDET = () => {
 
             {/* border-[#9E9E9E] border-b-[1px] last:border-b-0 */}
 
-            <div className="md:hidden flex flex-col items-center space-y-4 mt-6">
+            <div className="md:hidden flex flex-col gap-3 items-center space-y-4 mt-6">
               <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
                 Social Media
               </h3>
               <div className="flex flex-row gap-3">
-                <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
-                  <img src={linkedin} className="w-[16px] h-[16px]" />
+                <div className="flex justify-center items-center bg-[#21B495] rounded-full w-[24px] h-[24px]">
+                  <img src={image91} className="w-[16px] h-[16px]" />
                 </div>
-                <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
-                  <img src={instagram} className="w-[16px] h-[16px]" />
+                <div className="flex justify-center items-center bg-[#21B495] rounded-full w-[24px] h-[24px]">
+                  <img src={image92} className="w-[16px] h-[16px]" />
                 </div>
-                <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
-                  <img src={whatsapp} className="w-[16px] h-[16px]" />
+                <div className="flex justify-center items-center bg-[#21B495] rounded-full w-[24px] h-[24px]">
+                  <img src={image97} className="w-[16px] h-[16px]" />
                 </div>
               </div>
             </div>

@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="top-0 z-100 fixed w-full bg-[#12161F] py-2.5 md:py-6 text-white section-padding-x ">
+      <nav className="top-0 z-100 fixed w-full bg-[#12161F] py-4 md:py-6 text-white section-padding-x ">
         <div className="flex justify-between items-center w-full">
           {/* Logo */}
           <div className="md:flex items-center gap-4">
@@ -132,7 +132,7 @@ const Navbar = () => {
                 src={image117}
                 alt="Close Menu"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="w-10 h-10 object-contain cursor-pointer"
+                className="w-6 h-6 object-contain cursor-pointer"
               />
             )}
           </div>

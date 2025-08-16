@@ -216,7 +216,7 @@ export default function Home() {
             className="flex-1 bg-cover bg-center hero-section"
             style={{ backgroundImage: `url(${hero_section_image})` }}
           >
-            <div className="flex flex-col gap-13 mt-[5vh] md:mt-[25vh] px-[clamp(20px,8.76vw,83px)]">
+            <div className="flex flex-col gap-13 mt-[5vh] md:mt-[21vh] px-[clamp(20px,8.76vw,83px)]">
               <div className="flex flex-col gap-8.5 md:gap-6">
                 <h1 className="font-semibold text-22px text-white text-center">
                   Step Into the World of Tech
@@ -251,7 +251,7 @@ export default function Home() {
                   }}
                   viewport={{ once: true, amount: 0.1 }}
                   onClick={() => navigate("/freedemopage")}
-                  className="inline-flex flex-col justify-center items-center bg-[#00FFCA]  px-16 md:md:px-[clamp(12px,1.5vw,21.6px)] md:py-[14.4px] py-5 rounded-[50px] font-[800] font-inter text-20px md:text-21px text-black cursor-pointer hover:bg-[#008368]"
+                  className="inline-flex flex-col justify-center items-center bg-[#00FFCA]  px-16 md:md:px-[clamp(12px,2.2vw,64px)] md:py-[21px] py-5 rounded-[50px] font-[800] font-inter text-20px md:text-21px text-black cursor-pointer hover:bg-[#008368]"
                 >
                   <motion.span
                     initial={{ opacity: 0, scale: 0 }}
@@ -319,8 +319,8 @@ export default function Home() {
             whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
             transition={{ duration: 1 }}
             viewport={{ once: true }}
-            className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left md:pt-[50px] 2xl:pt-[100px] w-full h-[672px] md:h-[74vh] 2xl:h-[100vh] 3xl:h-[120vh] xl:h-[85vh]">
-            <div className="flex flex-col gap-5 pt-27 md:pt-30 section-padding-x">
+            className="relative bg-[url('/images/mobileTextBackgroundImage.png')] md:bg-[url('/images/TextbackgroundImage.png')] md:bg-cover bg-no-repeat md:bg-left md:pt-[50px] 2xl:pt-[100px] w-full h-[672px] md:h-[74vh] 2xl:h-[70vh] 3xl:h-[120vh] xl:h-[85vh]">
+            <div className="flex flex-col gap-6 pt-27 md:pt-30 section-padding-x">
               <h2 className="font-bold text-[clamp(16px,4.8vw,20px)] text-white md:text-[clamp(28px,3.47vw,70px)] leading-[clamp(24px,7.2vw,30px)] md:leading-[clamp(44px,5.56vw,100px)]">
                 Step in the World of Tech with Confidence
               </h2>
@@ -353,7 +353,7 @@ export default function Home() {
                   viewport={{ once: true, amount: 0.1 }}
                   src={image55}
                   alt="Down Arrow"
-                  className="md:w-[clamp(20px,5vw,80px)] md:h-[clamp(20px,5vw,80px)] w-[45px] h-[45px]"
+                  className="md:w-[clamp(20px,5vw,80px)] md:h-[clamp(20px,5vw,80px)] w-[44px] h-[44px]"
                 />
               </div>
             </div>
@@ -1092,7 +1092,7 @@ export default function Home() {
 
                     {dropdowns.courseOpen && (
                       <ul className="z-10 absolute bg-white  md:py-0 shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
-                        {["SEDT", "Full Stack Development"].map((course) => (
+                        {["SDET", "Full Stack Development"].map((course) => (
                           <li
                             key={course}
                             onClick={() => selectOption("course", course)}
@@ -1270,19 +1270,19 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="md:hidden flex flex-col items-center pt-6 md:pt-0">
+            <div className="md:hidden flex flex-col gap-3 items-center pt-6 md:pt-0">
               <h3 className="font-[Montserrat] font-bold text-[16px] text-white text-center">
                 Social Media
               </h3>
               <div className="flex flex-row gap-3">
-                <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
-                  <img src={linkedin} className="w-[16px] h-[16px]" />
+                <div className="flex justify-center items-center bg-[#21B495] rounded-full w-[24px] h-[24px]">
+                  <img src={image91} className="w-[16px] h-[16px]" />
                 </div>
-                <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
-                  <img src={instagram} className="w-[16px] h-[16px]" />
+                <div className="flex justify-center items-center bg-[#21B495] rounded-full w-[24px] h-[24px]">
+                  <img src={image92} className="w-[16px] h-[16px]" />
                 </div>
-                <div className="flex justify-center items-center bg-black rounded-full w-[24px] h-[24px]">
-                  <img src={whatsapp} className="w-[16px] h-[16px]" />
+                <div className="flex justify-center items-center bg-[#21B495] rounded-full w-[24px] h-[24px]">
+                  <img src={image97} className="w-[16px] h-[16px]" />
                 </div>
               </div>
             </div>
