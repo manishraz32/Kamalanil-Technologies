@@ -48,7 +48,7 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="top-0 z-100 fixed w-full bg-[#12161F] py-2.5 md:py-6 text-white section-padding-x ">
+      <nav className="top-0 z-100 fixed w-full bg-[#12161F] py-5 md:py-6 text-white section-padding-x ">
         <div className="flex justify-between items-center w-full">
           {/* Logo */}
           <div className="md:flex items-center gap-4">
@@ -142,7 +142,7 @@ const Navbar = () => {
       {/* Mobile Menu (Fixed) */}
       {isMobileMenuOpen && (
         <div
-          className="md:hidden top-13 left-0 z-40 fixed bg-white shadow-md rounded-b-lg w-full"
+          className="md:hidden top-20 left-0 z-40 fixed bg-white shadow-md rounded-b-lg w-full"
           ref={mobileMenuRef}
         >
           <div className="flex flex-col gap-2 px-4 py-2 font-semibold text-[16px] text-black">
