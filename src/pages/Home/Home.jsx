@@ -210,8 +210,8 @@ export default function Home() {
     <>
       <ScrollToTop />
       <Navbar />
-      <div id="home" className="w-full scroll-smooth   overflow-x-hidden ">
-        <div className="flex flex-col min-h-screen">
+      <div id="home" className="w-full scroll-smooth  overflow-x-hidden pt-[40px] md:pt-[100px]">
+        <div className="flex flex-col min-h-screen ">
           <div
             className="flex-1 bg-cover bg-center hero-section"
             style={{ backgroundImage: `url(${hero_section_image})` }}
@@ -248,7 +248,6 @@ export default function Home() {
                   }}
                   transition={{
                     duration: 1,
-                    ease: "easeInOut",
                   }}
                   viewport={{ once: true, amount: 0.1 }}
                   onClick={() => navigate("/freedemopage")}
