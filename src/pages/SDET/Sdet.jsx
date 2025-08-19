@@ -40,6 +40,7 @@ import image97 from "../../assets/image 97.svg";
 import ArrowDown from "../../assets/Arrow down sign to navigate.png";
 
 
+
 const SDET = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -283,6 +284,30 @@ const SDET = () => {
   };
 
 
+  // **************************************************
+
+  // const dropdownRef = useRef(null);
+
+  //   useEffect(() => {
+  //   const handleClickOutside = (event) => {
+  //     // agar click dropdown ke andar nahi hai aur kisi input pe hai
+  //     if (
+  //       dropdownRef.current &&
+  //       !dropdownRef.current.contains(event.target)
+  //     ) {
+  //       // dropdown close kar do
+  //       setDropdowns((prev) => ({ ...prev, courseOpen: false }));
+  //     }
+  //   };
+
+  //   document.addEventListener("mousedown", handleClickOutside);
+
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, []);
+
+
   return (
     <>
       <ScrollToTop />
@@ -316,7 +341,11 @@ const SDET = () => {
                 <li>JIRA</li>
               </ul>
             </div>
-            <button className="flex flex-col justify-center items-center gap-[12.91px] md:gap-[clamp(8px,1vw,12.91px)] bg-[#00FFCA] px-[30.988px] md:px-[clamp(20px,5vw,30.98px)] py-[20.659px] md:py-[clamp(12px,3vw,20.66px)]  rounded-[48.308px] md:rounded-[clamp(24px,5vw,48.3px)] w-full h-[56px] md:h-[clamp(50px,5vw,64.73px)] font-semibold text-[clamp(17px,4.917vw,20.659px)] text-black md:text-[clamp(20px,1.39vw,40.659px)] leading-[clamp(25.5px,2.6vw,30.988px)] md:leading-[clamp(30.988px,2.6vw,60.988px)] cursor-pointer hover:bg-[#008368]">
+            <button
+              onClick={() =>
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+              }
+              className="flex flex-col justify-center items-center gap-[12.91px] md:gap-[clamp(8px,1vw,12.91px)] bg-[#00FFCA] px-[30.988px] md:px-[clamp(20px,5vw,30.98px)] py-[20.659px] md:py-[clamp(12px,3vw,20.66px)]  rounded-[48.308px] md:rounded-[clamp(24px,5vw,48.3px)] w-full h-[56px] md:h-[clamp(50px,5vw,64.73px)] font-semibold text-[clamp(17px,4.917vw,20.659px)] text-black md:text-[clamp(20px,1.39vw,40.659px)] leading-[clamp(25.5px,2.6vw,30.988px)] md:leading-[clamp(30.988px,2.6vw,60.988px)] cursor-pointer hover:bg-[#008368]">
               Apply now
             </button>
 
@@ -635,6 +664,9 @@ const SDET = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true, amount: 0.1 }}
+                onClick={() =>
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300 cursor-pointer hover:bg-[#008368]">
                 <motion.span
                   initial={{ opacity: 0, scale: 0 }}
@@ -642,7 +674,7 @@ const SDET = () => {
                   transition={{ duration: 0.8 }}
                   viewport={{ once: true, amount: 0.1 }}
                   className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
-                  Learn More <img src={gh} alt="" className="mt-1 w-6 h-6" />
+                  Learn More <img src={gh} alt="" className="md:mt-2 w-4 h-4 md:w-5 md:h-5 mt-1" />
                 </motion.span>
               </motion.button>
             </div>
@@ -928,6 +960,7 @@ const SDET = () => {
                     placeholder="Enter Name"
                     value={formData.name}
                     onChange={handleChange}
+                    onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   />
                   {errors.name && (
@@ -948,6 +981,7 @@ const SDET = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
+                      onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                       className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                     />
                   </div>
@@ -965,6 +999,7 @@ const SDET = () => {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   />
                   {errors.email && (
@@ -977,7 +1012,9 @@ const SDET = () => {
                       Course *
                     </label>
 
-                    <div className="flex justify-between items-center bg-white px-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
+                    <div
+                     
+                      className="flex justify-between items-center bg-white px-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px] cursor-pointer">
                       <span
                         className={formData.course ? "text-black" : "text-gray-500"}
                       >
@@ -1026,6 +1063,7 @@ const SDET = () => {
                     placeholder="Enter City"
                     value={formData.city}
                     onChange={handleChange}
+                    onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   />
                   {errors.city && (
@@ -1042,6 +1080,7 @@ const SDET = () => {
                     name="message"
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                     value={formData.message}
+                    onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                     onChange={handleChange}
                   />
                   {errors.message && (

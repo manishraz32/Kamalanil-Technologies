@@ -40,6 +40,7 @@ import image92 from "../../assets/image 92.svg";
 import image97 from "../../assets/image 97.svg";
 import ArrowDown from "../../assets/Arrow down sign to navigate.png";
 
+
 const Fullstack = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -267,30 +268,41 @@ const Fullstack = () => {
   ];
 
 
-    // ******************************************
-    const [dropdowns, setDropdowns] = useState({
+  // ******************************************
+  const [dropdowns, setDropdowns] = useState({
+    courseOpen: false,
+  });
+
+
+  const toggleDropdown = (key) => {
+    setDropdowns({
+      courseOpen: false,
+      [key]: !dropdowns[key],
+    });
+  };
+
+  const selectOption = (field, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [field]: value,
+    }));
+    setDropdowns({
       courseOpen: false,
     });
-  
-  
-    const toggleDropdown = (key) => {
-      setDropdowns({
-        courseOpen: false,
-        [key]: !dropdowns[key],
-      });
-    };
-  
-     const selectOption = (field, value) => {
-      setFormData((prevData) => ({
-        ...prevData,
-        [field]: value,
-      }));
-      // Close all dropdowns after selection
-      setDropdowns({
-        courseOpen: false,
-      });
-    };
-  
+  };
+
+  // **************************************
+  //  const navigate = useNavigate();
+  //   const handleNavigation = () => {
+  //     navigate("/#contact");
+  //     setTimeout(() => {
+  //       document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  //     }, 100);
+  //   };
+
+
+
+
 
   return (
     <>
@@ -323,7 +335,11 @@ const Fullstack = () => {
               <li>Git & GitHub</li>
             </ul>
           </div>
-          <button className="flex flex-col cursor-pointer hover:bg-[#008368] justify-center items-center gap-[12.91px] md:gap-[clamp(8px,1vw,12.91px)] bg-[#00FFCA] px-[30.988px] md:px-[clamp(20px,5vw,30.98px)] py-[20.659px] md:py-[clamp(12px,3vw,20.66px)] rounded-[48.308px] md:rounded-[clamp(24px,5vw,48.3px)] w-full h-[56px] md:h-[clamp(50px,5vw,64.73px)] font-semibold text-[clamp(17px,4.917vw,20.659px)] text-black md:text-[clamp(20px,1.39vw,40.659px)] leading-[clamp(25.5px,2.6vw,30.988px)] md:leading-[clamp(30.988px,2.6vw,60.988px)]">
+          <button
+            onClick={() =>
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="flex flex-col cursor-pointer hover:bg-[#008368] justify-center items-center gap-[12.91px] md:gap-[clamp(8px,1vw,12.91px)] bg-[#00FFCA] px-[30.988px] md:px-[clamp(20px,5vw,30.98px)] py-[20.659px] md:py-[clamp(12px,3vw,20.66px)] rounded-[48.308px] md:rounded-[clamp(24px,5vw,48.3px)] w-full h-[56px] md:h-[clamp(50px,5vw,64.73px)] font-semibold text-[clamp(17px,4.917vw,20.659px)] text-black md:text-[clamp(20px,1.39vw,40.659px)] leading-[clamp(25.5px,2.6vw,30.988px)] md:leading-[clamp(30.988px,2.6vw,60.988px)]">
             Apply now
           </button>
 
@@ -418,7 +434,7 @@ const Fullstack = () => {
             Become a <span className="text-[#21B495]">Full Stack Pro</span> –
             Seats Filling Fast!
           </h1>
-          <div className="flex lg:flex-row flex-col md:gap-[clamp(20px,9.73vw,280px)] md:px-10">
+          <div className="flex lg:flex-row flex-col md:gap-[clamp(20px,9.73vw,280px)] md:px-10 pt-4 md:pt-0">
             {/* Left side - Dates */}
             <div className="flex flex-col items-center md:items-start md:text-left text-center">
               <div className="flex items-center gap-2">
@@ -638,6 +654,9 @@ const Fullstack = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true, amount: 0.1 }}
+              onClick={() =>
+                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+              }
               className="flex items-center gap-2 bg-[#00FFC3] hover:bg-[#00e2af] px-6 py-3 rounded-full w-fit transition-all duration-300 cursor-pointer hover:bg-[#008368]">
               <motion.span
                 initial={{ opacity: 0, scale: 0 }}
@@ -645,7 +664,7 @@ const Fullstack = () => {
                 transition={{ duration: 0.8 }}
                 viewport={{ once: true, amount: 0.1 }}
                 className="flex flex-row gap-2 p-2 font-inter font-extrabold text-[#12161F] text-[clamp(16px,2vw,21.382px)] text-right leading-[clamp(24px,3vw,32.073px)]">
-                Learn More <img src={gh} alt="" className="mt-1 w-6 h-6" />
+                Learn More <img src={gh} alt="" className="md:mt-2 w-4 h-4 md:w-5 md:h-5 mt-1" />
               </motion.span>
             </motion.button>
           </div>
@@ -788,7 +807,7 @@ const Fullstack = () => {
                   <img
                     src={Arowdwon}
                     alt="arrow"
-                    className={`md:mr-6 transform transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""
+                    className={`w-4 md:w-6 md:h-6 md:mr-6 transform transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""
                       }`}
                   />
                 </span>
@@ -927,6 +946,7 @@ const Fullstack = () => {
                   placeholder="Enter Name"
                   value={formData.name}
                   onChange={handleChange}
+                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                   className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                 />
                 {errors.name && (
@@ -947,6 +967,7 @@ const Fullstack = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
+                    onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   />
                 </div>
@@ -964,6 +985,7 @@ const Fullstack = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
+                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                   className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                 />
                 {errors.email && (
@@ -1025,6 +1047,7 @@ const Fullstack = () => {
                   placeholder="Enter City"
                   value={formData.city}
                   onChange={handleChange}
+                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                   className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                 />
                 {errors.city && (
@@ -1041,6 +1064,7 @@ const Fullstack = () => {
                   name="message"
                   className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   value={formData.message}
+                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                   onChange={handleChange}
                 />
                 {errors.message && (

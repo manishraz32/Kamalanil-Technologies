@@ -388,6 +388,9 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
                 viewport={{ once: true, amount: 0.1 }}
+                onClick={() =>
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] 
              cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] 
              w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] 
@@ -505,6 +508,9 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 1 }}
                 viewport={{ once: true, amount: 0.1 }}
+                onClick={() =>
+                  document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+                }
                 className="bg-[#00FFCA] px-[clamp(20px,5vw,30px)] py-[clamp(12px,3vw,20px)] 
              cursor-pointer hover:bg-[#008368] rounded-[clamp(24px,5vw,48px)] 
              w-full h-[clamp(50px,5vw,64px)] font-semibold text-[clamp(17px,4.917vw,20px)] 
@@ -838,7 +844,7 @@ export default function Home() {
               Break into <span className="text-[#71ffe5]">IT</span> with
               Practical <span className="text-[#00FFD1]">SDET Training</span>
             </h2>
-            <div className="flex flex-col gap-4 ">
+            <div className="flex flex-col gap-4  pt-6">
               <p className="font-medium text-[#fff] text-[clamp(12px,3.39vw,14px)] md:text-[clamp(14px,1.319vw,38px)] leading-[clamp(23px,6.310vw,26px)] md:leading-[clamp(23px,1.80vw,52px)]">
                 An SDET is much more than just a tester or QA professional. They
                 bring a powerful blend of development skills, quality assurance
@@ -1022,6 +1028,7 @@ export default function Home() {
                     placeholder="Enter Name"
                     value={formData.name}
                     onChange={handleChange}
+                    onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   />
                   {errors.name && (
@@ -1042,6 +1049,7 @@ export default function Home() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
+                      onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                       className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                     />
                   </div>
@@ -1059,6 +1067,7 @@ export default function Home() {
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
+                    onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   />
                   {errors.email && (
@@ -1120,6 +1129,7 @@ export default function Home() {
                     placeholder="Enter City"
                     value={formData.city}
                     onChange={handleChange}
+                    onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   />
                   {errors.city && (
@@ -1136,6 +1146,7 @@ export default function Home() {
                     name="message"
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                     value={formData.message}
+                    onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
                     onChange={handleChange}
                   />
                   {errors.message && (
