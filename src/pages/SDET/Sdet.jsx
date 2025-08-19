@@ -814,14 +814,14 @@ const SDET = () => {
                      ${activeIndex !== index && index !== questions.length - 1 ? "border-b border-[#12161F]" : ""}
                    `}
                 >
-                  <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)]">
+                  <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)] w-[93%] md:w-full">
                     {item.question}
                   </span>
                   <span>
                     <img
                       src={Arowdwon}
                       alt="arrow"
-                      className={`md:mr-6 transform transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""
+                      className={`w-6 h-6 transform transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""
                         }`}
                     />
                   </span>

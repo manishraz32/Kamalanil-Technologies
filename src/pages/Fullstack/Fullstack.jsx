@@ -794,20 +794,20 @@ const Fullstack = () => {
               <div
                 onClick={() => toggleAnswer(index)}
                 className={`
-            cursor-pointer flex justify-between items-center gap-2 px-3.5 
+            cursor-pointer flex items-center justify-between px-3.5 
             font-montserrat font-semibold text-[#12161F] 
             text-[clamp(14px,1.8vw,18px)] leading-[1.6]
             ${activeIndex !== index && index !== questions.length - 1 ? "border-b border-[#12161F]" : ""}
           `}
               >
-                <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)]">
+                <span className="md:p-7 py-8 font-montserrat font-bold text-[#12161F] text-[clamp(11px,3.15vw,13px)] md:text-[clamp(13px,1.67vw,48px)] leading-[clamp(18px,4.85vw,20px)] md:leading-[clamp(20px,4.375vw,126px)] w-[93%] md:w-full">
                   {item.question}
                 </span>
                 <span>
                   <img
                     src={Arowdwon}
                     alt="arrow"
-                    className={`w-4 md:w-6 md:h-6 md:mr-6 transform transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""
+                    className={`w-6 h-6 transform transition-transform duration-300 ${activeIndex === index ? "rotate-180" : ""
                       }`}
                   />
                 </span>
@@ -946,7 +946,7 @@ const Fullstack = () => {
                   placeholder="Enter Name"
                   value={formData.name}
                   onChange={handleChange}
-                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
+                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))}
                   className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                 />
                 {errors.name && (
@@ -967,7 +967,7 @@ const Fullstack = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
+                    onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))}
                     className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   />
                 </div>
@@ -985,7 +985,7 @@ const Fullstack = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
+                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))}
                   className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                 />
                 {errors.email && (
@@ -1047,7 +1047,7 @@ const Fullstack = () => {
                   placeholder="Enter City"
                   value={formData.city}
                   onChange={handleChange}
-                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
+                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))}
                   className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                 />
                 {errors.city && (
@@ -1064,7 +1064,7 @@ const Fullstack = () => {
                   name="message"
                   className="placeholder:text-[clamp(12px,1.11vw,32.6px)] input"
                   value={formData.message}
-                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))} 
+                  onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false }))}
                   onChange={handleChange}
                 />
                 {errors.message && (
