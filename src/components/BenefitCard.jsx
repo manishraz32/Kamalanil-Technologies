@@ -12,7 +12,7 @@ const BenefitCard = ({ icon, title, description }) => {
           viewport={{ once: true, amount: 0.1 }}
           src={icon}
           alt={title}
-          className="w-[clamp(40px,14.8vw,62px)] h-auto mt-1"
+          className="w-[61.98px] h-[61.98px] mt-1"
         />
       </div>
       <div className="flex flex-col items-center md:items-start gap-3">
