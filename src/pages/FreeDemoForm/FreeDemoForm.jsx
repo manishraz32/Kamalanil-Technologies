@@ -199,7 +199,7 @@ const FreeDemoForm = () => {
           transition={{ duration: 1 }}
           className="md:relative md:bg-white md:shadow-lg md:rounded-[2rem] md:w-full xl:h-[clamp(300px,_56vw,_3015px)] h-100%">
           <div className="flex flex-col items-center gap-3 md:gap-0 bg-[linear-gradient(to_right,_#EAFDFB,_#DAF6F7)] md:bg-[linear-gradient(to_right,_#EAFDFB,_#DAF6F7)] px-4 pt-9 md:pt-0 pb-10.5 md:pb-0 md:rounded-[2rem] rounded-b-[2rem] md:h-[clamp(300px,24.88vw,716.68px)] text-center">
-            <h2 className="items-center md:mt-4 xl:mt-0 md:pt-2 w-[76%] md:w-full font-['Montserrat'] font-bold text-[36px] text-gray-900 md:text-[clamp(20px,2.77vw,120px)] leading-[43px] md:leading-[clamp(40px,5.55vw,240px)]">
+            <h2 className="items-center md:mt-4 xl:mt-0 md:pt-2 w-[76%] md:w-full font-['Montserrat'] font-bold text-[36px] text-gray-900 md:text-[clamp(20px,2.77vw,120px)] leading-[43px] md:leading-[clamp(40px,5.55vw,240px)] xl:pt-4">
               Get 5 Days of Free Live Demo Classes
             </h2>
             <p className="w-[82%] md:w-[79%] font-['Montserrat'] font-normal text-[#1216F] md:text-[clamp(16px,1.25vw,54px)] text-center md:leading-[clamp(18px,2.01vw,87px)]">
@@ -211,7 +211,7 @@ const FreeDemoForm = () => {
 
           <form
             onSubmit={handleSubmit}
-            className="md:top-[170px] 2xl:top-[220px] 4xl:top-[250px] xl:top-[180px] left-1/2 md:left-1/2 z-10 md:absolute relative gap-3 md:gap-x-5.5 md:gap-y-1 grid grid-cols-1 md:grid-cols-2 bg-white shadow-[0_2px_20px_rgba(0,0,0,0.15)] md:shadow-[0_4px_30px_rgba(33,180,149,0.4)] mt-9 md:mt-0 px-6 md:px-5.5 py-3 md:py-3 rounded-[2rem] w-[90%] md:w-[78%] overflow-visible -translate-x-1/2 md:-translate-x-1/2"
+            className="md:top-[120px] lg:top-[125px] xl:top-[145px] 2xl:top-[180px] 4xl:top-[200px] xl:top-[180px] left-1/2 md:left-1/2 z-10 md:absolute relative gap-3 md:gap-x-5.5 md:gap-y-1 grid grid-cols-1 md:grid-cols-2 bg-white shadow-[0_2px_20px_rgba(0,0,0,0.15)] md:shadow-[0_4px_30px_rgba(33,180,149,0.4)] mt-9 md:mt-0 px-6 md:px-5.5 py-3 md:py-3 rounded-[2rem] w-[90%] md:w-[78%] overflow-visible -translate-x-1/2 md:-translate-x-1/2"
           >
             {/* Full Name */}
             <div>

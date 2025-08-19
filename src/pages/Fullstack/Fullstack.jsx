@@ -817,7 +817,7 @@ const Fullstack = () => {
               {activeIndex === index && (
                 <div
                   className={`
-              px-10 md:text-[20px] text-[13px] text-[#000] bg-white transition-all duration-300 
+              px-4 md:text-[20px] text-[13px] text-[#000] bg-white transition-all duration-300 
               font-normal leading-[33px]
               ${index !== questions.length - 1 ? "border-b border-[#12161F]" : ""}
             `}
