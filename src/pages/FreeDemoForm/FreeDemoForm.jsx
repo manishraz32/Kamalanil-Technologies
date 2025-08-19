@@ -224,6 +224,7 @@ const FreeDemoForm = () => {
                 placeholder="Enter your full name"
                 value={formData.fullName}
                 onChange={handleChange}
+                onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false, backgroundOpen: false, timeSlotOpen: false}))}
                 className="bg-[#F4F4F4] px-3 md:px-3 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px]"
               />
               {errors.fullName && (
@@ -241,6 +242,7 @@ const FreeDemoForm = () => {
                 placeholder="Enter email"
                 value={formData.email}
                 onChange={handleChange}
+                onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false, backgroundOpen: false, timeSlotOpen: false}))}
                 className="bg-[#F4F4F4] px-3 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px]"
               />
               {errors.email && (
@@ -258,6 +260,7 @@ const FreeDemoForm = () => {
                 placeholder="+91"
                 value={formData.phone}
                 onChange={handleChange}
+                onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false, backgroundOpen: false, timeSlotOpen: false}))}
                 className="bg-[#F4F4F4] px-3 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[42px]"
               />
               {errors.phone && (
@@ -492,6 +495,7 @@ const FreeDemoForm = () => {
                 className="bg-[#F4F4F4] px-3 md:px-3 md:py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-400 w-full font-semibold text-[#777777] text-[13px] md:text-[clamp(10px,0.97vw,42px)] leading-[46px] md:leading-6"
                 value={formData.message}
                 onChange={handleChange}
+                onFocus={() => setDropdowns((prev) => ({ ...prev, courseOpen: false, backgroundOpen: false, timeSlotOpen: false}))}
               />
               {errors.message && (
                 <p className="mt-1 text-red-500 text-sm">{errors.message}</p>
