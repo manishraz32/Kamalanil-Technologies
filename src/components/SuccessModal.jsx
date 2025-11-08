@@ -21,7 +21,7 @@ const SuccessModal = ({ onClose }) => {
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 1 }}
-      className="relative z-10 bg-white shadow-xl pt-14 md:pt-40 rounded-[20px] w-[clamp(247.1815px,17.16vw,247.1815px)] md:w-[clamp(280px,34.72vw,500px)] overflow-hidden text-center md:shadow-lg  shadow-white  ">
+     className="relative z-10 bg-white shadow-[0_0_25px_rgba(255,255,255,0.6)] pt-14 md:pt-40 rounded-[20px] w-[clamp(247.1815px,17.16vw,247.1815px)] md:w-[clamp(280px,34.72vw,500px)] overflow-hidden text-center">
         <div className="relative">
           <div className="relative h-[180px]">
             <div className="">
