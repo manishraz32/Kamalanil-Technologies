@@ -294,7 +294,7 @@ const FreeDemoForm = () => {
 
                 {dropdowns.courseOpen && (
                   <ul className="z-10 absolute bg-[#F4F4F4] shadow-md mt-1 px-2.5 border border-gray-300 rounded-b-lg w-full">
-                    {["SEDT", "FullStack Developer"].map((course) => (
+                    {["SEDT", "FullStack Development"].map((course) => (
                       <li
                         key={course}
                         onClick={() => selectOption("course", course)}
